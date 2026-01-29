@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MBTI 결과</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #151619;
+        --muted: #6b6f76;
+        --surface: #ffffff;
+        --canvas: #f5f6f7;
+        --border: #e1e4e8;
+        --accent: #111827;
+        --shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans KR", sans-serif;
+        color: var(--ink);
+        background: var(--canvas);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+      }
+
+      .wrap {
+        width: min(900px, 100%);
+        background: var(--surface);
+        border-radius: 24px;
+        padding: 40px clamp(20px, 4vw, 48px);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(17, 24, 39, 0.06);
+        display: grid;
+        gap: 24px;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(26px, 3vw, 36px);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: #f1f3f5;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .result-title {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .desc {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        text-decoration: none;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <span class="badge" id="badge">MBTI 결과</span>
+        <h1 id="headline">결과를 불러오는 중…</h1>
+      </header>
+
+      <section class="card">
+        <h2 class="result-title" id="result-name">-</h2>
+        <p class="desc" id="result-desc">-</p>
+      </section>
+
+      <section class="card">
+        <h2 class="result-title">MBTI 설명</h2>
+        <p class="desc" id="mbti-desc">-</p>
+      </section>
+
+      <div class="links">
+        <a id="retry" href="index.html">다른 테스트 고르기</a>
+        <a id="back" href="index.html">목록으로</a>
+      </div>
+    </main>
+
+    <script>
+      const mbtiDescriptions = {
+        ISTJ: "책임감이 강하고 꾸준히 목표를 완수합니다.",
+        ISFJ: "배려 깊고 안정적인 분위기를 만들어냅니다.",
+        INFJ: "통찰력과 공감을 바탕으로 깊이 있게 생각합니다.",
+        INTJ: "전략적으로 사고하며 장기적 계획을 세웁니다.",
+        ISTP: "현실적이고 침착하게 문제를 해결합니다.",
+        ISFP: "자유롭고 섬세한 감각으로 주변을 살핍니다.",
+        INFP: "가치 중심으로 움직이며 따뜻한 시선을 가집니다.",
+        INTP: "논리적으로 탐구하며 새로운 아이디어를 즐깁니다.",
+        ESTP: "즉흥적이면서도 실행력이 뛰어납니다.",
+        ESFP: "분위기를 살리고 즐거움을 나눕니다.",
+        ENFP: "호기심과 에너지로 새로운 기회를 찾습니다.",
+        ENTP: "창의적인 아이디어로 판을 흔드는 스타일입니다.",
+        ESTJ: "체계적이며 리더십으로 방향을 제시합니다.",
+        ESFJ: "사람들과의 조화를 중요하게 생각합니다.",
+        ENFJ: "사람들을 이끌고 동기를 부여합니다.",
+        ENTJ: "결단력과 추진력으로 목표를 이룹니다.",
+      };
+
+      const resultMap = {
+        animal: {
+          ISTJ: { name: "늑대", desc: "조용하지만 무리의 질서를 지키는 보호자." },
+          ISFJ: { name: "사슴", desc: "온화하고 주변을 살피는 안정형." },
+          INFJ: { name: "부엉이", desc: "통찰력과 깊은 시선을 가진 지혜형." },
+          INTJ: { name: "흑표범", desc: "차분하고 전략적으로 움직이는 사냥꾼." },
+          ISTP: { name: "매", desc: "관찰과 판단이 빠른 현실주의자." },
+          ISFP: { name: "여우", desc: "섬세하고 감각적인 자유형." },
+          INFP: { name: "수달", desc: "따뜻한 마음으로 관계를 지키는 유형." },
+          INTP: { name: "고양이", desc: "호기심과 독립성이 공존하는 탐구형." },
+          ESTP: { name: "치타", desc: "순간 판단으로 움직이는 액션형." },
+          ESFP: { name: "돌고래", desc: "밝은 에너지로 분위기를 띄우는 타입." },
+          ENFP: { name: "앵무새", desc: "새로운 경험을 즐기는 활력형." },
+          ENTP: { name: "원숭이", desc: "재치와 아이디어로 판을 바꾸는 타입." },
+          ESTJ: { name: "코끼리", desc: "조직을 이끄는 든든한 리더." },
+          ESFJ: { name: "강아지", desc: "따뜻하게 사람들을 챙기는 타입." },
+          ENFJ: { name: "백조", desc: "우아하게 조율하는 조력자." },
+          ENTJ: { name: "사자", desc: "결단력 있는 지휘관." },
+        },
+        plant: {
+          ISTJ: { name: "소나무", desc: "굳건하게 자리를 지키는 든든함." },
+          ISFJ: { name: "카네이션", desc: "배려와 섬세함을 담은 꽃." },
+          INFJ: { name: "연꽃", desc: "고요함 속에서도 중심을 지키는 타입." },
+          INTJ: { name: "선인장", desc: "효율적으로 성장하며 자기 영역을 지킨다." },
+          ISTP: { name: "대나무", desc: "유연하지만 단단한 실용형." },
+          ISFP: { name: "라벤더", desc: "감각적이고 잔잔한 향을 남긴다." },
+          INFP: { name: "수국", desc: "상황에 따라 색이 달라지는 감성형." },
+          INTP: { name: "양치식물", desc: "조용히 성장하며 호기심이 많다." },
+          ESTP: { name: "해바라기", desc: "빛을 향해 빠르게 반응하는 타입." },
+          ESFP: { name: "튤립", desc: "밝고 화사한 분위기를 만든다." },
+          ENFP: { name: "민들레", desc: "자유롭게 퍼져 나가는 활력형." },
+          ENTP: { name: "몬스테라", desc: "대담한 존재감으로 시선을 사로잡는다." },
+          ESTJ: { name: "은행나무", desc: "질서와 규칙을 지키는 든든함." },
+          ESFJ: { name: "장미", desc: "사람들과의 관계를 소중히 여긴다." },
+          ENFJ: { name: "작약", desc: "풍성한 에너지로 주변을 감싼다." },
+          ENTJ: { name: "야자수", desc: "당당하게 목표를 향해 뻗는다." },
+        },
+        onepiece: {
+          ISTJ: { name: "징베", desc: "원칙과 의리를 지키는 안정형." },
+          ISFJ: { name: "쵸파", desc: "사람을 돌보는 따뜻한 힐러." },
+          INFJ: { name: "로빈", desc: "조용히 통찰하는 지성파." },
+          INTJ: { name: "트라팔가 로", desc: "전략적으로 움직이는 계획가." },
+          ISTP: { name: "조로", desc: "묵묵히 실력으로 증명하는 타입." },
+          ISFP: { name: "브룩", desc: "감성적이면서도 자유로운 영혼." },
+          INFP: { name: "비비", desc: "따뜻한 마음으로 사람을 돕는다." },
+          INTP: { name: "프랑키", desc: "아이디어와 기술에 강한 발명가." },
+          ESTP: { name: "루피", desc: "즉흥적이고 추진력 있는 리더." },
+          ESFP: { name: "나미", desc: "사람들과 호흡을 맞추는 분위기 메이커." },
+          ENFP: { name: "우솝", desc: "상상력과 에너지로 상황을 바꾼다." },
+          ENTP: { name: "로저", desc: "새로운 길을 여는 모험가." },
+          ESTJ: { name: "아카이누", desc: "규율과 질서를 중시하는 리더." },
+          ESFJ: { name: "상디", desc: "사람을 챙기며 분위기를 만든다." },
+          ENFJ: { name: "레일리", desc: "경험으로 사람들을 이끄는 멘토." },
+          ENTJ: { name: "샹크스", desc: "결단력 있게 큰 그림을 그린다." },
+        },
+        naruto: {
+          ISTJ: { name: "카카시", desc: "침착하고 책임감 있게 팀을 이끈다." },
+          ISFJ: { name: "히나타", desc: "조용하지만 꾸준히 지지하는 타입." },
+          INFJ: { name: "이타치", desc: "깊은 통찰로 상황을 읽는 전략가." },
+          INTJ: { name: "시카마루", desc: "효율적으로 계획을 세우는 타입." },
+          ISTP: { name: "사이", desc: "관찰력과 집중력이 뛰어나다." },
+          ISFP: { name: "네지", desc: "차분하고 균형을 중시한다." },
+          INFP: { name: "가아라", desc: "내면의 감정이 깊은 성장형." },
+          INTP: { name: "오로치마루", desc: "지식과 탐구에 집착하는 연구자." },
+          ESTP: { name: "나루토", desc: "에너지와 추진력으로 길을 연다." },
+          ESFP: { name: "록 리", desc: "열정과 긍정으로 분위기를 끌어올린다." },
+          ENFP: { name: "지라이야", desc: "자유롭고 낙천적인 모험가." },
+          ENTP: { name: "오비토", desc: "아이디어로 판을 흔드는 타입." },
+          ESTJ: { name: "츠나데", desc: "현실적이고 결단력 있는 리더." },
+          ESFJ: { name: "사쿠라", desc: "사람들을 챙기고 협력을 만든다." },
+          ENFJ: { name: "야마토", desc: "중심을 잡고 팀을 조율한다." },
+          ENTJ: { name: "마다라", desc: "강력한 목표 지향의 지휘관." },
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const theme = params.get("theme") || "animal";
+      const type = params.get("type") || "ISTJ";
+
+      const themeName = {
+        animal: "동물",
+        plant: "식물",
+        onepiece: "원피스",
+        naruto: "나루토",
+      };
+
+      const themeResults = resultMap[theme] || resultMap.animal;
+      const result = themeResults[type] || themeResults.ISTJ;
+
+      document.getElementById("badge").textContent = `${themeName[theme]} 테스트 결과`;
+      document.getElementById("headline").textContent = `${type} 타입 결과`;
+      document.getElementById("result-name").textContent = result.name;
+      document.getElementById("result-desc").textContent = result.desc;
+      document.getElementById("mbti-desc").textContent = mbtiDescriptions[type];
+
+      const retry = document.getElementById("retry");
+      retry.href = `${theme}.html`;
+      retry.textContent = "같은 테스트 다시하기";
+    </script>
+  </body>
+</html>
