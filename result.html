@@ -38,20 +38,47 @@
       }
 
       .wrap {
-        width: min(900px, 100%);
+        width: min(960px, 100%);
         background: var(--surface);
         border-radius: 24px;
-        padding: 40px clamp(20px, 4vw, 48px);
+        padding: 36px clamp(20px, 4vw, 48px) 42px;
         box-shadow: var(--shadow);
         border: 1px solid rgba(17, 24, 39, 0.06);
         display: grid;
-        gap: 24px;
+        gap: 20px;
       }
 
-      h1 {
-        margin: 0;
+      .hero {
+        border-radius: 20px;
+        padding: 24px;
+        color: #fff;
+        display: grid;
+        gap: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        top: -80px;
+        right: -60px;
+        background: rgba(255, 255, 255, 0.18);
+        filter: blur(2px);
+      }
+
+      .hero-title {
         font-family: "Sora", sans-serif;
-        font-size: clamp(26px, 3vw, 36px);
+        font-size: clamp(24px, 3vw, 36px);
+        margin: 0;
+      }
+
+      .hero-sub {
+        margin: 0;
+        opacity: 0.9;
       }
 
       .badge {
@@ -60,17 +87,17 @@
         gap: 8px;
         padding: 6px 12px;
         border-radius: 999px;
-        background: #f1f3f5;
+        background: rgba(255, 255, 255, 0.22);
         font-size: 13px;
-        color: var(--muted);
       }
 
-      .card {
+      .result-card {
         border: 1px solid var(--border);
         border-radius: 18px;
         padding: 20px;
         display: grid;
         gap: 12px;
+        background: #fff;
       }
 
       .result-title {
@@ -84,44 +111,69 @@
         line-height: 1.6;
       }
 
-      .links {
+      .share {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
       }
 
-      .links a {
-        text-decoration: none;
-        color: var(--accent);
+      .share button,
+      .share a {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 10px 16px;
+        background: #fff;
+        cursor: pointer;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 13px;
+        color: var(--ink);
+        text-decoration: none;
       }
 
-      .links a:hover {
-        text-decoration: underline;
+      .share button:hover,
+      .share a:hover {
+        background: #f3f4f6;
+      }
+
+      .pill-group {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #f3f4f6;
+        font-size: 12px;
+        color: var(--muted);
       }
     </style>
   </head>
   <body>
     <main class="wrap">
-      <header>
+      <section class="hero" id="hero">
         <span class="badge" id="badge">MBTI 결과</span>
-        <h1 id="headline">결과를 불러오는 중…</h1>
-      </header>
-
-      <section class="card">
-        <h2 class="result-title" id="result-name">-</h2>
-        <p class="desc" id="result-desc">-</p>
+        <h1 class="hero-title" id="headline">결과를 불러오는 중…</h1>
+        <p class="hero-sub" id="hero-sub">-</p>
       </section>
 
-      <section class="card">
+      <section class="result-card">
+        <h2 class="result-title" id="result-name">-</h2>
+        <p class="desc" id="result-desc">-</p>
+        <div class="pill-group" id="tags"></div>
+      </section>
+
+      <section class="result-card">
         <h2 class="result-title">MBTI 설명</h2>
         <p class="desc" id="mbti-desc">-</p>
       </section>
 
-      <div class="links">
-        <a id="retry" href="index.html">다른 테스트 고르기</a>
-        <a id="back" href="index.html">목록으로</a>
+      <div class="share">
+        <button type="button" id="share-btn">결과 공유하기</button>
+        <button type="button" id="copy-btn">링크 복사</button>
+        <a id="retry" href="index.html">같은 테스트 다시하기</a>
+        <a id="back" href="index.html">다른 테스트 고르기</a>
       </div>
     </main>
 
@@ -143,6 +195,33 @@
         ESFJ: "사람들과의 조화를 중요하게 생각합니다.",
         ENFJ: "사람들을 이끌고 동기를 부여합니다.",
         ENTJ: "결단력과 추진력으로 목표를 이룹니다.",
+      };
+
+      const themeMeta = {
+        animal: {
+          label: "동물",
+          emoji: "🐾",
+          gradient: "linear-gradient(140deg, #c05a33, #f0a46b)",
+          tags: ["생존 감각", "무리 성향", "본능"],
+        },
+        plant: {
+          label: "식물",
+          emoji: "🌿",
+          gradient: "linear-gradient(140deg, #3f8f6b, #88c9a1)",
+          tags: ["성장", "리듬", "회복"],
+        },
+        onepiece: {
+          label: "원피스",
+          emoji: "⚓",
+          gradient: "linear-gradient(140deg, #1f4d8f, #63b0f4)",
+          tags: ["모험", "동료", "항해"],
+        },
+        naruto: {
+          label: "나루토",
+          emoji: "🍥",
+          gradient: "linear-gradient(140deg, #d45b32, #f2a45f)",
+          tags: ["의지", "팀워크", "성장"],
+        },
       };
 
       const resultMap = {
@@ -224,25 +303,58 @@
       const theme = params.get("theme") || "animal";
       const type = params.get("type") || "ISTJ";
 
-      const themeName = {
-        animal: "동물",
-        plant: "식물",
-        onepiece: "원피스",
-        naruto: "나루토",
-      };
-
+      const themeInfo = themeMeta[theme] || themeMeta.animal;
       const themeResults = resultMap[theme] || resultMap.animal;
       const result = themeResults[type] || themeResults.ISTJ;
 
-      document.getElementById("badge").textContent = `${themeName[theme]} 테스트 결과`;
+      document.getElementById("hero").style.background = themeInfo.gradient;
+      document.getElementById("badge").textContent = `${themeInfo.emoji} ${themeInfo.label} 테스트 결과`;
       document.getElementById("headline").textContent = `${type} 타입 결과`;
+      document.getElementById("hero-sub").textContent = "당신의 성향을 테마로 해석했어요.";
       document.getElementById("result-name").textContent = result.name;
       document.getElementById("result-desc").textContent = result.desc;
       document.getElementById("mbti-desc").textContent = mbtiDescriptions[type];
 
+      const tags = document.getElementById("tags");
+      tags.innerHTML = "";
+      themeInfo.tags.forEach((tag) => {
+        const span = document.createElement("span");
+        span.className = "pill";
+        span.textContent = tag;
+        tags.appendChild(span);
+      });
+
       const retry = document.getElementById("retry");
       retry.href = `${theme}.html`;
-      retry.textContent = "같은 테스트 다시하기";
+
+      const shareBtn = document.getElementById("share-btn");
+      const copyBtn = document.getElementById("copy-btn");
+      const shareUrl = window.location.href;
+      const shareText = `${themeInfo.label} MBTI 테스트 결과: ${type}`;
+
+      shareBtn.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: shareText, text: shareText, url: shareUrl });
+          } catch (error) {
+            console.warn(error);
+          }
+        } else {
+          alert("이 브라우저는 공유 기능을 지원하지 않아요. 링크 복사를 이용해 주세요.");
+        }
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          copyBtn.textContent = "복사 완료";
+          setTimeout(() => {
+            copyBtn.textContent = "링크 복사";
+          }, 1500);
+        } catch (error) {
+          alert("복사에 실패했어요. 주소창의 링크를 복사해 주세요.");
+        }
+      });
     </script>
   </body>
 </html>
