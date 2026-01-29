@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MBTI 테스트 선택</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #151619;
+        --muted: #6b6f76;
+        --surface: #ffffff;
+        --canvas: #f5f6f7;
+        --border: #e1e4e8;
+        --accent: #111827;
+        --shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans KR", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(600px 600px at 15% -10%, rgba(17, 24, 39, 0.06), transparent 70%),
+          radial-gradient(700px 500px at 90% 10%, rgba(17, 24, 39, 0.05), transparent 70%),
+          var(--canvas);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+      }
+
+      .wrap {
+        width: min(1040px, 100%);
+        background: var(--surface);
+        border-radius: 28px;
+        padding: 48px clamp(20px, 4vw, 56px);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(17, 24, 39, 0.06);
+      }
+
+      header {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      h1 {
+        font-family: "Sora", sans-serif;
+        font-size: clamp(28px, 3vw, 40px);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(14px, 1.6vw, 16px);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .card {
+        display: grid;
+        gap: 12px;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: #fff;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(140deg, rgba(17, 24, 39, 0.06), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(17, 24, 39, 0.12);
+        border-color: rgba(17, 24, 39, 0.2);
+      }
+
+      .card:hover::after,
+      .card:focus-visible::after {
+        opacity: 1;
+      }
+
+      .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Sora", sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .emoji {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: rgba(17, 24, 39, 0.08);
+        font-size: 18px;
+      }
+
+      .desc {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .hint {
+        margin-top: 24px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 36px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>MBTI 테스트 선택</h1>
+        <p class="subtitle">
+          관심 있는 주제를 골라 바로 테스트를 시작하세요.
+        </p>
+      </header>
+
+      <section class="grid">
+        <a class="card" href="animal.html">
+          <div class="label"><span class="emoji">🐾</span>동물 테스트</div>
+          <p class="desc">성향을 동물 캐릭터로 매칭해 보는 테스트</p>
+        </a>
+        <a class="card" href="plant.html">
+          <div class="label"><span class="emoji">🌿</span>식물 테스트</div>
+          <p class="desc">성장 방식과 리듬으로 나를 알아보는 테스트</p>
+        </a>
+        <a class="card" href="onepiece.html">
+          <div class="label"><span class="emoji">⚓</span>원피스 인물</div>
+          <p class="desc">원피스 캐릭터와 MBTI를 매칭하는 테스트</p>
+        </a>
+        <a class="card" href="naruto.html">
+          <div class="label"><span class="emoji">🍥</span>나루토 인물</div>
+          <p class="desc">나루토 캐릭터로 성향을 해석하는 테스트</p>
+        </a>
+      </section>
+
+      <p class="hint">카드를 누르면 해당 테스트 페이지로 이동합니다.</p>
+    </main>
+  </body>
+</html>
