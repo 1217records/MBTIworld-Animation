@@ -360,7 +360,7 @@
       document.getElementById("result-name").textContent = result.name;
       document.getElementById("result-desc").textContent = result.desc;
       document.getElementById("mbti-desc").textContent = mbtiDescriptions[type];
-      const commentText = `내 MBTI는 ${type} (${themeInfo.label} 테마 결과: ${result.name})입니다. 의견 남겨주세요!`;
+      const commentText = `${result.name}(${type})`;
       document.getElementById("comment-intro").textContent = commentText;
 
       const tags = document.getElementById("tags");

@@ -13,12 +13,13 @@
     <style>
       :root {
         --ink: #151619;
-        --muted: #6b6f76;
+        --muted: #5f6270;
         --surface: #ffffff;
-        --canvas: #f5f6f7;
-        --border: #e1e4e8;
-        --accent: #111827;
-        --shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+        --canvas: #fff4f7;
+        --border: #f0d9e7;
+        --accent: #ff5f8f;
+        --accent-2: #6b7bff;
+        --shadow: 0 22px 50px rgba(255, 95, 143, 0.18);
       }
 
       * {
@@ -31,8 +32,8 @@
         font-family: "Noto Sans KR", sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(600px 600px at 15% -10%, rgba(17, 24, 39, 0.06), transparent 70%),
-          radial-gradient(700px 500px at 90% 10%, rgba(17, 24, 39, 0.05), transparent 70%),
+          radial-gradient(520px 520px at 10% 0%, rgba(255, 95, 143, 0.25), transparent 70%),
+          radial-gradient(600px 480px at 90% 10%, rgba(107, 123, 255, 0.22), transparent 70%),
           var(--canvas);
         display: flex;
         align-items: center;
@@ -47,7 +48,7 @@
         border-radius: 28px;
         padding: 48px clamp(20px, 4vw, 56px);
         box-shadow: var(--shadow);
-        border: 1px solid rgba(17, 24, 39, 0.06);
+        border: 1px solid rgba(255, 95, 143, 0.15);
       }
 
       header {
@@ -83,7 +84,7 @@
         padding: 20px;
         border-radius: 20px;
         border: 1px solid var(--border);
-        background: #fff;
+        background: linear-gradient(160deg, #ffffff, #fff7fb);
         text-decoration: none;
         color: inherit;
         position: relative;
@@ -95,7 +96,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(140deg, rgba(17, 24, 39, 0.06), transparent 60%);
+        background: linear-gradient(140deg, rgba(255, 95, 143, 0.18), transparent 60%);
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -103,8 +104,8 @@
       .card:hover,
       .card:focus-visible {
         transform: translateY(-4px);
-        box-shadow: 0 16px 32px rgba(17, 24, 39, 0.12);
-        border-color: rgba(17, 24, 39, 0.2);
+        box-shadow: 0 18px 36px rgba(255, 95, 143, 0.18);
+        border-color: rgba(255, 95, 143, 0.45);
       }
 
       .card:focus-visible {
@@ -119,7 +120,7 @@
 
       .card.add-card {
         border-style: dashed;
-        background: linear-gradient(135deg, rgba(17, 24, 39, 0.04), rgba(17, 24, 39, 0.01));
+        background: linear-gradient(135deg, rgba(255, 95, 143, 0.08), rgba(107, 123, 255, 0.05));
       }
 
       .card.add-card::before {
@@ -127,7 +128,7 @@
         position: absolute;
         inset: 12px;
         border-radius: 16px;
-        border: 1px dashed rgba(17, 24, 39, 0.15);
+        border: 1px dashed rgba(255, 95, 143, 0.35);
         pointer-events: none;
       }
 
@@ -140,7 +141,7 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
-        background: rgba(17, 24, 39, 0.08);
+        background: rgba(255, 95, 143, 0.2);
         font-size: 20px;
         font-weight: 700;
         font-family: "Sora", sans-serif;
@@ -161,7 +162,7 @@
         display: grid;
         place-items: center;
         border-radius: 12px;
-        background: rgba(17, 24, 39, 0.08);
+        background: rgba(255, 95, 143, 0.16);
         font-size: 18px;
       }
 
@@ -232,14 +233,6 @@
       </header>
 
       <section class="grid">
-        <a class="card" href="animal.html">
-          <div class="label"><span class="emoji">🐾</span>동물 테스트</div>
-          <p class="desc">성향을 동물 캐릭터로 매칭해 보는 테스트</p>
-        </a>
-        <a class="card" href="plant.html">
-          <div class="label"><span class="emoji">🌿</span>식물 테스트</div>
-          <p class="desc">성장 방식과 리듬으로 나를 알아보는 테스트</p>
-        </a>
         <a class="card" href="onepiece.html">
           <div class="label"><span class="emoji">⚓</span>원피스 인물</div>
           <p class="desc">원피스 캐릭터와 MBTI를 매칭하는 테스트</p>
