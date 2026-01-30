@@ -580,7 +580,7 @@
         characterLongDescriptions[theme]?.[type]
           ? `${characterLongDescriptions[theme][type]}${characterExtraCommon(result.name)}${
               episodeNote
-                ? `\n\n대표 에피소드: ${episodeNote}\n이 상황에서 드러난 선택과 태도 때문에 ${result.name}의 MBTI는 ${type}에 가깝습니다.`
+                ? `\n\n${episodeNote}\n이 상황에서 드러난 선택과 태도 때문에 ${result.name}의 MBTI는 ${type}에 가깝습니다.`
                 : ""
             }`
           : "캐릭터 설명을 준비 중입니다.";
@@ -593,39 +593,39 @@
       const characterSymbols = {
         onepiece: {
           ISTJ: "sea",
-          ISFJ: "cross",
-          INFJ: "glyph",
-          INTJ: "compass",
-          ISTP: "sword",
-          ISFP: "note",
-          INFP: "crest",
-          INTP: "gear",
+          ISFJ: "fruit",
+          INFJ: "fruit",
+          INTJ: "flag",
+          ISTP: "flag",
+          ISFP: "fruit",
+          INFP: "flag",
+          INTP: "fruit",
           ESTP: "sun",
-          ESFP: "wave",
-          ENFP: "target",
-          ENTP: "crown",
-          ESTJ: "justice",
-          ESFJ: "rose",
-          ENFJ: "spark",
-          ENTJ: "anchor",
+          ESFP: "fruit",
+          ENFP: "flag",
+          ENTP: "flag",
+          ESTJ: "flag",
+          ESFJ: "fruit",
+          ENFJ: "flag",
+          ENTJ: "flag",
         },
         naruto: {
-          ISTJ: "mask",
-          ISFJ: "heart",
-          INFJ: "eye",
-          INTJ: "shogi",
-          ISTP: "ink",
-          ISFP: "chakra",
-          INFP: "gourd",
-          INTP: "snake",
-          ESTP: "spiral",
-          ESFP: "gate",
-          ENFP: "scroll",
+          ISTJ: "leaf",
+          ISFJ: "leaf",
+          INFJ: "leaf",
+          INTJ: "leaf",
+          ISTP: "leaf",
+          ISFP: "leaf",
+          INFP: "sand",
+          INTP: "sound",
+          ESTP: "leaf",
+          ESFP: "leaf",
+          ENFP: "leaf",
           ENTP: "storm",
-          ESTJ: "tower",
-          ESFJ: "blossom",
-          ENFJ: "seal",
-          ENTJ: "flame",
+          ESTJ: "leaf",
+          ESFJ: "leaf",
+          ENFJ: "leaf",
+          ENTJ: "storm",
         },
       };
       const avatarSeed = Array.from(result.name)
@@ -648,6 +648,25 @@
           case "sea":
             return `<path d="M20 150 C60 120 100 120 140 150 C180 180 210 180 220 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" opacity="0.9" />
               <path d="M20 180 C60 150 100 150 140 180 C180 210 210 210 220 180" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" opacity="0.8" />`;
+          case "flag":
+            return `<path d="M80 70 v120" stroke="${colors.secondary}" stroke-width="8" stroke-linecap="round" />
+              <path d="M80 80 C110 70 140 90 170 80 L170 130 C140 140 110 120 80 130 Z" fill="${colors.accent}" opacity="0.9" />`;
+          case "fruit":
+            return `<circle cx="120" cy="130" r="40" fill="${colors.secondary}" opacity="0.9" />
+              <path d="M120 80 C130 70 140 60 150 60" fill="none" stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" />
+              <circle cx="95" cy="120" r="8" fill="${colors.accent}" opacity="0.8" />`;
+          case "leaf":
+            return `<path d="M80 160 C70 110 110 70 160 80 C170 130 130 170 80 160 Z" fill="${colors.secondary}" opacity="0.9" />
+              <path d="M90 150 C120 120 140 100 160 90" fill="none" stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" />`;
+          case "sand":
+            return `<path d="M60 170 C90 140 150 140 180 170" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
+              <path d="M70 140 C100 120 150 120 170 140" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
+          case "sound":
+            return `<path d="M80 120 L110 100 V140 Z" fill="${colors.secondary}" opacity="0.9" />
+              <path d="M130 100 C150 110 150 130 130 140" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
+          case "storm":
+            return `<path d="M120 70 L150 120 L120 120 L140 170 L90 120 L120 120 Z" fill="${colors.secondary}" opacity="0.9" />
+              <circle cx="170" cy="80" r="14" fill="${colors.accent}" />`;
           case "compass":
             return `<circle cx="120" cy="120" r="52" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />
               <path d="M120 70 L138 120 L120 170 L102 120 Z" fill="${colors.accent}" opacity="0.9" />`;
@@ -766,9 +785,6 @@
             <rect width="240" height="240" rx="32" fill="url(#bg)" />
             ${shapes[baseShapeIndex]}
             ${createSymbolPath(symbolKey, colors)}
-            <text x="24" y="210" font-family="Sora, sans-serif" font-size="28" fill="#ffffff" font-weight="700">
-              ${monogram}
-            </text>
           </svg>`;
       };
 
