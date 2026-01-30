@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>새 MBTI 테스트 제안</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Sora:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #151619;
+        --muted: #5e646b;
+        --surface: #ffffff;
+        --canvas: #f4f7f6;
+        --accent: #0f766e;
+        --accent-strong: #0b5f59;
+        --border: #d9e3e0;
+        --shadow: 0 20px 45px rgba(15, 118, 110, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans KR", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(640px 520px at 10% 0%, rgba(15, 118, 110, 0.12), transparent 70%),
+          radial-gradient(680px 520px at 100% 10%, rgba(15, 118, 110, 0.08), transparent 70%),
+          var(--canvas);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 20px;
+      }
+
+      .wrap {
+        width: min(1080px, 100%);
+        background: var(--surface);
+        border-radius: 28px;
+        border: 1px solid rgba(15, 118, 110, 0.12);
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: minmax(260px, 0.95fr) 1.2fr;
+        gap: 32px;
+        padding: clamp(24px, 4vw, 52px);
+      }
+
+      .aside {
+        border-radius: 20px;
+        background:
+          linear-gradient(140deg, rgba(15, 118, 110, 0.12), rgba(15, 118, 110, 0.02));
+        padding: 24px;
+        display: grid;
+        gap: 16px;
+        align-content: start;
+      }
+
+      .badge {
+        font-family: "Sora", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(26px, 3vw, 38px);
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      .chips {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+
+      .chip {
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(15, 118, 110, 0.18);
+        background: rgba(15, 118, 110, 0.08);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+      }
+
+      label {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      input,
+      select,
+      textarea {
+        font: inherit;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: #f9fbfa;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: rgba(15, 118, 110, 0.6);
+        box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+      }
+
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .row {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .submit {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 22px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      button:hover {
+        background: var(--accent-strong);
+        transform: translateY(-1px);
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .back {
+        margin-top: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .back:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 880px) {
+        .wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <aside class="aside">
+        <span class="badge">New Ideas</span>
+        <h1>새로운 MBTI 테스트를 제안해 주세요</h1>
+        <p class="lead">
+          어떤 세계관, 캐릭터, 브랜드, 밈이든 좋아요. 어떤 테스트를 보고 싶은지 자유롭게 적어주면
+          다음 업데이트에 반영할게요.
+        </p>
+        <div class="chips">
+          <div class="chip">애니메이션</div>
+          <div class="chip">게임</div>
+          <div class="chip">음식</div>
+          <div class="chip">직업</div>
+          <div class="chip">도시</div>
+          <div class="chip">유행 밈</div>
+        </div>
+        <a class="back" href="index.html">← 테스트 목록으로</a>
+      </aside>
+
+      <form action="https://formspree.io/f/mwvblqoy" method="POST">
+        <div class="row">
+          <div class="field">
+            <label for="name">이름</label>
+            <input id="name" name="name" type="text" placeholder="닉네임도 좋아요" required />
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="email" placeholder="답변을 받을 이메일" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="type">요청 유형</label>
+            <select id="type" name="type" required>
+              <option value="">선택해 주세요</option>
+              <option value="new-test">새 테스트 요청</option>
+              <option value="idea">아이디어 제안</option>
+              <option value="collab">콜라보/제휴 문의</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tone">원하는 톤</label>
+            <select id="tone" name="tone">
+              <option value="">선택 사항</option>
+              <option value="funny">가볍고 유쾌하게</option>
+              <option value="deep">진지하고 디테일하게</option>
+              <option value="short">짧고 빠르게</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="idea">아이디어 설명</label>
+          <textarea
+            id="idea"
+            name="idea"
+            placeholder="예: 원피스 해적단 중 나는 누구? (캐릭터 8명 + 핵심 성향)"
+            required
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label for="detail">참고할 만한 디테일</label>
+          <textarea
+            id="detail"
+            name="detail"
+            placeholder="캐릭터/세계관 범위, 원하는 문항 수, 꼭 넣고 싶은 키워드 등을 적어주세요."
+          ></textarea>
+        </div>
+
+        <div class="submit">
+          <button type="submit">제안 보내기</button>
+          <span class="meta">보내기 클릭 시 Formspree로 전송됩니다.</span>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
