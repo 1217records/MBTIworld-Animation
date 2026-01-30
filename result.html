@@ -296,9 +296,7 @@
 
       <section class="result-card">
         <h2 class="result-title">캐릭터 설명</h2>
-        <p class="section-label">에피소드 포인트</p>
-        <p class="desc desc-compact" id="character-episode">-</p>
-        <p class="section-label">설명</p>
+        <p class="section-label">대표 에피소드</p>
         <p class="desc" id="character-desc">-</p>
       </section>
 
@@ -381,18 +379,6 @@
         `\n\n${type}는 자기만의 기준과 리듬을 지키면서도 상황에 맞게 균형을 맞추는 능력이 있습니다. 강점이 뚜렷한 만큼, 자신의 피로도나 한계를 인지하고 적절히 속도를 조절하는 것이 중요합니다. 또한 사람들과의 소통에서 기대치나 기준을 미리 공유하면 불필요한 오해를 줄일 수 있습니다. 이 유형은 꾸준함과 자기 성찰을 통해 점점 더 성숙한 결과를 만들어내며, 작은 변화도 장기적으로는 큰 성장으로 이어지곤 합니다. 스스로의 장점을 의식적으로 활용하면 팀과 개인 모두에게 안정적인 성과를 만들어 줄 수 있습니다. 추가로, 감정과 논리를 균형 있게 다루는 연습을 하면 관계의 밀도와 실행력 모두가 향상됩니다. 중요한 선택을 할 때는 자신의 가치와 현실의 조건을 함께 살피는 태도가 도움이 되고, 필요하다면 주변의 조언을 받아들여 관점을 확장하는 것이 좋습니다. 이런 방식으로 ${type}는 장점과 약점을 동시에 관리하며 더욱 탄탄한 성향으로 발전할 수 있습니다.`;
 
       const themeMeta = {
-        animal: {
-          label: "동물",
-          emoji: "🐾",
-          gradient: "linear-gradient(140deg, #c05a33, #f0a46b)",
-          tags: ["생존 감각", "무리 성향", "본능"],
-        },
-        plant: {
-          label: "식물",
-          emoji: "🌿",
-          gradient: "linear-gradient(140deg, #3f8f6b, #88c9a1)",
-          tags: ["성장", "리듬", "회복"],
-        },
         onepiece: {
           label: "원피스",
           emoji: "⚓",
@@ -418,42 +404,6 @@
       };
 
       const resultMap = {
-        animal: {
-          ISTJ: { name: "늑대", desc: "조용하지만 무리의 질서를 지키는 보호자." },
-          ISFJ: { name: "사슴", desc: "온화하고 주변을 살피는 안정형." },
-          INFJ: { name: "부엉이", desc: "통찰력과 깊은 시선을 가진 지혜형." },
-          INTJ: { name: "흑표범", desc: "차분하고 전략적으로 움직이는 사냥꾼." },
-          ISTP: { name: "매", desc: "관찰과 판단이 빠른 현실주의자." },
-          ISFP: { name: "여우", desc: "섬세하고 감각적인 자유형." },
-          INFP: { name: "수달", desc: "따뜻한 마음으로 관계를 지키는 유형." },
-          INTP: { name: "고양이", desc: "호기심과 독립성이 공존하는 탐구형." },
-          ESTP: { name: "치타", desc: "순간 판단으로 움직이는 액션형." },
-          ESFP: { name: "돌고래", desc: "밝은 에너지로 분위기를 띄우는 타입." },
-          ENFP: { name: "앵무새", desc: "새로운 경험을 즐기는 활력형." },
-          ENTP: { name: "원숭이", desc: "재치와 아이디어로 판을 바꾸는 타입." },
-          ESTJ: { name: "코끼리", desc: "조직을 이끄는 든든한 리더." },
-          ESFJ: { name: "강아지", desc: "따뜻하게 사람들을 챙기는 타입." },
-          ENFJ: { name: "백조", desc: "우아하게 조율하는 조력자." },
-          ENTJ: { name: "사자", desc: "결단력 있는 지휘관." },
-        },
-        plant: {
-          ISTJ: { name: "소나무", desc: "굳건하게 자리를 지키는 든든함." },
-          ISFJ: { name: "카네이션", desc: "배려와 섬세함을 담은 꽃." },
-          INFJ: { name: "연꽃", desc: "고요함 속에서도 중심을 지키는 타입." },
-          INTJ: { name: "선인장", desc: "효율적으로 성장하며 자기 영역을 지킨다." },
-          ISTP: { name: "대나무", desc: "유연하지만 단단한 실용형." },
-          ISFP: { name: "라벤더", desc: "감각적이고 잔잔한 향을 남긴다." },
-          INFP: { name: "수국", desc: "상황에 따라 색이 달라지는 감성형." },
-          INTP: { name: "양치식물", desc: "조용히 성장하며 호기심이 많다." },
-          ESTP: { name: "해바라기", desc: "빛을 향해 빠르게 반응하는 타입." },
-          ESFP: { name: "튤립", desc: "밝고 화사한 분위기를 만든다." },
-          ENFP: { name: "민들레", desc: "자유롭게 퍼져 나가는 활력형." },
-          ENTP: { name: "몬스테라", desc: "대담한 존재감으로 시선을 사로잡는다." },
-          ESTJ: { name: "은행나무", desc: "질서와 규칙을 지키는 든든함." },
-          ESFJ: { name: "장미", desc: "사람들과의 관계를 소중히 여긴다." },
-          ENFJ: { name: "작약", desc: "풍성한 에너지로 주변을 감싼다." },
-          ENTJ: { name: "야자수", desc: "당당하게 목표를 향해 뻗는다." },
-        },
         onepiece: {
           ISTJ: { name: "징베", desc: "원칙과 의리를 지키는 안정형." },
           ISFJ: { name: "쵸파", desc: "사람을 돌보는 따뜻한 힐러." },
@@ -565,40 +515,40 @@
 
       const characterEpisodeNotes = {
         onepiece: {
-          ISTJ: "에피소드 포인트: 마린포드에서 의리를 지키며 루피를 끝까지 보호하는 결단.",
-          ISFJ: "에피소드 포인트: 드럼섬에서 치료와 성장의 책임을 짊어지는 순간.",
-          INFJ: "에피소드 포인트: 에니에스 로비에서 진실을 고백하고 동료를 받아들이는 장면.",
-          INTJ: "에피소드 포인트: 드레스로자에서 연합 작전을 설계하며 판을 짜는 모습.",
-          ISTP: "에피소드 포인트: 스릴러바크에서 고통을 대신 감수하며 묵묵히 버틴 결단.",
-          ISFP: "에피소드 포인트: 스릴러바크에서 동료의 그림자를 되찾기 위해 노래하는 순간.",
-          INFP: "에피소드 포인트: 알라바스타에서 나라를 지키기 위해 선택을 내려야 했던 장면.",
-          INTP: "에피소드 포인트: 워터 세븐에서 서니 호를 설계하며 팀의 미래를 만든 순간.",
-          ESTP: "에피소드 포인트: 임펠다운 돌파처럼 정면 돌파로 길을 여는 장면.",
-          ESFP: "에피소드 포인트: 아를롱 파크에서 도움을 요청하며 유대를 선택한 순간.",
-          ENFP: "에피소드 포인트: 에니에스 로비에서 스나이퍼킹으로 활약하며 분위기를 바꾼 장면.",
-          ENTP: "에피소드 포인트: 라프텔을 향해 항해하며 시대를 뒤흔든 대모험의 상징.",
-          ESTJ: "에피소드 포인트: 마린포드에서 정의를 앞세워 전장을 통제한 순간.",
-          ESFJ: "에피소드 포인트: 홀케이크 아일랜드에서 동료를 지키려는 진심이 드러난 장면.",
-          ENFJ: "에피소드 포인트: 샤본디에서 후배들을 훈련시키며 방향을 제시하는 순간.",
-          ENTJ: "에피소드 포인트: 마린포드 전쟁을 멈추며 전체 판을 바꾼 결단.",
+          ISTJ: "마린포드에서 의리를 지키며 끝까지 동료를 지키는 결단.",
+          ISFJ: "드럼섬에서 치료와 성장의 책임을 짊어지는 순간.",
+          INFJ: "에니에스 로비에서 진실을 고백하고 동료를 받아들이는 장면.",
+          INTJ: "드레스로자에서 연합 작전을 설계하며 판을 짜는 모습.",
+          ISTP: "스릴러바크에서 고통을 대신 감수하며 묵묵히 버틴 결단.",
+          ISFP: "스릴러바크에서 동료의 그림자를 되찾기 위해 노래하는 순간.",
+          INFP: "알라바스타에서 나라를 지키기 위해 선택을 내려야 했던 장면.",
+          INTP: "워터 세븐에서 서니 호를 설계하며 팀의 미래를 만든 순간.",
+          ESTP: "임펠다운 돌파처럼 정면 돌파로 길을 여는 장면.",
+          ESFP: "아를롱 파크에서 도움을 요청하며 유대를 선택한 순간.",
+          ENFP: "에니에스 로비에서 스나이퍼킹으로 활약하며 분위기를 바꾼 장면.",
+          ENTP: "라프텔을 향해 항해하며 시대를 뒤흔든 대모험의 상징.",
+          ESTJ: "마린포드에서 정의를 앞세워 전장을 통제한 순간.",
+          ESFJ: "홀케이크 아일랜드에서 동료를 지키려는 진심이 드러난 장면.",
+          ENFJ: "샤본디에서 후배들을 훈련시키며 방향을 제시하는 순간.",
+          ENTJ: "마린포드 전쟁을 멈추며 전체 판을 바꾼 결단.",
         },
         naruto: {
-          ISTJ: "에피소드 포인트: 파도 나라 임무에서 팀을 지키며 냉정하게 판단한 순간.",
-          ISFJ: "에피소드 포인트: 페인 침공 때 나루토를 위해 나선 결단의 장면.",
-          INFJ: "에피소드 포인트: 우치하 사건의 진실을 품고 사스케를 지키는 선택.",
-          INTJ: "에피소드 포인트: 아스마 이후 복수 작전을 설계하며 냉정하게 판을 짠 순간.",
-          ISTP: "에피소드 포인트: 야마토 팀 합류 후 정보 수집과 관찰로 균형을 잡는 장면.",
-          ISFP: "에피소드 포인트: 중닌시험에서 자신의 한계를 넘기 위해 집중한 순간.",
-          INFP: "에피소드 포인트: 카제카게로서 마을을 지키며 성장한 결단.",
-          INTP: "에피소드 포인트: 중닌시험 침입에서 연구 집착이 드러난 장면.",
-          ESTP: "에피소드 포인트: 중닌시험과 페인전에서 돌파로 판을 바꾼 순간.",
-          ESFP: "에피소드 포인트: 가아라전에서 끈기와 열정으로 분위기를 뒤집은 장면.",
-          ENFP: "에피소드 포인트: 아메가쿠레에서 페인의 비밀을 좇던 모험의 순간.",
-          ENTP: "에피소드 포인트: 4차 닌자대전에서 판을 뒤흔든 충격적인 전개.",
-          ESTJ: "에피소드 포인트: 호카게로서 마을을 지키기 위해 결단을 내린 순간.",
-          ESFJ: "에피소드 포인트: 전쟁에서 치료와 팀 케어로 모두를 살린 장면.",
-          ENFJ: "에피소드 포인트: 구미 제어를 돕고 팀을 안정시키는 지원의 순간.",
-          ENTJ: "에피소드 포인트: 4차 닌자대전에서 압도적 리더십을 드러낸 장면.",
+          ISTJ: "파도 나라 임무에서 팀을 지키며 냉정하게 판단한 순간.",
+          ISFJ: "페인 침공 때 나루토를 위해 나선 결단의 장면.",
+          INFJ: "우치하 사건의 진실을 품고 사스케를 지키는 선택.",
+          INTJ: "아스마 이후 복수 작전을 설계하며 냉정하게 판을 짠 순간.",
+          ISTP: "야마토 팀 합류 후 정보 수집과 관찰로 균형을 잡는 장면.",
+          ISFP: "중닌시험에서 자신의 한계를 넘기 위해 집중한 순간.",
+          INFP: "카제카게로서 마을을 지키며 성장한 결단.",
+          INTP: "중닌시험 침입에서 연구 집착이 드러난 장면.",
+          ESTP: "중닌시험과 페인전에서 돌파로 판을 바꾼 순간.",
+          ESFP: "가아라전에서 끈기와 열정으로 분위기를 뒤집은 장면.",
+          ENFP: "아메가쿠레에서 페인의 비밀을 좇던 모험의 순간.",
+          ENTP: "4차 닌자대전에서 판을 뒤흔든 충격적인 전개.",
+          ESTJ: "호카게로서 마을을 지키기 위해 결단을 내린 순간.",
+          ESFJ: "전쟁에서 치료와 팀 케어로 모두를 살린 장면.",
+          ENFJ: "구미 제어를 돕고 팀을 안정시키는 지원의 순간.",
+          ENTJ: "4차 닌자대전에서 압도적 리더십을 드러낸 장면.",
         },
       };
 
@@ -606,11 +556,11 @@
         `\n\n${name}의 매력은 한두 마디로 요약되지 않습니다. 순간의 판단력과 관계에서 드러나는 태도가 겹치며, 팀 안에서 자연스럽게 자신의 색을 만들어 냅니다. 어려운 장면에서도 자신만의 방식으로 분위기를 정리하고, 주변이 의지할 수 있는 포인트를 남깁니다. 이 캐릭터의 결은 시간이 지날수록 더 또렷하게 기억되는 타입입니다. 또한 위기 순간에 드러나는 태도가 강한 인상을 남기며, 팬들이 오래 기억하는 포인트가 됩니다.`;
 
       const params = new URLSearchParams(window.location.search);
-      const theme = params.get("theme") || "animal";
+      const theme = params.get("theme") || "onepiece";
       const type = params.get("type") || "ISTJ";
 
-      const themeInfo = themeMeta[theme] || themeMeta.animal;
-      const themeResults = resultMap[theme] || resultMap.animal;
+      const themeInfo = themeMeta[theme] || themeMeta.onepiece;
+      const themeResults = resultMap[theme] || resultMap.onepiece;
       const result = themeResults[type] || themeResults.ISTJ;
 
       document.getElementById("hero").style.background = themeInfo.gradient;
@@ -631,7 +581,9 @@
       document.getElementById("character-desc").textContent =
         characterLongDescriptions[theme]?.[type]
           ? `${characterLongDescriptions[theme][type]}${characterExtraCommon(result.name)}${
-              episodeNote ? `\n\n${episodeNote}` : ""
+              episodeNote
+                ? `\n\n대표 에피소드: ${episodeNote}\n이 상황에서 드러난 선택과 태도 때문에 ${result.name}의 MBTI는 ${type}에 가깝습니다.`
+                : ""
             }`
           : "캐릭터 설명을 준비 중입니다.";
 
@@ -640,16 +592,170 @@
         secondary: "#9ca3af",
         accent: "#f59e0b",
       };
+      const characterSymbols = {
+        onepiece: {
+          ISTJ: "sea",
+          ISFJ: "cross",
+          INFJ: "glyph",
+          INTJ: "compass",
+          ISTP: "sword",
+          ISFP: "note",
+          INFP: "crest",
+          INTP: "gear",
+          ESTP: "sun",
+          ESFP: "wave",
+          ENFP: "target",
+          ENTP: "crown",
+          ESTJ: "justice",
+          ESFJ: "rose",
+          ENFJ: "spark",
+          ENTJ: "anchor",
+        },
+        naruto: {
+          ISTJ: "mask",
+          ISFJ: "heart",
+          INFJ: "eye",
+          INTJ: "shogi",
+          ISTP: "ink",
+          ISFP: "chakra",
+          INFP: "gourd",
+          INTP: "snake",
+          ESTP: "spiral",
+          ESFP: "gate",
+          ENFP: "scroll",
+          ENTP: "storm",
+          ESTJ: "tower",
+          ESFJ: "blossom",
+          ENFJ: "seal",
+          ENTJ: "flame",
+        },
+      };
       const avatarSeed = Array.from(result.name)
         .reduce((acc, char) => acc + char.charCodeAt(0), 0);
 
-      const createAvatarSvg = (name, seed, colors) => {
+      const createSymbolPath = (symbol, colors) => {
+        switch (symbol) {
+          case "sun":
+            return `<circle cx="120" cy="120" r="38" fill="${colors.secondary}" opacity="0.9" />
+              <g stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" opacity="0.9">
+                <line x1="120" y1="20" x2="120" y2="48" />
+                <line x1="120" y1="192" x2="120" y2="220" />
+                <line x1="20" y1="120" x2="48" y2="120" />
+                <line x1="192" y1="120" x2="220" y2="120" />
+                <line x1="46" y1="46" x2="66" y2="66" />
+                <line x1="194" y1="46" x2="174" y2="66" />
+                <line x1="46" y1="194" x2="66" y2="174" />
+                <line x1="194" y1="194" x2="174" y2="174" />
+              </g>`;
+          case "sea":
+            return `<path d="M20 150 C60 120 100 120 140 150 C180 180 210 180 220 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" opacity="0.9" />
+              <path d="M20 180 C60 150 100 150 140 180 C180 210 210 210 220 180" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" opacity="0.8" />`;
+          case "compass":
+            return `<circle cx="120" cy="120" r="52" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />
+              <path d="M120 70 L138 120 L120 170 L102 120 Z" fill="${colors.accent}" opacity="0.9" />`;
+          case "anchor":
+            return `<path d="M120 50 v100" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
+              <circle cx="120" cy="50" r="14" fill="${colors.accent}" />
+              <path d="M70 130 C70 170 90 190 120 190 C150 190 170 170 170 130" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />`;
+          case "sword":
+            return `<path d="M120 40 L132 120 L120 200 L108 120 Z" fill="${colors.secondary}" opacity="0.9" />
+              <rect x="90" y="120" width="60" height="12" rx="6" fill="${colors.accent}" />`;
+          case "gear":
+            return `<circle cx="120" cy="120" r="38" fill="none" stroke="${colors.secondary}" stroke-width="10" opacity="0.9" />
+              <circle cx="120" cy="120" r="14" fill="${colors.accent}" />`;
+          case "note":
+            return `<rect x="90" y="70" width="70" height="90" rx="12" fill="${colors.secondary}" opacity="0.85" />
+              <circle cx="90" cy="170" r="14" fill="${colors.accent}" />`;
+          case "crown":
+            return `<path d="M60 150 L90 90 L120 140 L150 90 L180 150 Z" fill="${colors.secondary}" opacity="0.9" />
+              <rect x="60" y="150" width="120" height="16" fill="${colors.accent}" />`;
+          case "target":
+            return `<circle cx="120" cy="120" r="50" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />
+              <circle cx="120" cy="120" r="24" fill="${colors.accent}" opacity="0.9" />`;
+          case "wave":
+            return `<path d="M30 150 C70 110 110 110 150 150 C190 190 220 190 230 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
+              <path d="M40 180 C80 150 120 150 160 180" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
+          case "justice":
+            return `<rect x="108" y="60" width="24" height="120" rx="12" fill="${colors.secondary}" />
+              <path d="M60 90 L120 90 L180 90" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />
+              <circle cx="80" cy="110" r="18" fill="none" stroke="${colors.secondary}" stroke-width="6" />
+              <circle cx="160" cy="110" r="18" fill="none" stroke="${colors.secondary}" stroke-width="6" />`;
+          case "rose":
+            return `<circle cx="120" cy="120" r="36" fill="${colors.secondary}" opacity="0.85" />
+              <path d="M120 156 v40" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
+          case "spark":
+            return `<path d="M120 60 L138 120 L120 180 L102 120 Z" fill="${colors.accent}" />
+              <circle cx="120" cy="120" r="42" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />`;
+          case "cross":
+            return `<rect x="108" y="60" width="24" height="120" rx="8" fill="${colors.secondary}" />
+              <rect x="70" y="110" width="100" height="24" rx="8" fill="${colors.accent}" />`;
+          case "glyph":
+            return `<path d="M80 70 Q120 40 160 70 Q120 100 80 70 Z" fill="${colors.secondary}" opacity="0.9" />
+              <circle cx="120" cy="150" r="30" fill="${colors.accent}" opacity="0.8" />`;
+          case "mask":
+            return `<path d="M70 90 Q120 60 170 90 Q160 150 120 170 Q80 150 70 90 Z" fill="${colors.secondary}" opacity="0.9" />
+              <circle cx="100" cy="120" r="10" fill="${colors.accent}" />
+              <circle cx="140" cy="120" r="10" fill="${colors.accent}" />`;
+          case "heart":
+            return `<path d="M120 170 C80 140 70 110 90 90 C105 75 125 80 120 100 C115 80 135 75 150 90 C170 110 160 140 120 170 Z" fill="${colors.secondary}" opacity="0.9" />`;
+          case "eye":
+            return `<ellipse cx="120" cy="120" rx="70" ry="40" fill="none" stroke="${colors.secondary}" stroke-width="8" />
+              <circle cx="120" cy="120" r="18" fill="${colors.accent}" />`;
+          case "shogi":
+            return `<path d="M80 70 L160 70 L180 170 L60 170 Z" fill="${colors.secondary}" opacity="0.9" />
+              <text x="100" y="140" font-family="Sora, sans-serif" font-size="24" fill="#fff">SHO</text>`;
+          case "ink":
+            return `<path d="M120 60 C160 90 160 150 120 180 C80 150 80 90 120 60 Z" fill="${colors.secondary}" opacity="0.85" />
+              <circle cx="120" cy="130" r="18" fill="${colors.accent}" />`;
+          case "chakra":
+            return `<circle cx="120" cy="120" r="50" fill="none" stroke="${colors.secondary}" stroke-width="8" />
+              <circle cx="120" cy="120" r="20" fill="${colors.accent}" />`;
+          case "gourd":
+            return `<path d="M120 70 C150 90 150 120 120 140 C90 120 90 90 120 70 Z" fill="${colors.secondary}" opacity="0.9" />
+              <path d="M120 140 C160 160 160 200 120 210 C80 200 80 160 120 140 Z" fill="${colors.accent}" opacity="0.9" />`;
+          case "snake":
+            return `<path d="M70 150 C90 110 150 110 170 70" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
+              <circle cx="170" cy="70" r="10" fill="${colors.accent}" />`;
+          case "spiral":
+            return `<path d="M120 80 C160 80 170 130 120 130 C90 130 90 110 120 110 C140 110 140 150 110 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />`;
+          case "gate":
+            return `<rect x="70" y="90" width="100" height="120" rx="12" fill="none" stroke="${colors.secondary}" stroke-width="8" />
+              <circle cx="120" cy="150" r="10" fill="${colors.accent}" />`;
+          case "scroll":
+            return `<rect x="80" y="80" width="100" height="120" rx="16" fill="${colors.secondary}" opacity="0.9" />
+              <line x1="96" y1="110" x2="164" y2="110" stroke="${colors.accent}" stroke-width="6" />`;
+          case "storm":
+            return `<path d="M120 70 L150 120 L120 120 L140 170 L90 120 L120 120 Z" fill="${colors.secondary}" opacity="0.9" />
+              <circle cx="170" cy="80" r="14" fill="${colors.accent}" />`;
+          case "tower":
+            return `<rect x="95" y="70" width="50" height="120" rx="10" fill="${colors.secondary}" />
+              <rect x="85" y="180" width="70" height="20" fill="${colors.accent}" />`;
+          case "blossom":
+            return `<circle cx="120" cy="120" r="18" fill="${colors.accent}" />
+              <circle cx="90" cy="120" r="18" fill="${colors.secondary}" />
+              <circle cx="150" cy="120" r="18" fill="${colors.secondary}" />
+              <circle cx="120" cy="90" r="18" fill="${colors.secondary}" />
+              <circle cx="120" cy="150" r="18" fill="${colors.secondary}" />`;
+          case "seal":
+            return `<rect x="70" y="70" width="100" height="100" rx="16" fill="none" stroke="${colors.secondary}" stroke-width="8" />
+              <circle cx="120" cy="120" r="18" fill="${colors.accent}" />`;
+          case "crest":
+            return `<path d="M120 60 L170 100 L150 180 L90 180 L70 100 Z" fill="${colors.secondary}" opacity="0.9" />
+              <circle cx="120" cy="120" r="16" fill="${colors.accent}" />`;
+          case "flame":
+            return `<path d="M120 60 C150 90 150 130 120 170 C90 130 90 100 110 80 C120 90 130 110 120 130 C140 120 140 90 120 60 Z" fill="${colors.secondary}" opacity="0.9" />`;
+          default:
+            return `<circle cx="120" cy="120" r="50" fill="${colors.secondary}" opacity="0.85" />`;
+        }
+      };
+
+      const createAvatarSvg = (name, seed, colors, symbolKey) => {
         const shapes = [
           `<circle cx="90" cy="90" r="50" fill="${colors.secondary}" opacity="0.85" />`,
           `<rect x="36" y="40" width="110" height="110" rx="30" fill="${colors.secondary}" opacity="0.8" />`,
           `<path d="M40 120 L120 40 L160 150 Z" fill="${colors.secondary}" opacity="0.75" />`,
         ];
-        const symbol = seed % shapes.length;
+        const baseShapeIndex = seed % shapes.length;
         const monogram = name.slice(0, 2);
         return `
           <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
@@ -660,15 +766,16 @@
               </linearGradient>
             </defs>
             <rect width="240" height="240" rx="32" fill="url(#bg)" />
-            ${shapes[symbol]}
-            <circle cx="170" cy="70" r="18" fill="${colors.accent}" opacity="0.9" />
+            ${shapes[baseShapeIndex]}
+            ${createSymbolPath(symbolKey, colors)}
             <text x="24" y="210" font-family="Sora, sans-serif" font-size="28" fill="#ffffff" font-weight="700">
               ${monogram}
             </text>
           </svg>`;
       };
 
-      const avatarSvg = createAvatarSvg(result.name, avatarSeed, avatarColors);
+      const symbolKey = characterSymbols[theme]?.[type] || "sun";
+      const avatarSvg = createAvatarSvg(result.name, avatarSeed, avatarColors, symbolKey);
       const avatarImg = document.getElementById("character-image");
       avatarImg.src = `data:image/svg+xml;utf8,${encodeURIComponent(avatarSvg)}`;
       avatarImg.alt = `${result.name} 캐릭터 카드`;
