@@ -100,6 +100,47 @@
         background: #fff;
       }
 
+      .character-card {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.8fr) 1.2fr;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .character-media {
+        position: relative;
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .character-media img {
+        width: 100%;
+        height: auto;
+        border-radius: 18px;
+        border: 1px solid rgba(17, 24, 39, 0.08);
+        box-shadow: 0 12px 25px rgba(17, 24, 39, 0.1);
+        background: #f4f6fb;
+      }
+
+      .character-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        background: rgba(17, 24, 39, 0.06);
+        color: var(--muted);
+        width: fit-content;
+      }
+
+      .character-info {
+        display: grid;
+        gap: 10px;
+      }
+
       .result-card p {
         white-space: pre-line;
       }
@@ -216,6 +257,12 @@
       .result-footer a:hover {
         text-decoration: underline;
       }
+
+      @media (max-width: 720px) {
+        .character-card {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -226,10 +273,17 @@
         <p class="hero-sub" id="hero-sub">-</p>
       </section>
 
-      <section class="result-card">
-        <h2 class="result-title" id="result-name">-</h2>
-        <p class="desc" id="result-desc">-</p>
-        <div class="pill-group" id="tags"></div>
+      <section class="result-card character-card">
+        <div class="character-media">
+          <img id="character-image" src="" alt="캐릭터 카드" />
+          <span class="character-badge" id="character-badge">Anime Card</span>
+        </div>
+        <div class="character-info">
+          <p class="section-label">캐릭터</p>
+          <h2 class="result-title" id="result-name">-</h2>
+          <p class="desc" id="result-desc">-</p>
+          <div class="pill-group" id="tags"></div>
+        </div>
       </section>
 
       <section class="result-card">
@@ -324,7 +378,7 @@
       };
 
       const mbtiExtraCommon = (type) =>
-        `\\n\\n${type}는 자기만의 기준과 리듬을 지키면서도 상황에 맞게 균형을 맞추는 능력이 있습니다. 강점이 뚜렷한 만큼, 자신의 피로도나 한계를 인지하고 적절히 속도를 조절하는 것이 중요합니다. 또한 사람들과의 소통에서 기대치나 기준을 미리 공유하면 불필요한 오해를 줄일 수 있습니다. 이 유형은 꾸준함과 자기 성찰을 통해 점점 더 성숙한 결과를 만들어내며, 작은 변화도 장기적으로는 큰 성장으로 이어지곤 합니다. 스스로의 장점을 의식적으로 활용하면 팀과 개인 모두에게 안정적인 성과를 만들어 줄 수 있습니다. 추가로, 감정과 논리를 균형 있게 다루는 연습을 하면 관계의 밀도와 실행력 모두가 향상됩니다. 중요한 선택을 할 때는 자신의 가치와 현실의 조건을 함께 살피는 태도가 도움이 되고, 필요하다면 주변의 조언을 받아들여 관점을 확장하는 것이 좋습니다. 이런 방식으로 ${type}는 장점과 약점을 동시에 관리하며 더욱 탄탄한 성향으로 발전할 수 있습니다.`;
+        `\n\n${type}는 자기만의 기준과 리듬을 지키면서도 상황에 맞게 균형을 맞추는 능력이 있습니다. 강점이 뚜렷한 만큼, 자신의 피로도나 한계를 인지하고 적절히 속도를 조절하는 것이 중요합니다. 또한 사람들과의 소통에서 기대치나 기준을 미리 공유하면 불필요한 오해를 줄일 수 있습니다. 이 유형은 꾸준함과 자기 성찰을 통해 점점 더 성숙한 결과를 만들어내며, 작은 변화도 장기적으로는 큰 성장으로 이어지곤 합니다. 스스로의 장점을 의식적으로 활용하면 팀과 개인 모두에게 안정적인 성과를 만들어 줄 수 있습니다. 추가로, 감정과 논리를 균형 있게 다루는 연습을 하면 관계의 밀도와 실행력 모두가 향상됩니다. 중요한 선택을 할 때는 자신의 가치와 현실의 조건을 함께 살피는 태도가 도움이 되고, 필요하다면 주변의 조언을 받아들여 관점을 확장하는 것이 좋습니다. 이런 방식으로 ${type}는 장점과 약점을 동시에 관리하며 더욱 탄탄한 성향으로 발전할 수 있습니다.`;
 
       const themeMeta = {
         animal: {
@@ -343,12 +397,22 @@
           label: "원피스",
           emoji: "⚓",
           gradient: "linear-gradient(140deg, #1f4d8f, #63b0f4)",
+          avatar: {
+            primary: "#1f4d8f",
+            secondary: "#63b0f4",
+            accent: "#f8c04b",
+          },
           tags: ["모험", "동료", "항해"],
         },
         naruto: {
           label: "나루토",
           emoji: "🍥",
           gradient: "linear-gradient(140deg, #d45b32, #f2a45f)",
+          avatar: {
+            primary: "#d45b32",
+            secondary: "#f2a45f",
+            accent: "#5e2a1c",
+          },
           tags: ["의지", "팀워크", "성장"],
         },
       };
@@ -539,7 +603,7 @@
       };
 
       const characterExtraCommon = (name) =>
-        `\\n\\n${name}의 매력은 한두 마디로 요약되지 않습니다. 순간의 판단력과 관계에서 드러나는 태도가 겹치며, 팀 안에서 자연스럽게 자신의 색을 만들어 냅니다. 어려운 장면에서도 자신만의 방식으로 분위기를 정리하고, 주변이 의지할 수 있는 포인트를 남깁니다. 이 캐릭터의 결은 시간이 지날수록 더 또렷하게 기억되는 타입입니다. 또한 위기 순간에 드러나는 태도가 강한 인상을 남기며, 팬들이 오래 기억하는 포인트가 됩니다.`;
+        `\n\n${name}의 매력은 한두 마디로 요약되지 않습니다. 순간의 판단력과 관계에서 드러나는 태도가 겹치며, 팀 안에서 자연스럽게 자신의 색을 만들어 냅니다. 어려운 장면에서도 자신만의 방식으로 분위기를 정리하고, 주변이 의지할 수 있는 포인트를 남깁니다. 이 캐릭터의 결은 시간이 지날수록 더 또렷하게 기억되는 타입입니다. 또한 위기 순간에 드러나는 태도가 강한 인상을 남기며, 팬들이 오래 기억하는 포인트가 됩니다.`;
 
       const params = new URLSearchParams(window.location.search);
       const theme = params.get("theme") || "animal";
@@ -567,9 +631,48 @@
       document.getElementById("character-desc").textContent =
         characterLongDescriptions[theme]?.[type]
           ? `${characterLongDescriptions[theme][type]}${characterExtraCommon(result.name)}${
-              episodeNote ? `\\n\\n${episodeNote}` : \"\"
+              episodeNote ? `\n\n${episodeNote}` : ""
             }`
           : "캐릭터 설명을 준비 중입니다.";
+
+      const avatarColors = themeInfo.avatar || {
+        primary: "#111827",
+        secondary: "#9ca3af",
+        accent: "#f59e0b",
+      };
+      const avatarSeed = Array.from(result.name)
+        .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+      const createAvatarSvg = (name, seed, colors) => {
+        const shapes = [
+          `<circle cx="90" cy="90" r="50" fill="${colors.secondary}" opacity="0.85" />`,
+          `<rect x="36" y="40" width="110" height="110" rx="30" fill="${colors.secondary}" opacity="0.8" />`,
+          `<path d="M40 120 L120 40 L160 150 Z" fill="${colors.secondary}" opacity="0.75" />`,
+        ];
+        const symbol = seed % shapes.length;
+        const monogram = name.slice(0, 2);
+        return `
+          <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="${colors.primary}" />
+                <stop offset="100%" stop-color="${colors.accent}" />
+              </linearGradient>
+            </defs>
+            <rect width="240" height="240" rx="32" fill="url(#bg)" />
+            ${shapes[symbol]}
+            <circle cx="170" cy="70" r="18" fill="${colors.accent}" opacity="0.9" />
+            <text x="24" y="210" font-family="Sora, sans-serif" font-size="28" fill="#ffffff" font-weight="700">
+              ${monogram}
+            </text>
+          </svg>`;
+      };
+
+      const avatarSvg = createAvatarSvg(result.name, avatarSeed, avatarColors);
+      const avatarImg = document.getElementById("character-image");
+      avatarImg.src = `data:image/svg+xml;utf8,${encodeURIComponent(avatarSvg)}`;
+      avatarImg.alt = `${result.name} 캐릭터 카드`;
+      document.getElementById("character-badge").textContent = `${themeInfo.label} 캐릭터 카드`;
       const commentText = `${result.name}(${type})`;
       document.getElementById("comment-intro").textContent = commentText;
 

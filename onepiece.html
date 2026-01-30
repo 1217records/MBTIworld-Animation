@@ -37,6 +37,16 @@
         padding: 48px 24px;
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><path d='M0 120 C80 160 160 160 240 120 C320 80 400 80 520 120' fill='none' stroke='%231f4d8f' stroke-opacity='0.16' stroke-width='6'/><path d='M0 220 C80 260 160 260 240 220 C320 180 400 180 520 220' fill='none' stroke='%231f4d8f' stroke-opacity='0.12' stroke-width='6'/><circle cx='420' cy='90' r='38' fill='none' stroke='%235fa7ff' stroke-opacity='0.2' stroke-width='6'/></svg>");
+        background-size: 520px 520px;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
       .wrap {
         width: min(900px, 100%);
         background: var(--surface);
@@ -91,6 +101,10 @@
         display: grid;
         gap: 14px;
         background: #fff;
+      }
+
+      .question.is-animating {
+        animation: slideIn 0.35s ease;
       }
 
       .question-meta {
@@ -178,6 +192,17 @@
       .back:hover {
         text-decoration: underline;
       }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
@@ -212,104 +237,104 @@
           axis: "SN",
           prompt: "1. 스카이피아에 오르기 전, 하늘섬 길을 찾는다면?",
           options: [
-            { value: "S", label: "나침반·기록지침 기준으로 검증된 루트를 따른다" },
-            { value: "N", label: "구름의 흐름과 바람을 보고 새로운 길을 추론한다" },
+            { value: "S", label: "로그포스와 기록을 믿고 검증된 루트를 따른다" },
+            { value: "N", label: "노크업 스트림 타이밍을 읽어 새 길을 상상한다" },
           ],
         },
         {
           axis: "EI",
           prompt: "2. 워터 세븐에서 동료 사이 갈등이 터졌다면?",
           options: [
-            { value: "E", label: "직접 나서서 대화의 장을 만들고 분위기를 정리한다" },
-            { value: "I", label: "흐름을 지켜본 뒤 핵심만 정리해 전달한다" },
+            { value: "E", label: "프랑키 하우스 앞에서라도 직접 나서 분위기를 정리한다" },
+            { value: "I", label: "상황을 지켜본 뒤 핵심만 정리해 조용히 전한다" },
           ],
         },
         {
           axis: "TF",
           prompt: "3. 에니에스 로비 돌입을 결정해야 한다면?",
           options: [
-            { value: "T", label: "성공 확률과 전력 배치를 계산해 판단한다" },
-            { value: "F", label: "동료의 마음과 약속을 최우선으로 본다" },
+            { value: "T", label: "CP9 전력과 탈출 루트를 계산해 판단한다" },
+            { value: "F", label: "로빈의 \"살고 싶어\"를 최우선으로 본다" },
           ],
         },
         {
           axis: "JP",
           prompt: "4. 드레스로자 이후 항로를 정할 때 나는?",
           options: [
-            { value: "J", label: "정해진 플랜에 맞춰 일정을 확정한다" },
-            { value: "P", label: "현장 기회에 따라 유연하게 바꾼다" },
+            { value: "J", label: "로우처럼 작전 플랜을 짜고 일정대로 간다" },
+            { value: "P", label: "루피처럼 그때그때 기회를 보고 움직인다" },
           ],
         },
         {
           axis: "SN",
           prompt: "5. 포네그리프 해석이 막힐 때?",
           options: [
-            { value: "S", label: "문장과 기록을 차근차근 재정리한다" },
-            { value: "N", label: "숨은 맥락과 연결고리를 상상해본다" },
+            { value: "S", label: "문장·좌표를 다시 정리해 확실한 단서를 잡는다" },
+            { value: "N", label: "공백의 의미와 역사적 연결을 상상해본다" },
           ],
         },
         {
           axis: "EI",
           prompt: "6. 축제 한복판(스카이피아·어인섬)에 도착했다면?",
           options: [
-            { value: "E", label: "사람들 속으로 들어가 분위기를 끌어올린다" },
-            { value: "I", label: "주변을 관찰하며 필요한 순간에만 참여한다" },
+            { value: "E", label: "즉석 공연으로 분위기를 끌어올린다" },
+            { value: "I", label: "멀찍이 관찰하며 필요한 순간에만 나선다" },
           ],
         },
         {
           axis: "TF",
           prompt: "7. 마린포드급 전장에서 선택을 해야 한다면?",
           options: [
-            { value: "T", label: "피해 최소화와 승률을 우선으로 판단한다" },
-            { value: "F", label: "의리와 신념을 지키는 결정을 택한다" },
+            { value: "T", label: "전력 손실을 최소화하는 선택을 한다" },
+            { value: "F", label: "형제·동료의 의리를 지키는 선택을 한다" },
           ],
         },
         {
           axis: "JP",
           prompt: "8. 보급과 식량을 책임진다면?",
           options: [
-            { value: "J", label: "리스트를 만들어 계획적으로 채운다" },
-            { value: "P", label: "현지 분위기에 맞게 유연하게 조달한다" },
+            { value: "J", label: "나미처럼 리스트를 만들고 계획적으로 채운다" },
+            { value: "P", label: "상디처럼 현지에서 분위기 따라 조달한다" },
           ],
         },
         {
           axis: "EI",
           prompt: "9. 긴 항해 중 갑판 휴식 시간엔?",
           options: [
-            { value: "E", label: "동료들과 게임·노래로 분위기를 끌어올린다" },
-            { value: "I", label: "일지를 쓰거나 생각을 정리하며 쉬고 싶다" },
+            { value: "E", label: "우솝·브룩과 공연으로 분위기를 올린다" },
+            { value: "I", label: "로빈처럼 책을 읽고 생각을 정리한다" },
           ],
         },
         {
           axis: "SN",
           prompt: "10. 알라바스타 사막에서 길을 잃었다면?",
           options: [
-            { value: "S", label: "지도·수분 보급 루트를 기준으로 이동한다" },
-            { value: "N", label: "바람·지형 패턴을 읽고 새로운 길을 떠올린다" },
+            { value: "S", label: "지도·물자 상태부터 체크해 이동한다" },
+            { value: "N", label: "별자리와 바람 흐름으로 방향을 잡는다" },
           ],
         },
         {
           axis: "TF",
           prompt: "11. 동료가 크게 실수했을 때?",
           options: [
-            { value: "T", label: "문제 해결에 필요한 행동을 바로 정리한다" },
-            { value: "F", label: "감정부터 추슬러 다시 일어날 수 있게 돕는다" },
+            { value: "T", label: "손상된 부분부터 빠르게 복구한다" },
+            { value: "F", label: "기운을 회복하도록 먼저 다독인다" },
           ],
         },
         {
           axis: "JP",
           prompt: "12. 와노국에서 목표를 달성해야 한다면?",
           options: [
-            { value: "J", label: "단계별 로드맵을 짜서 꾸준히 밀어붙인다" },
-            { value: "P", label: "기회가 보일 때 즉흥적으로 움직인다" },
+            { value: "J", label: "킨에몬처럼 단계별 로드맵을 짠다" },
+            { value: "P", label: "루피처럼 기회가 보이면 즉시 돌파한다" },
           ],
         },
         {
           axis: "EI",
           prompt: "13. 첫 항해 출항 직전, 나는?",
           options: [
-            { value: "E", label: "항구에서 사람들과 바로 어울리며 분위기를 만든다" },
-            { value: "I", label: "조용히 역할과 준비물을 점검한다" },
+            { value: "E", label: "항구에서 소문을 모으며 사람들과 어울린다" },
+            { value: "I", label: "장비와 역할을 조용히 점검한다" },
           ],
         },
         {
@@ -317,7 +342,7 @@
           prompt: "14. 적의 능력을 분석해야 한다면?",
           options: [
             { value: "S", label: "지금까지 보인 패턴을 정리해 대응한다" },
-            { value: "N", label: "아직 드러나지 않은 가능성까지 예측한다" },
+            { value: "N", label: "각성이나 숨은 능력까지 예측한다" },
           ],
         },
         {
@@ -332,7 +357,7 @@
           axis: "JP",
           prompt: "16. 동료들의 역할을 나눈다면?",
           options: [
-            { value: "J", label: "명확한 역할을 미리 배정한다" },
+            { value: "J", label: "직무를 명확히 배정해 효율을 높인다" },
             { value: "P", label: "상황에 따라 자연스럽게 분담한다" },
           ],
         },
@@ -343,6 +368,7 @@
       const questionTitle = document.getElementById("question-title");
       const questionMeta = document.getElementById("question-meta");
       const progressBar = document.getElementById("progress-bar");
+      const questionCard = document.querySelector(".question");
       const prevBtn = document.getElementById("prev-btn");
       const nextBtn = document.getElementById("next-btn");
 
@@ -379,6 +405,10 @@
         prevBtn.disabled = currentIndex === 0;
         nextBtn.textContent = currentIndex === questions.length - 1 ? "결과 보기" : "다음";
         nextBtn.disabled = answers[currentIndex] === null;
+
+        questionCard.classList.remove("is-animating");
+        void questionCard.offsetWidth;
+        questionCard.classList.add("is-animating");
       };
 
       prevBtn.addEventListener("click", () => {

@@ -37,6 +37,16 @@
         padding: 48px 24px;
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><path d='M60 260 C120 200 200 180 260 220 C320 260 360 320 300 360 C240 400 160 380 120 320' fill='none' stroke='%23d45b32' stroke-opacity='0.16' stroke-width='6'/><circle cx='400' cy='140' r='36' fill='none' stroke='%23ff9d6e' stroke-opacity='0.2' stroke-width='6'/><path d='M180 120 C200 90 240 80 270 100' fill='none' stroke='%23d45b32' stroke-opacity='0.12' stroke-width='6'/></svg>");
+        background-size: 520px 520px;
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
       .wrap {
         width: min(900px, 100%);
         background: var(--surface);
@@ -91,6 +101,10 @@
         display: grid;
         gap: 14px;
         background: #fff;
+      }
+
+      .question.is-animating {
+        animation: slideIn 0.35s ease;
       }
 
       .question-meta {
@@ -178,6 +192,17 @@
       .back:hover {
         text-decoration: underline;
       }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
@@ -212,16 +237,16 @@
           axis: "SN",
           prompt: "1. 적의 인술을 파악해야 한다면?",
           options: [
-            { value: "S", label: "실제로 드러난 패턴을 정리해 대응한다" },
-            { value: "N", label: "숨겨진 술식과 다음 변수를 추론한다" },
+            { value: "S", label: "손인·차크라 흔적을 정리해 대응한다" },
+            { value: "N", label: "숨은 술식과 다음 변수를 추론한다" },
           ],
         },
         {
           axis: "EI",
           prompt: "2. 중닌시험 준비 기간, 나는?",
           options: [
-            { value: "E", label: "팀원과 모의전을 돌리며 전투 감각을 끌어올린다" },
-            { value: "I", label: "혼자 닌술을 다듬고 약점을 정리한다" },
+            { value: "E", label: "팀과 모의전을 돌리며 전투 감각을 끌어올린다" },
+            { value: "I", label: "개인 수련과 두루마리를 다듬는다" },
           ],
         },
         {
@@ -236,7 +261,7 @@
           axis: "JP",
           prompt: "4. 작전 계획을 짤 때 나는?",
           options: [
-            { value: "J", label: "단계별 플랜을 세워 안전하게 진행한다" },
+            { value: "J", label: "시카마루식 단계 플랜을 세운다" },
             { value: "P", label: "현장 변수에 맞춰 유연하게 바꾼다" },
           ],
         },
@@ -244,8 +269,8 @@
           axis: "SN",
           prompt: "5. 수색 임무에서 단서가 부족하다면?",
           options: [
-            { value: "S", label: "확실한 흔적을 따라 이동한다" },
-            { value: "N", label: "흐름을 읽어 예상 동선을 그린다" },
+            { value: "S", label: "발자국·흔적을 따라 이동한다" },
+            { value: "N", label: "정보를 엮어 예상 동선을 그린다" },
           ],
         },
         {
@@ -260,8 +285,8 @@
           axis: "TF",
           prompt: "7. 고립된 적과 마주쳤을 때?",
           options: [
-            { value: "T", label: "임무를 우선으로 빠르게 결정한다" },
-            { value: "F", label: "대화로 가능성을 열어본다" },
+            { value: "T", label: "임무 우선으로 빠르게 결론을 낸다" },
+            { value: "F", label: "대화로 갱생의 가능성을 본다" },
           ],
         },
         {
@@ -269,14 +294,14 @@
           prompt: "8. 훈련 루틴을 운영한다면?",
           options: [
             { value: "J", label: "시간표대로 꾸준히 반복한다" },
-            { value: "P", label: "컨디션에 맞춰 조정한다" },
+            { value: "P", label: "컨디션과 임무에 맞춰 조정한다" },
           ],
         },
         {
           axis: "EI",
           prompt: "9. 합동 작전 직전 대기 중이라면?",
           options: [
-            { value: "E", label: "팀의 긴장을 풀기 위해 먼저 말을 건다" },
+            { value: "E", label: "동료를 격려하며 팀 분위기를 올린다" },
             { value: "I", label: "호흡을 정리하며 집중력을 끌어올린다" },
           ],
         },
@@ -284,7 +309,7 @@
           axis: "SN",
           prompt: "10. 전장 지형을 활용해야 할 때?",
           options: [
-            { value: "S", label: "눈앞의 지형을 즉시 활용한다" },
+            { value: "S", label: "눈앞의 나무·바위를 즉시 활용한다" },
             { value: "N", label: "전체 전황을 상상해 한 수를 둔다" },
           ],
         },
@@ -316,7 +341,7 @@
           axis: "SN",
           prompt: "14. 봉인술 비급서를 해석한다면?",
           options: [
-            { value: "S", label: "기록된 방법을 정확히 따라본다" },
+            { value: "S", label: "정석 방법을 정확히 따라본다" },
             { value: "N", label: "숨은 의미와 확장 가능성을 본다" },
           ],
         },
@@ -343,6 +368,7 @@
       const questionTitle = document.getElementById("question-title");
       const questionMeta = document.getElementById("question-meta");
       const progressBar = document.getElementById("progress-bar");
+      const questionCard = document.querySelector(".question");
       const prevBtn = document.getElementById("prev-btn");
       const nextBtn = document.getElementById("next-btn");
 
@@ -379,6 +405,10 @@
         prevBtn.disabled = currentIndex === 0;
         nextBtn.textContent = currentIndex === questions.length - 1 ? "결과 보기" : "다음";
         nextBtn.disabled = answers[currentIndex] === null;
+
+        questionCard.classList.remove("is-animating");
+        void questionCard.offsetWidth;
+        questionCard.classList.add("is-animating");
       };
 
       prevBtn.addEventListener("click", () => {
