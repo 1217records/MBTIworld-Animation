@@ -209,131 +209,131 @@
     <script>
       const questions = [
         {
-          axis: "EI",
-          prompt: "1. 로그타운 출항 직전, 나는?",
+          axis: "SN",
+          prompt: "1. 스카이피아에 오르기 전, 하늘섬 길을 찾는다면?",
           options: [
-            { value: "E", label: "항구에서 사람들과 바로 어울리며 분위기를 끌어올린다" },
-            { value: "I", label: "조용히 동선과 준비물을 확인하며 역할을 정리한다" },
+            { value: "S", label: "나침반·기록지침 기준으로 검증된 루트를 따른다" },
+            { value: "N", label: "구름의 흐름과 바람을 보고 새로운 길을 추론한다" },
           ],
         },
         {
           axis: "EI",
-          prompt: "2. 워터 세븐에서 동료들 사이에 갈등이 생겼을 때?",
+          prompt: "2. 워터 세븐에서 동료 사이 갈등이 터졌다면?",
           options: [
-            { value: "E", label: "직접 대화의 자리를 만들어 감정을 풀어낸다" },
-            { value: "I", label: "상황을 지켜본 뒤 핵심 조언만 조용히 전한다" },
+            { value: "E", label: "직접 나서서 대화의 장을 만들고 분위기를 정리한다" },
+            { value: "I", label: "흐름을 지켜본 뒤 핵심만 정리해 전달한다" },
           ],
         },
         {
-          axis: "EI",
-          prompt: "3. 스카이피아 축제 같은 큰 이벤트에서 나는?",
+          axis: "TF",
+          prompt: "3. 에니에스 로비 돌입을 결정해야 한다면?",
           options: [
-            { value: "E", label: "사람들 사이에 섞여 중심에서 즐긴다" },
-            { value: "I", label: "조용히 주변을 관찰하며 필요한 순간만 참여한다" },
+            { value: "T", label: "성공 확률과 전력 배치를 계산해 판단한다" },
+            { value: "F", label: "동료의 마음과 약속을 최우선으로 본다" },
           ],
         },
         {
-          axis: "EI",
-          prompt: "4. 긴 항해 중 갑판 휴식 시간엔?",
+          axis: "JP",
+          prompt: "4. 드레스로자 이후 항로를 정할 때 나는?",
           options: [
-            { value: "E", label: "동료들과 게임을 하며 에너지를 끌어올린다" },
-            { value: "I", label: "혼자 기록하거나 생각을 정리하며 쉬고 싶다" },
+            { value: "J", label: "정해진 플랜에 맞춰 일정을 확정한다" },
+            { value: "P", label: "현장 기회에 따라 유연하게 바꾼다" },
           ],
         },
         {
           axis: "SN",
-          prompt: "5. 알라바스타 사막에서 길을 잃었다면?",
+          prompt: "5. 포네그리프 해석이 막힐 때?",
           options: [
-            { value: "S", label: "지도와 현재 위치를 바탕으로 현실적으로 경로를 잡는다" },
-            { value: "N", label: "바람과 지형 패턴을 읽어 새로운 가능성을 떠올린다" },
+            { value: "S", label: "문장과 기록을 차근차근 재정리한다" },
+            { value: "N", label: "숨은 맥락과 연결고리를 상상해본다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "6. 축제 한복판(스카이피아·어인섬)에 도착했다면?",
+          options: [
+            { value: "E", label: "사람들 속으로 들어가 분위기를 끌어올린다" },
+            { value: "I", label: "주변을 관찰하며 필요한 순간에만 참여한다" },
+          ],
+        },
+        {
+          axis: "TF",
+          prompt: "7. 마린포드급 전장에서 선택을 해야 한다면?",
+          options: [
+            { value: "T", label: "피해 최소화와 승률을 우선으로 판단한다" },
+            { value: "F", label: "의리와 신념을 지키는 결정을 택한다" },
+          ],
+        },
+        {
+          axis: "JP",
+          prompt: "8. 보급과 식량을 책임진다면?",
+          options: [
+            { value: "J", label: "리스트를 만들어 계획적으로 채운다" },
+            { value: "P", label: "현지 분위기에 맞게 유연하게 조달한다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "9. 긴 항해 중 갑판 휴식 시간엔?",
+          options: [
+            { value: "E", label: "동료들과 게임·노래로 분위기를 끌어올린다" },
+            { value: "I", label: "일지를 쓰거나 생각을 정리하며 쉬고 싶다" },
           ],
         },
         {
           axis: "SN",
-          prompt: "6. 포네그리프 단서를 해석할 때?",
+          prompt: "10. 알라바스타 사막에서 길을 잃었다면?",
           options: [
-            { value: "S", label: "보이는 문구와 기록을 먼저 정리한다" },
-            { value: "N", label: "숨겨진 의미와 연결 가능성을 추론한다" },
+            { value: "S", label: "지도·수분 보급 루트를 기준으로 이동한다" },
+            { value: "N", label: "바람·지형 패턴을 읽고 새로운 길을 떠올린다" },
+          ],
+        },
+        {
+          axis: "TF",
+          prompt: "11. 동료가 크게 실수했을 때?",
+          options: [
+            { value: "T", label: "문제 해결에 필요한 행동을 바로 정리한다" },
+            { value: "F", label: "감정부터 추슬러 다시 일어날 수 있게 돕는다" },
+          ],
+        },
+        {
+          axis: "JP",
+          prompt: "12. 와노국에서 목표를 달성해야 한다면?",
+          options: [
+            { value: "J", label: "단계별 로드맵을 짜서 꾸준히 밀어붙인다" },
+            { value: "P", label: "기회가 보일 때 즉흥적으로 움직인다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "13. 첫 항해 출항 직전, 나는?",
+          options: [
+            { value: "E", label: "항구에서 사람들과 바로 어울리며 분위기를 만든다" },
+            { value: "I", label: "조용히 역할과 준비물을 점검한다" },
           ],
         },
         {
           axis: "SN",
-          prompt: "7. 적의 능력을 분석해야 한다면?",
+          prompt: "14. 적의 능력을 분석해야 한다면?",
           options: [
             { value: "S", label: "지금까지 보인 패턴을 정리해 대응한다" },
-            { value: "N", label: "아직 드러나지 않은 가능성까지 상상한다" },
-          ],
-        },
-        {
-          axis: "SN",
-          prompt: "8. 새로운 섬의 규칙을 이해할 때?",
-          options: [
-            { value: "S", label: "눈앞에서 확인되는 규칙부터 따라본다" },
-            { value: "N", label: "전체 세계관과 숨은 구조를 추측한다" },
+            { value: "N", label: "아직 드러나지 않은 가능성까지 예측한다" },
           ],
         },
         {
           axis: "TF",
-          prompt: "9. 에니에스 로비에서 동료 구출 결정을 내릴 때?",
+          prompt: "15. 적과 협상 테이블에 앉게 된다면?",
           options: [
-            { value: "T", label: "성공 확률과 전략적 이득을 우선 고려한다" },
-            { value: "F", label: "동료의 마음과 약속을 가장 먼저 본다" },
-          ],
-        },
-        {
-          axis: "TF",
-          prompt: "10. 마린포드 같은 대규모 전투에서?",
-          options: [
-            { value: "T", label: "피해를 최소화할 수 있는 효율적 선택을 한다" },
-            { value: "F", label: "의리와 신념을 지키는 선택을 한다" },
-          ],
-        },
-        {
-          axis: "TF",
-          prompt: "11. 배 수리에 쓸 자원이 부족하다면?",
-          options: [
-            { value: "T", label: "우선순위를 정해 효율적으로 배분한다" },
-            { value: "F", label: "모두가 납득할 수 있게 감정을 고려한다" },
-          ],
-        },
-        {
-          axis: "TF",
-          prompt: "12. 적과 협상해야 하는 순간이라면?",
-          options: [
-            { value: "T", label: "조건과 이득을 따져 냉정하게 결정한다" },
-            { value: "F", label: "신뢰와 상대의 사정을 함께 고려한다" },
+            { value: "T", label: "조건과 이득을 계산해 냉정하게 결정한다" },
+            { value: "F", label: "상대의 사정과 신뢰를 함께 고려한다" },
           ],
         },
         {
           axis: "JP",
-          prompt: "13. 드레스로자 이후 항로를 정할 때?",
-          options: [
-            { value: "J", label: "계획을 세우고 일정대로 움직인다" },
-            { value: "P", label: "상황에 따라 유연하게 바꾼다" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "14. 식량과 보급은 어떻게 관리할까?",
-          options: [
-            { value: "J", label: "목록을 만들어 계획적으로 준비한다" },
-            { value: "P", label: "현지에서 상황에 맞게 조달한다" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "15. 동료들의 역할을 나눈다면?",
+          prompt: "16. 동료들의 역할을 나눈다면?",
           options: [
             { value: "J", label: "명확한 역할을 미리 배정한다" },
             { value: "P", label: "상황에 따라 자연스럽게 분담한다" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "16. 와노국에서 목표를 달성해야 한다면?",
-          options: [
-            { value: "J", label: "단계별 로드맵을 세워 꾸준히 실행한다" },
-            { value: "P", label: "기회가 보일 때 즉흥적으로 움직인다" },
           ],
         },
       ];

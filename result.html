@@ -152,6 +152,19 @@
         line-height: 1.6;
       }
 
+      .section-label {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .desc-compact {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
       .share {
         display: flex;
         gap: 12px;
@@ -221,11 +234,17 @@
 
       <section class="result-card">
         <h2 class="result-title">MBTI 상세 설명</h2>
+        <p class="section-label">핵심 요약</p>
+        <p class="desc desc-compact" id="mbti-short">-</p>
+        <p class="section-label">설명</p>
         <p class="desc" id="mbti-desc">-</p>
       </section>
 
       <section class="result-card">
         <h2 class="result-title">캐릭터 설명</h2>
+        <p class="section-label">에피소드 포인트</p>
+        <p class="desc desc-compact" id="character-episode">-</p>
+        <p class="section-label">설명</p>
         <p class="desc" id="character-desc">-</p>
       </section>
 
@@ -250,6 +269,25 @@
     </main>
 
     <script>
+      const mbtiShortDescriptions = {
+        ISTJ: "신뢰·책임·일관성을 중시하는 안정형",
+        ISFJ: "배려·헌신·안정감을 만드는 조력형",
+        INFJ: "통찰·의미·진정성을 지키는 조율형",
+        INTJ: "전략·설계·장기판을 그리는 기획형",
+        ISTP: "현실·침착·실전 해결에 강한 실행형",
+        ISFP: "감성·자유·섬세함으로 균형을 잡는 유형",
+        INFP: "가치·공감·진정성으로 움직이는 이상형",
+        INTP: "분석·호기심·논리를 중시하는 탐구형",
+        ESTP: "즉시·실행·기회를 잡는 돌파형",
+        ESFP: "분위기·활력·공감으로 이끄는 분위기형",
+        ENFP: "아이디어·열정·확장을 즐기는 활력형",
+        ENTP: "창의·실험·논쟁으로 판을 여는 변혁형",
+        ESTJ: "체계·규율·목표달성을 이끄는 리더형",
+        ESFJ: "관계·조화·지원에 강한 케어형",
+        ENFJ: "리더십·동기부여·성장을 이끄는 멘토형",
+        ENTJ: "결단·추진·성과 중심의 전략형",
+      };
+
       const mbtiLongDescriptions = {
         ISTJ:
           "ISTJ는 현실과 기준을 기반으로 안정적인 결과를 만들어내는 유형입니다. 계획을 세울 때 감정의 기복보다 검증된 사실과 책임을 중심에 두며, 해야 할 일을 명확히 정리해 꾸준히 완수합니다. 맡은 역할을 끝까지 지키고 약속을 중요하게 생각하기 때문에 팀에서는 신뢰의 기준점이 됩니다. 즉흥적인 변화보다 체계적인 개선을 선호하고, 작은 실수도 미리 예방하려는 성향이 강합니다. 다만 변화가 빠른 상황에서는 신중함이 느린 결정으로 보일 수 있어, 필요한 순간에는 우선순위를 재정렬해 속도를 끌어올리는 연습이 도움이 됩니다. 강점은 꼼꼼함, 책임감, 안정적인 실행력이고, 이를 통해 주변에 안전한 기준선을 만들어 줍니다. 일을 끝내는 힘과 일관된 태도는 ISTJ의 가장 큰 자산입니다.",
@@ -461,6 +499,45 @@
         },
       };
 
+      const characterEpisodeNotes = {
+        onepiece: {
+          ISTJ: "에피소드 포인트: 마린포드에서 의리를 지키며 루피를 끝까지 보호하는 결단.",
+          ISFJ: "에피소드 포인트: 드럼섬에서 치료와 성장의 책임을 짊어지는 순간.",
+          INFJ: "에피소드 포인트: 에니에스 로비에서 진실을 고백하고 동료를 받아들이는 장면.",
+          INTJ: "에피소드 포인트: 드레스로자에서 연합 작전을 설계하며 판을 짜는 모습.",
+          ISTP: "에피소드 포인트: 스릴러바크에서 고통을 대신 감수하며 묵묵히 버틴 결단.",
+          ISFP: "에피소드 포인트: 스릴러바크에서 동료의 그림자를 되찾기 위해 노래하는 순간.",
+          INFP: "에피소드 포인트: 알라바스타에서 나라를 지키기 위해 선택을 내려야 했던 장면.",
+          INTP: "에피소드 포인트: 워터 세븐에서 서니 호를 설계하며 팀의 미래를 만든 순간.",
+          ESTP: "에피소드 포인트: 임펠다운 돌파처럼 정면 돌파로 길을 여는 장면.",
+          ESFP: "에피소드 포인트: 아를롱 파크에서 도움을 요청하며 유대를 선택한 순간.",
+          ENFP: "에피소드 포인트: 에니에스 로비에서 스나이퍼킹으로 활약하며 분위기를 바꾼 장면.",
+          ENTP: "에피소드 포인트: 라프텔을 향해 항해하며 시대를 뒤흔든 대모험의 상징.",
+          ESTJ: "에피소드 포인트: 마린포드에서 정의를 앞세워 전장을 통제한 순간.",
+          ESFJ: "에피소드 포인트: 홀케이크 아일랜드에서 동료를 지키려는 진심이 드러난 장면.",
+          ENFJ: "에피소드 포인트: 샤본디에서 후배들을 훈련시키며 방향을 제시하는 순간.",
+          ENTJ: "에피소드 포인트: 마린포드 전쟁을 멈추며 전체 판을 바꾼 결단.",
+        },
+        naruto: {
+          ISTJ: "에피소드 포인트: 파도 나라 임무에서 팀을 지키며 냉정하게 판단한 순간.",
+          ISFJ: "에피소드 포인트: 페인 침공 때 나루토를 위해 나선 결단의 장면.",
+          INFJ: "에피소드 포인트: 우치하 사건의 진실을 품고 사스케를 지키는 선택.",
+          INTJ: "에피소드 포인트: 아스마 이후 복수 작전을 설계하며 냉정하게 판을 짠 순간.",
+          ISTP: "에피소드 포인트: 야마토 팀 합류 후 정보 수집과 관찰로 균형을 잡는 장면.",
+          ISFP: "에피소드 포인트: 중닌시험에서 자신의 한계를 넘기 위해 집중한 순간.",
+          INFP: "에피소드 포인트: 카제카게로서 마을을 지키며 성장한 결단.",
+          INTP: "에피소드 포인트: 중닌시험 침입에서 연구 집착이 드러난 장면.",
+          ESTP: "에피소드 포인트: 중닌시험과 페인전에서 돌파로 판을 바꾼 순간.",
+          ESFP: "에피소드 포인트: 가아라전에서 끈기와 열정으로 분위기를 뒤집은 장면.",
+          ENFP: "에피소드 포인트: 아메가쿠레에서 페인의 비밀을 좇던 모험의 순간.",
+          ENTP: "에피소드 포인트: 4차 닌자대전에서 판을 뒤흔든 충격적인 전개.",
+          ESTJ: "에피소드 포인트: 호카게로서 마을을 지키기 위해 결단을 내린 순간.",
+          ESFJ: "에피소드 포인트: 전쟁에서 치료와 팀 케어로 모두를 살린 장면.",
+          ENFJ: "에피소드 포인트: 구미 제어를 돕고 팀을 안정시키는 지원의 순간.",
+          ENTJ: "에피소드 포인트: 4차 닌자대전에서 압도적 리더십을 드러낸 장면.",
+        },
+      };
+
       const characterExtraCommon = (name) =>
         `\\n\\n${name}의 매력은 한두 마디로 요약되지 않습니다. 순간의 판단력과 관계에서 드러나는 태도가 겹치며, 팀 안에서 자연스럽게 자신의 색을 만들어 냅니다. 어려운 장면에서도 자신만의 방식으로 분위기를 정리하고, 주변이 의지할 수 있는 포인트를 남깁니다. 이 캐릭터의 결은 시간이 지날수록 더 또렷하게 기억되는 타입입니다. 또한 위기 순간에 드러나는 태도가 강한 인상을 남기며, 팬들이 오래 기억하는 포인트가 됩니다.`;
 
@@ -478,13 +555,20 @@
       document.getElementById("hero-sub").textContent = "당신의 성향을 테마로 해석했어요.";
       document.getElementById("result-name").textContent = result.name;
       document.getElementById("result-desc").textContent = result.desc;
+      document.getElementById("mbti-short").textContent =
+        mbtiShortDescriptions[type] || "핵심 요약을 준비 중입니다.";
       document.getElementById("mbti-desc").textContent =
         mbtiLongDescriptions[type]
           ? `${mbtiLongDescriptions[type]}${mbtiExtraCommon(type)}`
           : "해당 MBTI 설명을 준비 중입니다.";
+      const episodeNote = characterEpisodeNotes[theme]?.[type];
+      document.getElementById("character-episode").textContent =
+        episodeNote || "에피소드 포인트를 준비 중입니다.";
       document.getElementById("character-desc").textContent =
         characterLongDescriptions[theme]?.[type]
-          ? `${characterLongDescriptions[theme][type]}${characterExtraCommon(result.name)}`
+          ? `${characterLongDescriptions[theme][type]}${characterExtraCommon(result.name)}${
+              episodeNote ? `\\n\\n${episodeNote}` : \"\"
+            }`
           : "캐릭터 설명을 준비 중입니다.";
       const commentText = `${result.name}(${type})`;
       document.getElementById("comment-intro").textContent = commentText;

@@ -209,83 +209,83 @@
     <script>
       const questions = [
         {
-          axis: "EI",
-          prompt: "1. 중닌시험 준비 기간, 나는?",
+          axis: "SN",
+          prompt: "1. 적의 인술을 파악해야 한다면?",
           options: [
-            { value: "E", label: "팀원들과 모의전을 하며 에너지를 끌어올린다" },
-            { value: "I", label: "혼자 연습하며 기술을 정리한다" },
+            { value: "S", label: "실제로 드러난 패턴을 정리해 대응한다" },
+            { value: "N", label: "숨겨진 술식과 다음 변수를 추론한다" },
           ],
         },
         {
           axis: "EI",
-          prompt: "2. 미션 브리핑 전 대기 시간에?",
+          prompt: "2. 중닌시험 준비 기간, 나는?",
           options: [
-            { value: "E", label: "앞장서서 작전 분위기를 조율한다" },
-            { value: "I", label: "뒤에서 정보를 정리하며 집중한다" },
+            { value: "E", label: "팀원과 모의전을 돌리며 전투 감각을 끌어올린다" },
+            { value: "I", label: "혼자 닌술을 다듬고 약점을 정리한다" },
           ],
         },
         {
-          axis: "EI",
-          prompt: "3. 동료가 고민을 털어놓을 때?",
+          axis: "TF",
+          prompt: "3. 사스케를 추적해야 하는 순간이라면?",
           options: [
-            { value: "E", label: "즉시 다가가 대화를 이끈다" },
-            { value: "I", label: "조용히 곁을 지키며 필요한 말만 전한다" },
+            { value: "T", label: "리스크와 성공 확률을 계산해 움직인다" },
+            { value: "F", label: "동료의 마음과 약속을 먼저 떠올린다" },
           ],
         },
         {
-          axis: "EI",
-          prompt: "4. 합동 작전 전 대기 중이라면?",
+          axis: "JP",
+          prompt: "4. 작전 계획을 짤 때 나는?",
           options: [
-            { value: "E", label: "팀의 긴장을 풀기 위해 분위기를 띄운다" },
-            { value: "I", label: "침착하게 호흡을 정리하며 집중한다" },
+            { value: "J", label: "단계별 플랜을 세워 안전하게 진행한다" },
+            { value: "P", label: "현장 변수에 맞춰 유연하게 바꾼다" },
           ],
         },
         {
           axis: "SN",
-          prompt: "5. 적의 인술을 파악해야 한다면?",
-          options: [
-            { value: "S", label: "실제로 사용된 패턴을 중심으로 분석한다" },
-            { value: "N", label: "숨겨진 가능성까지 추론한다" },
-          ],
-        },
-        {
-          axis: "SN",
-          prompt: "6. 수색 임무에서 단서가 부족할 때?",
+          prompt: "5. 수색 임무에서 단서가 부족하다면?",
           options: [
             { value: "S", label: "확실한 흔적을 따라 이동한다" },
-            { value: "N", label: "감과 흐름을 읽어 동선을 예측한다" },
+            { value: "N", label: "흐름을 읽어 예상 동선을 그린다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "6. 미션 브리핑 전 대기 시간엔?",
+          options: [
+            { value: "E", label: "팀 분위기를 끌어올리며 긴장을 푼다" },
+            { value: "I", label: "정보를 정리하며 조용히 집중한다" },
+          ],
+        },
+        {
+          axis: "TF",
+          prompt: "7. 고립된 적과 마주쳤을 때?",
+          options: [
+            { value: "T", label: "임무를 우선으로 빠르게 결정한다" },
+            { value: "F", label: "대화로 가능성을 열어본다" },
+          ],
+        },
+        {
+          axis: "JP",
+          prompt: "8. 훈련 루틴을 운영한다면?",
+          options: [
+            { value: "J", label: "시간표대로 꾸준히 반복한다" },
+            { value: "P", label: "컨디션에 맞춰 조정한다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "9. 합동 작전 직전 대기 중이라면?",
+          options: [
+            { value: "E", label: "팀의 긴장을 풀기 위해 먼저 말을 건다" },
+            { value: "I", label: "호흡을 정리하며 집중력을 끌어올린다" },
           ],
         },
         {
           axis: "SN",
-          prompt: "7. 전장 지형을 활용해야 할 때?",
+          prompt: "10. 전장 지형을 활용해야 할 때?",
           options: [
             { value: "S", label: "눈앞의 지형을 즉시 활용한다" },
-            { value: "N", label: "전체 전황 흐름을 상상해 움직인다" },
-          ],
-        },
-        {
-          axis: "SN",
-          prompt: "8. 봉인술 비급서를 해석한다면?",
-          options: [
-            { value: "S", label: "기록된 방법을 정확히 따라본다" },
-            { value: "N", label: "숨은 의미와 확장 가능성을 본다" },
-          ],
-        },
-        {
-          axis: "TF",
-          prompt: "9. 사스케를 추적해야 하는 순간이라면?",
-          options: [
-            { value: "T", label: "리스크와 성공 확률을 계산한다" },
-            { value: "F", label: "동료와의 유대를 먼저 생각한다" },
-          ],
-        },
-        {
-          axis: "TF",
-          prompt: "10. 고립된 적과 마주쳤을 때?",
-          options: [
-            { value: "T", label: "임무를 우선으로 행동한다" },
-            { value: "F", label: "대화로 이해의 가능성을 찾는다" },
+            { value: "N", label: "전체 전황을 상상해 한 수를 둔다" },
           ],
         },
         {
@@ -293,39 +293,39 @@
           prompt: "11. 전투 후 처치 vs 구조를 선택해야 한다면?",
           options: [
             { value: "T", label: "상황을 빠르게 정리하는 결정을 한다" },
-            { value: "F", label: "상대의 감정과 사정을 고려한다" },
+            { value: "F", label: "상대의 사정과 감정을 고려한다" },
+          ],
+        },
+        {
+          axis: "JP",
+          prompt: "12. 정보 공유 방식은?",
+          options: [
+            { value: "J", label: "기록해 체계적으로 보고한다" },
+            { value: "P", label: "필요할 때 즉시 공유한다" },
+          ],
+        },
+        {
+          axis: "EI",
+          prompt: "13. 동료가 고민을 털어놓을 때?",
+          options: [
+            { value: "E", label: "바로 다가가 이야기를 풀어준다" },
+            { value: "I", label: "옆에서 듣고 필요한 말만 전한다" },
+          ],
+        },
+        {
+          axis: "SN",
+          prompt: "14. 봉인술 비급서를 해석한다면?",
+          options: [
+            { value: "S", label: "기록된 방법을 정확히 따라본다" },
+            { value: "N", label: "숨은 의미와 확장 가능성을 본다" },
           ],
         },
         {
           axis: "TF",
-          prompt: "12. 팀 리더를 뽑는다면?",
+          prompt: "15. 팀 리더를 뽑는다면?",
           options: [
-            { value: "T", label: "가장 적합한 실력과 판단력을 기준으로" },
-            { value: "F", label: "팀의 신뢰와 유대를 기준으로" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "13. 작전 계획을 짤 때?",
-          options: [
-            { value: "J", label: "단계별로 명확한 플랜을 만든다" },
-            { value: "P", label: "현장 상황에 맞춰 유연하게 바꾼다" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "14. 훈련 루틴을 운영한다면?",
-          options: [
-            { value: "J", label: "시간표대로 꾸준히 진행한다" },
-            { value: "P", label: "컨디션에 따라 조정한다" },
-          ],
-        },
-        {
-          axis: "JP",
-          prompt: "15. 정보 공유 방식은?",
-          options: [
-            { value: "J", label: "기록하고 체계적으로 보고한다" },
-            { value: "P", label: "필요할 때 즉시 공유한다" },
+            { value: "T", label: "실력과 판단력을 기준으로 선택한다" },
+            { value: "F", label: "신뢰와 유대를 기준으로 선택한다" },
           ],
         },
         {
