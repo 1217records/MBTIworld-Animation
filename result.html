@@ -102,47 +102,6 @@
         background: #fff;
       }
 
-      .character-card {
-        display: grid;
-        grid-template-columns: minmax(180px, 0.8fr) 1.2fr;
-        gap: 20px;
-        align-items: center;
-      }
-
-      .character-media {
-        position: relative;
-        display: grid;
-        gap: 10px;
-        align-content: start;
-      }
-
-      .character-media img {
-        width: 100%;
-        height: auto;
-        border-radius: 18px;
-        border: 1px solid rgba(17, 24, 39, 0.08);
-        box-shadow: 0 12px 25px rgba(17, 24, 39, 0.1);
-        background: #f4f6fb;
-      }
-
-      .character-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 600;
-        background: rgba(17, 24, 39, 0.06);
-        color: var(--muted);
-        width: fit-content;
-      }
-
-      .character-info {
-        display: grid;
-        gap: 10px;
-      }
-
       .result-card p {
         white-space: pre-line;
       }
@@ -260,11 +219,6 @@
         text-decoration: underline;
       }
 
-      @media (max-width: 720px) {
-        .character-card {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -275,17 +229,11 @@
         <p class="hero-sub" id="hero-sub">-</p>
       </section>
 
-      <section class="result-card character-card">
-        <div class="character-media">
-          <img id="character-image" src="" alt="캐릭터 카드" />
-          <span class="character-badge" id="character-badge">Anime Card</span>
-        </div>
-        <div class="character-info">
-          <p class="section-label">캐릭터</p>
-          <h2 class="result-title" id="result-name">-</h2>
-          <p class="desc" id="result-desc">-</p>
-          <div class="pill-group" id="tags"></div>
-        </div>
+      <section class="result-card">
+        <p class="section-label">캐릭터</p>
+        <h2 class="result-title" id="result-name">-</h2>
+        <p class="desc" id="result-desc">-</p>
+        <div class="pill-group" id="tags"></div>
       </section>
 
       <section class="result-card">
@@ -587,215 +535,6 @@
             }`
           : "캐릭터 설명을 준비 중입니다.";
 
-      const avatarColors = themeInfo.avatar || {
-        primary: "#111827",
-        secondary: "#9ca3af",
-        accent: "#f59e0b",
-      };
-      const characterSymbols = {
-        onepiece: {
-          ISTJ: "sea",
-          ISFJ: "fruit",
-          INFJ: "fruit",
-          INTJ: "flag",
-          ISTP: "flag",
-          ISFP: "fruit",
-          INFP: "flag",
-          INTP: "fruit",
-          ESTP: "sun",
-          ESFP: "fruit",
-          ENFP: "flag",
-          ENTP: "flag",
-          ESTJ: "flag",
-          ESFJ: "fruit",
-          ENFJ: "flag",
-          ENTJ: "flag",
-        },
-        naruto: {
-          ISTJ: "leaf",
-          ISFJ: "leaf",
-          INFJ: "leaf",
-          INTJ: "leaf",
-          ISTP: "leaf",
-          ISFP: "leaf",
-          INFP: "sand",
-          INTP: "sound",
-          ESTP: "leaf",
-          ESFP: "leaf",
-          ENFP: "leaf",
-          ENTP: "storm",
-          ESTJ: "leaf",
-          ESFJ: "leaf",
-          ENFJ: "leaf",
-          ENTJ: "storm",
-        },
-      };
-      const avatarSeed = Array.from(result.name)
-        .reduce((acc, char) => acc + char.charCodeAt(0), 0);
-
-      const createSymbolPath = (symbol, colors) => {
-        switch (symbol) {
-          case "sun":
-            return `<circle cx="120" cy="120" r="38" fill="${colors.secondary}" opacity="0.9" />
-              <g stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" opacity="0.9">
-                <line x1="120" y1="20" x2="120" y2="48" />
-                <line x1="120" y1="192" x2="120" y2="220" />
-                <line x1="20" y1="120" x2="48" y2="120" />
-                <line x1="192" y1="120" x2="220" y2="120" />
-                <line x1="46" y1="46" x2="66" y2="66" />
-                <line x1="194" y1="46" x2="174" y2="66" />
-                <line x1="46" y1="194" x2="66" y2="174" />
-                <line x1="194" y1="194" x2="174" y2="174" />
-              </g>`;
-          case "sea":
-            return `<path d="M20 150 C60 120 100 120 140 150 C180 180 210 180 220 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" opacity="0.9" />
-              <path d="M20 180 C60 150 100 150 140 180 C180 210 210 210 220 180" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" opacity="0.8" />`;
-          case "flag":
-            return `<path d="M80 70 v120" stroke="${colors.secondary}" stroke-width="8" stroke-linecap="round" />
-              <path d="M80 80 C110 70 140 90 170 80 L170 130 C140 140 110 120 80 130 Z" fill="${colors.accent}" opacity="0.9" />`;
-          case "fruit":
-            return `<circle cx="120" cy="130" r="40" fill="${colors.secondary}" opacity="0.9" />
-              <path d="M120 80 C130 70 140 60 150 60" fill="none" stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" />
-              <circle cx="95" cy="120" r="8" fill="${colors.accent}" opacity="0.8" />`;
-          case "leaf":
-            return `<path d="M80 160 C70 110 110 70 160 80 C170 130 130 170 80 160 Z" fill="${colors.secondary}" opacity="0.9" />
-              <path d="M90 150 C120 120 140 100 160 90" fill="none" stroke="${colors.accent}" stroke-width="6" stroke-linecap="round" />`;
-          case "sand":
-            return `<path d="M60 170 C90 140 150 140 180 170" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
-              <path d="M70 140 C100 120 150 120 170 140" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
-          case "sound":
-            return `<path d="M80 120 L110 100 V140 Z" fill="${colors.secondary}" opacity="0.9" />
-              <path d="M130 100 C150 110 150 130 130 140" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
-          case "storm":
-            return `<path d="M120 70 L150 120 L120 120 L140 170 L90 120 L120 120 Z" fill="${colors.secondary}" opacity="0.9" />
-              <circle cx="170" cy="80" r="14" fill="${colors.accent}" />`;
-          case "compass":
-            return `<circle cx="120" cy="120" r="52" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />
-              <path d="M120 70 L138 120 L120 170 L102 120 Z" fill="${colors.accent}" opacity="0.9" />`;
-          case "anchor":
-            return `<path d="M120 50 v100" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
-              <circle cx="120" cy="50" r="14" fill="${colors.accent}" />
-              <path d="M70 130 C70 170 90 190 120 190 C150 190 170 170 170 130" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />`;
-          case "sword":
-            return `<path d="M120 40 L132 120 L120 200 L108 120 Z" fill="${colors.secondary}" opacity="0.9" />
-              <rect x="90" y="120" width="60" height="12" rx="6" fill="${colors.accent}" />`;
-          case "gear":
-            return `<circle cx="120" cy="120" r="38" fill="none" stroke="${colors.secondary}" stroke-width="10" opacity="0.9" />
-              <circle cx="120" cy="120" r="14" fill="${colors.accent}" />`;
-          case "note":
-            return `<rect x="90" y="70" width="70" height="90" rx="12" fill="${colors.secondary}" opacity="0.85" />
-              <circle cx="90" cy="170" r="14" fill="${colors.accent}" />`;
-          case "crown":
-            return `<path d="M60 150 L90 90 L120 140 L150 90 L180 150 Z" fill="${colors.secondary}" opacity="0.9" />
-              <rect x="60" y="150" width="120" height="16" fill="${colors.accent}" />`;
-          case "target":
-            return `<circle cx="120" cy="120" r="50" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />
-              <circle cx="120" cy="120" r="24" fill="${colors.accent}" opacity="0.9" />`;
-          case "wave":
-            return `<path d="M30 150 C70 110 110 110 150 150 C190 190 220 190 230 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
-              <path d="M40 180 C80 150 120 150 160 180" fill="none" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
-          case "justice":
-            return `<rect x="108" y="60" width="24" height="120" rx="12" fill="${colors.secondary}" />
-              <path d="M60 90 L120 90 L180 90" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />
-              <circle cx="80" cy="110" r="18" fill="none" stroke="${colors.secondary}" stroke-width="6" />
-              <circle cx="160" cy="110" r="18" fill="none" stroke="${colors.secondary}" stroke-width="6" />`;
-          case "rose":
-            return `<circle cx="120" cy="120" r="36" fill="${colors.secondary}" opacity="0.85" />
-              <path d="M120 156 v40" stroke="${colors.accent}" stroke-width="8" stroke-linecap="round" />`;
-          case "spark":
-            return `<path d="M120 60 L138 120 L120 180 L102 120 Z" fill="${colors.accent}" />
-              <circle cx="120" cy="120" r="42" fill="none" stroke="${colors.secondary}" stroke-width="8" opacity="0.9" />`;
-          case "cross":
-            return `<rect x="108" y="60" width="24" height="120" rx="8" fill="${colors.secondary}" />
-              <rect x="70" y="110" width="100" height="24" rx="8" fill="${colors.accent}" />`;
-          case "glyph":
-            return `<path d="M80 70 Q120 40 160 70 Q120 100 80 70 Z" fill="${colors.secondary}" opacity="0.9" />
-              <circle cx="120" cy="150" r="30" fill="${colors.accent}" opacity="0.8" />`;
-          case "mask":
-            return `<path d="M70 90 Q120 60 170 90 Q160 150 120 170 Q80 150 70 90 Z" fill="${colors.secondary}" opacity="0.9" />
-              <circle cx="100" cy="120" r="10" fill="${colors.accent}" />
-              <circle cx="140" cy="120" r="10" fill="${colors.accent}" />`;
-          case "heart":
-            return `<path d="M120 170 C80 140 70 110 90 90 C105 75 125 80 120 100 C115 80 135 75 150 90 C170 110 160 140 120 170 Z" fill="${colors.secondary}" opacity="0.9" />`;
-          case "eye":
-            return `<ellipse cx="120" cy="120" rx="70" ry="40" fill="none" stroke="${colors.secondary}" stroke-width="8" />
-              <circle cx="120" cy="120" r="18" fill="${colors.accent}" />`;
-          case "shogi":
-            return `<path d="M80 70 L160 70 L180 170 L60 170 Z" fill="${colors.secondary}" opacity="0.9" />
-              <text x="100" y="140" font-family="Sora, sans-serif" font-size="24" fill="#fff">SHO</text>`;
-          case "ink":
-            return `<path d="M120 60 C160 90 160 150 120 180 C80 150 80 90 120 60 Z" fill="${colors.secondary}" opacity="0.85" />
-              <circle cx="120" cy="130" r="18" fill="${colors.accent}" />`;
-          case "chakra":
-            return `<circle cx="120" cy="120" r="50" fill="none" stroke="${colors.secondary}" stroke-width="8" />
-              <circle cx="120" cy="120" r="20" fill="${colors.accent}" />`;
-          case "gourd":
-            return `<path d="M120 70 C150 90 150 120 120 140 C90 120 90 90 120 70 Z" fill="${colors.secondary}" opacity="0.9" />
-              <path d="M120 140 C160 160 160 200 120 210 C80 200 80 160 120 140 Z" fill="${colors.accent}" opacity="0.9" />`;
-          case "snake":
-            return `<path d="M70 150 C90 110 150 110 170 70" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />
-              <circle cx="170" cy="70" r="10" fill="${colors.accent}" />`;
-          case "spiral":
-            return `<path d="M120 80 C160 80 170 130 120 130 C90 130 90 110 120 110 C140 110 140 150 110 150" fill="none" stroke="${colors.secondary}" stroke-width="10" stroke-linecap="round" />`;
-          case "gate":
-            return `<rect x="70" y="90" width="100" height="120" rx="12" fill="none" stroke="${colors.secondary}" stroke-width="8" />
-              <circle cx="120" cy="150" r="10" fill="${colors.accent}" />`;
-          case "scroll":
-            return `<rect x="80" y="80" width="100" height="120" rx="16" fill="${colors.secondary}" opacity="0.9" />
-              <line x1="96" y1="110" x2="164" y2="110" stroke="${colors.accent}" stroke-width="6" />`;
-          case "storm":
-            return `<path d="M120 70 L150 120 L120 120 L140 170 L90 120 L120 120 Z" fill="${colors.secondary}" opacity="0.9" />
-              <circle cx="170" cy="80" r="14" fill="${colors.accent}" />`;
-          case "tower":
-            return `<rect x="95" y="70" width="50" height="120" rx="10" fill="${colors.secondary}" />
-              <rect x="85" y="180" width="70" height="20" fill="${colors.accent}" />`;
-          case "blossom":
-            return `<circle cx="120" cy="120" r="18" fill="${colors.accent}" />
-              <circle cx="90" cy="120" r="18" fill="${colors.secondary}" />
-              <circle cx="150" cy="120" r="18" fill="${colors.secondary}" />
-              <circle cx="120" cy="90" r="18" fill="${colors.secondary}" />
-              <circle cx="120" cy="150" r="18" fill="${colors.secondary}" />`;
-          case "seal":
-            return `<rect x="70" y="70" width="100" height="100" rx="16" fill="none" stroke="${colors.secondary}" stroke-width="8" />
-              <circle cx="120" cy="120" r="18" fill="${colors.accent}" />`;
-          case "crest":
-            return `<path d="M120 60 L170 100 L150 180 L90 180 L70 100 Z" fill="${colors.secondary}" opacity="0.9" />
-              <circle cx="120" cy="120" r="16" fill="${colors.accent}" />`;
-          case "flame":
-            return `<path d="M120 60 C150 90 150 130 120 170 C90 130 90 100 110 80 C120 90 130 110 120 130 C140 120 140 90 120 60 Z" fill="${colors.secondary}" opacity="0.9" />`;
-          default:
-            return `<circle cx="120" cy="120" r="50" fill="${colors.secondary}" opacity="0.85" />`;
-        }
-      };
-
-      const createAvatarSvg = (name, seed, colors, symbolKey) => {
-        const shapes = [
-          `<circle cx="90" cy="90" r="50" fill="${colors.secondary}" opacity="0.85" />`,
-          `<rect x="36" y="40" width="110" height="110" rx="30" fill="${colors.secondary}" opacity="0.8" />`,
-          `<path d="M40 120 L120 40 L160 150 Z" fill="${colors.secondary}" opacity="0.75" />`,
-        ];
-        const baseShapeIndex = seed % shapes.length;
-        const monogram = name.slice(0, 2);
-        return `
-          <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
-            <defs>
-              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="${colors.primary}" />
-                <stop offset="100%" stop-color="${colors.accent}" />
-              </linearGradient>
-            </defs>
-            <rect width="240" height="240" rx="32" fill="url(#bg)" />
-            ${shapes[baseShapeIndex]}
-            ${createSymbolPath(symbolKey, colors)}
-          </svg>`;
-      };
-
-      const symbolKey = characterSymbols[theme]?.[type] || "sun";
-      const avatarSvg = createAvatarSvg(result.name, avatarSeed, avatarColors, symbolKey);
-      const avatarImg = document.getElementById("character-image");
-      avatarImg.src = `data:image/svg+xml;utf8,${encodeURIComponent(avatarSvg)}`;
-      avatarImg.alt = `${result.name} 캐릭터 카드`;
-      document.getElementById("character-badge").textContent = `${themeInfo.label} 캐릭터 카드`;
       const commentText = `${result.name}(${type})`;
       document.getElementById("comment-intro").textContent = commentText;
 
