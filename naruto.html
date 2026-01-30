@@ -223,7 +223,6 @@
         </div>
         <div class="controls">
           <button type="button" class="secondary" id="prev-btn">이전</button>
-          <button type="button" id="next-btn">다음</button>
         </div>
       </form>
 
@@ -370,7 +369,6 @@
       const progressBar = document.getElementById("progress-bar");
       const questionCard = document.querySelector(".question");
       const prevBtn = document.getElementById("prev-btn");
-      const nextBtn = document.getElementById("next-btn");
 
       const answers = Array(questions.length).fill(null);
       let currentIndex = 0;
@@ -391,7 +389,7 @@
           input.checked = answers[currentIndex] === option.value;
           input.addEventListener("change", () => {
             answers[currentIndex] = option.value;
-            nextBtn.disabled = false;
+            goNext();
           });
 
           const span = document.createElement("span");
@@ -403,8 +401,6 @@
         });
 
         prevBtn.disabled = currentIndex === 0;
-        nextBtn.textContent = currentIndex === questions.length - 1 ? "결과 보기" : "다음";
-        nextBtn.disabled = answers[currentIndex] === null;
 
         questionCard.classList.remove("is-animating");
         void questionCard.offsetWidth;
@@ -418,12 +414,7 @@
         }
       });
 
-      nextBtn.addEventListener("click", () => {
-        if (answers[currentIndex] === null) {
-          alert("선택 후 다음으로 이동해 주세요.");
-          return;
-        }
-
+      const goNext = () => {
         if (currentIndex < questions.length - 1) {
           currentIndex += 1;
           renderQuestion();
@@ -443,7 +434,7 @@
         ].join("");
 
         window.location.href = `result.html?theme=naruto&type=${type}`;
-      });
+      };
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
