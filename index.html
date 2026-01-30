@@ -117,6 +117,35 @@
         opacity: 1;
       }
 
+      .card.add-card {
+        border-style: dashed;
+        background: linear-gradient(135deg, rgba(17, 24, 39, 0.04), rgba(17, 24, 39, 0.01));
+      }
+
+      .card.add-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border-radius: 16px;
+        border: 1px dashed rgba(17, 24, 39, 0.15);
+        pointer-events: none;
+      }
+
+      .add-mark {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(17, 24, 39, 0.08);
+        font-size: 20px;
+        font-weight: 700;
+        font-family: "Sora", sans-serif;
+      }
+
       .label {
         display: inline-flex;
         align-items: center;
@@ -219,7 +248,8 @@
           <div class="label"><span class="emoji">🍥</span>나루토 인물</div>
           <p class="desc">나루토 캐릭터로 성향을 해석하는 테스트</p>
         </a>
-        <a class="card" href="contact.html">
+        <a class="card add-card" href="contact.html">
+          <span class="add-mark">+</span>
           <div class="label"><span class="emoji">💡</span>새 테스트 제안</div>
           <p class="desc">원하는 주제나 아이디어를 보내는 문의 폼</p>
         </a>
