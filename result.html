@@ -111,6 +111,27 @@
         line-height: 1.6;
       }
 
+      .comment-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .comment-actions button {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: #fff;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 12px;
+        color: var(--ink);
+      }
+
+      .comment-actions button:hover {
+        background: #f3f4f6;
+      }
+
       #disqus_thread {
         border-top: 1px solid var(--border);
         padding-top: 16px;
@@ -188,6 +209,9 @@
       <section class="result-card comment-card">
         <h2 class="result-title">댓글로 의견 남기기</h2>
         <p class="comment-note" id="comment-intro">내 MBTI를 공개하고 의견을 남겨주세요.</p>
+        <div class="comment-actions">
+          <button type="button" id="copy-comment">MBTI 문구 복사</button>
+        </div>
         <div id="disqus_thread"></div>
       </section>
 
@@ -336,8 +360,8 @@
       document.getElementById("result-name").textContent = result.name;
       document.getElementById("result-desc").textContent = result.desc;
       document.getElementById("mbti-desc").textContent = mbtiDescriptions[type];
-      document.getElementById("comment-intro").textContent =
-        `내 MBTI는 ${type} (${themeInfo.label} 테마 결과: ${result.name})입니다. 의견 남겨주세요!`;
+      const commentText = `내 MBTI는 ${type} (${themeInfo.label} 테마 결과: ${result.name})입니다. 의견 남겨주세요!`;
+      document.getElementById("comment-intro").textContent = commentText;
 
       const tags = document.getElementById("tags");
       tags.innerHTML = "";
@@ -379,17 +403,27 @@
           alert("복사에 실패했어요. 주소창의 링크를 복사해 주세요.");
         }
       });
+
+      const copyCommentBtn = document.getElementById("copy-comment");
+      copyCommentBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(commentText);
+          copyCommentBtn.textContent = "문구 복사됨";
+          setTimeout(() => {
+            copyCommentBtn.textContent = "MBTI 문구 복사";
+          }, 1500);
+        } catch (error) {
+          alert("복사에 실패했어요. 문구를 직접 복사해 주세요.");
+        }
+      });
     </script>
 
     <script>
       var disqus_config = function () {
-        const params = new URLSearchParams(window.location.search);
-        const theme = params.get("theme") || "animal";
-        const type = params.get("type") || "ISTJ";
-        const canonicalUrl = `${window.location.origin}${window.location.pathname}?theme=${theme}&type=${type}`;
+        const canonicalUrl = `${window.location.origin}${window.location.pathname}`;
 
         this.page.url = canonicalUrl;
-        this.page.identifier = `${theme}-${type}`;
+        this.page.identifier = "mbti-world-results";
       };
 
       (function () { // DON'T EDIT BELOW THIS LINE
