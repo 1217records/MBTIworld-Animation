@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>새 MBTI 테스트 제안</title>
+    <meta
+      name="description"
+      content="애니메이션 MBTI 월드에 새로운 테스트 아이디어를 제안하거나 제휴 문의를 보내는 페이지입니다."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="새 MBTI 테스트 제안" />
+    <meta
+      property="og:description"
+      content="새로운 테스트 아이디어, 제휴 문의, 개선 요청을 남겨주세요."
+    />
     <meta name="google-adsense-account" content="ca-pub-4245569327602514" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,6 +63,40 @@
         grid-template-columns: minmax(260px, 0.95fr) 1.2fr;
         gap: 32px;
         padding: clamp(24px, 4vw, 52px);
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        grid-column: 1 / -1;
+      }
+
+      .logo {
+        font-family: "Sora", sans-serif;
+        font-size: 18px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .nav-links a:hover {
+        text-decoration: underline;
       }
 
       .aside {
@@ -215,6 +259,14 @@
   </head>
   <body>
     <main class="wrap">
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a class="logo" href="index.html">MBTI-world</a>
+        <div class="nav-links">
+          <a href="about.html">소개</a>
+          <a href="contact.html">문의하기</a>
+          <a href="privacy.html">개인정보</a>
+        </div>
+      </nav>
       <aside class="aside">
         <span class="badge">New Ideas</span>
         <h1>새로운 MBTI 테스트를 제안해 주세요</h1>
@@ -290,6 +342,7 @@
           <span class="meta">보내기 클릭 시 Formspree로 전송됩니다.</span>
         </div>
         <div class="footer">
+          <a href="about.html">소개</a>
           <a href="privacy.html">개인정보 처리방침</a>
         </div>
       </form>

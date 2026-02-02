@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MBTI 결과</title>
+    <meta
+      name="description"
+      content="애니메이션 MBTI 월드 결과 페이지입니다. 선택한 답변을 바탕으로 MBTI 성향과 캐릭터 해설을 제공합니다."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="MBTI 결과" />
+    <meta
+      property="og:description"
+      content="선택한 답변을 기반으로 MBTI 유형과 캐릭터 해설을 확인하세요."
+    />
     <meta name="google-adsense-account" content="ca-pub-4245569327602514" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,6 +58,39 @@
         border: 1px solid rgba(17, 24, 39, 0.06);
         display: grid;
         gap: 20px;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-family: "Sora", sans-serif;
+        font-size: 18px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .nav-links a:hover {
+        text-decoration: underline;
       }
 
       .hero {
@@ -219,10 +262,35 @@
         text-decoration: underline;
       }
 
+      .footer {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
     </style>
   </head>
   <body>
     <main class="wrap">
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a class="logo" href="index.html">MBTI-world</a>
+        <div class="nav-links">
+          <a href="about.html">소개</a>
+          <a href="contact.html">문의하기</a>
+          <a href="privacy.html">개인정보</a>
+        </div>
+      </nav>
       <section class="hero" id="hero">
         <span class="badge" id="badge">MBTI 결과</span>
         <h1 class="hero-title" id="headline">결과를 불러오는 중…</h1>
@@ -266,7 +334,10 @@
         <a id="back" href="index.html">다른 테스트 고르기</a>
       </div>
       <div class="result-footer">
+        <a href="about.html">소개</a>
+        <a href="contact.html">문의하기</a>
         <a href="privacy.html">개인정보 처리방침</a>
+        <a href="index.html">홈</a>
       </div>
     </main>
 
