@@ -19,18 +19,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --ink: #151619;
-        --muted: #5f6270;
+        --ink: #0b1220;
+        --muted: #5b6575;
         --surface: #ffffff;
-        --canvas: #f8f3f0;
-        --border: #eadcd2;
-        --accent: #d45b32;
-        --shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+        --canvas: #f5f2ed;
+        --border: #e1d8cc;
+        --accent: #16324f;
+        --shadow: 0 28px 60px rgba(11, 18, 32, 0.12);
       }
 
       * {
@@ -40,9 +40,12 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Noto Sans KR", sans-serif;
+        font-family: "IBM Plex Sans KR", sans-serif;
         color: var(--ink);
-        background: var(--canvas);
+        background:
+          radial-gradient(540px 420px at 10% 10%, rgba(196, 154, 58, 0.18), transparent 60%),
+          radial-gradient(620px 520px at 90% 0%, rgba(47, 111, 107, 0.18), transparent 65%),
+          linear-gradient(180deg, #fdfcf9, #f1ece4);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,9 +56,10 @@
         content: "";
         position: fixed;
         inset: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><path d='M60 260 C120 200 200 180 260 220 C320 260 360 320 300 360 C240 400 160 380 120 320' fill='none' stroke='%23d45b32' stroke-opacity='0.16' stroke-width='6'/><circle cx='400' cy='140' r='36' fill='none' stroke='%23ff9d6e' stroke-opacity='0.2' stroke-width='6'/><path d='M180 120 C200 90 240 80 270 100' fill='none' stroke='%23d45b32' stroke-opacity='0.12' stroke-width='6'/></svg>");
-        background-size: 520px 520px;
-        opacity: 0.7;
+        background-image:
+          repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px),
+          repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px);
+        opacity: 0.4;
         pointer-events: none;
       }
 
@@ -65,7 +69,8 @@
         border-radius: 24px;
         padding: 40px clamp(20px, 4vw, 48px);
         box-shadow: var(--shadow);
-        border: 1px solid rgba(17, 24, 39, 0.06);
+        border: 1px solid rgba(22, 50, 79, 0.08);
+        position: relative;
       }
 
       header {
@@ -77,40 +82,24 @@
       .site-nav {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 16px;
         flex-wrap: wrap;
         margin-bottom: 20px;
       }
 
       .logo {
-        font-family: "Sora", sans-serif;
+        font-family: "Noto Serif KR", serif;
         font-size: 18px;
         text-decoration: none;
         color: var(--ink);
         font-weight: 700;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        font-size: 13px;
-      }
-
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .nav-links a:hover {
-        text-decoration: underline;
+        letter-spacing: -0.01em;
       }
 
       h1 {
         margin: 0;
-        font-family: "Sora", sans-serif;
+        font-family: "Noto Serif KR", serif;
         font-size: clamp(24px, 3vw, 34px);
       }
 
@@ -129,24 +118,25 @@
         width: 100%;
         height: 8px;
         border-radius: 999px;
-        background: #f2e7df;
+        background: rgba(22, 50, 79, 0.08);
         overflow: hidden;
       }
 
       .progress-bar {
         height: 100%;
         width: 0;
-        background: linear-gradient(90deg, #d45b32, #ff9d6e);
+        background: linear-gradient(90deg, #16324f, #2f6f6b);
         transition: width 0.3s ease;
       }
 
       .question {
-        border: 1px solid var(--border);
+        border: 1px solid rgba(22, 50, 79, 0.1);
         border-radius: 16px;
         padding: 18px;
         display: grid;
         gap: 14px;
-        background: #fff;
+        background: #ffffff;
+        box-shadow: 0 18px 30px rgba(11, 18, 32, 0.06);
       }
 
       .question.is-animating {
@@ -176,7 +166,7 @@
         padding: 12px 14px;
         border-radius: 12px;
         border: 1px solid transparent;
-        background: #fbf8f6;
+        background: #fbfaf7;
         cursor: pointer;
         transition: border-color 0.2s ease, background 0.2s ease;
       }
@@ -190,8 +180,8 @@
       }
 
       label:has(input[type="radio"]:checked) {
-        border-color: rgba(212, 91, 50, 0.4);
-        background: #f6ebe5;
+        border-color: rgba(22, 50, 79, 0.4);
+        background: rgba(22, 50, 79, 0.08);
       }
 
       .controls {
@@ -204,7 +194,7 @@
         border: 0;
         border-radius: 999px;
         padding: 12px 20px;
-        background: var(--accent);
+        background: linear-gradient(135deg, var(--accent), #1f4d63);
         color: #fff;
         font-weight: 600;
         cursor: pointer;
@@ -213,7 +203,7 @@
       button.secondary {
         background: #fff;
         color: var(--accent);
-        border: 1px solid rgba(212, 91, 50, 0.35);
+        border: 1px solid rgba(22, 50, 79, 0.35);
       }
 
       button:disabled {
@@ -249,12 +239,18 @@
       }
 
       .footer a {
-        color: var(--muted);
+        color: var(--accent);
         text-decoration: none;
+        border: 1px solid rgba(22, 50, 79, 0.18);
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 13px;
       }
 
       .footer a:hover {
-        text-decoration: underline;
+        background: #f6f2eb;
       }
 
       @keyframes slideIn {
@@ -276,17 +272,6 @@
         .wrap {
           padding: 28px 18px;
           border-radius: 20px;
-        }
-
-        .site-nav {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-        }
-
-        .nav-links {
-          gap: 10px;
-          font-size: 12px;
         }
 
         .question {
@@ -324,11 +309,6 @@
     <main class="wrap">
       <nav class="site-nav" aria-label="주요 메뉴">
         <a class="logo" href="index.html">MBTI-world</a>
-        <div class="nav-links">
-          <a href="about.html">소개</a>
-          <a href="contact.html">문의하기</a>
-          <a href="privacy.html">개인정보</a>
-        </div>
       </nav>
       <header>
         <h1>나루토 MBTI 테스트</h1>
@@ -350,8 +330,9 @@
       </form>
 
       <p class="meta">각 문항에서 선택 후 다음으로 이동해 주세요.</p>
-      <a class="back" href="index.html">← 테스트 목록으로</a>
       <div class="footer">
+        <a href="index.html">홈</a>
+        <a href="test-select.html">테스트 선택</a>
         <a href="about.html">소개</a>
         <a href="contact.html">문의하기</a>
         <a href="privacy.html">개인정보 처리방침</a>

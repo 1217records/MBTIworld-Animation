@@ -19,18 +19,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.9/kakao.min.js"
+      integrity="sha384-JpLApTkB8lPskhVMhT+m5Ln8aHlnS0bsIexhaak0jOhAkMYedQoVghPfSpjNi9K1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+      integrity="sha384-gfaA1QeIhD1eQJx1V0u2r2pOeE7nBNC1M5g3vS7d0Tklkz2fx+EAPtB9Q2EoXQax"
+      crossorigin="anonymous"
+    ></script>
     <style>
       :root {
-        --ink: #151619;
-        --muted: #6b6f76;
+        --ink: #0b1220;
+        --muted: #5b6575;
         --surface: #ffffff;
-        --canvas: #f5f6f7;
-        --border: #e1e4e8;
-        --accent: #111827;
-        --shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+        --canvas: #f5f2ed;
+        --border: #e1d8cc;
+        --accent: #16324f;
+        --shadow: 0 28px 60px rgba(11, 18, 32, 0.12);
       }
 
       * {
@@ -40,13 +50,27 @@
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Noto Sans KR", sans-serif;
+        font-family: "IBM Plex Sans KR", sans-serif;
         color: var(--ink);
-        background: var(--canvas);
+        background:
+          radial-gradient(540px 420px at 10% 10%, rgba(196, 154, 58, 0.18), transparent 60%),
+          radial-gradient(620px 520px at 90% 0%, rgba(47, 111, 107, 0.18), transparent 65%),
+          linear-gradient(180deg, #fdfcf9, #f1ece4);
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 48px 24px;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px),
+          repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px);
+        opacity: 0.4;
+        pointer-events: none;
       }
 
       .wrap {
@@ -55,55 +79,41 @@
         border-radius: 24px;
         padding: 36px clamp(20px, 4vw, 48px) 42px;
         box-shadow: var(--shadow);
-        border: 1px solid rgba(17, 24, 39, 0.06);
+        border: 1px solid rgba(22, 50, 79, 0.08);
         display: grid;
         gap: 20px;
+        position: relative;
       }
 
       .site-nav {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 16px;
         flex-wrap: wrap;
       }
 
       .logo {
-        font-family: "Sora", sans-serif;
+        font-family: "Noto Serif KR", serif;
         font-size: 18px;
         text-decoration: none;
         color: var(--ink);
         font-weight: 700;
+        letter-spacing: -0.01em;
       }
 
-      .nav-links {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        font-size: 13px;
-      }
 
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .nav-links a:hover {
-        text-decoration: underline;
-      }
-
-      .hero {
-        border-radius: 20px;
-        padding: 24px;
-        color: #fff;
+      .hero-card {
         display: grid;
-        gap: 12px;
+        gap: 14px;
+        background:
+          linear-gradient(135deg, rgba(22, 50, 79, 0.12), rgba(47, 111, 107, 0.08)),
+          #ffffff;
         position: relative;
         overflow: hidden;
       }
 
-      .hero::after {
+      .hero-card::after {
         content: "";
         position: absolute;
         width: 220px;
@@ -111,19 +121,19 @@
         border-radius: 50%;
         top: -80px;
         right: -60px;
-        background: rgba(255, 255, 255, 0.18);
+        background: rgba(22, 50, 79, 0.12);
         filter: blur(2px);
       }
 
       .hero-title {
-        font-family: "Sora", sans-serif;
+        font-family: "Noto Serif KR", serif;
         font-size: clamp(24px, 3vw, 36px);
         margin: 0;
       }
 
       .hero-sub {
         margin: 0;
-        opacity: 0.9;
+        color: var(--muted);
       }
 
       .badge {
@@ -132,21 +142,61 @@
         gap: 8px;
         padding: 6px 12px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.22);
+        background: rgba(22, 50, 79, 0.12);
         font-size: 13px;
+        color: var(--accent);
+        width: fit-content;
       }
 
       .result-card {
-        border: 1px solid var(--border);
+        border: 1px solid rgba(22, 50, 79, 0.1);
         border-radius: 18px;
-        padding: 20px;
+        padding: 18px;
         display: grid;
-        gap: 12px;
-        background: #fff;
+        gap: 14px;
+        background:
+          linear-gradient(160deg, rgba(22, 50, 79, 0.04), transparent 60%),
+          #f9f6f0;
+        box-shadow: 0 18px 30px rgba(11, 18, 32, 0.06);
       }
 
       .result-card p {
         white-space: pre-line;
+      }
+
+      .result-capture {
+        display: grid;
+        gap: 20px;
+      }
+
+      .card-surface {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 18px;
+        display: grid;
+        gap: 12px;
+        box-shadow:
+          0 12px 22px rgba(11, 18, 32, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+
+      .hero-card .card-surface {
+        background: linear-gradient(180deg, #ffffff, #fbf8f3);
+      }
+
+      .section-bar {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(22, 50, 79, 0.08);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        width: fit-content;
       }
 
       .comment-card {
@@ -167,7 +217,7 @@
       }
 
       .comment-actions button {
-        border: 1px solid var(--border);
+        border: 1px solid rgba(22, 50, 79, 0.12);
         border-radius: 999px;
         padding: 8px 14px;
         background: #fff;
@@ -178,23 +228,23 @@
       }
 
       .comment-actions button:hover {
-        background: #f3f4f6;
+        background: #f6f2eb;
       }
 
       #disqus_thread {
-        border-top: 1px solid var(--border);
+        border-top: 1px solid rgba(22, 50, 79, 0.08);
         padding-top: 16px;
       }
 
       .result-title {
-        font-size: 20px;
+        font-size: 21px;
         margin: 0;
       }
 
       .desc {
         margin: 0;
         color: var(--muted);
-        line-height: 1.6;
+        line-height: 1.7;
       }
 
       .section-label {
@@ -207,31 +257,74 @@
 
       .desc-compact {
         font-size: 14px;
-        line-height: 1.6;
+        line-height: 1.7;
+      }
+
+      .share-panel {
+        border-radius: 20px;
+        border: 1px solid rgba(22, 50, 79, 0.12);
+        padding: 22px;
+        background:
+          linear-gradient(135deg, rgba(22, 50, 79, 0.08), rgba(47, 111, 107, 0.06)),
+          #ffffff;
+        display: grid;
+        gap: 16px;
+        box-shadow: 0 18px 30px rgba(11, 18, 32, 0.08);
       }
 
       .share {
-        display: flex;
+        display: grid;
         gap: 12px;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        align-items: stretch;
       }
 
       .share button,
       .share a {
-        border: 1px solid var(--border);
+        border: 1px solid rgba(22, 50, 79, 0.14);
         border-radius: 999px;
-        padding: 10px 16px;
-        background: #fff;
+        padding: 14px 18px;
+        background: #ffffff;
         cursor: pointer;
-        font-weight: 600;
-        font-size: 13px;
-        color: var(--ink);
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--accent);
         text-decoration: none;
+        box-shadow: 0 12px 22px rgba(15, 34, 54, 0.18);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        min-height: 52px;
+        width: 100%;
+        text-align: center;
       }
 
       .share button:hover,
-      .share a:hover {
-        background: #f3f4f6;
+      .share a:hover,
+      .share button:focus-visible,
+      .share a:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 30px rgba(15, 34, 54, 0.22);
+        filter: brightness(1.02);
+      }
+
+      .share .primary {
+        border: none;
+        background: linear-gradient(135deg, #0f2236, #1f5a75);
+        color: #fff;
+      }
+
+      .share .kakao {
+        background: #fee500;
+        color: #1f1f1f;
+        border: none;
+        box-shadow: 0 14px 24px rgba(254, 229, 0, 0.28);
+      }
+
+      .share .secondary {
+        justify-self: stretch;
+        border: 1px solid rgba(22, 50, 79, 0.22);
+        background: #ffffff;
+        color: var(--accent);
+        box-shadow: 0 10px 18px rgba(15, 34, 54, 0.16);
       }
 
       .pill-group {
@@ -243,19 +336,9 @@
       .pill {
         padding: 6px 10px;
         border-radius: 999px;
-        background: #f3f4f6;
+        background: rgba(22, 50, 79, 0.06);
         font-size: 12px;
         color: var(--muted);
-      }
-
-      .result-footer {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .result-footer a {
-        color: var(--muted);
-        text-decoration: none;
       }
 
       .result-footer a:hover {
@@ -271,12 +354,18 @@
       }
 
       .footer a {
-        color: var(--muted);
+        color: var(--accent);
         text-decoration: none;
+        border: 1px solid rgba(22, 50, 79, 0.18);
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 13px;
       }
 
       .footer a:hover {
-        text-decoration: underline;
+        background: #f6f2eb;
       }
 
       @media (max-width: 640px) {
@@ -295,16 +384,11 @@
           gap: 10px;
         }
 
-        .nav-links {
-          gap: 10px;
-          font-size: 12px;
+        .share {
+          grid-template-columns: 1fr;
         }
 
-        .hero {
-          padding: 18px;
-        }
-
-        .hero::after {
+        .hero-card::after {
           width: 160px;
           height: 160px;
           top: -60px;
@@ -312,6 +396,10 @@
         }
 
         .result-card {
+          padding: 16px;
+        }
+
+        .card-surface {
           padding: 16px;
         }
 
@@ -327,16 +415,15 @@
           flex-direction: column;
         }
 
-        .share button,
-        .share a {
-          width: 100%;
-          text-align: center;
-        }
-
-        .result-footer,
         .footer {
           flex-direction: column;
           gap: 6px;
+        }
+      }
+
+      @media (min-width: 720px) {
+        .share {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
@@ -345,37 +432,52 @@
     <main class="wrap">
       <nav class="site-nav" aria-label="주요 메뉴">
         <a class="logo" href="index.html">MBTI-world</a>
-        <div class="nav-links">
-          <a href="about.html">소개</a>
-          <a href="contact.html">문의하기</a>
-          <a href="privacy.html">개인정보</a>
-        </div>
       </nav>
-      <section class="hero" id="hero">
-        <span class="badge" id="badge">MBTI 결과</span>
-        <h1 class="hero-title" id="headline">결과를 불러오는 중…</h1>
-        <p class="hero-sub" id="hero-sub">-</p>
-      </section>
+      <div class="result-capture" id="result-capture">
+        <section class="result-card hero-card" id="hero">
+          <div class="card-surface">
+            <span class="badge" id="badge">MBTI 결과</span>
+            <h1 class="hero-title" id="headline">결과를 불러오는 중…</h1>
+            <p class="hero-sub" id="hero-sub">-</p>
+            <div>
+              <p class="section-label">캐릭터</p>
+              <h2 class="result-title" id="result-name">-</h2>
+              <p class="desc" id="result-desc">-</p>
+              <div class="pill-group" id="tags"></div>
+            </div>
+          </div>
+        </section>
 
-      <section class="result-card">
-        <p class="section-label">캐릭터</p>
-        <h2 class="result-title" id="result-name">-</h2>
-        <p class="desc" id="result-desc">-</p>
-        <div class="pill-group" id="tags"></div>
-      </section>
+        <section class="result-card">
+          <div class="card-surface">
+            <div class="section-bar">MBTI 상세</div>
+            <h2 class="result-title">MBTI 상세 설명</h2>
+            <p class="section-label">핵심 요약</p>
+            <p class="desc desc-compact" id="mbti-short">-</p>
+            <p class="section-label">설명</p>
+            <p class="desc" id="mbti-desc">-</p>
+          </div>
+        </section>
 
-      <section class="result-card">
-        <h2 class="result-title">MBTI 상세 설명</h2>
-        <p class="section-label">핵심 요약</p>
-        <p class="desc desc-compact" id="mbti-short">-</p>
-        <p class="section-label">설명</p>
-        <p class="desc" id="mbti-desc">-</p>
-      </section>
+        <section class="result-card">
+          <div class="card-surface">
+            <div class="section-bar">캐릭터 설명</div>
+            <h2 class="result-title">캐릭터 설명</h2>
+            <p class="section-label">대표 에피소드</p>
+            <p class="desc" id="character-desc">-</p>
+          </div>
+        </section>
+      </div>
 
-      <section class="result-card">
-        <h2 class="result-title">캐릭터 설명</h2>
-        <p class="section-label">대표 에피소드</p>
-        <p class="desc" id="character-desc">-</p>
+      <section class="share-panel" aria-label="결과 공유 및 다음 단계">
+        <div class="share">
+          <button type="button" id="share-btn" class="primary">결과 공유하기</button>
+          <button type="button" id="copy-btn" class="primary">링크 복사하기</button>
+          <button type="button" id="kakao-share-btn" class="kakao">카카오톡 공유하기</button>
+          <button type="button" id="save-image-btn" class="secondary">이미지 저장</button>
+          <a id="retry" class="secondary" href="index.html">같은 테스트 다시하기</a>
+          <a id="back" class="secondary" href="test-select.html">다른 테스트 고르기</a>
+        </div>
       </section>
 
       <section class="result-card comment-card">
@@ -387,17 +489,12 @@
         <div id="disqus_thread"></div>
       </section>
 
-      <div class="share">
-        <button type="button" id="share-btn">결과 공유하기</button>
-        <button type="button" id="copy-btn">링크 복사</button>
-        <a id="retry" href="index.html">같은 테스트 다시하기</a>
-        <a id="back" href="index.html">다른 테스트 고르기</a>
-      </div>
-      <div class="result-footer">
+      <div class="footer">
+        <a href="index.html">홈</a>
+        <a href="test-select.html">테스트 선택</a>
         <a href="about.html">소개</a>
         <a href="contact.html">문의하기</a>
         <a href="privacy.html">개인정보 처리방침</a>
-        <a href="index.html">홈</a>
       </div>
     </main>
 
@@ -683,6 +780,8 @@
 
       const shareBtn = document.getElementById("share-btn");
       const copyBtn = document.getElementById("copy-btn");
+      const kakaoShareBtn = document.getElementById("kakao-share-btn");
+      const saveImageBtn = document.getElementById("save-image-btn");
       const shareUrl = window.location.href;
       const shareText = `${themeInfo.label} MBTI 테스트 결과: ${type}`;
 
@@ -697,7 +796,6 @@
           alert("이 브라우저는 공유 기능을 지원하지 않아요. 링크 복사를 이용해 주세요.");
         }
       });
-
       copyBtn.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(shareUrl);
@@ -720,6 +818,57 @@
           }, 1500);
         } catch (error) {
           alert("복사에 실패했어요. 문구를 직접 복사해 주세요.");
+        }
+      });
+
+      const KAKAO_JAVASCRIPT_KEY = "f6d04dfad449d9bb30b18043ac0f573e";
+
+      const initKakao = () => {
+        if (!window.Kakao) return false;
+        if (!Kakao.isInitialized()) {
+          if (KAKAO_JAVASCRIPT_KEY === "YOUR_KAKAO_JAVASCRIPT_KEY") return false;
+          Kakao.init(KAKAO_JAVASCRIPT_KEY);
+        }
+        return Kakao.isInitialized();
+      };
+
+      kakaoShareBtn.addEventListener("click", () => {
+        if (!initKakao()) {
+          alert("카카오 공유 설정이 필요합니다. JavaScript 키와 도메인 설정을 확인해 주세요.");
+          return;
+        }
+
+        Kakao.Share.sendDefault({
+          objectType: "text",
+          text: `${shareText}\n${shareUrl}`,
+          link: {
+            mobileWebUrl: shareUrl,
+            webUrl: shareUrl,
+          },
+          buttonTitle: "결과 보기",
+        });
+      });
+
+      saveImageBtn.addEventListener("click", async () => {
+        const target = document.getElementById("result-capture");
+        if (!target || !window.html2canvas) {
+          alert("이미지 저장을 지원하지 않는 환경입니다.");
+          return;
+        }
+
+        try {
+          const canvas = await html2canvas(target, {
+            backgroundColor: "#f5f2ed",
+            scale: 2,
+            useCORS: true,
+          });
+          const link = document.createElement("a");
+          link.download = `mbti-result-${type.toLowerCase()}.png`;
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        } catch (error) {
+          console.error(error);
+          alert("이미지 저장에 실패했어요. 다시 시도해 주세요.");
         }
       });
     </script>
