@@ -1,11 +1,28 @@
 
 "use client";
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Script from 'next/script';
 import { THEMES, CONTENTS } from '@/data';
 import { MBTI_SHORT_DESCS, MBTI_LONG_DESCS } from '@/constants';
+
+const KAKAO_JS_KEY = '22eb1d8928d653f7d244db698943c4d1';
+const KAKAO_SDK_VERSION = '2.7.9';
+const KAKAO_SDK_SRC = `https://t1.kakaocdn.net/kakao_js_sdk/${KAKAO_SDK_VERSION}/kakao.min.js`;
+
+declare global {
+  interface Window {
+    Kakao?: {
+      init: (key: string) => void;
+      isInitialized: () => boolean;
+      Share: {
+        sendDefault: (payload: Record<string, unknown>) => void;
+      };
+    };
+  }
+}
 
 function ResultContent() {
   const searchParams = useSearchParams();
@@ -23,6 +40,43 @@ function ResultContent() {
     }
   };
 
+  const handleKakaoShare = useCallback(() => {
+    if (typeof window === 'undefined' || !window.Kakao) {
+      alert('카카오 SDK를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.');
+      return;
+    }
+
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init(KAKAO_JS_KEY);
+    }
+
+    const origin = window.location.origin;
+    const shareUrl = `${origin}/result?theme=${encodeURIComponent(themeId)}&type=${encodeURIComponent(type)}`;
+    const imageUrl = `${origin}/og-image.svg`;
+
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: `${character.name} (${type})`,
+        description: MBTI_SHORT_DESCS[type],
+        imageUrl,
+        link: {
+          mobileWebUrl: shareUrl,
+          webUrl: shareUrl,
+        },
+      },
+      buttons: [
+        {
+          title: '결과 보기',
+          link: {
+            mobileWebUrl: shareUrl,
+            webUrl: shareUrl,
+          },
+        },
+      ],
+    });
+  }, [character.name, themeId, type]);
+
   // MBTI 특징 매핑 (담백하게)
   const traitMap: Record<string, string> = {
     E: '외향적', I: '내향적', S: '감각적', N: '직관적',
@@ -31,6 +85,15 @@ function ResultContent() {
 
   return (
     <div className="space-y-16 animate-in fade-in pb-24">
+      <Script
+        src={KAKAO_SDK_SRC}
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (window.Kakao && !window.Kakao.isInitialized()) {
+            window.Kakao.init(KAKAO_JS_KEY);
+          }
+        }}
+      />
       {/* Visual Hero Card */}
       <section className={`relative overflow-hidden rounded-[3rem] p-10 sm:p-20 bg-gradient-to-br ${theme.gradient} text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]`}>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[130px] -translate-y-1/2 translate-x-1/2 rounded-full" />
@@ -124,7 +187,7 @@ function ResultContent() {
           <button onClick={handleCopyLink} className="w-full sm:w-auto px-12 py-4 rounded-full bg-[#16324f] text-white font-black text-lg shadow-xl shadow-[#16324f]/30 hover:-translate-y-1 transition-all active:scale-95">
             링크 복사하기
           </button>
-          <button className="w-full sm:w-auto px-12 py-4 rounded-full bg-[#fee500] text-[#3c1e1e] font-black text-lg shadow-xl shadow-yellow-200/50 hover:-translate-y-1 transition-all active:scale-95" onClick={() => alert('카카오 서비스 준비 중입니다.')}>
+          <button className="w-full sm:w-auto px-12 py-4 rounded-full bg-[#fee500] text-[#3c1e1e] font-black text-lg shadow-xl shadow-yellow-200/50 hover:-translate-y-1 transition-all active:scale-95" onClick={handleKakaoShare}>
             카카오톡 공유
           </button>
         </div>

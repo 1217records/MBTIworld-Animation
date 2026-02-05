@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f2a45"/>
+      <stop offset="50%" stop-color="#1f4d8f"/>
+      <stop offset="100%" stop-color="#63b0f4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="64" fill="url(#bg)"/>
+  <circle cx="980" cy="-10" r="240" fill="#ffffff" opacity="0.08"/>
+  <circle cx="140" cy="680" r="260" fill="#000000" opacity="0.12"/>
+  <rect x="120" y="140" width="960" height="350" rx="48" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.18"/>
+  <text x="160" y="230" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700">MBTI-World</text>
+  <text x="160" y="280" fill="#ffffff" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" opacity="0.7">ANIME PERSONALITY TEST</text>
+  <text x="160" y="380" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="900" letter-spacing="8">RESULT</text>
+  <text x="160" y="435" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="500" opacity="0.8">Discover the character that matches your soul</text>
+  <rect x="160" y="470" width="240" height="52" rx="26" fill="#ffffff" opacity="0.16"/>
+  <text x="190" y="505" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">mbti-world</text>
+</svg>
