@@ -1,399 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MBTI 테스트 선택</title>
-    <meta
-      name="description"
-      content="애니메이션 장면을 기반으로 한 스토리형 MBTI 테스트를 제공합니다. 독창적인 질문과 상세한 결과 해설로 몰입도 높은 경험을 만나보세요."
-    />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="애니메이션 MBTI 월드" />
-    <meta
-      property="og:description"
-      content="원피스, 나루토 등 애니메이션 세계관을 기반으로 한 MBTI 스토리 테스트."
-    />
-    <meta name="google-adsense-account" content="ca-pub-4245569327602514" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514" crossorigin="anonymous"></script>
+    <title>애니메이션 MBTI 월드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
-        --ink: #0b1220;
-        --muted: #5b6575;
-        --surface: #ffffff;
-        --canvas: #f5f2ed;
-        --border: #e1d8cc;
-        --accent: #16324f;
-        --accent-2: #c49a3a;
-        --accent-3: #2f6f6b;
-        --shadow: 0 28px 60px rgba(11, 18, 32, 0.12);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
       body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "IBM Plex Sans KR", sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(540px 420px at 10% 10%, rgba(196, 154, 58, 0.18), transparent 60%),
-          radial-gradient(620px 520px at 90% 0%, rgba(47, 111, 107, 0.18), transparent 65%),
-          linear-gradient(180deg, #fdfcf9, #f1ece4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 48px 24px;
+        font-family: 'IBM Plex Sans KR', sans-serif;
       }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-          repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px),
-          repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.04) 0 1px, transparent 1px 28px);
-        opacity: 0.4;
-        pointer-events: none;
+      h1, h2, h3, .font-serif {
+        font-family: 'Noto Serif KR', serif;
       }
-
-      .wrap {
-        width: min(1040px, 100%);
-        background: var(--surface);
-        border-radius: 28px;
-        padding: 48px clamp(20px, 4vw, 56px);
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(22, 50, 79, 0.08);
-        position: relative;
-      }
-
-      header {
-        display: grid;
-        gap: 12px;
-        margin-bottom: 32px;
-      }
-
-      .site-nav {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-
-      .logo {
-        font-family: "Noto Serif KR", serif;
-        font-size: 18px;
-        text-decoration: none;
-        color: var(--ink);
-        font-weight: 700;
-        letter-spacing: -0.01em;
-      }
-
-      .hero {
-        display: grid;
-        gap: 16px;
-        padding: 28px;
-        border-radius: 24px;
-        background: #fdfbf7;
-        border: 1px solid rgba(22, 50, 79, 0.1);
-        animation: riseIn 0.6s ease-out both;
-        text-align: center;
-      }
-
-      .hero-title {
-        font-family: "Noto Serif KR", serif;
-        font-size: clamp(28px, 3.2vw, 44px);
-        margin: 0;
-        letter-spacing: -0.02em;
-      }
-
-      .hero-subtitle {
-        margin: 0;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.7;
-      }
-
-      .hero-actions {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-top: 4px;
-        justify-content: center;
-      }
-
-      h1 {
-        font-family: "Noto Serif KR", serif;
-        font-size: clamp(28px, 3vw, 40px);
-        margin: 0;
-        letter-spacing: -0.02em;
-      }
-
-      .subtitle {
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(14px, 1.6vw, 16px);
-        line-height: 1.6;
-      }
-
-      .grid {
-        display: grid;
-        gap: 18px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        animation: riseIn 0.6s ease-out both;
-        animation-delay: 0.2s;
-      }
-
-      .card {
-        display: grid;
-        gap: 14px;
-        padding: 20px;
-        border-radius: 20px;
-        border: 1px solid rgba(22, 50, 79, 0.1);
-        background: #ffffff;
-        text-decoration: none;
-        color: inherit;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        animation: fadeUp 0.6s ease both;
-      }
-
-      .card:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-
-      .card:nth-child(3) {
-        animation-delay: 0.2s;
-      }
-
-      .card:hover,
-      .card:focus-visible {
-        transform: translateY(-4px);
-        box-shadow: 0 22px 40px rgba(11, 18, 32, 0.12);
-        border-color: rgba(22, 50, 79, 0.3);
-      }
-
-      .card:focus-visible {
-        outline: 2px solid rgba(22, 50, 79, 0.35);
-        outline-offset: 3px;
-      }
-
-      .card.add-card {
-        border-style: dashed;
-        background: rgba(22, 50, 79, 0.04);
-      }
-
-      .card.add-card::before {
-        content: "";
-        position: absolute;
-        inset: 12px;
-        border-radius: 16px;
-        border: 1px dashed rgba(22, 50, 79, 0.35);
-        pointer-events: none;
-      }
-
-      .add-mark {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        width: 34px;
-        height: 34px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        background: rgba(22, 50, 79, 0.16);
-        font-size: 20px;
-        font-weight: 700;
-        font-family: "Noto Serif KR", serif;
-      }
-
-      .label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: "Noto Serif KR", serif;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        font-size: 20px;
-      }
-
-      .emoji {
-        width: 36px;
-        height: 36px;
-        display: grid;
-        place-items: center;
-        border-radius: 12px;
-        background: rgba(22, 50, 79, 0.1);
-        font-size: 24px;
-      }
-
-      .desc {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.5;
-        color: var(--muted);
-      }
-
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 18px 38px;
-        border-radius: 999px;
-        font-weight: 700;
-        font-size: 18px;
-        color: #fff;
-        background: linear-gradient(135deg, #0f2236, #1f5a75);
-        width: fit-content;
-        box-shadow: 0 16px 28px rgba(15, 34, 54, 0.28);
-        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      }
-
-      .cta:hover,
-      .cta:focus-visible {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 20px 36px rgba(15, 34, 54, 0.32);
-        filter: brightness(1.03);
-      }
-
-      .card.add-card .cta {
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.2);
-      }
-
-      .hint {
-        margin-top: 24px;
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      .footer {
-        margin-top: 16px;
-        font-size: 12px;
-        color: var(--muted);
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .footer a {
-        color: var(--accent);
-        text-decoration: none;
-        border: 1px solid rgba(22, 50, 79, 0.18);
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: #ffffff;
-        font-weight: 600;
-        font-size: 13px;
-      }
-
-      .footer a:hover {
-        background: #f6f2eb;
-      }
-
-      @keyframes riseIn {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 640px) {
-        body {
-          padding: 28px 16px;
-        }
-
-        .wrap {
-          padding: 28px 18px;
-          border-radius: 20px;
-        }
-
-        .hero {
-          padding: 20px;
-          border-radius: 20px;
-        }
-
-        .cta {
-          width: 100%;
-          font-size: 15px;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .card {
-          padding: 18px;
-        }
-
-        .cta {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .footer {
-          flex-direction: column;
-          gap: 6px;
-        }
-      }
-
-      @media (min-width: 900px) {
-        .grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
+      .bg-pattern {
+        background-image: 
+          repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.03) 0 1px, transparent 1px 40px),
+          repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.03) 0 1px, transparent 1px 40px);
       }
     </style>
-  </head>
-  <body>
-    <main class="wrap">
-      <nav class="site-nav" aria-label="주요 메뉴">
-        <a class="logo" href="index.html">MBTI-world</a>
-      </nav>
-      <header>
-        <div class="hero">
-          <h1 class="hero-title">MBTI 월드 - 애니메이션</h1>
-          <p class="hero-subtitle">
-            애니메이션 속 상황을 내가 겪는다면? 어떤 캐릭터가 나랑 가장 비슷할지 MBTI로 확인하는
-            스토리형 테스트
-          </p>
-          <div class="hero-actions">
-            <a class="cta" href="test-select.html">테스트 선택</a>
-          </div>
-        </div>
-      </header>
-
-      <div class="footer">
-        <a href="about.html">소개</a>
-        <a href="contact.html">문의하기</a>
-        <a href="privacy.html">개인정보 처리방침</a>
-      </div>
-    </main>
-  </body>
+  <script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#fdfcf9] text-[#0b1220] min-h-screen">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
