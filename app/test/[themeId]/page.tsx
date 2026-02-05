@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { THEMES, CONTENTS } from '@/data';
 import { MBTI_Value } from '@/types';
 
+export const runtime = 'edge';
+
 export default function TestRunner() {
   const { themeId } = useParams();
   const router = useRouter();
