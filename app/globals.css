@@ -1,0 +1,30 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-ibm-plex: 'IBM Plex Sans KR', sans-serif;
+  --font-noto-serif: 'Noto Serif KR', serif;
+}
+
+body {
+  font-family: var(--font-ibm-plex);
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-noto-serif);
+}
+
+.bg-pattern {
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(22, 50, 79, 0.03) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(0deg, rgba(22, 50, 79, 0.03) 0 1px, transparent 1px 40px);
+}
+
+@layer utilities {
+  .animate-in {
+    animation-duration: 700ms;
+    animation-fill-mode: both;
+  }
+}

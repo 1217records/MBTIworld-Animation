@@ -1,11 +1,10 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] text-center gap-8">
-      <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
         <div className="inline-block px-4 py-1.5 rounded-full bg-[#16324f]/10 text-[#16324f] text-xs font-bold tracking-widest uppercase mb-2">
           Story-driven Personality Test
         </div>
@@ -20,13 +19,13 @@ const Home: React.FC = () => {
 
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-none justify-center">
         <Link 
-          to="/select"
+          href="/select"
           className="px-10 py-4 rounded-full bg-[#16324f] text-white font-bold text-lg shadow-xl shadow-[#16324f]/20 hover:scale-105 transition-transform active:scale-95"
         >
           테스트 시작하기
         </Link>
         <Link 
-          to="/about"
+          href="/about"
           className="px-10 py-4 rounded-full bg-white border border-gray-200 text-[#16324f] font-bold text-lg shadow-sm hover:bg-gray-50 transition-colors"
         >
           서비스 소개
@@ -34,6 +33,4 @@ const Home: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}

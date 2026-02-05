@@ -24,7 +24,7 @@ const Footer = () => (
         <Link to="/" className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">홈으로</Link>
         <Link to="/about" className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">서비스 소개</Link>
         <Link to="/contact" className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">테스트 제안</Link>
-        <Link to="/privacy" className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">개인정보 보호</Link>
+        <Link to="/privacy" className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">개인정보 처리방침</Link>
       </div>
       <div className="text-center space-y-3">
         <p className="text-[11px] text-gray-300 font-bold tracking-[0.2em] uppercase">Your Soul, Reimagined in Anime</p>
