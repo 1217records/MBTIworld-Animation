@@ -27,6 +27,23 @@ export default function Privacy() {
           <h2 className="text-lg font-bold text-[#16324f]">3. 보관 및 파기</h2>
           <p>개인정보는 이용 목적 달성 후 지체 없이 파기합니다. 별도의 서버에 영구 저장하지 않습니다.</p>
         </section>
+        <section className="space-y-2">
+          <h2 className="text-lg font-bold text-[#16324f]">4. 제3자 제공</h2>
+          <p>원칙적으로 개인정보를 제3자에게 제공하지 않습니다. 다만, 법령에 근거한 요청이 있는 경우 예외적으로 제공될 수 있습니다.</p>
+        </section>
+        <section className="space-y-2">
+          <h2 className="text-lg font-bold text-[#16324f]">5. 처리 위탁</h2>
+          <p>문의 폼 전송을 위해 외부 이메일 전송 서비스(Formspree)를 이용할 수 있습니다. 해당 서비스는 문의 처리 목적 범위 내에서만 정보를 처리합니다.</p>
+        </section>
+        <section className="space-y-2">
+          <h2 className="text-lg font-bold text-[#16324f]">6. 이용자의 권리</h2>
+          <p>이용자는 자신의 개인정보에 대해 열람, 정정, 삭제를 요청할 수 있습니다. 관련 요청은 아래 문의 메일로 접수해 주세요.</p>
+        </section>
+        <section className="space-y-2">
+          <h2 className="text-lg font-bold text-[#16324f]">7. 문의</h2>
+          <p>개인정보 관련 문의는 아래 메일로 연락해 주세요.</p>
+          <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+        </section>
         <div className="pt-8 border-t border-gray-100 text-[10px] text-gray-400 italic">
           본 방침은 관련 법령 및 가이드라인의 변경에 따라 수정될 수 있습니다.
         </div>

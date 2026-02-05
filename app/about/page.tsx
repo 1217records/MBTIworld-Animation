@@ -66,6 +66,35 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
+          <h2 className="text-2xl font-black text-[#16324f] font-serif">운영 원칙</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
+              <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Clarity</p>
+              <h3 className="font-bold text-[#16324f]">명확한 안내</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">질문은 간결하게, 결과는 이해하기 쉽게 구성하여 부담 없이 몰입할 수 있도록 합니다.</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
+              <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Respect</p>
+              <h3 className="font-bold text-[#16324f]">존중의 톤</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">어떤 성향도 평가하지 않습니다. 결과 해석은 따뜻하고 긍정적인 언어를 지향합니다.</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
+              <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Growth</p>
+              <h3 className="font-bold text-[#16324f]">지속적인 개선</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">새로운 작품과 캐릭터를 꾸준히 추가해, 더 많은 사람들이 공감할 수 있도록 확장합니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-6">
+          <h2 className="text-2xl font-black text-[#16324f] font-serif">문의</h2>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            새로운 테스트 제안, 콜라보, 오류 제보가 있다면 아래 메일로 연락해 주세요.
+          </p>
+          <p className="text-sm font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+        </section>
       </div>
     </div>
   );
