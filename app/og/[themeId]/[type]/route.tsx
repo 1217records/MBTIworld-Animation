@@ -8,7 +8,7 @@ export const runtime = 'edge';
 function extractGradientColors(gradient: string): { from: string; to: string } {
   const match = gradient.match(/#([0-9a-fA-F]{6})/g) || [];
   if (match.length >= 2) {
-    return { from: match[0], to: match[1] };
+    return { from: match[0] ?? '#1f4d8f', to: match[1] ?? '#63b0f4' };
   }
   return { from: '#1f4d8f', to: '#63b0f4' };
 }
