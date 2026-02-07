@@ -3,6 +3,7 @@ import { THEMES, CONTENTS } from '@/data';
 import ResultClient from './ResultClient';
 
 const SITE_ORIGIN = 'https://mbti-world-animation.pages.dev';
+export const runtime = 'edge';
 
 function normalizeType(raw: string | null): string {
   if (!raw) return 'ISTJ';
