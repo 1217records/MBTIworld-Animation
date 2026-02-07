@@ -1,4 +1,3 @@
-
 import React from "react";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -22,12 +21,12 @@ const notoSerif = Noto_Serif_KR({
 });
 
 export const metadata: Metadata = {
-  title: "애니메이션 MBTI 월드 | 나와 닮은 캐릭터 찾기",
-  description: "원피스, 나루토 등 애니메이션 속 명장면을 통해 알아보는 나의 MBTI 성격 테스트. 당신의 영혼은 어떤 캐릭터와 닮았나요?",
+  title: "MBTI WORLD ANIMATION",
+  description: "내 MBTI는 어떤 캐릭터와 같을까?",
   keywords: ["MBTI", "애니메이션 MBTI", "원피스 MBTI", "나루토 MBTI", "성격테스트"],
   openGraph: {
-    title: "애니메이션 MBTI 월드",
-    description: "당신의 영혼을 비추는 스토리 기반 심리 테스트",
+    title: "MBTI WORLD ANIMATION",
+    description: "내 MBTI는 어떤 캐릭터와 같을까?",
     type: "website",
   },
 };
