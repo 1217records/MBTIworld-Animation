@@ -87,10 +87,15 @@ export default function TestRunner() {
           {currentQuestion.options.map((option, idx) => (
             <button
               key={idx}
-              onClick={() => handleSelect(option.value)}
-              className="w-full p-6 text-left rounded-2xl bg-white border border-gray-200 shadow-sm hover:border-[#16324f]/30 hover:shadow-md transition-all active:scale-[0.98] flex items-center gap-4 group"
+              type="button"
+              onClick={(e) => {
+                handleSelect(option.value);
+                // Prevent touch browsers from keeping a "pressed" look via focus/hover state.
+                e.currentTarget.blur();
+              }}
+              className="w-full p-6 text-left rounded-2xl bg-white border border-gray-200 shadow-sm transition-all active:scale-[0.98] flex items-center gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16324f]/30 [@media(hover:hover)]:hover:border-[#16324f]/30 [@media(hover:hover)]:hover:shadow-md"
             >
-              <div className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 group-hover:bg-[#16324f] group-hover:text-white group-hover:border-[#16324f] transition-colors">
+              <div className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 transition-colors [@media(hover:hover)]:group-hover:bg-[#16324f] [@media(hover:hover)]:group-hover:text-white [@media(hover:hover)]:group-hover:border-[#16324f]">
                 {idx === 0 ? 'A' : 'B'}
               </div>
               <span className="flex-1 font-medium text-gray-700 leading-relaxed">
