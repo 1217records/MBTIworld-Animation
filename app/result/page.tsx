@@ -12,10 +12,11 @@ function normalizeType(raw: string | null): string {
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: { theme?: string; type?: string };
+  searchParams: Promise<{ theme?: string; type?: string }>;
 }): Promise<Metadata> {
-  const themeId = searchParams.theme || 'onepiece';
-  const type = normalizeType(searchParams.type || 'ISTJ');
+  const resolved = await searchParams;
+  const themeId = resolved?.theme || 'onepiece';
+  const type = normalizeType(resolved?.type || 'ISTJ');
 
   const theme = THEMES[themeId] || THEMES.onepiece;
   const content = CONTENTS[themeId] || CONTENTS.onepiece;
