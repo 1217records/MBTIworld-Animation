@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import type { NextRequest } from 'next/server';
 import { THEMES, CONTENTS } from '@/data';
 import { MBTI_SHORT_DESCS } from '@/constants';
 
@@ -17,11 +18,12 @@ function normalizeType(raw: string): string {
 }
 
 export async function GET(
-  _request: Request,
-  { params }: { params: { themeId: string; type: string } }
+  _request: NextRequest,
+  context: { params: Promise<{ themeId: string; type: string }> }
 ) {
-  const themeId = params.themeId || 'onepiece';
-  const type = normalizeType(params.type || 'ISTJ');
+  const params = await context.params;
+  const themeId = params?.themeId || 'onepiece';
+  const type = normalizeType(params?.type || 'ISTJ');
 
   const theme = THEMES[themeId] || THEMES.onepiece;
   const content = CONTENTS[themeId] || CONTENTS.onepiece;
