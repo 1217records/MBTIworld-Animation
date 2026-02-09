@@ -19,16 +19,16 @@ export default function Home() {
 
       <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-none justify-center">
         <Link 
-          href="/select"
-          className="px-10 py-4 rounded-full bg-[#16324f] text-white font-bold text-lg shadow-xl shadow-[#16324f]/20 hover:scale-105 transition-transform active:scale-95"
-        >
-          테스트 시작하기
-        </Link>
-        <Link 
           href="/about"
           className="px-10 py-4 rounded-full bg-white border border-gray-200 text-[#16324f] font-bold text-lg shadow-sm hover:bg-gray-50 transition-colors"
         >
           서비스 소개
+        </Link>
+        <Link 
+          href="/privacy"
+          className="px-10 py-4 rounded-full bg-white border border-gray-200 text-[#16324f] font-bold text-lg shadow-sm hover:bg-gray-50 transition-colors"
+        >
+          개인정보 처리방침
         </Link>
       </div>
 
@@ -58,6 +58,15 @@ export default function Home() {
             <p className="font-bold text-[#16324f]">설계 원칙</p>
             <p>각 질문은 E/I, S/N, T/F, J/P의 4가지 지표를 고르게 묻도록 구성했습니다.</p>
           </div>
+        </div>
+
+        <div className="flex justify-center">
+          <Link 
+            href="/select"
+            className="px-10 py-4 rounded-full bg-[#16324f] text-white font-bold text-lg shadow-xl shadow-[#16324f]/20 hover:scale-105 transition-transform active:scale-95"
+          >
+            테스트 시작하기
+          </Link>
         </div>
 
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
