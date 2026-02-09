@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         sans: ['var(--font-ibm-plex)'],
         serif: ['var(--font-noto-serif)'],
+        slab: ['var(--font-roboto-slab)'],
       },
     },
   },

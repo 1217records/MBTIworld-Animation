@@ -61,18 +61,18 @@ export default function TestSelect() {
       </div>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">선택 가이드</h2>
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">🧭 선택 가이드</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
           <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">익숙한 세계관</p>
+            <p className="font-bold text-[#16324f]">📚 익숙한 세계관</p>
             <p>스토리를 잘 아는 작품을 고르면 몰입도가 높습니다.</p>
           </div>
           <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">가벼운 진행</p>
+            <p className="font-bold text-[#16324f]">⏱️ 가벼운 진행</p>
             <p>각 테스트는 2~3분 내 완료됩니다.</p>
           </div>
           <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">결과 해석</p>
+            <p className="font-bold text-[#16324f]">✨ 결과 해석</p>
             <p>캐릭터 서사를 기반으로 공통점을 설명합니다.</p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_KR, Noto_Serif_KR } from "next/font/google";
+import { IBM_Plex_Sans_KR, Noto_Serif_KR, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,6 +17,13 @@ const notoSerif = Noto_Serif_KR({
   subsets: ["latin"],
   weight: ["500", "700", "900"],
   variable: "--font-noto-serif",
+  display: 'swap',
+});
+
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-roboto-slab",
   display: 'swap',
 });
 
@@ -40,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable}`}>
+    <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
       <head />
       <body className="bg-[#fdfcf9] text-[#0b1220] min-h-screen font-sans selection:bg-[#16324f] selection:text-white">
         <div className="bg-pattern min-h-screen flex flex-col">
