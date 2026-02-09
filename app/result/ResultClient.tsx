@@ -177,6 +177,17 @@ function ResultContent() {
       </div>
 
       {/* Share & Call to Action */}
+      <section className="bg-white rounded-[3rem] p-10 sm:p-14 border border-gray-100 shadow-sm space-y-6">
+        <div className="flex items-center justify-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-blue-50 flex items-center justify-center text-lg text-blue-500">ℹ️</div>
+          <h3 className="font-black text-[#16324f] text-xl font-serif">해석 가이드</h3>
+        </div>
+        <p className="text-sm text-gray-600 leading-relaxed text-center max-w-2xl mx-auto">
+          본 결과는 애니메이션 세계관을 바탕으로 한 엔터테인먼트 콘텐츠입니다.
+          스스로의 성향을 돌아보는 참고 자료로 활용해 주세요.
+        </p>
+      </section>
+
       <section className="bg-white rounded-[4rem] p-12 sm:p-20 border border-gray-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] space-y-12 text-center">
         <div className="space-y-3">
           <h3 className="text-3xl font-black font-serif text-[#16324f]">결과 공유하기</h3>

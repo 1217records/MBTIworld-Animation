@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function TestSelect() {
   return (
-    <div className="space-y-8 animate-in fade-in">
+    <div className="space-y-10 animate-in fade-in">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">테스트 선택</h1>
         <p className="text-gray-500 text-sm">원하는 애니메이션 세계관을 선택해 바로 시작하세요.</p>
@@ -59,6 +59,27 @@ export default function TestSelect() {
           <span className="text-sm font-bold text-gray-400">새로운 테마 제안하기</span>
         </Link>
       </div>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">선택 가이드</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">익숙한 세계관</p>
+            <p>스토리를 잘 아는 작품을 고르면 몰입도가 높습니다.</p>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">가벼운 진행</p>
+            <p>각 테스트는 2~3분 내 완료됩니다.</p>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">결과 해석</p>
+            <p>캐릭터 서사를 기반으로 공통점을 설명합니다.</p>
+          </div>
+        </div>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          결과는 재미와 자기탐색을 위한 참고용입니다. 동일한 MBTI라도 상황과 해석에 따라 다른 캐릭터로 매칭될 수 있습니다.
+        </p>
+      </section>
     </div>
   );
 }
