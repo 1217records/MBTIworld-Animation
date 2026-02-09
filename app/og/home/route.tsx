@@ -50,7 +50,10 @@ export async function GET() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "18px",
+            gap: "16px",
+            width: "900px",
+            maxWidth: "900px",
+            textAlign: "center",
           }}
         >
           <div
@@ -69,9 +72,9 @@ export async function GET() {
           </div>
           <div
             style={{
-              fontSize: 90,
+              fontSize: 78,
               fontWeight: 800,
-              letterSpacing: "0.18em",
+              letterSpacing: "0.16em",
               textShadow: "0 12px 35px rgba(0,0,0,0.35)",
             }}
           >
@@ -79,7 +82,7 @@ export async function GET() {
           </div>
           <div
             style={{
-              fontSize: 26,
+              fontSize: 22,
               fontWeight: 700,
               opacity: 0.9,
               letterSpacing: "0.28em",
@@ -91,7 +94,7 @@ export async function GET() {
           <div
             style={{
               marginTop: 24,
-              fontSize: 30,
+              fontSize: 26,
               fontWeight: 600,
               opacity: 0.9,
             }}
