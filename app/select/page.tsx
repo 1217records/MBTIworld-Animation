@@ -81,7 +81,7 @@ export default function TestSelect() {
           <p>가장 좋아하는 작품이 없다면, 현재 관심 있는 세계관을 골라 바로 시작해 보세요.</p>
         </div>
         <p className="text-sm text-gray-500 leading-relaxed">
-          결과는 재미와 자기탐색을 위한 참고용입니다.
+          결과는 재미와 자기탐색을 위한 참고용이며, 정답을 맞히기보다는 자신의 반응과 선택을 가볍게 돌아보는 데 의미가 있습니다.
         </p>
       </section>
     </div>

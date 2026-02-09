@@ -94,7 +94,7 @@ function ResultContent() {
         }}
       />
       {/* Visual Hero Card */}
-      <section className={`relative overflow-hidden rounded-[3rem] p-10 sm:p-20 bg-gradient-to-br ${theme.gradient} text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]`}>
+      <section className={`relative overflow-hidden rounded-[3rem] p-10 sm:p-16 bg-gradient-to-br ${theme.gradient} text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]`}>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[130px] -translate-y-1/2 translate-x-1/2 rounded-full" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 blur-[100px] translate-y-1/2 -translate-x-1/2 rounded-full" />
         
@@ -104,7 +104,7 @@ function ResultContent() {
               Personalized Report
             </span>
             <div className="space-y-4">
-              <h2 className="text-8xl sm:text-9xl font-black font-serif tracking-widest drop-shadow-2xl">
+              <h2 className="text-6xl sm:text-8xl font-black font-serif tracking-widest drop-shadow-2xl">
                 {type}
               </h2>
               <div className="h-1 w-20 bg-white/40 mx-auto rounded-full" />
@@ -117,7 +117,7 @@ function ResultContent() {
           <div className="bg-white/10 backdrop-blur-2xl rounded-[3rem] p-10 sm:p-14 border border-white/20 flex flex-col items-center text-center gap-8 shadow-2xl">
             <div className="space-y-1">
               <div className="text-[11px] font-black text-white/50 uppercase tracking-[0.3em]">The Character That Matches Your Soul</div>
-              <h1 className="text-5xl sm:text-7xl font-black font-serif tracking-tight leading-tight">{character.name}</h1>
+              <h1 className="text-4xl sm:text-6xl font-black font-serif tracking-tight leading-tight">{character.name}</h1>
             </div>
             <p className="text-white text-lg sm:text-xl leading-relaxed max-w-xl font-medium italic opacity-90">
               "{character.desc}"
@@ -129,7 +129,7 @@ function ResultContent() {
       {/* Narrative Sections */}
       <div className="max-w-3xl mx-auto space-y-12">
         {character.episodeNote && (
-          <section className="bg-white rounded-[3rem] p-10 sm:p-14 border border-gray-100 shadow-sm space-y-10">
+          <section className="bg-white rounded-[3rem] p-10 sm:p-14 border border-gray-100 shadow-sm space-y-8">
             <div className="flex flex-col items-center gap-2 text-center">
               <span className="text-2xl">🎬</span>
               <h3 className="font-black text-[#16324f] text-xl font-serif">기억에 남는 장면</h3>
@@ -137,7 +137,7 @@ function ResultContent() {
             
             <div className="relative pt-4">
               <div className="absolute -top-10 left-0 text-[180px] text-gray-50/70 font-serif select-none leading-none -z-0">“</div>
-              <p className="relative z-10 text-xl sm:text-2xl font-serif text-gray-800 leading-[1.8] italic text-center px-6">
+              <p className="relative z-10 text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
                 {character.episodeNote}
               </p>
             </div>
