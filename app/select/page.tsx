@@ -76,8 +76,12 @@ export default function TestSelect() {
             <p>캐릭터 서사를 기반으로 공통점을 설명합니다.</p>
           </div>
         </div>
+        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-500 leading-relaxed">
+          <p className="font-bold text-[#16324f]">추천 선택법</p>
+          <p>가장 좋아하는 작품이 없다면, 현재 관심 있는 세계관을 골라 바로 시작해 보세요.</p>
+        </div>
         <p className="text-sm text-gray-500 leading-relaxed">
-          결과는 재미와 자기탐색을 위한 참고용입니다. 동일한 MBTI라도 상황과 해석에 따라 다른 캐릭터로 매칭될 수 있습니다.
+          결과는 재미와 자기탐색을 위한 참고용입니다.
         </p>
       </section>
     </div>

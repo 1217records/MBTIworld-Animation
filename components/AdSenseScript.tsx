@@ -8,6 +8,8 @@ const CONTENT_ROUTE_MATCHERS = [
   /^\/select(?:\/|$)/,
   /^\/test(?:\/|$)/,
   /^\/result(?:\/|$)/,
+  /^\/about(?:\/|$)/,
+  /^\/privacy(?:\/|$)/,
 ];
 
 const isContentRoute = (pathname: string) =>

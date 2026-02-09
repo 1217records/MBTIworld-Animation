@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: "MBTI WORLD ANIMATION",
   description: "내 MBTI는 어떤 캐릭터와 같을까?",
   keywords: ["MBTI", "애니메이션 MBTI", "원피스 MBTI", "나루토 MBTI", "성격테스트"],
+  other: {
+    "google-adsense-account": "ca-pub-4245569327602514",
+  },
   openGraph: {
     title: "MBTI WORLD ANIMATION",
     description: "내 MBTI는 어떤 캐릭터와 같을까?",

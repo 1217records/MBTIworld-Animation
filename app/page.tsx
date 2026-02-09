@@ -32,11 +32,12 @@ export default function Home() {
         </Link>
       </div>
 
-      <section className="w-full max-w-3xl text-left space-y-8">
+      <section className="w-full max-w-3xl text-left space-y-10">
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-4">
           <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트는 이렇게 진행돼요</h2>
           <p className="text-gray-600 leading-relaxed">
             각 세계관마다 16개의 질문이 준비되어 있고, 선택한 응답을 기반으로 MBTI 유형을 도출합니다.
+            질문은 특정 장면을 떠올리며 선택하도록 구성되어 있어 직관적으로 답할 수 있습니다.
             결과는 애니메이션 캐릭터와의 공통점을 중심으로 해석되며, 오락과 자기탐색을 위한 가벼운 참고 용도입니다.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-500">
@@ -52,6 +53,10 @@ export default function Home() {
               <p className="font-bold text-[#16324f]">결과 형태</p>
               <p>유형 + 캐릭터 매칭</p>
             </div>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-500">
+            <p className="font-bold text-[#16324f]">설계 원칙</p>
+            <p>각 질문은 E/I, S/N, T/F, J/P의 4가지 지표를 고르게 묻도록 구성했습니다.</p>
           </div>
         </div>
 
@@ -69,6 +74,10 @@ export default function Home() {
             <div>
               <p className="font-bold text-[#16324f]">Q. 결과가 마음에 들지 않으면 다시 할 수 있나요?</p>
               <p>A. 언제든지 다른 세계관으로 다시 테스트하거나 같은 테스트를 반복할 수 있습니다.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. 결과는 저장되나요?</p>
+              <p>A. 별도의 회원가입 없이 바로 진행되며, 결과는 현재 화면에서 확인할 수 있습니다.</p>
             </div>
           </div>
         </div>
