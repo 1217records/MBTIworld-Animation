@@ -40,39 +40,39 @@ export default function Privacy() {
       <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm space-y-8 text-sm text-gray-600 leading-relaxed">
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">1. 수집 항목</h2>
-          <p>MBTI-world는 문의 기능 제공을 위해 최소한의 정보를 수집합니다.</p>
+          <p>MBTI-world는 문의 기능 제공을 위해 최소한의 정보를 수집합니다. 서비스 이용 과정에서 자동으로 저장되는 정보는 최소화하며, 필수 목적 외에는 수집하지 않습니다.</p>
           <ul className="list-disc list-inside pl-4">
             <li>문의 폼: 이름(닉네임), 이메일, 문의 내용</li>
           </ul>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">2. 이용 목적</h2>
-          <p>수집된 정보는 오직 답변 제공 및 서비스 품질 개선의 목적으로만 사용됩니다.</p>
+          <p>수집된 정보는 오직 답변 제공 및 서비스 품질 개선의 목적으로만 사용됩니다. 문의 응대와 오류 확인을 위한 최소 범위 내에서만 활용됩니다.</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">3. 보관 및 파기</h2>
-          <p>개인정보는 이용 목적 달성 후 지체 없이 파기합니다. 별도의 서버에 영구 저장하지 않습니다.</p>
+          <p>개인정보는 이용 목적 달성 후 지체 없이 파기합니다. 별도의 서버에 영구 저장하지 않으며, 문의 처리가 완료된 정보는 일정 기간 후 삭제됩니다.</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">4. 제3자 제공</h2>
-          <p>원칙적으로 개인정보를 제3자에게 제공하지 않습니다. 다만, 법령에 근거한 요청이 있는 경우 예외적으로 제공될 수 있습니다.</p>
+          <p>원칙적으로 개인정보를 제3자에게 제공하지 않습니다. 다만, 법령에 근거한 요청이 있는 경우 예외적으로 제공될 수 있습니다. 이러한 경우에도 제공 범위는 법령이 요구하는 최소한으로 제한됩니다.</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">5. 처리 위탁</h2>
-          <p>문의 폼 전송을 위해 외부 이메일 전송 서비스(Formspree)를 이용할 수 있습니다. 해당 서비스는 문의 처리 목적 범위 내에서만 정보를 처리합니다.</p>
+          <p>문의 폼 전송을 위해 외부 이메일 전송 서비스(Formspree)를 이용할 수 있습니다. 해당 서비스는 문의 처리 목적 범위 내에서만 정보를 처리하며, 서비스 운영 목적 외의 활용을 금지합니다.</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">6. 이용자의 권리</h2>
-          <p>이용자는 자신의 개인정보에 대해 열람, 정정, 삭제를 요청할 수 있습니다. 관련 요청은 아래 문의 메일로 접수해 주세요.</p>
+          <p>이용자는 자신의 개인정보에 대해 열람, 정정, 삭제를 요청할 수 있습니다. 관련 요청은 아래 문의 메일로 접수해 주세요. 요청이 확인되면 가능한 범위 내에서 신속히 처리합니다.</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">7. 문의</h2>
-          <p>개인정보 관련 문의는 아래 메일로 연락해 주세요.</p>
+          <p>개인정보 관련 문의는 아래 메일로 연락해 주세요. 접수된 문의는 순차적으로 처리됩니다.</p>
           <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">8. 콘텐츠 품질 및 사용자 경험 원칙</h2>
-          <p>서비스 운영 시 사용자에게 유익하고 관련성 높은 정보를 제공하기 위해 다음 원칙을 준수합니다.</p>
+          <p>서비스 운영 시 사용자에게 유익하고 관련성 높은 정보를 제공하기 위해 다음 원칙을 준수합니다. 사용자 경험을 해치지 않는 선에서 정보 구조와 광고 배치를 조정합니다.</p>
           <ul className="list-disc list-inside pl-4 space-y-1">
             <li>중복되거나 불필요한 페이지를 다수 제작하지 않으며, 독창적이고 유용한 콘텐츠 제공에 집중합니다.</li>
             <li>페이지의 목적과 실제 제공 정보가 일치하도록 구성하고, 탐색이 쉬운 구조로 안내합니다.</li>
@@ -81,7 +81,7 @@ export default function Privacy() {
           </ul>
         </section>
         <div className="pt-8 border-t border-gray-100 text-[10px] text-gray-400 italic">
-          본 방침은 관련 법령 및 가이드라인의 변경에 따라 수정될 수 있습니다.
+          본 방침은 관련 법령 및 가이드라인의 변경에 따라 수정될 수 있습니다. 변경 사항이 있을 경우 이 페이지에서 안내합니다.
         </div>
       </div>
     </div>

@@ -62,12 +62,12 @@ export default function About() {
             <div className="p-8 rounded-3xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <span className="text-2xl">🔍</span>
               <h3 className="font-bold text-[#16324f]">정밀한 매칭</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">수천 번의 캐릭터 분석과 MBTI 이론 교차 검증을 통해 가장 높은 싱크로율을 찾아냈습니다.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">수천 번의 캐릭터 분석과 MBTI 이론 교차 검증을 통해 가장 높은 싱크로율을 찾아냈습니다. 장면별 반응 패턴을 다시 대조하며, 결과가 일관되게 공감되는 조합만 남겼습니다.</p>
             </div>
             <div className="p-8 rounded-3xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <span className="text-2xl">🎨</span>
               <h3 className="font-bold text-[#16324f]">담백한 경험</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">단순한 텍스트를 넘어, 각 작품의 분위기를 담은 정갈한 디자인으로 몰입을 돕습니다.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">단순한 텍스트를 넘어, 각 작품의 분위기를 담은 정갈한 디자인으로 몰입을 돕습니다. 질문 흐름과 결과 표현을 간결하게 다듬어, 감정의 여운이 자연스럽게 이어지도록 구성했습니다.</p>
             </div>
           </div>
         </section>
@@ -79,14 +79,14 @@ export default function About() {
               <div className="text-4xl font-black text-gray-100 font-serif">01</div>
               <div className="space-y-2">
                 <h4 className="font-bold text-[#16324f]">편견 없는 이해</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">어떤 성향도 틀린 것은 없습니다. 각 유형이 가진 고유한 빛나는 점을 캐릭터를 통해 긍정적으로 조명합니다.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">어떤 성향도 틀린 것은 없습니다. 각 유형이 가진 고유한 빛나는 점을 캐릭터를 통해 긍정적으로 조명합니다. 우리는 비교나 평가 대신, 당신의 선택이 가진 의미를 더 깊이 이해하도록 돕습니다.</p>
               </div>
             </div>
             <div className="flex gap-6">
               <div className="text-4xl font-black text-gray-100 font-serif">02</div>
               <div className="space-y-2">
                 <h4 className="font-bold text-[#16324f]">스토리의 힘</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">딱딱한 질문 대신 흥미진진한 장면 속 선택을 제안하여, 당신이 진심으로 반응하는 순간을 포착합니다.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">딱딱한 질문 대신 흥미진진한 장면 속 선택을 제안하여, 당신이 진심으로 반응하는 순간을 포착합니다. 감정이 움직이는 포인트를 기준으로 설계해, 결과가 스스로도 납득되는 경험을 만듭니다.</p>
               </div>
             </div>
           </div>
@@ -98,17 +98,17 @@ export default function About() {
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Clarity</p>
               <h3 className="font-bold text-[#16324f]">명확한 안내</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">질문은 간결하게, 결과는 이해하기 쉽게 구성하여 부담 없이 몰입할 수 있도록 합니다.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">질문은 간결하게, 결과는 이해하기 쉽게 구성하여 부담 없이 몰입할 수 있도록 합니다. 처음 시작하는 사람도 흐름을 놓치지 않도록, 필요한 정보만 핵심적으로 전달합니다.</p>
             </div>
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Respect</p>
               <h3 className="font-bold text-[#16324f]">존중의 톤</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">어떤 성향도 평가하지 않습니다. 결과 해석은 따뜻하고 긍정적인 언어를 지향합니다.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">어떤 성향도 평가하지 않습니다. 결과 해석은 따뜻하고 긍정적인 언어를 지향합니다. 당신의 강점과 가능성을 먼저 비추는 표현을 선택합니다.</p>
             </div>
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Growth</p>
               <h3 className="font-bold text-[#16324f]">지속적인 개선</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">새로운 작품과 캐릭터를 꾸준히 추가해, 더 많은 사람들이 공감할 수 있도록 확장합니다.</p>
+              <p className="text-sm text-gray-500 leading-relaxed">새로운 작품과 캐릭터를 꾸준히 추가해, 더 많은 사람들이 공감할 수 있도록 확장합니다. 피드백을 반영해 질문과 결과 설명을 다듬고, 경험을 계속 업데이트합니다.</p>
             </div>
           </div>
         </section>
@@ -116,7 +116,7 @@ export default function About() {
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-6">
           <h2 className="text-2xl font-black text-[#16324f] font-serif">문의</h2>
           <p className="text-sm text-gray-500 leading-relaxed">
-            새로운 테스트 제안, 콜라보, 오류 제보가 있다면 아래 메일로 연락해 주세요.
+            새로운 테스트 제안, 콜라보, 오류 제보가 있다면 아래 메일로 연락해 주세요. 가능한 한 빠르게 확인하고, 좋은 아이디어는 서비스에 반영하겠습니다.
           </p>
           <p className="text-sm font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
         </section>

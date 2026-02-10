@@ -14,7 +14,9 @@ const Footer = () => (
       <div className="space-y-3">
         <p className="text-sm text-gray-500 leading-relaxed">
           MBTI WORLD ANIMATION은 애니메이션 세계관의 상황을 통해 성향을 탐색하는 엔터테인먼트형
-          성격 테스트 서비스입니다. 결과는 자기이해를 돕는 참고용이며, 전문 진단을 대체하지 않습니다.
+          성격 테스트 서비스입니다.
+          <br />
+          결과는 자기이해를 돕는 참고용이며, 전문 진단을 대체하지 않습니다.
         </p>
         <p className="text-xs text-gray-400 leading-relaxed">
           운영/제작: MBTI WORLD Animation Team · 문의: mbtiworld.kr@gmail.com
