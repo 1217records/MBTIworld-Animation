@@ -14,12 +14,13 @@ function normalizeType(raw: string | null): string {
 }
 
 type ResultPageProps = {
-  searchParams: { theme?: string; type?: string };
+  searchParams: Promise<{ theme?: string; type?: string }>;
 };
 
 export async function generateMetadata({ searchParams }: ResultPageProps): Promise<Metadata> {
-  const themeId = searchParams?.theme || "onepiece";
-  const type = normalizeType(searchParams?.type || "ISTJ");
+  const resolved = await searchParams;
+  const themeId = resolved?.theme || "onepiece";
+  const type = normalizeType(resolved?.type || "ISTJ");
 
   const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
   const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
@@ -57,9 +58,10 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
   };
 }
 
-export default function ResultPage({ searchParams }: ResultPageProps) {
-  const themeId = searchParams?.theme || "onepiece";
-  const type = normalizeType(searchParams?.type || "ISTJ");
+export default async function ResultPage({ searchParams }: ResultPageProps) {
+  const resolved = await searchParams;
+  const themeId = resolved?.theme || "onepiece";
+  const type = normalizeType(resolved?.type || "ISTJ");
 
   const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
   const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
