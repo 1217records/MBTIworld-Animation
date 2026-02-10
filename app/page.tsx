@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: `${SITE_ORIGIN}/`,
     images: [
       {
-        url: `${SITE_ORIGIN}/og/home`,
+        url: `${SITE_ORIGIN}/og/home?v=2`,
         width: 1200,
         height: 630,
         alt: "MBTI WORLD",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MBTI WORLD",
     description: "내 MBTI는 어떤 캐릭터와 같을까?",
-    images: [`${SITE_ORIGIN}/og/home`],
+    images: [`${SITE_ORIGIN}/og/home?v=2`],
   },
 };
 
