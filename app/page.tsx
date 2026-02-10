@@ -146,24 +146,6 @@ export default function Home() {
           </div>
         </div>
 
-        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">인기 MBTI 유형</h2>
-          <p className="text-sm text-gray-600 leading-relaxed">
-            자주 검색되는 유형을 먼저 살펴보고 싶다면 아래 링크에서 유형별 특징과 궁합을 확인해 보세요.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {["INFJ", "INTJ", "ENFP", "ENTJ"].map((type) => (
-              <Link
-                key={type}
-                href={`/result?theme=onepiece&type=${type}`}
-                className="px-4 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 text-sm font-bold text-[#16324f] hover:bg-white"
-              >
-                {type} 분석 보기
-              </Link>
-            ))}
-          </div>
-        </section>
-
         <div className="h-6 sm:h-8" />
         <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
           <h2 className="text-2xl font-black font-serif text-[#16324f]">💬 자주 묻는 질문</h2>

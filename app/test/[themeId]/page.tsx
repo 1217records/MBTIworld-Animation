@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
@@ -79,8 +78,6 @@ export default async function TestPage({ params }: PageProps) {
     url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
   };
 
-  const relatedThemes = Object.values(THEMES).filter((item) => item.id !== theme.id).slice(0, 2);
-
   return (
     <div className="space-y-12 animate-in fade-in pb-16">
       <JsonLd data={jsonLd} />
@@ -105,6 +102,15 @@ export default async function TestPage({ params }: PageProps) {
       </section>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 시작하기</h2>
+        <p className="text-gray-600 leading-relaxed">
+          아래 질문에 답하면 {theme.label} 세계관 속에서 당신과 닮은 캐릭터를 찾아드립니다. 모든 질문을 마치면 결과 페이지에서
+          유형별 특징과 궁합 분석을 확인할 수 있습니다.
+        </p>
+        <TestClient themeId={theme.id} />
+      </section>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
         <p className="text-gray-600 leading-relaxed">
           본 테스트는 MBTI의 4가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 질문하도록 구성했습니다. 각 문항은
@@ -116,29 +122,6 @@ export default async function TestPage({ params }: PageProps) {
           <li>심리유형론 기반의 성격 분류 연구</li>
           <li>성격심리학 개론 수준의 성향 측정 프레임워크</li>
         </ul>
-      </section>
-
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 시작하기</h2>
-        <p className="text-gray-600 leading-relaxed">
-          아래 질문에 답하면 {theme.label} 세계관 속에서 당신과 닮은 캐릭터를 찾아드립니다. 모든 질문을 마치면 결과 페이지에서
-          유형별 특징과 궁합 분석을 확인할 수 있습니다.
-        </p>
-        <TestClient themeId={theme.id} />
-      </section>
-
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">관련 테스트</h2>
-        <div className="flex flex-wrap gap-3">
-          {relatedThemes.map((item) => (
-            <Link key={item.id} href={`/test/${item.id}`} className="px-4 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 text-sm font-bold text-[#16324f] hover:bg-white">
-              {item.label} 테스트
-            </Link>
-          ))}
-          <Link href="/select" className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-bold text-gray-500 hover:text-[#16324f]">
-            다른 세계관 둘러보기
-          </Link>
-        </div>
       </section>
     </div>
   );
