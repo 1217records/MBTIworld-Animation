@@ -26,7 +26,7 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
   const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
   const character = content.results[type] || content.results.ISTJ;
 
-  const ogImage = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}`;
+  const ogImage = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
   const ogTitle = `${type} · ${character.name}`;
   const description = `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트 결과입니다. ${type} 유형의 성격, 장단점, 관계 패턴을 확인하세요.`;
   const canonical = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
@@ -68,7 +68,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
   const character = content.results[type] || content.results.ISTJ;
 
   const shareUrl = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
-  const imageUrl = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}`;
+  const imageUrl = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
 
   const summaryPoints = [
     `${type}의 핵심 키워드: ${MBTI_SHORT_DESCS[type]}`,
