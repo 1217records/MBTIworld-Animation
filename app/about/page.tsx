@@ -40,7 +40,7 @@ export default function About() {
       <div className="max-w-3xl mx-auto space-y-10">
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
           <div className="space-y-4">
-            <h2 className="text-2xl font-black text-[#16324f] font-serif">
+            <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">
               "당신의 영혼은 어떤 모험을 꿈꾸나요?"
             </h2>
             <div className="text-gray-600 leading-[2] space-y-6">
@@ -73,7 +73,7 @@ export default function About() {
         </section>
 
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
-          <h2 className="text-2xl font-black text-[#16324f] font-serif">우리가 약속하는 가치</h2>
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">우리가 약속하는 가치</h2>
           <div className="space-y-8">
             <div className="flex gap-6">
               <div className="text-4xl font-black text-gray-100 font-serif">01</div>
@@ -93,7 +93,7 @@ export default function About() {
         </section>
 
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
-          <h2 className="text-2xl font-black text-[#16324f] font-serif">운영 원칙</h2>
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">운영 원칙</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">
               <p className="text-xs font-bold text-gray-400 tracking-[0.2em] uppercase">Clarity</p>

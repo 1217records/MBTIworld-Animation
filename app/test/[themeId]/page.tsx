@@ -87,7 +87,7 @@ export default async function TestPage({ params }: PageProps) {
       </header>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 개요</h2>
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">테스트 개요</h2>
         <p className="text-gray-600 leading-relaxed">
           {desc.summary} 질문은 상황 선택형으로 구성되어 있어, 직관적으로 반응하면서도 성향의 패턴이 드러나도록
           설계했습니다. 결과는 캐릭터 해석을 통해 공감 가능한 언어로 전달되며, 자기탐색을 위한 가이드로 활용할 수 있습니다.
@@ -102,7 +102,7 @@ export default async function TestPage({ params }: PageProps) {
       </section>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 시작하기</h2>
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">테스트 시작하기</h2>
         <p className="text-gray-600 leading-relaxed">
           아래 질문에 답하면 {theme.label} 세계관 속에서 당신과 닮은 캐릭터를 찾아드립니다. 모든 질문을 마치면 결과 페이지에서
           유형별 특징과 궁합 분석을 확인할 수 있습니다.
@@ -111,7 +111,7 @@ export default async function TestPage({ params }: PageProps) {
       </section>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">심리학적 근거</h2>
         <p className="text-gray-600 leading-relaxed">
           본 테스트는 MBTI의 4가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 질문하도록 구성했습니다. 각 문항은
           성격 심리학의 대표적 이분법 구조를 참고해, 상황에서 나타나는 의사결정 패턴을 관찰하도록 설계되었습니다.

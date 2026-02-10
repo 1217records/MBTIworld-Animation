@@ -55,21 +55,28 @@ export default function TestSelect() {
       </div>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트별 특징</h2>
-        <div className="space-y-6">
-          {Object.values(THEMES).map((theme) => {
-            const detail = THEME_DETAILS[theme.id] ?? {
-              headline: `${theme.label} 세계관 테스트`,
-              body: `${theme.label}의 장면을 통해 MBTI 유형별 특징과 궁합을 분석합니다.`,
-            };
-            return (
-              <article key={theme.id} className="space-y-2">
-                <h3 className="text-lg font-black text-[#16324f]">{detail.headline}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{detail.body}</p>
-              </article>
-            );
-          })}
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">🧭 선택 가이드</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">📚 익숙한 세계관</p>
+            <p>스토리를 잘 아는 작품을 고르면 몰입도가 높습니다.</p>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">⏱️ 가벼운 진행</p>
+            <p>각 테스트는 2~3분 내 완료됩니다.</p>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
+            <p className="font-bold text-[#16324f]">✨ 결과 해석</p>
+            <p>캐릭터 서사를 기반으로 공통점을 설명합니다.</p>
+          </div>
         </div>
+        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-500 leading-relaxed">
+          <p className="font-bold text-[#16324f]">추천 선택법</p>
+          <p>가장 좋아하는 작품이 없다면, 현재 관심 있는 세계관을 골라 바로 시작해 보세요.</p>
+        </div>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          결과는 재미와 자기탐색을 위한 참고용이며, 정답을 맞히기보다는 자신의 반응과 선택을 가볍게 돌아보는 데 의미가 있습니다.
+        </p>
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -85,7 +92,7 @@ export default function TestSelect() {
               <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl shadow-inner">
                 {theme.emoji}
               </div>
-              <h2 className="text-2xl font-black font-serif text-[#16324f]">{theme.label}</h2>
+              <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">{theme.label}</h2>
             </div>
             
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -118,32 +125,25 @@ export default function TestSelect() {
       </div>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">🧭 선택 가이드</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">📚 익숙한 세계관</p>
-            <p>스토리를 잘 아는 작품을 고르면 몰입도가 높습니다.</p>
-          </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">⏱️ 가벼운 진행</p>
-            <p>각 테스트는 2~3분 내 완료됩니다.</p>
-          </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4">
-            <p className="font-bold text-[#16324f]">✨ 결과 해석</p>
-            <p>캐릭터 서사를 기반으로 공통점을 설명합니다.</p>
-          </div>
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">테스트별 특징</h2>
+        <div className="space-y-6">
+          {Object.values(THEMES).map((theme) => {
+            const detail = THEME_DETAILS[theme.id] ?? {
+              headline: `${theme.label} 세계관 테스트`,
+              body: `${theme.label}의 장면을 통해 MBTI 유형별 특징과 궁합을 분석합니다.`,
+            };
+            return (
+              <article key={theme.id} className="space-y-2">
+                <h3 className="text-lg font-black text-[#16324f]">{detail.headline}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{detail.body}</p>
+              </article>
+            );
+          })}
         </div>
-        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-500 leading-relaxed">
-          <p className="font-bold text-[#16324f]">추천 선택법</p>
-          <p>가장 좋아하는 작품이 없다면, 현재 관심 있는 세계관을 골라 바로 시작해 보세요.</p>
-        </div>
-        <p className="text-sm text-gray-500 leading-relaxed">
-          결과는 재미와 자기탐색을 위한 참고용이며, 정답을 맞히기보다는 자신의 반응과 선택을 가볍게 돌아보는 데 의미가 있습니다.
-        </p>
       </section>
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">심리학적 근거</h2>
         <p className="text-sm text-gray-600 leading-relaxed">
           각 테스트는 MBTI의 네 가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 묻도록 설계되었습니다. 질문은 성격심리학의
           이분법적 성향 분류를 참고하여, 상황 속 선택이 성향으로 이어지는 과정을 관찰합니다.

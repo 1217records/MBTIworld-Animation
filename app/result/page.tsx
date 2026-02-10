@@ -125,7 +125,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-14 border border-gray-100 shadow-sm space-y-8">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="text-2xl font-black text-[#16324f] font-serif">요약 인사이트</h2>
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">요약 인사이트</h2>
         </div>
         <blockquote className="border-l-4 border-[#16324f]/20 pl-4 text-gray-600 leading-relaxed italic">
           “{type} 유형은 {MBTI_SHORT_DESCS[type]} 성향을 중심으로, 관계와 목표 사이의 균형을 중요하게 여깁니다.”
@@ -139,7 +139,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-4">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="font-black text-[#16324f] text-xl font-serif">ℹ️ 해석 가이드</h2>
+          <h2 className="font-black text-[#16324f] text-xl font-serif text-center">ℹ️ 해석 가이드</h2>
         </div>
         <p className="text-sm text-gray-600 leading-relaxed max-w-3xl mx-auto">
           본 결과는 애니메이션 세계관을 바탕으로 한 엔터테인먼트 콘텐츠입니다. 스스로의 성향을 돌아보는 참고 자료로 활용해 주세요.
@@ -149,7 +149,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
       {character.episodeNote && (
         <section className="bg-white rounded-[3rem] p-7 sm:p-14 border border-gray-100 shadow-sm space-y-8">
           <div className="flex flex-col items-center gap-3 text-center">
-            <h2 className="font-black text-[#16324f] text-xl font-serif">기억에 남는 장면</h2>
+            <h2 className="font-black text-[#16324f] text-xl font-serif text-center">기억에 남는 장면</h2>
           </div>
           <p className="text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
             {character.episodeNote}
@@ -159,7 +159,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-14 border border-gray-100 shadow-sm space-y-8">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="font-black text-[#16324f] text-xl font-serif">캐릭터와 MBTI의 연결</h2>
+          <h2 className="font-black text-[#16324f] text-xl font-serif text-center">캐릭터와 MBTI의 연결</h2>
         </div>
         <p className="text-gray-600 leading-[2] text-base sm:text-lg">{characterCorrelation}</p>
       </section>
@@ -168,7 +168,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
         <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${theme.gradient} opacity-20 blur-[100px]`} />
         <div className="flex flex-col items-center gap-4 relative z-10 text-center">
           <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-indigo-300">🧠</div>
-          <h2 className="font-black text-white text-xl font-serif">유형별 성향 분석</h2>
+          <h2 className="font-black text-white text-xl font-serif text-center">유형별 성향 분석</h2>
         </div>
         <div className="relative z-10">
           <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light">{MBTI_LONG_DESCS[type]}</p>
@@ -178,7 +178,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">궁합 및 관계 패턴</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">궁합 및 관계 패턴</h2>
         </div>
         <p className="text-gray-600 leading-relaxed">
           {type} 유형은 자신과 다른 에너지의 유형과 상호보완적인 관계를 형성할 수 있습니다. 계획성과 유연성, 감정 표현과 논리적
@@ -194,7 +194,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">심리학적 근거</h2>
         </div>
         <p className="text-gray-600 leading-relaxed">
           본 결과 해석은 MBTI의 네 가지 지표와 성격심리학에서 다루는 특성 차원을 기반으로 구성했습니다. 유형별 특징과 궁합은
@@ -227,7 +227,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">관련 테스트</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">관련 테스트</h2>
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
           {Object.values(THEMES)

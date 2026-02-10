@@ -62,7 +62,7 @@ export default function Home() {
 
       <section className="w-full max-w-3xl text-left space-y-10">
         <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">MBTI WORLD의 테스트가 특별한 이유</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">MBTI WORLD의 테스트가 특별한 이유</h2>
           <p className="text-gray-600 leading-relaxed whitespace-pre-line">
             MBTI WORLD ANIMATION은 애니메이션 서사를 통해 자신이 어떤 방식으로 선택하는지 관찰하는 스토리 기반 성격 테스트입니다.
             단순히 문항을 체크하는 데 그치지 않고, 실제 장면에 몰입했을 때 어떤 가치와 반응이 자연스럽게 나오는지를 중심으로 구성했습니다.
@@ -95,7 +95,7 @@ export default function Home() {
         </section>
 
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-4">
-          <h2 className="text-2xl font-black font-serif text-[#16324f]">🧭 테스트는 이렇게 진행돼요</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">🧭 테스트는 이렇게 진행돼요</h2>
           <p className="text-gray-600 leading-relaxed">
             각 세계관마다 16개의 질문이 준비되어 있으며, 선택한 응답을 기반으로 MBTI 유형을 도출합니다.
             질문은 특정 장면을 떠올리며 선택하도록 구성되어 있어 직관적으로 답할 수 있습니다.
