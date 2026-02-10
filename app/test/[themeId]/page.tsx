@@ -1,128 +1,143 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { CONTENTS, THEMES } from "@/data";
+import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import TestClient from "./TestClient";
 
-"use client";
+type PageProps = {
+  params: { themeId: string };
+};
 
-import React, { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { THEMES, CONTENTS } from '@/data';
-import { MBTI_Value } from '@/types';
+export const runtime = "edge";
 
-export const runtime = 'edge';
+const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] }> = {
+  onepiece: {
+    summary:
+      "원피스의 모험 서사를 바탕으로, 위험과 동료애 사이에서 어떤 선택을 하는지 살펴봅니다. 리더십, 자유 추구, 책임감의 균형을 질문으로 풀어내며 당신의 성향이 어떤 방식으로 나타나는지 확인합니다.",
+    strengths: ["결단력", "위기 대처", "관계 중심성", "목표 지향성"],
+  },
+  naruto: {
+    summary:
+      "나루토 세계관의 성장 서사를 통해, 꾸준함과 신념을 어떻게 유지하는지 관찰합니다. 팀워크, 인내, 감정 조절에서 드러나는 패턴을 통해 당신의 MBTI 경향을 정교하게 해석합니다.",
+    strengths: ["끈기", "협업", "감정 회복력", "도전 정신"],
+  },
+};
 
-export default function TestRunner() {
-  const { themeId } = useParams();
-  const router = useRouter();
-  
-  const theme = themeId ? THEMES[themeId as string] : null;
-  const content = themeId ? CONTENTS[themeId as string] : null;
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const theme = THEMES[params.themeId as keyof typeof THEMES];
+  if (!theme) {
+    return {
+      title: `${SITE_NAME} | 테스트`,
+      description: `${SITE_TAGLINE}`,
+      alternates: { canonical: `${SITE_ORIGIN}/select` },
+    };
+  }
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<MBTI_Value[]>([]);
-  const [animating, setAnimating] = useState(false);
+  const description = `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트입니다. ${theme.label} 세계관의 상황을 통해 당신의 성향을 정교하게 탐색해 보세요.`;
 
-  useEffect(() => {
-    if (!theme || !content) {
-      router.push('/select');
-    }
-  }, [theme, content, router]);
+  return {
+    title: `${theme.label} 테스트 | ${SITE_NAME}`,
+    description,
+    alternates: { canonical: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}` },
+    openGraph: {
+      title: `${theme.label} 테스트 | ${SITE_NAME}`,
+      description,
+      type: "website",
+      url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${theme.label} 테스트 | ${SITE_NAME}`,
+      description,
+    },
+  };
+}
 
-  if (!theme || !content) return null;
+export default function TestPage({ params }: PageProps) {
+  const theme = THEMES[params.themeId as keyof typeof THEMES];
+  const content = CONTENTS[params.themeId as keyof typeof CONTENTS];
+  if (!theme || !content) {
+    notFound();
+  }
 
-  const currentQuestion = content.questions[currentIndex];
-  const progress = ((currentIndex + 1) / content.questions.length) * 100;
-
-  const handleSelect = (value: MBTI_Value) => {
-    const newAnswers = [...answers];
-    newAnswers[currentIndex] = value;
-    setAnswers(newAnswers);
-
-    if (currentIndex < content.questions.length - 1) {
-      setAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex(currentIndex + 1);
-        setAnimating(false);
-      }, 300);
-    } else {
-      const counts: Record<string, number> = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
-      newAnswers.forEach(ans => counts[ans]++);
-      
-      const type = [
-        counts.E >= counts.I ? 'E' : 'I',
-        counts.S >= counts.N ? 'S' : 'N',
-        counts.T >= counts.F ? 'T' : 'F',
-        counts.J >= counts.P ? 'J' : 'P',
-      ].join('');
-
-      router.push(`/result?theme=${themeId}&type=${type}`);
-    }
+  const desc = THEME_DESCRIPTIONS[theme.id] ?? {
+    summary: `${theme.label} 세계관의 주요 장면을 기반으로, 당신의 선택 패턴을 16문항으로 분석합니다.`,
+    strengths: ["몰입감", "자기이해", "스토리 기반 몰입", "캐릭터 매칭"],
   };
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `${theme.label} MBTI 테스트`,
+    applicationCategory: "Entertainment",
+    operatingSystem: "Web",
+    description: `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트`,
+    url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
   };
+
+  const relatedThemes = Object.values(THEMES).filter((item) => item.id !== theme.id).slice(0, 2);
 
   return (
-    <div className="max-w-2xl mx-auto space-y-8 animate-in fade-in zoom-in-95">
-      <div className="space-y-4">
-        <div className="flex items-center justify-between text-xs font-bold text-gray-400">
-          <span>{theme.label} 테스트</span>
-          <span>{currentIndex + 1} / {content.questions.length}</span>
-        </div>
-        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-          <div 
-            className={`h-full bg-gradient-to-r ${theme.gradient} transition-all duration-500 ease-out`}
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      </div>
+    <div className="space-y-12 animate-in fade-in pb-16">
+      <JsonLd data={jsonLd} />
+      <header className="text-center space-y-3">
+        <h1 className="text-3xl sm:text-4xl font-black font-serif text-[#16324f]">{theme.label} MBTI 테스트</h1>
+        <p className="text-gray-500 text-sm sm:text-base">{theme.label} 세계관을 통해 당신의 성향을 빠르게 탐색합니다.</p>
+      </header>
 
-      <div className={`space-y-8 transition-all duration-300 ${animating ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'}`}>
-        <h2 className="text-2xl sm:text-3xl font-black font-serif text-[#16324f] leading-snug">
-          {currentQuestion.prompt}
-        </h2>
-
-        <div className="grid gap-4">
-          {currentQuestion.options.map((option, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={(e) => {
-                handleSelect(option.value);
-                // Prevent touch browsers from keeping a "pressed" look via focus/hover state.
-                e.currentTarget.blur();
-              }}
-              className="w-full p-6 text-left rounded-2xl bg-white border border-gray-200 shadow-sm transition-all active:scale-[0.98] flex items-center gap-4 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#16324f]/30 [@media(hover:hover)]:hover:border-[#16324f]/30 [@media(hover:hover)]:hover:shadow-md"
-            >
-              <div className="w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-xs font-bold text-gray-400 transition-colors [@media(hover:hover)]:group-hover:bg-[#16324f] [@media(hover:hover)]:group-hover:text-white [@media(hover:hover)]:group-hover:border-[#16324f]">
-                {idx === 0 ? 'A' : 'B'}
-              </div>
-              <span className="flex-1 font-medium text-gray-700 leading-relaxed">
-                {option.label}
-              </span>
-            </button>
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 개요</h2>
+        <p className="text-gray-600 leading-relaxed">
+          {desc.summary} 질문은 상황 선택형으로 구성되어 있어, 직관적으로 반응하면서도 성향의 패턴이 드러나도록
+          설계했습니다. 결과는 캐릭터 해석을 통해 공감 가능한 언어로 전달되며, 자기탐색을 위한 가이드로 활용할 수 있습니다.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-gray-500">
+          {desc.strengths.map((strength) => (
+            <span key={strength} className="rounded-full bg-[#fdfcf9] border border-gray-100 px-3 py-2 text-center font-bold">
+              #{strength}
+            </span>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="pt-4 flex justify-between items-center">
-        <div className="flex gap-6">
-          <Link href="/select" className="text-sm font-bold text-gray-300 hover:text-[#16324f] transition-colors">
-            테스트 선택으로
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
+        <p className="text-gray-600 leading-relaxed">
+          본 테스트는 MBTI의 4가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 질문하도록 구성했습니다. 각 문항은
+          성격 심리학의 대표적 이분법 구조를 참고해, 상황에서 나타나는 의사결정 패턴을 관찰하도록 설계되었습니다.
+        </p>
+        <h3 className="text-lg font-black text-[#16324f]">참고 문헌/출처</h3>
+        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
+          <li>MBTI 성격 유형 이론의 4가지 지표 구조</li>
+          <li>심리유형론 기반의 성격 분류 연구</li>
+          <li>성격심리학 개론 수준의 성향 측정 프레임워크</li>
+        </ul>
+      </section>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트 시작하기</h2>
+        <p className="text-gray-600 leading-relaxed">
+          아래 질문에 답하면 {theme.label} 세계관 속에서 당신과 닮은 캐릭터를 찾아드립니다. 모든 질문을 마치면 결과 페이지에서
+          유형별 특징과 궁합 분석을 확인할 수 있습니다.
+        </p>
+        <TestClient themeId={theme.id} />
+      </section>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">관련 테스트</h2>
+        <div className="flex flex-wrap gap-3">
+          {relatedThemes.map((item) => (
+            <Link key={item.id} href={`/test/${item.id}`} className="px-4 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 text-sm font-bold text-[#16324f] hover:bg-white">
+              {item.label} 테스트
+            </Link>
+          ))}
+          <Link href="/select" className="px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-bold text-gray-500 hover:text-[#16324f]">
+            다른 세계관 둘러보기
           </Link>
-          <button
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className="text-sm font-bold text-gray-400 hover:text-[#16324f] disabled:opacity-0 transition-opacity"
-          >
-            ← 이전 질문
-          </button>
         </div>
-        <div className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">
-          Auto Next on Selection
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

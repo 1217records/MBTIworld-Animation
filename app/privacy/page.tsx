@@ -1,11 +1,37 @@
 
-export const metadata = {
-  title: "개인정보 처리방침 | 애니메이션 MBTI 월드",
+import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: `개인정보 처리방침 | ${SITE_NAME}`,
+  description: "MBTI WORLD ANIMATION의 개인정보 처리방침과 데이터 처리 원칙을 안내합니다.",
+  alternates: { canonical: `${SITE_ORIGIN}/privacy` },
+  openGraph: {
+    title: `개인정보 처리방침 | ${SITE_NAME}`,
+    description: "MBTI WORLD ANIMATION의 개인정보 처리방침과 데이터 처리 원칙을 안내합니다.",
+    type: "website",
+    url: `${SITE_ORIGIN}/privacy`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `개인정보 처리방침 | ${SITE_NAME}`,
+    description: "MBTI WORLD ANIMATION의 개인정보 처리방침과 데이터 처리 원칙을 안내합니다.",
+  },
 };
 
 export default function Privacy() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "개인정보 처리방침",
+    description: "MBTI WORLD ANIMATION의 개인정보 처리방침",
+    mainEntityOfPage: `${SITE_ORIGIN}/privacy`,
+  };
+
   return (
     <div className="space-y-8 animate-in fade-in">
+      <JsonLd data={jsonLd} />
       <div className="space-y-2">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">개인정보 처리방침</h1>
         <p className="text-gray-400 text-sm">최종 업데이트: 2026년 2월 5일</p>

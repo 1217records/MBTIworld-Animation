@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Script from "next/script";
 
 const KAKAO_JS_KEY = "22eb1d8928d653f7d244db698943c4d1";
@@ -88,7 +89,7 @@ export default function ShareButtons() {
         aria-label="카카오톡으로 공유"
         title="카카오톡으로 공유"
       >
-        <img src="/icons/kakao.svg" alt="" className="h-4 w-4" />
+        <Image src="/icons/kakao.svg" alt="카카오톡 아이콘" width={16} height={16} />
       </button>
       <button
         type="button"

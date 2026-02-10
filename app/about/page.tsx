@@ -1,12 +1,37 @@
 
-export const metadata = {
-  title: "서비스 소개 | 애니메이션 MBTI 월드",
-  description: "우리가 애니메이션 MBTI 월드를 만든 이유와 가치를 소개합니다.",
+import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: `서비스 소개 | ${SITE_NAME}`,
+  description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 월드의 철학과 가치를 소개합니다.",
+  alternates: { canonical: `${SITE_ORIGIN}/about` },
+  openGraph: {
+    title: `서비스 소개 | ${SITE_NAME}`,
+    description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 월드의 철학과 가치를 소개합니다.",
+    type: "website",
+    url: `${SITE_ORIGIN}/about`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `서비스 소개 | ${SITE_NAME}`,
+    description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 월드의 철학과 가치를 소개합니다.",
+  },
 };
 
 export default function About() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "MBTI-World Story",
+    description: "MBTI WORLD ANIMATION 서비스 소개와 운영 철학",
+    mainEntityOfPage: `${SITE_ORIGIN}/about`,
+  };
+
   return (
     <div className="space-y-12 animate-in fade-in pb-20">
+      <JsonLd data={jsonLd} />
       <div className="space-y-3 text-center">
         <h1 className="text-4xl font-black font-serif text-[#16324f]">MBTI-World Story</h1>
         <p className="text-gray-400 text-xs font-bold uppercase tracking-[0.3em]">우리가 이 테스트를 만든 이유</p>

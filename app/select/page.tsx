@@ -1,19 +1,76 @@
 
-import Link from 'next/link';
-import { THEMES } from '@/data';
+import type { Metadata } from "next";
+import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { THEMES } from "@/data";
+import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 
-export const metadata = {
-  title: "테스트 선택 | 애니메이션 MBTI 월드",
-  description: "좋아하는 애니메이션을 선택하고 당신과 닮은 캐릭터를 찾아보세요.",
+export const metadata: Metadata = {
+  title: `테스트 선택 | ${SITE_NAME}`,
+  description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 테스트를 선택하세요.",
+  alternates: { canonical: `${SITE_ORIGIN}/select` },
+  openGraph: {
+    title: `테스트 선택 | ${SITE_NAME}`,
+    description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 테스트를 선택하세요.",
+    type: "website",
+    url: `${SITE_ORIGIN}/select`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `테스트 선택 | ${SITE_NAME}`,
+    description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 테스트를 선택하세요.",
+  },
+};
+
+const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
+  onepiece: {
+    headline: "원피스 세계관 테스트",
+    body:
+      "자유와 모험, 동료애가 교차하는 원피스 세계관을 통해 당신의 결단력과 가치 판단을 살펴봅니다. 리더십, 도전정신, 위기 대처 방식이 어떻게 드러나는지 16문항으로 파악하고, 유형별 특징과 궁합을 함께 분석합니다.",
+  },
+  naruto: {
+    headline: "나루토 세계관 테스트",
+    body:
+      "성장과 노력, 유대의 메시지가 강한 나루토 세계관에서 당신의 인내심과 관계 중심성을 탐색합니다. 감정 조절, 팀워크, 목표지향성의 패턴을 질문으로 풀어내어 MBTI 유형별 특징과 궁합을 분석합니다.",
+  },
 };
 
 export default function TestSelect() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "애니메이션 MBTI 테스트 선택",
+    applicationCategory: "Entertainment",
+    operatingSystem: "Web",
+    description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 테스트를 선택하는 페이지",
+    url: `${SITE_ORIGIN}/select`,
+  };
+
   return (
     <div className="space-y-10 animate-in fade-in">
+      <JsonLd data={jsonLd} />
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">테스트 선택</h1>
         <p className="text-gray-500 text-sm">원하는 애니메이션 세계관을 선택해 바로 시작하세요.</p>
       </div>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">테스트별 특징</h2>
+        <div className="space-y-6">
+          {Object.values(THEMES).map((theme) => {
+            const detail = THEME_DETAILS[theme.id] ?? {
+              headline: `${theme.label} 세계관 테스트`,
+              body: `${theme.label}의 장면을 통해 MBTI 유형별 특징과 궁합을 분석합니다.`,
+            };
+            return (
+              <article key={theme.id} className="space-y-2">
+                <h3 className="text-lg font-black text-[#16324f]">{detail.headline}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{detail.body}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {Object.values(THEMES).map((theme) => (
@@ -83,6 +140,20 @@ export default function TestSelect() {
         <p className="text-sm text-gray-500 leading-relaxed">
           결과는 재미와 자기탐색을 위한 참고용이며, 정답을 맞히기보다는 자신의 반응과 선택을 가볍게 돌아보는 데 의미가 있습니다.
         </p>
+      </section>
+
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f]">심리학적 근거</h2>
+        <p className="text-sm text-gray-600 leading-relaxed">
+          각 테스트는 MBTI의 네 가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 묻도록 설계되었습니다. 질문은 성격심리학의
+          이분법적 성향 분류를 참고하여, 상황 속 선택이 성향으로 이어지는 과정을 관찰합니다.
+        </p>
+        <h3 className="text-base font-black text-[#16324f]">참고 문헌/출처</h3>
+        <ul className="list-disc list-inside text-xs text-gray-500 space-y-2">
+          <li>MBTI 성격 유형 이론의 4가지 지표 구조</li>
+          <li>심리유형론 기반의 성향 분류 프레임워크</li>
+          <li>성격심리학 개론 수준의 기초 개념</li>
+        </ul>
       </section>
     </div>
   );
