@@ -13,10 +13,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_ORIGIN}/terms`, lastModified: now },
     { url: `${SITE_ORIGIN}/privacy`, lastModified: now },
     { url: `${SITE_ORIGIN}/contact`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/select`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/about`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/terms`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/privacy`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/contact`, lastModified: now },
   ];
 
   const themeEntries = Object.values(THEMES).map((theme) => ({
     url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
+    lastModified: now,
+  }));
+  const themeEntriesEn = Object.values(THEMES).map((theme) => ({
+    url: `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`,
     lastModified: now,
   }));
 
@@ -26,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     })),
   );
+  const resultEntriesEn = Object.values(THEMES).flatMap((theme) =>
+    POPULAR_TYPES.map((type) => ({
+      url: `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`,
+      lastModified: now,
+    })),
+  );
 
-  return [...base, ...themeEntries, ...resultEntries];
+  return [...base, ...themeEntries, ...themeEntriesEn, ...resultEntries, ...resultEntriesEn];
 }
