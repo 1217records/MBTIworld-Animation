@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
+import { CONTENTS_EN, THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import TestClientEn from "./TestClient";
 
@@ -49,7 +50,7 @@ export const runtime = "edge";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolved = await params;
-  const theme = THEMES[resolved.themeId as keyof typeof THEMES];
+  const theme = THEMES_EN[resolved.themeId] ?? THEMES[resolved.themeId as keyof typeof THEMES];
   if (!theme) {
     return {
       title: `${SITE_NAME} | Test`,
@@ -81,8 +82,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TestPageEn({ params }: PageProps) {
   const resolved = await params;
-  const theme = THEMES[resolved.themeId as keyof typeof THEMES];
-  const content = CONTENTS[resolved.themeId as keyof typeof CONTENTS];
+  const theme = THEMES_EN[resolved.themeId] ?? THEMES[resolved.themeId as keyof typeof THEMES];
+  const content = CONTENTS_EN[resolved.themeId] ?? CONTENTS[resolved.themeId as keyof typeof CONTENTS];
   if (!theme || !content) {
     notFound();
   }

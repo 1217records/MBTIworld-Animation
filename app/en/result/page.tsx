@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
+import { CONTENTS_EN, THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import ResultShareClientEn from "./ResultShareClient";
 
@@ -55,8 +56,8 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
   const themeId = resolved?.theme || "onepiece";
   const type = normalizeType(resolved?.type || "ISTJ");
 
-  const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
+  const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
 
@@ -97,8 +98,8 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
   const themeId = resolved?.theme || "onepiece";
   const type = normalizeType(resolved?.type || "ISTJ");
 
-  const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
+  const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
 

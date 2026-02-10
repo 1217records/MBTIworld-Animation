@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { THEMES, CONTENTS } from "@/data";
+import { THEMES_EN, CONTENTS_EN } from "@/data-en";
 import { MBTI_Value } from "@/types";
 
 const THEME_LABELS_EN: Record<string, string> = {
@@ -20,8 +21,8 @@ type TestClientProps = {
 
 export default function TestClientEn({ themeId }: TestClientProps) {
   const router = useRouter();
-  const theme = THEMES[themeId as keyof typeof THEMES];
-  const content = CONTENTS[themeId as keyof typeof CONTENTS];
+  const theme = THEMES_EN[themeId] ?? THEMES[themeId as keyof typeof THEMES];
+  const content = CONTENTS_EN[themeId] ?? CONTENTS[themeId as keyof typeof CONTENTS];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<MBTI_Value[]>([]);
