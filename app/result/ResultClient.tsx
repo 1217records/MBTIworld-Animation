@@ -166,8 +166,8 @@ function ResultContent() {
                 {character.name}
               </h1>
             </div>
-            <p className="text-white text-lg sm:text-xl leading-relaxed max-w-xl font-medium italic opacity-90 break-words whitespace-normal">
-              "{character.desc}"
+            <p className="text-white text-base sm:text-xl leading-relaxed w-full max-w-none font-medium italic opacity-90 break-keep whitespace-normal px-2 text-center">
+              {character.desc}
             </p>
           </div>
         </div>
@@ -236,13 +236,13 @@ function ResultContent() {
       </section>
 
       <section className="bg-white rounded-[4rem] p-8 sm:p-20 border border-gray-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] space-y-12 text-center">
-        <div className="space-y-3">
-          <h3 className="text-3xl font-black font-serif text-[#16324f]">결과 공유하기</h3>
-          <p className="text-gray-400 font-medium text-base">당신과 닮은 캐릭터를 친구들에게 보여주세요.</p>
+        <div className="space-y-2">
+          <h3 className="text-2xl font-black font-serif text-[#16324f]">결과 공유하기</h3>
+          <p className="text-gray-400 font-medium text-sm">당신과 닮은 캐릭터를 친구들에게 보여주세요.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
           <button
-            className="w-full px-8 py-4 rounded-full bg-[#fee500] text-[#3c1e1e] font-black text-lg shadow-xl shadow-yellow-200/50 hover:-translate-y-1 transition-all active:scale-95"
+            className="w-full px-6 py-3.5 rounded-full bg-[#fee500] text-[#3c1e1e] font-black text-base shadow-xl shadow-yellow-200/50 hover:-translate-y-1 transition-all active:scale-95"
             onClick={handleKakaoShare}
           >
             <span className="inline-flex items-center justify-center gap-2 leading-none align-middle">
@@ -251,7 +251,7 @@ function ResultContent() {
             </span>
           </button>
           <button
-            className="w-full px-8 py-4 rounded-full bg-gradient-to-b from-[#111827] to-[#0b0f19] text-white font-black text-lg shadow-xl shadow-black/30 ring-1 ring-white/10 hover:-translate-y-1 hover:shadow-black/40 transition-all active:scale-95"
+            className="w-full px-6 py-3.5 rounded-full bg-gradient-to-b from-[#111827] to-[#0b0f19] text-white font-black text-base shadow-xl shadow-black/30 ring-1 ring-white/10 hover:-translate-y-1 hover:shadow-black/40 transition-all active:scale-95"
             onClick={handleXShare}
           >
             <span className="inline-flex items-center justify-center gap-1 leading-none align-middle">
@@ -264,13 +264,13 @@ function ResultContent() {
           <a
             href={`/og/${encodeURIComponent(themeId)}/${encodeURIComponent(type)}`}
             download={`mbti-${themeId}-${type}.png`}
-            className="w-full px-8 py-4 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-lg shadow-sm hover:bg-gray-50 transition-colors"
+            className="w-full px-6 py-3.5 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-base shadow-sm hover:bg-gray-50 transition-colors"
           >
             이미지 저장
           </a>
           <button
             onClick={handleCopyLink}
-            className="w-full px-8 py-4 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-lg shadow-sm hover:bg-gray-50 transition-colors"
+            className="w-full px-6 py-3.5 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-base shadow-sm hover:bg-gray-50 transition-colors"
           >
             링크 복사하기
           </button>
