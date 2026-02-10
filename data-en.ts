@@ -48,7 +48,7 @@ export const CONTENTS_EN: Record<string, ThemeContent> = {
     questions: [
       { axis: "SN", prompt: "Before reaching Skypiea, how do you find the sky-island route?", options: [{ value: "S", label: "Trust the log pose and records, follow the verified route" }, { value: "N", label: "Read the Knock Up Stream timing and imagine a new path" }] },
       { axis: "EI", prompt: "If conflict erupts among crewmates in Water 7, you...", options: [{ value: "E", label: "Step in and calm the mood directly" }, { value: "I", label: "Observe first, then share the key points quietly" }] },
-      { axis: "TF", prompt: "When deciding to storm Enies Lobby, you...", options: [{ value: "T", label: "Calculate CP9 strength and escape routes" }, { value: "F", label: "Prioritize Robin's "I want to live"" }] },
+      { axis: "TF", prompt: "When deciding to storm Enies Lobby, you...", options: [{ value: "T", label: "Calculate CP9 strength and escape routes" }, { value: "F", label: "Prioritize Robin's \"I want to live\"" }] },
       { axis: "JP", prompt: "After Dressrosa, how do you choose the next course?", options: [{ value: "J", label: "Plan a route like Law and follow the schedule" }, { value: "P", label: "Move like Luffy, seize the moment" }] },
       { axis: "SN", prompt: "If Poneglyph decoding stalls, you...", options: [{ value: "S", label: "Reorganize the text and coordinates for solid clues" }, { value: "N", label: "Imagine the hidden meaning and historical links" }] },
       { axis: "EI", prompt: "Arriving at a festival (Skypiea/Fishman Island), you...", options: [{ value: "E", label: "Do a spontaneous performance to lift the mood" }, { value: "I", label: "Watch from a distance and step in only when needed" }] },
