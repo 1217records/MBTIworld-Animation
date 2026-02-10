@@ -22,6 +22,11 @@ const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] 
       "나루토 세계관의 성장 서사를 통해, 꾸준함과 신념을 어떻게 유지하는지 관찰합니다. 팀워크, 인내, 감정 조절에서 드러나는 패턴을 통해 당신의 MBTI 경향을 정교하게 해석합니다.",
     strengths: ["끈기", "협업", "감정 회복력", "도전 정신"],
   },
+  shinchan: {
+    summary:
+      "짱구의 유치원과 가족 일상 속에서 나타나는 선택을 통해, 당신의 즉흥성, 공감력, 현실 감각을 관찰합니다. 작은 장면 속 반응이 어떤 MBTI 경향으로 이어지는지 16문항으로 풀어냅니다.",
+    strengths: ["일상 몰입", "공감", "즉흥성", "관계 감각"],
+  },
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

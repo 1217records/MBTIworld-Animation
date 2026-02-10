@@ -33,6 +33,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     body:
       "성장과 노력, 유대의 메시지가 강한 나루토 세계관에서 당신의 인내심과 관계 중심성을 탐색합니다. 감정 조절, 팀워크, 목표지향성의 패턴을 질문으로 풀어내어 MBTI 유형별 특징과 궁합을 분석합니다.",
   },
+  shinchan: {
+    headline: "짱구는 못말려 세계관 테스트",
+    body:
+      "유치원 친구들과 가족 사이의 일상 속에서 당신의 즉흥성, 공감력, 현실 감각을 살펴봅니다. 작은 선택들이 어떤 성향을 보여주는지 16문항으로 확인하고, 캐릭터 매칭과 유형별 특징을 함께 해석합니다.",
+  },
 };
 
 export default function TestSelect() {
