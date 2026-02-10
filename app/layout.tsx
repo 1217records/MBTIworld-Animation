@@ -50,17 +50,19 @@ export default function RootLayout({
     <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
       <head>
         <Script
+          id="adsense-script"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         <Script
+          id="gtag-script"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-4CC8Y8KXFX"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="ga-gtag-init" strategy="beforeInteractive">
+        <Script id="ga-gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
