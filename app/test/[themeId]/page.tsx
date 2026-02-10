@@ -7,7 +7,7 @@ import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import TestClient from "./TestClient";
 
 type PageProps = {
-  params: { themeId: string };
+  params: Promise<{ themeId: string }>;
 };
 
 export const runtime = "edge";
@@ -26,7 +26,8 @@ const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] 
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const theme = THEMES[params.themeId as keyof typeof THEMES];
+  const resolved = await params;
+  const theme = THEMES[resolved.themeId as keyof typeof THEMES];
   if (!theme) {
     return {
       title: `${SITE_NAME} | 테스트`,
@@ -55,9 +56,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function TestPage({ params }: PageProps) {
-  const theme = THEMES[params.themeId as keyof typeof THEMES];
-  const content = CONTENTS[params.themeId as keyof typeof CONTENTS];
+export default async function TestPage({ params }: PageProps) {
+  const resolved = await params;
+  const theme = THEMES[resolved.themeId as keyof typeof THEMES];
+  const content = CONTENTS[resolved.themeId as keyof typeof CONTENTS];
   if (!theme || !content) {
     notFound();
   }
