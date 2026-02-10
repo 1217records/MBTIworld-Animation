@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import { Suspense } from 'react';
 import ShareButtons from './ShareButtons';
 import LanguageToggle from './LanguageToggle';
 
@@ -9,7 +10,9 @@ const Navbar = () => (
       MBTI-world
     </Link>
     <div className="flex items-center gap-3">
-      <LanguageToggle />
+      <Suspense fallback={null}>
+        <LanguageToggle />
+      </Suspense>
       <ShareButtons />
     </div>
   </nav>
