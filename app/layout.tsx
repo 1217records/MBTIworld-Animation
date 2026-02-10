@@ -4,7 +4,7 @@ import { IBM_Plex_Sans_KR, Noto_Serif_KR, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import AdSenseScript from "@/components/AdSenseScript";
+import Script from "next/script";
 
 const ibmPlex = IBM_Plex_Sans_KR({
   subsets: ["latin"],
@@ -48,10 +48,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
-      <head />
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4CC8Y8KXFX"
+          strategy="beforeInteractive"
+        />
+        <Script id="ga-gtag-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4CC8Y8KXFX');`}
+        </Script>
+      </head>
       <body className="bg-[#fdfcf9] text-[#0b1220] min-h-screen font-sans selection:bg-[#16324f] selection:text-white">
         <div className="bg-pattern min-h-screen flex flex-col">
-          <AdSenseScript />
           <Navbar />
           <main className="flex-1 w-full max-w-4xl mx-auto p-4 sm:p-6 md:p-10">
             {children}
