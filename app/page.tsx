@@ -119,39 +119,6 @@ export default function Home() {
           format="horizontal"
         />
 
-        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">MBTI WORLD의 테스트가 특별한 이유</h2>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            MBTI WORLD ANIMATION은 애니메이션 서사를 통해 자신이 어떤 방식으로 선택하는지 관찰하는 스토리 기반 성격 테스트입니다.
-            단순히 문항을 체크하는 데 그치지 않고, 실제 장면에 몰입했을 때 어떤 가치와 반응이 자연스럽게 나오는지를 중심으로 구성했습니다.
-            최근 MBTI 트렌드는 “나는 어떤 유형인가”를 넘어, “왜 그런 선택을 하는가”를 설명해주는 콘텐츠에 집중하고 있습니다.
-            본 테스트는 그 흐름을 반영해, 유형별 특징과 궁합을 하나의 이야기로 풀어냅니다.
-            자기이해는 일관된 질문과 충분한 맥락에서 출발한다는 관점에서, 질문의 문맥과 결과 해석을 함께 설계했습니다.
-            결과는 재미를 위한 엔터테인먼트형 콘텐츠이지만, 성향의 강점과 주의점, 관계에서의 장단점을 함께 설명하여
-            자신의 행동 패턴을 안전하게 돌아볼 수 있도록 돕습니다.
-            특히 인공지능 검색 환경에서는 핵심 내용을 명확히 요약하는 구조가 중요합니다.
-            이 페이지는 MBTI 유형별 특징과 궁합을 분석하는 테스트라는 사실을 명시적으로 제시하고,
-            테스트 목적, 진행 방법, 결과 해석의 방향을 한눈에 이해할 수 있도록 텍스트 중심으로 구성했습니다.
-          </p>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            MBTI는 자기이해를 돕는 하나의 언어일 뿐, 절대적인 진단이 아니라는 점을 명확히 합니다. 그래서 결과 페이지에서는
-            “성격, 장단점, 관계에서의 상호작용, 스트레스 상황에서의 반응”을 분리하여 설명하고, 자기반성을 돕는 질문을 함께 제시합니다.
-            또한, 테스트가 특정 집단의 편견이나 고정관념을 강화하지 않도록 문장을 중립적인 톤으로 구성했습니다.
-            콘텐츠의 품질을 높이기 위해 질문의 문맥, 캐릭터 해석, 유형 설명을 지속적으로 업데이트하고 있으며,
-            사용자가 자신의 경험과 연결하여 해석할 수 있도록 스토리 기반 설명을 강화했습니다.
-            이처럼 충분한 텍스트 맥락을 제공하는 이유는 사용자에게는 명확한 안내와 몰입감을 제공하고,
-            검색 엔진과 애드센스 봇에게는 신뢰할 수 있는 고품질 콘텐츠 신호를 제공하기 위함입니다.
-            아울러 빠른 로딩과 가독성을 위해 서버 렌더링 텍스트를 우선 제공하고, 인터랙션은 필요한 영역에만 최소화했습니다.
-            그래서 페이지 소스에서도 테스트의 목적과 의미 있는 설명을 즉시 확인할 수 있습니다.
-          </p>
-          <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#스토리 기반</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#MBTI 유형별 특징</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#궁합 분석</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#자기이해</span>
-          </div>
-        </section>
-
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-4">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">🧭 테스트는 이렇게 진행돼요</h2>
           <p className="text-gray-600 leading-relaxed">
@@ -203,6 +170,40 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
+        <div className="h-6 sm:h-8" />
+        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">MBTI WORLD의 테스트가 특별한 이유</h2>
+          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            MBTI WORLD ANIMATION은 애니메이션 서사를 통해 자신이 어떤 방식으로 선택하는지 관찰하는 스토리 기반 성격 테스트입니다.
+            단순히 문항을 체크하는 데 그치지 않고, 실제 장면에 몰입했을 때 어떤 가치와 반응이 자연스럽게 나오는지를 중심으로 구성했습니다.
+            최근 MBTI 트렌드는 “나는 어떤 유형인가”를 넘어, “왜 그런 선택을 하는가”를 설명해주는 콘텐츠에 집중하고 있습니다.
+            본 테스트는 그 흐름을 반영해, 유형별 특징과 궁합을 하나의 이야기로 풀어냅니다.
+            자기이해는 일관된 질문과 충분한 맥락에서 출발한다는 관점에서, 질문의 문맥과 결과 해석을 함께 설계했습니다.
+            결과는 재미를 위한 엔터테인먼트형 콘텐츠이지만, 성향의 강점과 주의점, 관계에서의 장단점을 함께 설명하여
+            자신의 행동 패턴을 안전하게 돌아볼 수 있도록 돕습니다.
+            특히 인공지능 검색 환경에서는 핵심 내용을 명확히 요약하는 구조가 중요합니다.
+            이 페이지는 MBTI 유형별 특징과 궁합을 분석하는 테스트라는 사실을 명시적으로 제시하고,
+            테스트 목적, 진행 방법, 결과 해석의 방향을 한눈에 이해할 수 있도록 텍스트 중심으로 구성했습니다.
+          </p>
+          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            MBTI는 자기이해를 돕는 하나의 언어일 뿐, 절대적인 진단이 아니라는 점을 명확히 합니다. 그래서 결과 페이지에서는
+            “성격, 장단점, 관계에서의 상호작용, 스트레스 상황에서의 반응”을 분리하여 설명하고, 자기반성을 돕는 질문을 함께 제시합니다.
+            또한, 테스트가 특정 집단의 편견이나 고정관념을 강화하지 않도록 문장을 중립적인 톤으로 구성했습니다.
+            콘텐츠의 품질을 높이기 위해 질문의 문맥, 캐릭터 해석, 유형 설명을 지속적으로 업데이트하고 있으며,
+            사용자가 자신의 경험과 연결하여 해석할 수 있도록 스토리 기반 설명을 강화했습니다.
+            이처럼 충분한 텍스트 맥락을 제공하는 이유는 사용자에게는 명확한 안내와 몰입감을 제공하고,
+            검색 엔진과 애드센스 봇에게는 신뢰할 수 있는 고품질 콘텐츠 신호를 제공하기 위함입니다.
+            아울러 빠른 로딩과 가독성을 위해 서버 렌더링 텍스트를 우선 제공하고, 인터랙션은 필요한 영역에만 최소화했습니다.
+            그래서 페이지 소스에서도 테스트의 목적과 의미 있는 설명을 즉시 확인할 수 있습니다.
+          </p>
+          <div className="flex flex-wrap gap-3 text-xs text-gray-500">
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#스토리 기반</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#MBTI 유형별 특징</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#궁합 분석</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#자기이해</span>
+          </div>
+        </section>
 
         <div className="h-6 sm:h-8" />
         <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">

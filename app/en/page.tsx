@@ -135,25 +135,6 @@ export default function HomeEn() {
           format="horizontal"
         />
 
-        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Why This Test Feels Different</h2>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            MBTI WORLD ANIMATION is a story-first personality test that focuses on how you actually choose when you are immersed in a scene.
-            Instead of ticking generic boxes, we place you inside meaningful moments and observe what feels most natural to you.
-            The result is not just a type label, but a narrative that connects strengths, blind spots, and relationship patterns.
-          </p>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
-            We emphasize clarity, context, and balance. Your results explain both strengths and cautions, and are meant for self-reflection rather than diagnosis.
-            The goal is simple: make the journey fun, and the reflection meaningful.
-          </p>
-          <div className="flex flex-wrap gap-3 text-xs text-gray-500">
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Story-based</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#MBTI Insights</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Character Match</span>
-            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Self-Reflection</span>
-          </div>
-        </section>
-
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-4">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">How the Test Works</h2>
           <p className="text-gray-600 leading-relaxed">
@@ -203,6 +184,26 @@ export default function HomeEn() {
             </Link>
           </div>
         </div>
+
+        <div className="h-6 sm:h-8" />
+        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Why This Test Feels Different</h2>
+          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            MBTI WORLD ANIMATION is a story-first personality test that focuses on how you actually choose when you are immersed in a scene.
+            Instead of ticking generic boxes, we place you inside meaningful moments and observe what feels most natural to you.
+            The result is not just a type label, but a narrative that connects strengths, blind spots, and relationship patterns.
+          </p>
+          <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+            We emphasize clarity, context, and balance. Your results explain both strengths and cautions, and are meant for self-reflection rather than diagnosis.
+            The goal is simple: make the journey fun, and the reflection meaningful.
+          </p>
+          <div className="flex flex-wrap gap-3 text-xs text-gray-500">
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Story-based</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#MBTI Insights</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Character Match</span>
+            <span className="px-3 py-2 rounded-full bg-[#fdfcf9] border border-gray-100 font-bold">#Self-Reflection</span>
+          </div>
+        </section>
 
         <div className="h-6 sm:h-8" />
         <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
