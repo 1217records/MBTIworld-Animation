@@ -51,6 +51,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     body:
       "유치원 친구들과 가족 사이의 일상 속에서 당신의 즉흥성, 공감력, 현실 감각을 살펴봅니다. 작은 선택들이 어떤 성향을 보여주는지 16문항으로 확인하고, 캐릭터 매칭과 유형별 특징을 함께 해석합니다.",
   },
+  jujutsu: {
+    headline: "주술회전 세계관 테스트",
+    body:
+      "주술고전의 임무, 주령과의 전투, 영역 전개 같은 핵심 설정 속 선택을 통해 당신의 전투 판단과 관계 패턴을 분석합니다. 16문항으로 MBTI 성향을 도출하고 캐릭터 매칭까지 연결합니다.",
+  },
 };
 
 export default function TestSelect() {

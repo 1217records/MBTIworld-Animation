@@ -13,6 +13,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   fma: "Fullmetal Alchemist",
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
+  jujutsu: "Jujutsu Kaisen",
 };
 
 const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] }> = {
@@ -40,6 +41,11 @@ const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] 
     summary:
       "Everyday scenes reveal spontaneity, empathy, and realism. Small choices build a clear pattern for your MBTI type.",
     strengths: ["Spontaneity", "Empathy", "Realism", "Playfulness"],
+  },
+  jujutsu: {
+    summary:
+      "Through missions, curse encounters, and Domain Expansion decisions, this test reveals your pressure response and value hierarchy across 16 scenarios.",
+    strengths: ["Combat judgment", "Risk control", "Team play", "Mental focus"],
   },
 };
 

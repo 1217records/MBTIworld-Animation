@@ -28,6 +28,11 @@ const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] 
       "짱구의 유치원과 가족 일상 속에서 나타나는 선택을 통해, 당신의 즉흥성, 공감력, 현실 감각을 관찰합니다. 작은 장면 속 반응이 어떤 MBTI 경향으로 이어지는지 16문항으로 풀어냅니다.",
     strengths: ["일상 몰입", "공감", "즉흥성", "관계 감각"],
   },
+  jujutsu: {
+    summary:
+      "주술고전의 임무, 주령과의 전투, 영역 전개 선택을 통해 당신의 판단 구조를 분석합니다. 위기 대응, 팀 협업, 가치 우선순위가 어떤 MBTI 패턴으로 이어지는지 16문항으로 확인합니다.",
+    strengths: ["전투 판단", "위기 대응", "관계 전략", "집중력"],
+  },
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

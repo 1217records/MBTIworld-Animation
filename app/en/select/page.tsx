@@ -31,6 +31,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   fma: "Fullmetal Alchemist",
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
+  jujutsu: "Jujutsu Kaisen",
 };
 
 const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
@@ -58,6 +59,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     headline: "Crayon Shin-chan World Test",
     body:
       "Everyday moments reveal your spontaneity, empathy, and realism. Small choices build a clear pattern that leads to your MBTI type and character match.",
+  },
+  jujutsu: {
+    headline: "Jujutsu Kaisen World Test",
+    body:
+      "Through missions, curse fights, and Domain Expansion choices, this test tracks your combat judgment, value system, and relationship style across 16 questions.",
   },
 };
 

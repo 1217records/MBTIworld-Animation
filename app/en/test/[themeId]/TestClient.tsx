@@ -13,6 +13,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   fma: "Fullmetal Alchemist",
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
+  jujutsu: "Jujutsu Kaisen",
 };
 
 type TestClientProps = {
