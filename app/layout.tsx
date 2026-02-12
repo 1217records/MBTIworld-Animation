@@ -8,6 +8,8 @@ import { SITE_ORIGIN } from "@/lib/site";
 import { headers } from "next/headers";
 import JsonLd from "@/components/JsonLd";
 
+export const runtime = "edge";
+
 const ibmPlex = IBM_Plex_Sans_KR({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
