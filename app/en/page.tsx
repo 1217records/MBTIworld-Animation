@@ -5,6 +5,8 @@ import AdExperiment from "@/components/AdExperiment";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `${SITE_NAME} | EN`,
   description: "A story-driven MBTI test inspired by iconic anime worlds.",

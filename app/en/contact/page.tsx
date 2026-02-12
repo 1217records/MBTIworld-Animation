@@ -4,6 +4,8 @@ import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 import ContactClientEn from "./ContactClient";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `Suggest a Test | ${SITE_NAME}`,
   description: "Suggest a new anime world for MBTI WORLD ANIMATION.",

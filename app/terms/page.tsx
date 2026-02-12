@@ -3,6 +3,8 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `이용 약관 | ${SITE_NAME}`,
   description: "MBTI WORLD ANIMATION의 서비스 이용 약관을 안내합니다.",

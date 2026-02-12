@@ -6,6 +6,8 @@ import { THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `Choose a Test | ${SITE_NAME}`,
   description: "Pick an anime world and start your MBTI story test.",

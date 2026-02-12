@@ -3,6 +3,8 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: `Terms | ${SITE_NAME}`,
   description: "Service terms for MBTI WORLD ANIMATION.",

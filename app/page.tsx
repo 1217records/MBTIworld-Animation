@@ -6,6 +6,8 @@ import AdExperiment from "@/components/AdExperiment";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: SITE_NAME,
   description: "MBTI 유형별 특징과 궁합을 분석하는 MBTI WORLD ANIMATION 테스트입니다.",
