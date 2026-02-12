@@ -1,22 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MBTI World Animation">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MBTI World Animation icon">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0e1b2e"/>
-      <stop offset="100%" stop-color="#1f2f46"/>
+      <stop offset="0%" stop-color="#102A43"/>
+      <stop offset="100%" stop-color="#243B53"/>
     </linearGradient>
-    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff6b6b"/>
-      <stop offset="100%" stop-color="#ff3b3b"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F9C74F"/>
+      <stop offset="100%" stop-color="#F9844A"/>
     </linearGradient>
   </defs>
-
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-
-  <circle cx="256" cy="256" r="122" fill="url(#sun)"/>
-
-  <path d="M115 233h83M98 256h94M115 279h83" stroke="#f9f7f1" stroke-width="14" stroke-linecap="round" opacity="0.95"/>
-  <path d="M397 233h-83M414 256h-94M397 279h-83" stroke="#f9f7f1" stroke-width="14" stroke-linecap="round" opacity="0.95"/>
-
-  <path d="M170 360L342 188" stroke="#f9f7f1" stroke-width="20" stroke-linecap="round"/>
-  <path d="M196 368L350 214" stroke="#ffd166" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="176" fill="none" stroke="url(#accent)" stroke-width="28"/>
+  <path d="M146 332V180h34l38 57 38-57h34v152h-34v-91l-36 52h-4l-36-52v91h-34Zm194 0V180h36v152h-36Z" fill="#FDFCF9"/>
 </svg>
