@@ -101,6 +101,22 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
   ];
   const traitExpansion = `${type} 유형은 상황을 바라보는 관점이 비교적 일관적이고, 결정 과정에서 자신만의 기준을 세워 움직인다. ${MBTI_SHORT_DESCS[type]} 성향은 선택의 이유를 분명하게 만들며, 목표를 세운 뒤에는 성실하게 따라가는 특징으로 나타난다. 다만 감정과 논리가 충돌할 때는 스스로의 속도를 조절하는 연습이 필요하다. 주변의 기대와 자신의 기준 사이에서 균형점을 찾을수록 관계의 피로감이 줄고, 장기적으로는 더 안정적인 성과로 연결된다.`;
   const characterCorrelation = `${character.name}가 ${type}로 읽히는 이유는 ${theme.label} 세계관에서 반복되는 선택의 방식 때문이다. 위기에서 감정이 흔들릴 때도 그는 ${MBTI_SHORT_DESCS[type]} 성향을 바탕으로 핵심 기준을 지키고, 관계에서는 말보다 행동으로 신뢰를 쌓는다. 무모한 돌파보다 계획과 책임을 우선하며, 팀의 균형을 맞추는 장면이 많다. 특히 갈등 상황에서 상대의 입장을 정리한 뒤 현실적인 대안을 제시하는 모습은 ${type}의 사고 흐름을 그대로 보여준다. 주변 인물의 감정이 격해질 때도 한 발 물러서 상황을 구조화하고, 필요한 순간에는 단호하게 결정을 내려 흐름을 안정시킨다. 그의 선택은 즉흥적 영웅주의보다 일관된 기준과 역할 의식에 기대어 있으며, 이 점이 ${type} 특유의 책임감과 맞닿아 있다. 결과적으로 캐릭터의 반복적 행동 패턴이 ${type}의 판단 구조와 닮아 설득력을 만든다.`;
+  const episodeInsight = `${character.name}의 이 장면은 ${type}의 핵심 성향인 "${MBTI_SHORT_DESCS[type]}"이 실제 선택에서 어떻게 드러나는지를 보여줍니다. 감정적인 순간에도 기준을 잃지 않는 태도, 그리고 관계를 지키기 위한 행동이 이 유형의 장점으로 연결됩니다.`;
+  const connectionHighlights = [
+    `${type}는 즉흥적 반응보다 기준 중심의 판단 흐름을 유지하는 경향이 강합니다.`,
+    `${character.name}의 반복 행동 패턴은 책임감, 역할 인식, 신뢰 구축 방식에서 ${type}의 구조와 맞닿아 있습니다.`,
+    `관계 갈등 상황에서 "${MBTI_SHORT_DESCS[type]}" 성향이 의사결정의 우선순위를 분명히 만들어 줍니다.`,
+  ];
+  const compatibilityStrategies = [
+    "상대가 감정형 성향일수록 결론보다 공감 문장부터 시작하면 대화 저항이 줄어듭니다.",
+    "계획형/즉흥형 조합에서는 역할을 '결정 담당'과 '실행 담당'으로 나누면 마찰을 줄일 수 있습니다.",
+    "관계 피로가 높아질 때는 문제 해결 대화와 감정 정리 대화를 분리해 진행하는 것이 효과적입니다.",
+  ];
+  const communicationChecklist = [
+    "의견 충돌 시: 상대 의도를 먼저 요약하고 내 기준을 제시하기",
+    "결정 직전: 사실/감정/우선순위 3가지를 같은 순서로 확인하기",
+    "관계 회복 단계: 잘한 점 1개 + 개선점 1개 구조로 피드백하기",
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -181,9 +197,15 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
           <div className="flex flex-col items-center gap-3 text-center">
             <h2 className="font-black text-[#16324f] text-xl font-serif text-center">기억에 남는 장면</h2>
           </div>
-          <p className="text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
-            {character.episodeNote}
-          </p>
+          <div className="space-y-6">
+            <p className="text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
+              {character.episodeNote}
+            </p>
+            <div className="max-w-4xl mx-auto rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 sm:p-6">
+              <h3 className="text-sm font-black text-[#16324f] tracking-wide mb-2">이 장면이 결과와 연결되는 이유</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{episodeInsight}</p>
+            </div>
+          </div>
         </section>
       )}
 
@@ -191,7 +213,16 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="font-black text-[#16324f] text-xl font-serif text-center">캐릭터와 MBTI의 연결</h2>
         </div>
-        <p className="text-gray-600 leading-[2] text-base sm:text-lg">{characterCorrelation}</p>
+        <div className="space-y-6">
+          <p className="text-gray-600 leading-[2] text-base sm:text-lg">{characterCorrelation}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {connectionHighlights.map((item) => (
+              <div key={item} className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-600 leading-relaxed">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="bg-[#16324f] rounded-[3rem] px-7 sm:px-14 pt-4 pb-8 sm:pt-8 sm:pb-12 text-white shadow-2xl space-y-10 relative overflow-hidden">
@@ -214,12 +245,24 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
           {type} 유형은 자신과 다른 에너지의 유형과 상호보완적인 관계를 형성할 수 있습니다. 계획성과 유연성, 감정 표현과 논리적
           판단의 균형을 고려하면 관계 만족도가 높아집니다. 테스트 결과는 “상대의 반응을 이해하는 힌트”로 활용하는 것이 좋습니다.
         </p>
-        <h3 className="text-lg font-black text-[#16324f]">추천 조합 예시</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>감정 표현이 강한 유형과 만날 때는 공감과 경청의 시간을 늘려보세요.</li>
-          <li>계획형/즉흥형 조합에서는 역할을 분담해 갈등을 줄일 수 있습니다.</li>
-          <li>논리형/감정형의 경우, 결정 전에 서로의 기준을 명확히 공유하는 것이 도움이 됩니다.</li>
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
+            <h3 className="text-base font-black text-[#16324f] mb-3">관계 만족도를 높이는 실전 전략</h3>
+            <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
+              {compatibilityStrategies.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5">
+            <h3 className="text-base font-black text-[#16324f] mb-3">대화 체크리스트</h3>
+            <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
+              {communicationChecklist.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">

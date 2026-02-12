@@ -144,6 +144,22 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
 
   const traitExpansion = `${type} types tend to act from a consistent internal standard. The focus on ${shortDesc} shapes how decisions are made and how relationships are managed. When pressure rises, clarity and pacing matter most. Learning to balance personal standards with external expectations leads to more stable outcomes.`;
   const characterCorrelation = `${character.name} feels like a ${type} because their repeated choices in the ${label} world show the same decision pattern. Even under stress, they return to a clear internal standard, build trust through actions, and prioritize responsibility over impulsive heroism. This consistent behavior mirrors the ${type} decision flow and makes the match feel believable.`;
+  const episodeInsight = `${character.name}'s defining scene reflects how ${type} tendencies appear in real choices. The same ${shortDesc} pattern shows up when pressure rises: keeping a personal standard, protecting key relationships, and acting with consistency instead of impulse.`;
+  const connectionHighlights = [
+    `${type} tends to keep a standard-driven decision flow even when emotions escalate.`,
+    `${character.name}'s repeated behavior aligns with ${type} through responsibility, role clarity, and trust-building actions.`,
+    `${shortDesc} often appears as a clear priority order in conflict-heavy situations.`,
+  ];
+  const compatibilityStrategies = [
+    "With emotion-led partners, start with acknowledgment before jumping to solutions.",
+    "For planner vs improviser pairs, split roles into decision ownership and execution ownership.",
+    "When tension rises, separate problem-solving talk from emotional processing time.",
+  ];
+  const communicationChecklist = [
+    "In conflict: summarize their intent first, then present your criteria.",
+    "Before final decisions: align facts, emotions, and priorities in that order.",
+    "For repair: use one strength + one improvement point feedback.",
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -222,9 +238,15 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
           <div className="flex flex-col items-center gap-3 text-center">
             <h2 className="font-black text-[#16324f] text-xl font-serif text-center">Memorable Scene</h2>
           </div>
-          <p className="text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
-            {character.episodeNote}
-          </p>
+          <div className="space-y-6">
+            <p className="text-lg sm:text-xl font-serif text-gray-800 leading-[1.8] italic text-center px-4">
+              {character.episodeNote}
+            </p>
+            <div className="max-w-4xl mx-auto rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 sm:p-6">
+              <h3 className="text-sm font-black text-[#16324f] tracking-wide mb-2">Why this scene matches your result</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{episodeInsight}</p>
+            </div>
+          </div>
         </section>
       )}
 
@@ -232,7 +254,16 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="font-black text-[#16324f] text-xl font-serif text-center">Character & MBTI Connection</h2>
         </div>
-        <p className="text-gray-600 leading-[2] text-base sm:text-lg">{characterCorrelation}</p>
+        <div className="space-y-6">
+          <p className="text-gray-600 leading-[2] text-base sm:text-lg">{characterCorrelation}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {connectionHighlights.map((item) => (
+              <div key={item} className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-4 text-sm text-gray-600 leading-relaxed">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="bg-[#16324f] rounded-[3rem] px-7 sm:px-14 pt-4 pb-8 sm:pt-8 sm:pb-12 text-white shadow-2xl space-y-10 relative overflow-hidden">
@@ -254,12 +285,24 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
         <p className="text-gray-600 leading-relaxed">
           {type} types can form complementary relationships with people who bring different energy. Balance planning with flexibility, and logic with empathy.
         </p>
-        <h3 className="text-lg font-black text-[#16324f]">Example Tips</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>Make space for active listening when emotions run high.</li>
-          <li>Share responsibilities to reduce friction between planners and improvisers.</li>
-          <li>Align decision criteria before big choices.</li>
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
+            <h3 className="text-base font-black text-[#16324f] mb-3">Practical Strategies</h3>
+            <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
+              {compatibilityStrategies.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5">
+            <h3 className="text-base font-black text-[#16324f] mb-3">Communication Checklist</h3>
+            <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
+              {communicationChecklist.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">

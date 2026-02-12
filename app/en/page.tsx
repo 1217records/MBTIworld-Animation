@@ -50,10 +50,10 @@ export default function HomeEn() {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Does this result diagnose my personality?",
+          name: "What does this site offer?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "No. This is entertainment and self-reflection content, not a clinical diagnosis.",
+            text: "Story-driven MBTI tests with character-based result interpretation.",
           },
         },
         {
@@ -62,6 +62,46 @@ export default function HomeEn() {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Each world has 16 questions and typically takes around 2 to 3 minutes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How should I use the result?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Use it as a reflection guide, not as an absolute diagnosis.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does this result diagnose my personality?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. This is entertainment and self-reflection content, not a clinical diagnosis.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How are the questions designed?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Each world uses 16 scenario-based questions balanced across E/I, S/N, T/F, and J/P.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I retake the test?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. You can retake the same world or try a different world at any time.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Are my results saved?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Results are not stored and can be viewed on the current screen only.",
           },
         },
       ],
@@ -87,15 +127,6 @@ export default function HomeEn() {
           Answer 16 story-based questions and meet your character match.
         </p>
       </div>
-
-      <section className="w-full max-w-3xl rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 text-left shadow-sm">
-        <h2 className="text-xl font-black font-serif text-[#16324f]">Quick Summary Q&A</h2>
-        <div className="mt-4 space-y-3 text-sm text-gray-600 leading-relaxed">
-          <p><strong>Q.</strong> What does this site offer?<br /><strong>A.</strong> Story-driven MBTI tests with character-based result interpretation.</p>
-          <p><strong>Q.</strong> How long is one test?<br /><strong>A.</strong> 16 questions per world, usually finished in 2 to 3 minutes.</p>
-          <p><strong>Q.</strong> How should I use the result?<br /><strong>A.</strong> Use it as a reflection guide, not as an absolute diagnosis.</p>
-        </div>
-      </section>
 
       <section className="w-full max-w-3xl text-left space-y-10">
         <AdExperiment
@@ -170,6 +201,41 @@ export default function HomeEn() {
             >
               Privacy
             </Link>
+          </div>
+        </div>
+
+        <div className="h-6 sm:h-8" />
+        <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+          <h2 className="text-2xl font-black font-serif text-[#16324f]">💬 Frequently Asked Questions</h2>
+          <div className="space-y-5 text-sm text-gray-600 leading-relaxed">
+            <div>
+              <p className="font-bold text-[#16324f]">Q. What does this site offer?</p>
+              <p>A. Story-driven MBTI tests with character-based result interpretation.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. How long does the test take?</p>
+              <p>A. Each world has 16 questions and typically takes around 2 to 3 minutes.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. How should I use the result?</p>
+              <p>A. Use it as a reflection guide, not as an absolute diagnosis.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. Does this result diagnose my personality?</p>
+              <p>A. No. This is entertainment and self-reflection content, not a clinical diagnosis.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. How are the questions designed?</p>
+              <p>A. Each world uses 16 scenario-based questions balanced across E/I, S/N, T/F, and J/P.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. Can I retake the test?</p>
+              <p>A. Yes. You can retake the same world or try a different world at any time.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. Are my results saved?</p>
+              <p>A. No. Results are not stored and can be viewed on the current screen only.</p>
+            </div>
           </div>
         </div>
       </section>

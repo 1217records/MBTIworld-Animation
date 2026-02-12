@@ -140,10 +140,11 @@ export default async function TestPageEn({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Start the Test</h2>
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border-2 border-[#16324f]/25 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Answer the Questions Below</h2>
         <p className="text-gray-600 leading-relaxed">
-          Answer the questions and meet your closest character match at the end.
+          Use the Q&A area below to answer right away.
+          Complete the questions to see your character match at the end.
         </p>
         <TestClientEn themeId={theme.id} />
       </section>

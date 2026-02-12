@@ -120,10 +120,10 @@ export default async function TestPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">테스트 시작하기</h2>
+      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border-2 border-[#16324f]/25 shadow-sm space-y-6">
+        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">문답에 바로 답변하기</h2>
         <p className="text-gray-600 leading-relaxed">
-          아래 질문에 답하면 {theme.label} 세계관 속에서 당신과 닮은 캐릭터를 찾아드립니다. 모든 질문을 마치면 결과 페이지에서
+          아래 문답창에서 바로 질문에 답변할 수 있습니다. {theme.label} 세계관 속 선택에 답하면 결과 페이지에서
           유형별 특징과 궁합 분석을 확인할 수 있습니다.
         </p>
         <TestClient themeId={theme.id} />

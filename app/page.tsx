@@ -51,6 +51,30 @@ export default function Home() {
       mainEntity: [
         {
           "@type": "Question",
+          name: "이 사이트는 무엇을 제공하나요?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "애니메이션 세계관 기반 MBTI 테스트와 결과 해석을 제공합니다.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "테스트는 얼마나 걸리나요?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "세계관별 16문항, 약 2~3분 내 완료됩니다.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "결과는 어떻게 활용하면 좋나요?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "절대적 진단이 아닌 자기이해 참고 자료로 활용하는 것을 권장합니다.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "테스트 결과가 실제 성격을 뜻하나요?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -87,15 +111,6 @@ export default function Home() {
           어떤 캐릭터가 나랑 가장 비슷할지 16문항으로 확인해보세요.
         </p>
       </div>
-
-      <section className="w-full max-w-3xl rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 text-left shadow-sm">
-        <h2 className="text-xl font-black font-serif text-[#16324f]">빠른 요약 Q&A</h2>
-        <div className="mt-4 space-y-3 text-sm text-gray-600 leading-relaxed">
-          <p><strong>Q.</strong> 이 사이트는 무엇을 제공하나요?<br /><strong>A.</strong> 애니메이션 세계관 기반 MBTI 테스트와 결과 해석을 제공합니다.</p>
-          <p><strong>Q.</strong> 테스트는 얼마나 걸리나요?<br /><strong>A.</strong> 세계관별 16문항, 약 2~3분 내 완료됩니다.</p>
-          <p><strong>Q.</strong> 결과는 어떻게 활용하면 좋나요?<br /><strong>A.</strong> 절대적 진단이 아닌 자기이해 참고 자료로 활용하는 것을 권장합니다.</p>
-        </div>
-      </section>
 
       <section className="w-full max-w-3xl text-left space-y-10">
         <AdExperiment
@@ -193,6 +208,18 @@ export default function Home() {
         <div className="bg-white/80 rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
           <h2 className="text-2xl font-black font-serif text-[#16324f]">💬 자주 묻는 질문</h2>
           <div className="space-y-5 text-sm text-gray-600 leading-relaxed">
+            <div>
+              <p className="font-bold text-[#16324f]">Q. 이 사이트는 무엇을 제공하나요?</p>
+              <p>A. 애니메이션 세계관 기반 MBTI 테스트와 결과 해석을 제공합니다.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. 테스트는 얼마나 걸리나요?</p>
+              <p>A. 세계관별 16문항, 약 2~3분 내 완료됩니다.</p>
+            </div>
+            <div>
+              <p className="font-bold text-[#16324f]">Q. 결과는 어떻게 활용하면 좋나요?</p>
+              <p>A. 절대적 진단이 아닌 자기이해 참고 자료로 활용하는 것을 권장합니다.</p>
+            </div>
             <div>
               <p className="font-bold text-[#16324f]">Q. 테스트 결과가 실제 성격을 뜻하나요?</p>
               <p>A. 이 테스트는 오락과 자기탐색을 위한 콘텐츠입니다. 재미로 참고해 주세요.</p>
