@@ -5,10 +5,7 @@ import "./globals.css";
 import AppShell from "@/components/AppShell";
 import Script from "next/script";
 import { SITE_ORIGIN } from "@/lib/site";
-import { headers } from "next/headers";
 import JsonLd from "@/components/JsonLd";
-
-export const runtime = "edge";
 
 const ibmPlex = IBM_Plex_Sans_KR({
   subsets: ["latin"],
@@ -47,14 +44,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const requestHeaders = await headers();
-  const pathname = requestHeaders.get("x-pathname") || "/";
-  const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "ko";
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -70,7 +64,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={lang} className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
+    <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
       <head>
         <Script
           id="adsense-script"
