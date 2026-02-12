@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: `About | ${SITE_NAME}`,
   description: "Learn the philosophy and values behind MBTI WORLD ANIMATION.",
-  alternates: { canonical: `${SITE_ORIGIN}/en/about` },
+  alternates: localizedAlternates("/about", "en"),
   openGraph: {
     title: `About | ${SITE_NAME}`,
     description: "Learn the philosophy and values behind MBTI WORLD ANIMATION.",

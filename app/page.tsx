@@ -2,12 +2,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import AdExperiment from "@/components/AdExperiment";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: SITE_NAME,
   description: "MBTI 유형별 특징과 궁합을 분석하는 MBTI WORLD ANIMATION 테스트입니다.",
-  alternates: { canonical: `${SITE_ORIGIN}/` },
+  alternates: localizedAlternates("/", "ko"),
   openGraph: {
     title: SITE_NAME,
     description: "MBTI 유형별 특징과 궁합을 분석하는 MBTI WORLD ANIMATION 테스트입니다.",
@@ -31,15 +33,39 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: SITE_NAME,
-    applicationCategory: "Entertainment",
-    operatingSystem: "Web",
-    description: `MBTI 유형별 특징과 궁합을 분석하는 ${SITE_NAME}`,
-    url: `${SITE_ORIGIN}/`,
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: SITE_NAME,
+      applicationCategory: "Entertainment",
+      operatingSystem: "Web",
+      description: `MBTI 유형별 특징과 궁합을 분석하는 ${SITE_NAME}`,
+      url: `${SITE_ORIGIN}/`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "테스트 결과가 실제 성격을 뜻하나요?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "이 테스트는 오락과 자기탐색을 위한 콘텐츠입니다. 재미로 참고해 주세요.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "문항은 어떻게 구성되나요?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "각 세계관의 상황을 바탕으로 4가지 지표(E/I, S/N, T/F, J/P)를 고르게 묻도록 설계했습니다.",
+          },
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] text-center gap-12">
@@ -60,7 +86,22 @@ export default function Home() {
         </p>
       </div>
 
+      <section className="w-full max-w-3xl rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 text-left shadow-sm">
+        <h2 className="text-xl font-black font-serif text-[#16324f]">빠른 요약 Q&A</h2>
+        <div className="mt-4 space-y-3 text-sm text-gray-600 leading-relaxed">
+          <p><strong>Q.</strong> 이 사이트는 무엇을 제공하나요?<br /><strong>A.</strong> 애니메이션 세계관 기반 MBTI 테스트와 결과 해석을 제공합니다.</p>
+          <p><strong>Q.</strong> 테스트는 얼마나 걸리나요?<br /><strong>A.</strong> 세계관별 16문항, 약 2~3분 내 완료됩니다.</p>
+          <p><strong>Q.</strong> 결과는 어떻게 활용하면 좋나요?<br /><strong>A.</strong> 절대적 진단이 아닌 자기이해 참고 자료로 활용하는 것을 권장합니다.</p>
+        </div>
+      </section>
+
       <section className="w-full max-w-3xl text-left space-y-10">
+        <AdExperiment
+          experimentKey="home_primary"
+          className="bg-white rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-sm"
+          format="horizontal"
+        />
+
         <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">MBTI WORLD의 테스트가 특별한 이유</h2>
           <p className="text-gray-600 leading-relaxed whitespace-pre-line">

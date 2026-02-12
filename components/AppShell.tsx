@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,12 +8,6 @@ import FooterEn from "@/components/FooterEn";
 const AppShell = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname() || "/";
   const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
-
-  useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = isEnglish ? "en" : "ko";
-    }
-  }, [isEnglish]);
 
   return (
     <div className="bg-pattern min-h-screen flex flex-col">

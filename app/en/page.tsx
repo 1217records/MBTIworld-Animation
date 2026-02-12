@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import AdExperiment from "@/components/AdExperiment";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} | EN`,
   description: "A story-driven MBTI test inspired by iconic anime worlds.",
-  alternates: { canonical: `${SITE_ORIGIN}/en` },
+  alternates: localizedAlternates("/", "en"),
   openGraph: {
     title: `${SITE_NAME} | EN`,
     description: "A story-driven MBTI test inspired by iconic anime worlds.",
@@ -30,15 +32,39 @@ export const metadata: Metadata = {
 };
 
 export default function HomeEn() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: SITE_NAME,
-    applicationCategory: "Entertainment",
-    operatingSystem: "Web",
-    description: `Story-driven MBTI test by ${SITE_NAME}`,
-    url: `${SITE_ORIGIN}/en`,
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: SITE_NAME,
+      applicationCategory: "Entertainment",
+      operatingSystem: "Web",
+      description: `Story-driven MBTI test by ${SITE_NAME}`,
+      url: `${SITE_ORIGIN}/en`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Does this result diagnose my personality?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. This is entertainment and self-reflection content, not a clinical diagnosis.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does the test take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Each world has 16 questions and typically takes around 2 to 3 minutes.",
+          },
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] text-center gap-12">
@@ -60,7 +86,22 @@ export default function HomeEn() {
         </p>
       </div>
 
+      <section className="w-full max-w-3xl rounded-2xl bg-white border border-gray-100 p-6 sm:p-8 text-left shadow-sm">
+        <h2 className="text-xl font-black font-serif text-[#16324f]">Quick Summary Q&A</h2>
+        <div className="mt-4 space-y-3 text-sm text-gray-600 leading-relaxed">
+          <p><strong>Q.</strong> What does this site offer?<br /><strong>A.</strong> Story-driven MBTI tests with character-based result interpretation.</p>
+          <p><strong>Q.</strong> How long is one test?<br /><strong>A.</strong> 16 questions per world, usually finished in 2 to 3 minutes.</p>
+          <p><strong>Q.</strong> How should I use the result?<br /><strong>A.</strong> Use it as a reflection guide, not as an absolute diagnosis.</p>
+        </div>
+      </section>
+
       <section className="w-full max-w-3xl text-left space-y-10">
+        <AdExperiment
+          experimentKey="home_primary_en"
+          className="bg-white rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-sm"
+          format="horizontal"
+        />
+
         <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Why This Test Feels Different</h2>
           <p className="text-gray-600 leading-relaxed whitespace-pre-line">

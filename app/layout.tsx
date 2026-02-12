@@ -5,6 +5,8 @@ import "./globals.css";
 import AppShell from "@/components/AppShell";
 import Script from "next/script";
 import { SITE_ORIGIN } from "@/lib/site";
+import { headers } from "next/headers";
+import JsonLd from "@/components/JsonLd";
 
 const ibmPlex = IBM_Plex_Sans_KR({
   subsets: ["latin"],
@@ -43,13 +45,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const requestHeaders = await headers();
+  const pathname = requestHeaders.get("x-pathname") || "/";
+  const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "ko";
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "MBTI WORLD ANIMATION",
+    url: SITE_ORIGIN,
+    inLanguage: ["ko-KR", "en-US"],
+  };
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "MBTI WORLD ANIMATION",
+    url: SITE_ORIGIN,
+  };
+
   return (
-    <html lang="ko" className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
+    <html lang={lang} className={`${ibmPlex.variable} ${notoSerif.variable} ${robotoSlab.variable}`}>
       <head>
         <Script
           id="adsense-script"
@@ -72,6 +91,7 @@ gtag('config', 'G-4CC8Y8KXFX');`}
         </Script>
       </head>
       <body className="bg-[#fdfcf9] text-[#0b1220] min-h-screen font-sans selection:bg-[#16324f] selection:text-white">
+        <JsonLd data={[websiteSchema, organizationSchema]} />
         <AppShell>{children}</AppShell>
       </body>
     </html>

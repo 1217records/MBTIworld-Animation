@@ -2,11 +2,12 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: `서비스 소개 | ${SITE_NAME}`,
   description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 월드의 철학과 가치를 소개합니다.",
-  alternates: { canonical: `${SITE_ORIGIN}/about` },
+  alternates: localizedAlternates("/about", "ko"),
   openGraph: {
     title: `서비스 소개 | ${SITE_NAME}`,
     description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 MBTI 월드의 철학과 가치를 소개합니다.",

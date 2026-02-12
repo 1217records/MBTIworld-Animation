@@ -1,0 +1,23 @@
+MBTI WORLD ANIMATION
+Base URL: https://mbti-world-animation.pages.dev
+Primary language: ko-KR
+Secondary language: en-US
+
+Summary:
+- Story-driven MBTI personality tests inspired by animation worlds.
+- Each test has 16 scenario-based questions.
+- Results provide MBTI type interpretation and character matching.
+
+Important URLs:
+- Home (KO): https://mbti-world-animation.pages.dev/
+- Home (EN): https://mbti-world-animation.pages.dev/en
+- Test Select (KO): https://mbti-world-animation.pages.dev/select
+- Test Select (EN): https://mbti-world-animation.pages.dev/en/select
+- Sitemap: https://mbti-world-animation.pages.dev/sitemap.xml
+- Robots: https://mbti-world-animation.pages.dev/robots.txt
+- Privacy (KO): https://mbti-world-animation.pages.dev/privacy
+- Privacy (EN): https://mbti-world-animation.pages.dev/en/privacy
+
+Notes:
+- Content is entertainment and self-reflection oriented.
+- MBTI outcomes are not medical or clinical diagnosis.

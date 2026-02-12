@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
 import { CONTENTS_EN, THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 import TestClientEn from "./TestClient";
 
 const THEME_LABELS_EN: Record<string, string> = {
@@ -55,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${SITE_NAME} | Test`,
       description: "Choose a test",
-      alternates: { canonical: `${SITE_ORIGIN}/en/select` },
+      alternates: localizedAlternates("/select", "en"),
     };
   }
 
@@ -65,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${label} Test | ${SITE_NAME}`,
     description,
-    alternates: { canonical: `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}` },
+    alternates: localizedAlternates(`/test/${encodeURIComponent(theme.id)}`, "en"),
     openGraph: {
       title: `${label} Test | ${SITE_NAME}`,
       description,
@@ -94,15 +95,28 @@ export default async function TestPageEn({ params }: PageProps) {
     strengths: ["Immersion", "Self-reflection", "Story-driven", "Character match"],
   };
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: `${label} MBTI Test`,
-    applicationCategory: "Entertainment",
-    operatingSystem: "Web",
-    description: `Story-driven MBTI test based on ${label}`,
-    url: `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`,
-  };
+  const testUrl = `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: `${label} MBTI Test`,
+      applicationCategory: "Entertainment",
+      operatingSystem: "Web",
+      description: `Story-driven MBTI test based on ${label}`,
+      url: testUrl,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      name: `${label} MBTI Test`,
+      inLanguage: "en-US",
+      about: `${label} story-based MBTI personality quiz`,
+      educationalLevel: "beginner",
+      numberOfQuestions: content.questions.length,
+      url: testUrl,
+    },
+  ];
 
   return (
     <div className="space-y-12 animate-in fade-in pb-16">

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
+import AdExperiment from "@/components/AdExperiment";
 import { CONTENTS, THEMES } from "@/data";
 import { CONTENTS_EN, THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { localizedAlternatesFromUrls } from "@/lib/seo";
 import ResultShareClientEn from "./ResultShareClient";
 
 export const runtime = "edge";
@@ -11,6 +14,24 @@ export const runtime = "edge";
 function normalizeType(raw: string | null): string {
   if (!raw) return "ISTJ";
   return raw.replace(/\.png$/i, "").toUpperCase();
+}
+
+function resolveThemeId(raw: string | undefined): string {
+  if (raw && (Object.prototype.hasOwnProperty.call(THEMES_EN, raw) || Object.prototype.hasOwnProperty.call(THEMES, raw))) {
+    return raw;
+  }
+  return "onepiece";
+}
+
+function resolveType(
+  raw: string | undefined,
+  content:
+    | (typeof CONTENTS_EN)[keyof typeof CONTENTS_EN]
+    | (typeof CONTENTS)[keyof typeof CONTENTS],
+): string {
+  const normalized = normalizeType(raw ?? "ISTJ");
+  if (Object.prototype.hasOwnProperty.call(content.results, normalized)) return normalized;
+  return "ISTJ";
 }
 
 type ResultPageProps = {
@@ -53,28 +74,29 @@ const MBTI_LONG_DESCS_EN: Record<string, string> = Object.fromEntries(
 
 export async function generateMetadata({ searchParams }: ResultPageProps): Promise<Metadata> {
   const resolved = await searchParams;
-  const themeId = resolved?.theme || "onepiece";
-  const type = normalizeType(resolved?.type || "ISTJ");
+  const themeId = resolveThemeId(resolved?.theme);
 
   const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
   const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const type = resolveType(resolved?.type, content);
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
 
   const ogImage = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
   const ogTitle = `${type} · ${character.name}`;
   const description = `Your ${label} MBTI result. Explore strengths, patterns, and character match.`;
-  const canonical = `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
+  const canonicalKo = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
+  const canonicalEn = `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
 
   return {
     title: `${type} Result | ${SITE_NAME}`,
     description,
-    alternates: { canonical },
+    alternates: localizedAlternatesFromUrls(canonicalKo, canonicalEn, "en"),
     openGraph: {
       title: ogTitle,
       description,
       type: "website",
-      url: canonical,
+      url: canonicalEn,
       images: [
         {
           url: ogImage,
@@ -95,16 +117,22 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
 
 export default async function ResultPageEn({ searchParams }: ResultPageProps) {
   const resolved = await searchParams;
-  const themeId = resolved?.theme || "onepiece";
-  const type = normalizeType(resolved?.type || "ISTJ");
+  const rawThemeId = resolved?.theme;
+  const rawType = normalizeType(resolved?.type ?? "ISTJ");
+  const themeId = resolveThemeId(resolved?.theme);
 
   const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
   const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const type = resolveType(resolved?.type, content);
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
 
   const shareUrl = `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
   const imageUrl = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
+
+  if (rawThemeId !== theme.id || rawType !== type) {
+    permanentRedirect(shareUrl);
+  }
 
   const shortDesc = MBTI_SHORT_DESCS_EN[type] || MBTI_SHORT_DESCS_EN.ISTJ;
 
@@ -173,6 +201,12 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
           ))}
         </ul>
       </section>
+
+      <AdExperiment
+        experimentKey="result_primary_en"
+        className="bg-white rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-sm"
+        format="horizontal"
+      />
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-4">
         <div className="flex flex-col items-center gap-3 text-center">

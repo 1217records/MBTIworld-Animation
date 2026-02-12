@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
+import AdExperiment from "@/components/AdExperiment";
 import { CONTENTS, THEMES } from "@/data";
 import { MBTI_LONG_DESCS, MBTI_SHORT_DESCS } from "@/constants";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { localizedAlternatesFromUrls } from "@/lib/seo";
 import ResultShareClient from "./ResultShareClient";
 
 export const runtime = "edge";
@@ -13,33 +16,48 @@ function normalizeType(raw: string | null): string {
   return raw.replace(/\.png$/i, "").toUpperCase();
 }
 
+function resolveThemeId(raw: string | undefined): string {
+  if (raw && Object.prototype.hasOwnProperty.call(THEMES, raw)) return raw;
+  return "onepiece";
+}
+
+function resolveType(
+  raw: string | undefined,
+  content: (typeof CONTENTS)[keyof typeof CONTENTS],
+): string {
+  const normalized = normalizeType(raw ?? "ISTJ");
+  if (Object.prototype.hasOwnProperty.call(content.results, normalized)) return normalized;
+  return "ISTJ";
+}
+
 type ResultPageProps = {
   searchParams: Promise<{ theme?: string; type?: string }>;
 };
 
 export async function generateMetadata({ searchParams }: ResultPageProps): Promise<Metadata> {
   const resolved = await searchParams;
-  const themeId = resolved?.theme || "onepiece";
-  const type = normalizeType(resolved?.type || "ISTJ");
+  const themeId = resolveThemeId(resolved?.theme);
 
-  const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
-  const character = content.results[type] || content.results.ISTJ;
+  const theme = THEMES[themeId as keyof typeof THEMES] ?? THEMES.onepiece;
+  const content = CONTENTS[themeId as keyof typeof CONTENTS] ?? CONTENTS.onepiece;
+  const type = resolveType(resolved?.type, content);
+  const character = content.results[type] ?? content.results.ISTJ;
 
   const ogImage = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
   const ogTitle = `${type} · ${character.name}`;
   const description = `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트 결과입니다. ${type} 유형의 성격, 장단점, 관계 패턴을 확인하세요.`;
-  const canonical = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
+  const canonicalKo = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
+  const canonicalEn = `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
 
   return {
     title: `${type} 결과 | ${SITE_NAME}`,
     description,
-    alternates: { canonical },
+    alternates: localizedAlternatesFromUrls(canonicalKo, canonicalEn, "ko"),
     openGraph: {
       title: ogTitle,
       description,
       type: "website",
-      url: canonical,
+      url: canonicalKo,
       images: [
         {
           url: ogImage,
@@ -60,15 +78,21 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
 
 export default async function ResultPage({ searchParams }: ResultPageProps) {
   const resolved = await searchParams;
-  const themeId = resolved?.theme || "onepiece";
-  const type = normalizeType(resolved?.type || "ISTJ");
+  const rawThemeId = resolved?.theme;
+  const rawType = normalizeType(resolved?.type ?? "ISTJ");
+  const themeId = resolveThemeId(resolved?.theme);
 
-  const theme = THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
-  const character = content.results[type] || content.results.ISTJ;
+  const theme = THEMES[themeId as keyof typeof THEMES] ?? THEMES.onepiece;
+  const content = CONTENTS[themeId as keyof typeof CONTENTS] ?? CONTENTS.onepiece;
+  const type = resolveType(resolved?.type, content);
+  const character = content.results[type] ?? content.results.ISTJ;
 
   const shareUrl = `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
   const imageUrl = `${SITE_ORIGIN}/og/${encodeURIComponent(theme.id)}/${encodeURIComponent(type)}.png`;
+
+  if (rawThemeId !== theme.id || rawType !== type) {
+    permanentRedirect(shareUrl);
+  }
 
   const summaryPoints = [
     `${type}의 핵심 키워드: ${MBTI_SHORT_DESCS[type]}`,
@@ -136,6 +160,12 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
           ))}
         </ul>
       </section>
+
+      <AdExperiment
+        experimentKey="result_primary"
+        className="bg-white rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-sm"
+        format="horizontal"
+      />
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-4">
         <div className="flex flex-col items-center gap-3 text-center">

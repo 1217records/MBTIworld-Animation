@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
   title: `새 테스트 제안 | ${SITE_NAME}`,
   description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 테스트에 대한 새로운 테마를 제안해 주세요.",
-  alternates: { canonical: `${SITE_ORIGIN}/contact` },
+  alternates: localizedAlternates("/contact", "ko"),
   openGraph: {
     title: `새 테스트 제안 | ${SITE_NAME}`,
     description: "MBTI 유형별 특징과 궁합을 분석하는 애니메이션 테스트에 대한 새로운 테마를 제안해 주세요.",

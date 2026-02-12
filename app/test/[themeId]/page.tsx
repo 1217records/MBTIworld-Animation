@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import { CONTENTS, THEMES } from "@/data";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 import TestClient from "./TestClient";
 
 type PageProps = {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: `${SITE_NAME} | 테스트`,
       description: `${SITE_TAGLINE}`,
-      alternates: { canonical: `${SITE_ORIGIN}/select` },
+      alternates: localizedAlternates("/select", "ko"),
     };
   }
 
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${theme.label} 테스트 | ${SITE_NAME}`,
     description,
-    alternates: { canonical: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}` },
+    alternates: localizedAlternates(`/test/${encodeURIComponent(theme.id)}`, "ko"),
     openGraph: {
       title: `${theme.label} 테스트 | ${SITE_NAME}`,
       description,
@@ -73,15 +74,28 @@ export default async function TestPage({ params }: PageProps) {
     strengths: ["몰입감", "자기이해", "스토리 기반 몰입", "캐릭터 매칭"],
   };
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: `${theme.label} MBTI 테스트`,
-    applicationCategory: "Entertainment",
-    operatingSystem: "Web",
-    description: `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트`,
-    url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
-  };
+  const testUrl = `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`;
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: `${theme.label} MBTI 테스트`,
+      applicationCategory: "Entertainment",
+      operatingSystem: "Web",
+      description: `MBTI 유형별 특징과 궁합을 분석하는 ${theme.label} 테스트`,
+      url: testUrl,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      name: `${theme.label} MBTI 테스트`,
+      inLanguage: "ko-KR",
+      about: `${theme.label} 세계관 기반 MBTI 성향 테스트`,
+      educationalLevel: "beginner",
+      numberOfQuestions: content.questions.length,
+      url: testUrl,
+    },
+  ];
 
   return (
     <div className="space-y-12 animate-in fade-in pb-16">

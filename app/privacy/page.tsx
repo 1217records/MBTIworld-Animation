@@ -2,11 +2,12 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
+import { localizedAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: `개인정보 처리방침 | ${SITE_NAME}`,
   description: "MBTI WORLD ANIMATION의 개인정보 처리방침과 데이터 처리 원칙을 안내합니다.",
-  alternates: { canonical: `${SITE_ORIGIN}/privacy` },
+  alternates: localizedAlternates("/privacy", "ko"),
   openGraph: {
     title: `개인정보 처리방침 | ${SITE_NAME}`,
     description: "MBTI WORLD ANIMATION의 개인정보 처리방침과 데이터 처리 원칙을 안내합니다.",
