@@ -4,6 +4,7 @@ import { IBM_Plex_Sans_KR, Noto_Serif_KR, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
 import Script from "next/script";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const ibmPlex = IBM_Plex_Sans_KR({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: "MBTI WORLD ANIMATION",
   description: "내 MBTI는 어떤 캐릭터와 같을까?",
   keywords: ["MBTI", "애니메이션 MBTI", "원피스 MBTI", "나루토 MBTI", "성격테스트"],
@@ -37,6 +39,7 @@ export const metadata: Metadata = {
     title: "MBTI WORLD ANIMATION",
     description: "내 MBTI는 어떤 캐릭터와 같을까?",
     type: "website",
+    url: SITE_ORIGIN,
   },
 };
 
