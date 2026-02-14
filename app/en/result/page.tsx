@@ -3,13 +3,13 @@ import Link from "next/link";
 import { permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import AdExperiment from "@/components/AdExperiment";
-import { CONTENTS, THEMES } from "@/data";
 import { CONTENTS_EN, THEMES_EN } from "@/data-en";
-import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternatesFromUrls } from "@/lib/seo";
 import ResultShareClientEn from "./ResultShareClient";
 
 export const runtime = "edge";
+const EN_TAGLINE = "Which anime character matches your MBTI?";
 
 function normalizeType(raw: string | null): string {
   if (!raw) return "ISTJ";
@@ -17,7 +17,7 @@ function normalizeType(raw: string | null): string {
 }
 
 function resolveThemeId(raw: string | undefined): string {
-  if (raw && (Object.prototype.hasOwnProperty.call(THEMES_EN, raw) || Object.prototype.hasOwnProperty.call(THEMES, raw))) {
+  if (raw && Object.prototype.hasOwnProperty.call(THEMES_EN, raw)) {
     return raw;
   }
   return "onepiece";
@@ -25,9 +25,7 @@ function resolveThemeId(raw: string | undefined): string {
 
 function resolveType(
   raw: string | undefined,
-  content:
-    | (typeof CONTENTS_EN)[keyof typeof CONTENTS_EN]
-    | (typeof CONTENTS)[keyof typeof CONTENTS],
+  content: (typeof CONTENTS_EN)[keyof typeof CONTENTS_EN],
 ): string {
   const normalized = normalizeType(raw ?? "ISTJ");
   if (Object.prototype.hasOwnProperty.call(content.results, normalized)) return normalized;
@@ -77,8 +75,8 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
   const resolved = await searchParams;
   const themeId = resolveThemeId(resolved?.theme);
 
-  const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const theme = THEMES_EN[themeId] || THEMES_EN.onepiece;
+  const content = CONTENTS_EN[themeId] || CONTENTS_EN.onepiece;
   const type = resolveType(resolved?.type, content);
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
@@ -122,8 +120,8 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
   const rawType = normalizeType(resolved?.type ?? "ISTJ");
   const themeId = resolveThemeId(resolved?.theme);
 
-  const theme = THEMES_EN[themeId] || THEMES[themeId as keyof typeof THEMES] || THEMES.onepiece;
-  const content = CONTENTS_EN[themeId] || CONTENTS[themeId as keyof typeof CONTENTS] || CONTENTS.onepiece;
+  const theme = THEMES_EN[themeId] || THEMES_EN.onepiece;
+  const content = CONTENTS_EN[themeId] || CONTENTS_EN.onepiece;
   const type = resolveType(resolved?.type, content);
   const character = content.results[type] || content.results.ISTJ;
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
@@ -182,7 +180,7 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
         <div className="relative z-10 space-y-10">
           <div className="flex flex-col items-center text-center gap-6">
             <span className="px-6 py-2.5 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-black tracking-[0.4em] uppercase border border-white/10">
-              {SITE_TAGLINE}
+              {EN_TAGLINE}
             </span>
             <div className="space-y-4">
               <h1 className="text-6xl sm:text-8xl font-black font-serif tracking-widest drop-shadow-2xl">{type}</h1>
@@ -343,7 +341,7 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Related Tests</h2>
         </div>
         <div className="flex flex-wrap gap-3 justify-center">
-          {Object.values(THEMES)
+          {Object.values(THEMES_EN)
             .filter((item) => item.id !== theme.id)
             .slice(0, 2)
             .map((item) => (

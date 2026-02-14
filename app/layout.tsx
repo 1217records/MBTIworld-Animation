@@ -54,7 +54,7 @@ export default function RootLayout({
     "@type": "WebSite",
     name: "MBTI WORLD ANIMATION",
     url: SITE_ORIGIN,
-    inLanguage: ["ko-KR", "en-US"],
+    inLanguage: ["ko-KR", "en-US", "ja-JP"],
   };
   const organizationSchema = {
     "@context": "https://schema.org",

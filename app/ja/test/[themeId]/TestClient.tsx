@@ -3,43 +3,43 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { THEMES_EN, CONTENTS_EN } from "@/data-en";
+import { THEMES_EN } from "@/data-en";
+import { JA_QUESTIONS } from "@/lib/ja-test-content";
 import { MBTI_Value } from "@/types";
 
-const THEME_LABELS_EN: Record<string, string> = {
-  onepiece: "One Piece",
-  naruto: "Naruto",
-  fma: "Fullmetal Alchemist",
-  aot: "Attack on Titan",
-  shinchan: "Crayon Shin-chan",
-  jujutsu: "Jujutsu Kaisen",
+const THEME_LABELS_JA: Record<string, string> = {
+  onepiece: "ワンピース",
+  naruto: "NARUTO",
+  fma: "鋼の錬金術師",
+  aot: "進撃の巨人",
+  shinchan: "クレヨンしんちゃん",
+  jujutsu: "呪術廻戦",
 };
 
 type TestClientProps = {
   themeId: string;
 };
 
-export default function TestClientEn({ themeId }: TestClientProps) {
+export default function TestClientJa({ themeId }: TestClientProps) {
   const router = useRouter();
   const theme = THEMES_EN[themeId];
-  const content = CONTENTS_EN[themeId];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<MBTI_Value[]>([]);
   const [animating, setAnimating] = useState(false);
 
-  if (!theme || !content) return null;
+  if (!theme) return null;
 
-  const currentQuestion = content.questions[currentIndex];
-  const progress = ((currentIndex + 1) / content.questions.length) * 100;
-  const label = THEME_LABELS_EN[theme.id] ?? theme.label;
+  const currentQuestion = JA_QUESTIONS[currentIndex];
+  const progress = ((currentIndex + 1) / JA_QUESTIONS.length) * 100;
+  const label = THEME_LABELS_JA[theme.id] ?? theme.label;
 
   const handleSelect = (value: MBTI_Value) => {
     const newAnswers = [...answers];
     newAnswers[currentIndex] = value;
     setAnswers(newAnswers);
 
-    if (currentIndex < content.questions.length - 1) {
+    if (currentIndex < JA_QUESTIONS.length - 1) {
       setAnimating(true);
       setTimeout(() => {
         setCurrentIndex(currentIndex + 1);
@@ -56,7 +56,7 @@ export default function TestClientEn({ themeId }: TestClientProps) {
         counts.J >= counts.P ? "J" : "P",
       ].join("");
 
-      router.push(`/en/result?theme=${themeId}&type=${type}`);
+      router.push(`/ja/result?theme=${themeId}&type=${type}`);
     }
   };
 
@@ -70,9 +70,9 @@ export default function TestClientEn({ themeId }: TestClientProps) {
     <div className="max-w-2xl mx-auto space-y-8 animate-in fade-in zoom-in-95">
       <div className="space-y-4">
         <div className="flex items-center justify-between text-xs font-bold text-gray-400">
-          <span>{label} Test</span>
+          <span>{label} テスト</span>
           <span>
-            {currentIndex + 1} / {content.questions.length}
+            {currentIndex + 1} / {JA_QUESTIONS.length}
           </span>
         </div>
         <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
@@ -110,18 +110,18 @@ export default function TestClientEn({ themeId }: TestClientProps) {
 
       <div className="pt-4 flex justify-between items-center">
         <div className="flex gap-6">
-          <Link href="/en/select" className="text-sm font-bold text-gray-300 hover:text-[#16324f] transition-colors">
-            Back to Selection
+          <Link href="/ja/select" className="text-sm font-bold text-gray-300 hover:text-[#16324f] transition-colors">
+            選択画面へ戻る
           </Link>
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
             className="text-sm font-bold text-gray-400 hover:text-[#16324f] disabled:opacity-0 transition-opacity"
           >
-            ← Previous
+            ← 前の質問
           </button>
         </div>
-        <div className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">Auto Next on Selection</div>
+        <div className="text-[10px] text-gray-300 uppercase tracking-widest font-bold">選択後に自動で次へ</div>
       </div>
     </div>
   );

@@ -19,16 +19,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_ORIGIN}/en/terms`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/privacy`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/contact`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/select`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/result`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/about`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/terms`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/privacy`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/contact`, lastModified: now },
   ];
 
-  const themeEntries = Object.values(THEMES).map((theme) => ({
-    url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
-    lastModified: now,
-  }));
-  const themeEntriesEn = Object.values(THEMES).map((theme) => ({
-    url: `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`,
-    lastModified: now,
-  }));
+  const themeEntries = Object.values(THEMES).flatMap((theme) => [
+    {
+      url: `${SITE_ORIGIN}/test/${encodeURIComponent(theme.id)}`,
+      lastModified: now,
+    },
+    {
+      url: `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`,
+      lastModified: now,
+    },
+    {
+      url: `${SITE_ORIGIN}/ja/test/${encodeURIComponent(theme.id)}`,
+      lastModified: now,
+    },
+  ]);
 
-  return [...base, ...themeEntries, ...themeEntriesEn];
+  return [...base, ...themeEntries];
 }

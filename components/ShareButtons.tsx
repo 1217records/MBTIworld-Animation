@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { localeFromPath } from "@/lib/i18n-config";
 
 const KAKAO_JS_KEY = "22eb1d8928d653f7d244db698943c4d1";
 const KAKAO_SDK_VERSION = "2.7.9";
@@ -20,15 +22,53 @@ declare global {
 }
 
 export default function ShareButtons() {
+  const pathname = usePathname() || "/";
+  const locale = localeFromPath(pathname);
+  const text = {
+    ko: {
+      copied: "홈 링크가 복사되었습니다!",
+      loading: "카카오 SDK를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.",
+      desc: "내 MBTI는 어떤 캐릭터와 같을까?",
+      cta: "테스트 하러 가기",
+      xText: "MBTI WORLD · 내 MBTI는 어떤 캐릭터와 같을까?",
+      kakaoAria: "카카오톡으로 공유",
+      xAria: "X로 공유",
+      copyAria: "링크 복사",
+      kakaoAlt: "카카오톡 아이콘",
+    },
+    en: {
+      copied: "Home link copied!",
+      loading: "Loading Kakao SDK. Please try again in a moment.",
+      desc: "Which anime character matches your MBTI?",
+      cta: "Start the Test",
+      xText: "MBTI WORLD · Which anime character matches your MBTI?",
+      kakaoAria: "Share on KakaoTalk",
+      xAria: "Share on X",
+      copyAria: "Copy link",
+      kakaoAlt: "KakaoTalk icon",
+    },
+    ja: {
+      copied: "ホームリンクをコピーしました。",
+      loading: "Kakao SDKを読み込み中です。しばらくして再試行してください。",
+      desc: "あなたのMBTIはどのキャラクターに近い？",
+      cta: "テストを始める",
+      xText: "MBTI WORLD · あなたのMBTIはどのキャラクターに近い？",
+      kakaoAria: "KakaoTalkで共有",
+      xAria: "Xで共有",
+      copyAria: "リンクをコピー",
+      kakaoAlt: "KakaoTalk アイコン",
+    },
+  }[locale];
+
   const handleCopyLink = () => {
     if (typeof window === "undefined") return;
     navigator.clipboard.writeText(window.location.origin);
-    alert("홈 링크가 복사되었습니다!");
+    alert(text.copied);
   };
 
   const handleKakaoShareHome = () => {
     if (typeof window === "undefined" || !window.Kakao) {
-      alert("카카오 SDK를 불러오는 중입니다. 잠시 후 다시 시도해 주세요.");
+      alert(text.loading);
       return;
     }
 
@@ -44,7 +84,7 @@ export default function ShareButtons() {
       objectType: "feed",
       content: {
         title: "MBTI WORLD",
-        description: "내 MBTI는 어떤 캐릭터와 같을까?",
+        description: text.desc,
         imageUrl,
         link: {
           mobileWebUrl: shareUrl,
@@ -53,7 +93,7 @@ export default function ShareButtons() {
       },
       buttons: [
         {
-          title: "테스트 하러 가기",
+          title: text.cta,
           link: {
             mobileWebUrl: shareUrl,
             webUrl: shareUrl,
@@ -66,8 +106,7 @@ export default function ShareButtons() {
   const handleXShare = () => {
     if (typeof window === "undefined") return;
     const shareUrl = window.location.origin;
-    const text = "MBTI WORLD · 내 MBTI는 어떤 캐릭터와 같을까?";
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text.xText)}&url=${encodeURIComponent(shareUrl)}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -86,17 +125,17 @@ export default function ShareButtons() {
         type="button"
         onClick={handleKakaoShareHome}
         className="w-9 h-9 rounded-full border border-gray-200 bg-white/80 hover:bg-white shadow-sm hover:shadow transition flex items-center justify-center"
-        aria-label="카카오톡으로 공유"
-        title="카카오톡으로 공유"
+        aria-label={text.kakaoAria}
+        title={text.kakaoAria}
       >
-        <Image src="/icons/kakao.svg" alt="카카오톡 아이콘" width={16} height={16} />
+        <Image src="/icons/kakao.svg" alt={text.kakaoAlt} width={16} height={16} />
       </button>
       <button
         type="button"
         onClick={handleXShare}
         className="w-9 h-9 rounded-full border border-gray-200 bg-white/80 hover:bg-white shadow-sm hover:shadow transition flex items-center justify-center"
-        aria-label="X로 공유"
-        title="X로 공유"
+        aria-label={text.xAria}
+        title={text.xAria}
       >
         <svg className="h-4 w-4 text-[#0b0f19]" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17.175 2H20.308L13.733 9.514L21.5 22H15.156L10.2 14.333L3.52 22H0.384L7.44 13.933L0 2H6.504L10.98 9.02L17.175 2ZM16.078 20.1H17.82L5.52 3.82H3.65L16.078 20.1Z" fill="currentColor" />
@@ -106,8 +145,8 @@ export default function ShareButtons() {
         type="button"
         onClick={handleCopyLink}
         className="w-9 h-9 rounded-full border border-gray-200 bg-white/80 hover:bg-white shadow-sm hover:shadow transition flex items-center justify-center"
-        aria-label="링크 복사"
-        title="링크 복사"
+        aria-label={text.copyAria}
+        title={text.copyAria}
       >
         <svg className="h-4 w-4 text-[#16324f]" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="9" y="7" width="10" height="13" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />

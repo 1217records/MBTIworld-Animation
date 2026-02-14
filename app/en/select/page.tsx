@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { THEMES } from "@/data";
 import { THEMES_EN } from "@/data-en";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
@@ -112,9 +111,8 @@ export default function TestSelectEn() {
       </section>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {Object.values(THEMES).map((theme) => {
-          const themeEn = THEMES_EN[theme.id] ?? theme;
-          const label = THEME_LABELS_EN[theme.id] ?? themeEn.label ?? theme.label;
+        {Object.values(THEMES_EN).map((theme) => {
+          const label = THEME_LABELS_EN[theme.id] ?? theme.label;
           return (
             <Link
               key={theme.id}
@@ -125,7 +123,7 @@ export default function TestSelectEn() {
 
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl shadow-inner">
-                  {themeEn.emoji ?? theme.emoji}
+                  {theme.emoji}
                 </div>
                 <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">{label}</h2>
               </div>
@@ -135,14 +133,14 @@ export default function TestSelectEn() {
               </p>
 
               <div className="flex gap-2 flex-wrap">
-                {(themeEn.tags ?? theme.tags).map((tag) => (
+                {theme.tags.map((tag) => (
                   <span key={tag} className="px-2.5 py-1 rounded-lg bg-gray-100 text-[10px] font-bold text-gray-400">
                     #{tag}
                   </span>
                 ))}
               </div>
 
-              <div className={`mt-4 px-6 py-3 rounded-full bg-gradient-to-r ${themeEn.gradient ?? theme.gradient} text-white font-bold text-center text-sm shadow-md group-hover:scale-105 transition-transform`}>
+              <div className={`mt-4 px-6 py-3 rounded-full bg-gradient-to-r ${theme.gradient} text-white font-bold text-center text-sm shadow-md group-hover:scale-105 transition-transform`}>
                 Start
               </div>
             </Link>
@@ -163,7 +161,7 @@ export default function TestSelectEn() {
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Theme Highlights</h2>
         <div className="space-y-6">
-          {Object.values(THEMES).map((theme) => {
+          {Object.values(THEMES_EN).map((theme) => {
             const detail = THEME_DETAILS[theme.id] ?? {
               headline: `${THEME_LABELS_EN[theme.id] ?? theme.label} World Test`,
               body: "We analyze your MBTI patterns through iconic scenes.",
