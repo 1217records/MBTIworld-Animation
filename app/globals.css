@@ -4,8 +4,9 @@
 @tailwind utilities;
 
 :root {
-  --font-ibm-plex: 'IBM Plex Sans KR', sans-serif;
-  --font-noto-serif: 'Noto Serif KR', serif;
+  --font-ibm-plex: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Segoe UI", sans-serif;
+  --font-noto-serif: "Nanum Myeongjo", "Batang", "Noto Serif KR", Georgia, serif;
+  --font-roboto-slab: "Roboto Slab", "Times New Roman", serif;
 }
 
 body {
