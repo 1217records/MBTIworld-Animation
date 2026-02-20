@@ -31,6 +31,7 @@ const THEME_LABELS_JA: Record<string, string> = {
   aot: "進撃の巨人",
   shinchan: "クレヨンしんちゃん",
   jujutsu: "呪術廻戦",
+  pokemon: "ポケモン 第1・2世代",
 };
 
 const THEME_DETAILS_JA: Record<string, { headline: string; body: string }> = {
@@ -58,6 +59,10 @@ const THEME_DETAILS_JA: Record<string, { headline: string; body: string }> = {
     headline: "呪術廻戦編テスト",
     body: "任務・戦闘・関係性の場面で、価値基準と瞬間判断のスタイルを16問で把握します。",
   },
+  pokemon: {
+    headline: "ポケモン 第1・2世代テスト",
+    body: "カントー・ジョウトを旅しながら、バトル判断・関係スタイル・冒険の進め方を16問で分析します。",
+  },
 };
 
 const THEME_TAGS_JA: Record<string, string[]> = {
@@ -67,6 +72,7 @@ const THEME_TAGS_JA: Record<string, string[]> = {
   fma: ["錬金術", "兄弟", "代償"],
   aot: ["生存", "戦略", "自由"],
   jujutsu: ["任務", "呪い", "成長"],
+  pokemon: ["カントー", "ジョウト", "ポケモン"],
 };
 
 export default function TestSelectJa() {

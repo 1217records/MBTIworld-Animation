@@ -31,6 +31,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
   jujutsu: "Jujutsu Kaisen",
+  pokemon: "Pokemon Gen 1-2",
 };
 
 const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
@@ -63,6 +64,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     headline: "Jujutsu Kaisen World Test",
     body:
       "Through missions, curse fights, and Domain Expansion choices, this test tracks your combat judgment, value system, and relationship style across 16 questions.",
+  },
+  pokemon: {
+    headline: "Pokemon Gen 1-2 World Test",
+    body:
+      "Travel through Kanto and Johto to reveal your battle style, bond patterns, and exploration preference. Classic moments like Gym challenges, Pokedex goals, and rival fights map your MBTI in 16 immersive questions.",
   },
 };
 

@@ -1,5 +1,6 @@
 
 import { ThemeMeta, ThemeContent } from './types';
+import { POKEMON_CONTENT_KO, POKEMON_THEME_KO } from "@/lib/pokemon-theme";
 
 export const THEMES: Record<string, ThemeMeta> = {
   onepiece: {
@@ -50,6 +51,7 @@ export const THEMES: Record<string, ThemeMeta> = {
     accentColor: '#7f1d1d',
     tags: ['주술고전', '주령', '영역 전개'],
   },
+  pokemon: POKEMON_THEME_KO,
 };
 
 export const CONTENTS: Record<string, ThemeContent> = {
@@ -361,4 +363,5 @@ export const CONTENTS: Record<string, ThemeContent> = {
       ESFP: { name: "토도 아오이", desc: "강한 존재감과 현재 집중력이 돋보이는 열정가.", longDesc: "토도는 즉흥성과 강한 표현력으로 전장을 흔드는 ESFP 기질이 강합니다. 순간 판단과 리듬 전환이 빠르며, 위기에서도 에너지를 잃지 않고 동료의 사기를 끌어올립니다.", episodeNote: "특유의 과감한 리듬 전환으로 전투 분위기를 단숨에 바꾸고, 동료에게 자신감을 불어넣은 장면." },
     },
   },
+  pokemon: POKEMON_CONTENT_KO,
 };

@@ -56,6 +56,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     body:
       "주술고전의 임무, 주령과의 전투, 영역 전개 같은 핵심 설정 속 선택을 통해 당신의 전투 판단과 관계 패턴을 분석합니다. 16문항으로 MBTI 성향을 도출하고 캐릭터 매칭까지 연결합니다.",
   },
+  pokemon: {
+    headline: "포켓몬 1-2세대 세계관 테스트",
+    body:
+      "관동·성도 지방의 모험 흐름을 따라, 당신의 전투 판단·유대 방식·여행 스타일을 16문항으로 분석합니다. 체육관 도전, 도감 수집, 라이벌 배틀 같은 익숙한 상황에서 MBTI 성향과 포켓몬 매칭을 확인할 수 있습니다.",
+  },
 };
 
 export default function TestSelect() {

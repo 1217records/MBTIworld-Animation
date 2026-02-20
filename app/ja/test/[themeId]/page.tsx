@@ -14,6 +14,7 @@ const THEME_LABELS_JA: Record<string, string> = {
   aot: "進撃の巨人",
   shinchan: "クレヨンしんちゃん",
   jujutsu: "呪術廻戦",
+  pokemon: "ポケモン 第1・2世代",
 };
 
 type PageProps = {

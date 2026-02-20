@@ -1,4 +1,5 @@
 import { ThemeContent, ThemeMeta } from "./types";
+import { POKEMON_CONTENT_EN, POKEMON_THEME_EN } from "@/lib/pokemon-theme";
 
 export const THEMES_EN: Record<string, ThemeMeta> = {
   onepiece: {
@@ -49,6 +50,7 @@ export const THEMES_EN: Record<string, ThemeMeta> = {
     accentColor: "#7f1d1d",
     tags: ["Jujutsu High", "Curses", "Domain Expansion"],
   },
+  pokemon: POKEMON_THEME_EN,
 };
 
 export const CONTENTS_EN: Record<string, ThemeContent> = {
@@ -280,4 +282,5 @@ export const CONTENTS_EN: Record<string, ThemeContent> = {
       ESFP: { name: "Aoi Todo", desc: "A high-impact performer with explosive presence.", longDesc: "Todo thrives in live pressure and turns battles with rhythm and confidence. He boosts team morale while creating openings through bold shifts.", episodeNote: "He transforms losing momentum into control with sudden tempo changes." },
     },
   },
+  pokemon: POKEMON_CONTENT_EN,
 };

@@ -13,6 +13,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   aot: "Attack on Titan",
   shinchan: "Crayon Shin-chan",
   jujutsu: "Jujutsu Kaisen",
+  pokemon: "Pokemon Gen 1-2",
 };
 
 type PageProps = {
