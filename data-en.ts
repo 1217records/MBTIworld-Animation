@@ -18,14 +18,6 @@ export const THEMES_EN: Record<string, ThemeMeta> = {
     accentColor: "#d45b32",
     tags: ["Willpower", "Teamwork", "Growth"],
   },
-  shinchan: {
-    id: "shinchan",
-    label: "Crayon Shin-chan",
-    emoji: "🖍️",
-    gradient: "from-[#f59e0b] to-[#facc15]",
-    accentColor: "#f59e0b",
-    tags: ["Kindergarten", "Everyday", "Comedy"],
-  },
   fma: {
     id: "fma",
     label: "Fullmetal Alchemist",
@@ -42,15 +34,23 @@ export const THEMES_EN: Record<string, ThemeMeta> = {
     accentColor: "#1f2937",
     tags: ["Scout", "Walls", "Freedom"],
   },
+  shinchan: {
+    id: "shinchan",
+    label: "Crayon Shin-chan",
+    emoji: "🖍️",
+    gradient: "from-[#f59e0b] to-[#facc15]",
+    accentColor: "#f59e0b",
+    tags: ["Kindergarten", "Everyday", "Comedy"],
+  },
+  pokemon: POKEMON_THEME_EN,
   jujutsu: {
     id: "jujutsu",
     label: "Jujutsu Kaisen",
     emoji: "🕶️",
-    gradient: "from-[#7f1d1d] to-[#ef4444]",
-    accentColor: "#7f1d1d",
+    gradient: "from-[#e5e7eb] via-[#94a3b8] to-[#334155]",
+    accentColor: "#94a3b8",
     tags: ["Jujutsu High", "Curses", "Domain Expansion"],
   },
-  pokemon: POKEMON_THEME_EN,
 };
 
 export const CONTENTS_EN: Record<string, ThemeContent> = {

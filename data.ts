@@ -19,14 +19,6 @@ export const THEMES: Record<string, ThemeMeta> = {
     accentColor: '#d45b32',
     tags: ['의지', '팀워크', '성장'],
   },
-  shinchan: {
-    id: 'shinchan',
-    label: '짱구는 못말려',
-    emoji: '🖍️',
-    gradient: 'from-[#f59e0b] to-[#facc15]',
-    accentColor: '#f59e0b',
-    tags: ['유치원', '일상', '코믹'],
-  },
   fma: {
     id: 'fma',
     label: '강철의 연금술사',
@@ -43,15 +35,23 @@ export const THEMES: Record<string, ThemeMeta> = {
     accentColor: '#1f2937',
     tags: ['조사병단', '벽', '자유'],
   },
+  shinchan: {
+    id: 'shinchan',
+    label: '짱구는 못말려',
+    emoji: '🖍️',
+    gradient: 'from-[#f59e0b] to-[#facc15]',
+    accentColor: '#f59e0b',
+    tags: ['유치원', '일상', '코믹'],
+  },
+  pokemon: POKEMON_THEME_KO,
   jujutsu: {
     id: 'jujutsu',
     label: '주술회전',
     emoji: '🕶️',
-    gradient: 'from-[#7f1d1d] to-[#ef4444]',
-    accentColor: '#7f1d1d',
+    gradient: 'from-[#e5e7eb] via-[#94a3b8] to-[#334155]',
+    accentColor: '#94a3b8',
     tags: ['주술고전', '주령', '영역 전개'],
   },
-  pokemon: POKEMON_THEME_KO,
 };
 
 export const CONTENTS: Record<string, ThemeContent> = {
