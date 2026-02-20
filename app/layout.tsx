@@ -5,6 +5,7 @@ import AppShell from "@/components/AppShell";
 import Script from "next/script";
 import { SITE_ORIGIN } from "@/lib/site";
 import JsonLd from "@/components/JsonLd";
+import ConditionalAdsenseScript from "@/components/ConditionalAdsenseScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -45,13 +46,6 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <Script
-          id="adsense-script"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4245569327602514"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-        <Script
           id="gtag-script"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-4CC8Y8KXFX"
@@ -65,6 +59,7 @@ gtag('config', 'G-4CC8Y8KXFX');`}
         </Script>
       </head>
       <body className="bg-[#fdfcf9] text-[#0b1220] min-h-screen font-sans selection:bg-[#16324f] selection:text-white">
+        <ConditionalAdsenseScript />
         <JsonLd data={[websiteSchema, organizationSchema]} />
         <AppShell>{children}</AppShell>
       </body>

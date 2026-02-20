@@ -96,6 +96,41 @@ export default function About() {
         </section>
 
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">MBTI 이론 및 서비스 활용 안내</h2>
+          <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
+            <p>
+              MBTI는 C. G. Jung의 심리 유형 이론을 바탕으로 한 성격 프레임으로, 에너지 방향(E/I), 정보 수용(S/N),
+              판단 기준(T/F), 생활 양식(J/P)의 네 지표를 조합해 16가지 유형을 제시합니다. 저희 서비스는 이 프레임을
+              자기이해와 대화 개선을 위한 참고 도구로 활용합니다.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">4가지 선호 지표</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>외향(E) / 내향(I): 에너지의 주된 방향</li>
+                  <li>감각(S) / 직관(N): 정보 인식의 초점</li>
+                  <li>사고(T) / 감정(F): 의사결정의 우선 기준</li>
+                  <li>판단(J) / 인식(P): 계획성과 유연성의 선호</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">한계와 해석 원칙</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>유형은 고정된 진단이 아니라, 상대적 경향의 요약입니다.</li>
+                  <li>검사-재검사 일관성과 이분법 분류에는 학술적 한계가 보고됩니다.</li>
+                  <li>결과는 재미와 자기탐색 참고용이며, 임상 판단을 대체하지 않습니다.</li>
+                  <li>필요하면 Big Five 같은 검증 모델과 함께 보는 것을 권장합니다.</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              또한 저희는 애니메이션 내러티브를 활용해 추상 문항 대신 장면 기반 선택을 제시합니다.
+              이를 통해 사용자 몰입을 높이고, 결과를 캐릭터 서사와 연결해 이해하기 쉽게 전달합니다.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
           <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">운영 원칙</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">

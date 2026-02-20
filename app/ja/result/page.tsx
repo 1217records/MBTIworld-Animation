@@ -198,6 +198,24 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
     "最終判断前: 事実・感情・優先順位の順で認識合わせを行う。",
     "振り返り: 強み1点 + 改善1点のセットでフィードバックする。",
   ];
+  const profileDetailBlocks = [
+    {
+      title: "判断スタイル",
+      body: `${type}は「${shortDesc}」を軸に、比較的一貫した基準で意思決定する傾向があります。`,
+    },
+    {
+      title: "対人パターン",
+      body: "反応の速さよりも、信頼と優先順位の明確化を通じて関係を安定させる傾向があります。",
+    },
+    {
+      title: "ストレス時",
+      body: "負荷が高い場面では視野が狭くなりやすく、ペース調整と整理の時間が重要になります。",
+    },
+    {
+      title: "成長ポイント",
+      body: "論理や成果だけでなく、感情文脈を併せて扱うことで協働の質と再現性が高まります。",
+    },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -313,12 +331,24 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
         <div className="relative z-10">
           <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light">{MBTI_LONG_DESCS_JA[type] || MBTI_LONG_DESCS_JA.ISTJ}</p>
           <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light mt-6">{traitExpansion}</p>
+          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {profileDetailBlocks.map((block) => (
+              <article key={block.title} className="rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md p-4 sm:p-5 space-y-2">
+                <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">{block.title}</p>
+                <p className="text-sm sm:text-[15px] leading-[1.8] text-white/90">{block.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">相性と関係性パターン</h2>
+        </div>
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-4 sm:p-5">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">Compatibility Snapshot</p>
+          <p className="text-gray-700 leading-relaxed">{compatibilityStrategies[0]}</p>
         </div>
         <p className="text-gray-600 leading-relaxed">
           {type}タイプは、異なる強みを持つ相手と補完関係を作りやすい傾向があります。計画性と柔軟性、論理と共感のバランスが鍵になります。
@@ -347,14 +377,34 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">心理学的な根拠</h2>
         </div>
-        <p className="text-gray-600 leading-relaxed">
-          この解釈はMBTIの4軸と一般的な性格フレームワークに基づいています。個人差がある点は必ず考慮してください。
-        </p>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">結果解釈の基本原理</h3>
+          <p className="text-gray-600 leading-relaxed">
+            この結果はMBTIの4軸（E/I, S/N, T/F, J/P）に基づいて回答傾向を要約しています。4文字タイプは
+            固定的な人格診断ではなく、相対的に優勢な志向を示す参考指標として扱います。
+          </p>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">科学的な限界と利用範囲</h3>
+          <p className="text-gray-600 leading-relaxed">
+            MBTIは実務・教育場面で普及していますが、二分法分類や再検査一致率には心理測定上の限界が報告されています。
+            そのため、本結果は診断目的ではなく、自己理解とコミュニケーション改善の補助情報として利用してください。
+          </p>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">推奨される読み取り方</h3>
+          <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
+            <li>タイプは固定ラベルではなく、現在の傾向として理解する</li>
+            <li>キャラクター一致だけでなく、実際の行動文脈と合わせて確認する</li>
+            <li>必要に応じてBig Fiveなど検証性の高いモデルも併用する</li>
+          </ul>
+        </div>
         <h3 className="text-lg font-black text-[#16324f]">参考</h3>
         <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
           <li>MBTIの4軸モデル</li>
-          <li>類型論ベースの性格フレームワーク</li>
-          <li>性格心理学の基礎概念</li>
+          <li>再検査信頼性・二分法分類の限界に関する心理測定研究</li>
+          <li>性格心理学と特性モデル比較研究</li>
+          <li>インタラクティブ・ナラティブ型評価研究</li>
         </ul>
       </section>
 

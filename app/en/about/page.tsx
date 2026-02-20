@@ -100,6 +100,40 @@ export default function AboutEn() {
         </section>
 
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">MBTI Theory and How We Use It</h2>
+          <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
+            <p>
+              MBTI is a personality framework derived from C. G. Jung’s type theory. It combines four preference axes
+              (E/I, S/N, T/F, J/P) into 16 types. In this service, MBTI is used as a self-reflection aid, not as a clinical tool.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">Four Preference Axes</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>Extraversion (E) / Introversion (I): energy direction</li>
+                  <li>Sensing (S) / Intuition (N): information focus</li>
+                  <li>Thinking (T) / Feeling (F): decision priority</li>
+                  <li>Judging (J) / Perceiving (P): planning flexibility</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">Limits and Reading Rules</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>A type is a tendency summary, not a fixed identity.</li>
+                  <li>Research notes limits in retest consistency and forced dichotomies.</li>
+                  <li>Results are for reflection and communication support, not diagnosis.</li>
+                  <li>Big Five can be used as a complementary validated model.</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              We also use anime narrative scenes to reduce abstract wording and improve engagement.
+              Character matching is provided as a practical storytelling bridge for self-understanding.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
           <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">Operating Principles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-[#fdfcf9] border border-gray-100 space-y-3">

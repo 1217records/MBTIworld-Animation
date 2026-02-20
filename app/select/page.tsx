@@ -167,15 +167,40 @@ export default function TestSelect() {
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">심리학적 근거</h2>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          각 테스트는 MBTI의 네 가지 지표(E/I, S/N, T/F, J/P)를 균형 있게 묻도록 설계되었습니다. 질문은 성격심리학의
-          이분법적 성향 분류를 참고하여, 상황 속 선택이 성향으로 이어지는 과정을 관찰합니다.
-        </p>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">MBTI 이론 및 구성</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            본 테스트는 C. G. Jung의 심리 유형 이론을 바탕으로 발전한 MBTI 프레임(E/I, S/N, T/F, J/P)을 사용합니다.
+            네 지표를 조합해 16가지 성향을 제시하며, 목표는 진단이 아닌 자기이해와 의사소통 힌트를 제공하는 데 있습니다.
+          </p>
+          <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
+            <li>외향(E) / 내향(I): 에너지를 얻는 방향</li>
+            <li>감각(S) / 직관(N): 정보를 받아들이는 방식</li>
+            <li>사고(T) / 감정(F): 판단 기준의 우선순위</li>
+            <li>판단(J) / 인식(P): 계획성과 유연성의 선호</li>
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">해석 시 주의사항</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            MBTI는 대중적으로 널리 쓰이지만, 학계에서는 이분법 분류와 재검사 일관성 한계가 지속적으로 지적됩니다.
+            따라서 결과는 절대적 판정이 아니라 현재 선택 경향을 살펴보는 참고 정보로 안내합니다.
+          </p>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">애니메이션 내러티브 기반 설계</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            문항은 원피스·나루토 등 친숙한 세계관의 상황 선택으로 구성되어 몰입을 높입니다. 추상 문항 대신 맥락 있는 장면을 제시해
+            사용자의 반응 패턴을 더 직관적으로 드러내도록 설계했으며, 캐릭터 매칭은 재미와 자기탐색을 돕는 보조 해석입니다.
+          </p>
+        </div>
         <h3 className="text-base font-black text-[#16324f]">참고 문헌/출처</h3>
         <ul className="list-disc list-inside text-xs text-gray-500 space-y-2">
           <li>MBTI 성격 유형 이론의 4가지 지표 구조</li>
-          <li>심리유형론 기반의 성향 분류 프레임워크</li>
-          <li>성격심리학 개론 수준의 기초 개념</li>
+          <li>검사-재검사 신뢰도 및 이분법 분류 한계 관련 심리측정 연구</li>
+          <li>성격심리학 개론의 특성 분류 프레임워크</li>
+          <li>인터랙티브 내러티브 기반 성향 측정 연구</li>
+          <li>보완 이론: Big Five(개방성, 성실성, 외향성, 친화성, 신경성)</li>
         </ul>
       </section>
     </div>

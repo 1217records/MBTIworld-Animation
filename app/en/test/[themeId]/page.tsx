@@ -15,39 +15,6 @@ const THEME_LABELS_EN: Record<string, string> = {
   jujutsu: "Jujutsu Kaisen",
 };
 
-const THEME_DESCRIPTIONS: Record<string, { summary: string; strengths: string[] }> = {
-  onepiece: {
-    summary:
-      "Explore how you choose between freedom, courage, and loyalty through iconic scenes. Your leadership style and risk handling show up across 16 questions.",
-    strengths: ["Leadership", "Risk sense", "Loyalty", "Momentum"],
-  },
-  naruto: {
-    summary:
-      "Trace growth, perseverance, and bonds to see how you respond under pressure. The questions decode teamwork and emotional control.",
-    strengths: ["Perseverance", "Teamwork", "Resilience", "Ambition"],
-  },
-  fma: {
-    summary:
-      "Follow the themes of sacrifice and responsibility to see how you balance logic, ethics, and relationships across 16 scenarios.",
-    strengths: ["Ethics", "Logic", "Responsibility", "Resolve"],
-  },
-  aot: {
-    summary:
-      "In a world of survival and freedom, your decision patterns, strategy, and emotional balance are revealed through 16 intense questions.",
-    strengths: ["Strategy", "Courage", "Focus", "Composure"],
-  },
-  shinchan: {
-    summary:
-      "Everyday scenes reveal spontaneity, empathy, and realism. Small choices build a clear pattern for your MBTI type.",
-    strengths: ["Spontaneity", "Empathy", "Realism", "Playfulness"],
-  },
-  jujutsu: {
-    summary:
-      "Through missions, curse encounters, and Domain Expansion decisions, this test reveals your pressure response and value hierarchy across 16 scenarios.",
-    strengths: ["Combat judgment", "Risk control", "Team play", "Mental focus"],
-  },
-};
-
 type PageProps = {
   params: Promise<{ themeId: string }>;
 };
@@ -95,10 +62,6 @@ export default async function TestPageEn({ params }: PageProps) {
   }
 
   const label = THEME_LABELS_EN[theme.id] ?? theme.label;
-  const desc = THEME_DESCRIPTIONS[theme.id] ?? {
-    summary: `We analyze your choices through ${label} scenes in 16 questions.`,
-    strengths: ["Immersion", "Self-reflection", "Story-driven", "Character match"],
-  };
 
   const testUrl = `${SITE_ORIGIN}/en/test/${encodeURIComponent(theme.id)}`;
   const jsonLd = [
@@ -131,20 +94,6 @@ export default async function TestPageEn({ params }: PageProps) {
         <p className="text-gray-500 text-sm sm:text-base">Explore your personality through {label} scenarios.</p>
       </header>
 
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Test Overview</h2>
-        <p className="text-gray-600 leading-relaxed">
-          {desc.summary} The test is built around scenario-based choices and the results are explained in story language.
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-gray-500">
-          {desc.strengths.map((strength) => (
-            <span key={strength} className="rounded-full bg-[#fdfcf9] border border-gray-100 px-3 py-2 text-center font-bold">
-              #{strength}
-            </span>
-          ))}
-        </div>
-      </section>
-
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border-2 border-[#16324f]/25 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Answer the Questions Below</h2>
         <p className="text-gray-600 leading-relaxed">
@@ -152,19 +101,6 @@ export default async function TestPageEn({ params }: PageProps) {
           Complete the questions to see your character match at the end.
         </p>
         <TestClientEn themeId={theme.id} />
-      </section>
-
-      <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
-        <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Psychological Basis</h2>
-        <p className="text-gray-600 leading-relaxed">
-          This test balances the four MBTI axes (E/I, S/N, T/F, J/P) to keep results consistent and explainable.
-        </p>
-        <h3 className="text-lg font-black text-[#16324f]">References</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>MBTI four-axis model</li>
-          <li>Typology-based personality frameworks</li>
-          <li>Introductory personality psychology concepts</li>
-        </ul>
       </section>
     </div>
   );

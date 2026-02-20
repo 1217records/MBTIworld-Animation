@@ -46,6 +46,40 @@ export default function AboutJa() {
           </p>
         </section>
 
+        <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-8">
+          <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">MBTI理論とサービスでの扱い</h2>
+          <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
+            <p>
+              MBTIはC. G. Jungの類型論を背景にした性格フレームで、4軸（E/I, S/N, T/F, J/P）の組み合わせで
+              16タイプを示します。本サービスでは、診断ではなく自己理解のための参考情報として扱います。
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">4つの選好軸</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>外向(E) / 内向(I): エネルギーの向かう先</li>
+                  <li>感覚(S) / 直観(N): 情報の受け取り方</li>
+                  <li>思考(T) / 感情(F): 判断時の優先基準</li>
+                  <li>判断(J) / 知覚(P): 計画性と柔軟性</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+                <h3 className="font-bold text-[#16324f]">限界と読み取り方</h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                  <li>タイプは固定的診断ではなく、相対的傾向の要約です。</li>
+                  <li>再検査一致率や二分法分類には学術的な限界が指摘されています。</li>
+                  <li>結果は自己理解の補助情報であり、臨床判断を代替しません。</li>
+                  <li>必要に応じてBig Fiveなどの検証モデルも併用推奨です。</li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              また本サービスは、抽象質問よりも場面理解しやすいアニメ内ナラティブを活用しています。
+              キャラクター一致は、結果の理解を助ける補助的な解釈導線です。
+            </p>
+          </div>
+        </section>
+
         <section className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-sm border border-gray-50 space-y-6">
           <h2 className="text-2xl font-black text-[#16324f] font-serif text-center">運営方針</h2>
           <ul className="space-y-3 text-sm text-gray-600 leading-relaxed list-disc list-inside">

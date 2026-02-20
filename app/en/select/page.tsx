@@ -178,14 +178,40 @@ export default function TestSelectEn() {
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Psychological Basis</h2>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          Each test balances the four MBTI axes (E/I, S/N, T/F, J/P). We translate scenario choices into patterns that can be reflected on later.
-        </p>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">MBTI Theory and Structure</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            This test uses the MBTI frame (E/I, S/N, T/F, J/P), which grew from C. G. Jung’s psychological type theory.
+            The 16 types are used here for self-reflection support, not for clinical diagnosis.
+          </p>
+          <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
+            <li>Extraversion (E) / Introversion (I): primary energy direction</li>
+            <li>Sensing (S) / Intuition (N): preferred information focus</li>
+            <li>Thinking (T) / Feeling (F): decision priority style</li>
+            <li>Judging (J) / Perceiving (P): planning and flexibility preference</li>
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">Interpretation Cautions</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            MBTI is widely used in public contexts, but researchers continue to debate limitations such as forced dichotomies
+            and retest stability. Results are presented as tendency-based guidance, not fixed identity labels.
+          </p>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">Anime Narrative Design</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            Scenario-based questions in familiar anime worlds increase immersion and make response patterns easier to notice.
+            Character matching is a storytelling aid for reflection, while interpretation remains grounded in MBTI basics.
+          </p>
+        </div>
         <h3 className="text-base font-black text-[#16324f]">References</h3>
         <ul className="list-disc list-inside text-xs text-gray-500 space-y-2">
           <li>MBTI four-axis model</li>
-          <li>Typology-based personality frameworks</li>
-          <li>Introductory personality psychology concepts</li>
+          <li>Psychometric studies on retest reliability and dichotomy limits</li>
+          <li>Introductory personality psychology frameworks</li>
+          <li>Interactive narrative and personality assessment research</li>
+          <li>Complementary model: Big Five personality traits</li>
         </ul>
       </section>
     </div>

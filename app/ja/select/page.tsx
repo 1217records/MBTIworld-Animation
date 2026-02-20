@@ -181,14 +181,40 @@ export default function TestSelectJa() {
 
       <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
         <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">心理学的な設計</h2>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          すべてのテストはMBTIの4軸（E/I, S/N, T/F, J/P）をバランスよく反映するよう設計されています。
-        </p>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">MBTI理論と構成</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            本テストは、C. G. Jungの心理学的類型論を背景に発展したMBTIの4軸（E/I, S/N, T/F, J/P）を使用します。
+            16タイプは固定的診断ではなく、自己理解と対話改善の参考情報として扱います。
+          </p>
+          <ul className="list-disc list-inside text-xs text-gray-600 space-y-1">
+            <li>外向(E) / 内向(I): エネルギーの向かう先</li>
+            <li>感覚(S) / 直観(N): 情報把握の重視点</li>
+            <li>思考(T) / 感情(F): 判断時の優先基準</li>
+            <li>判断(J) / 知覚(P): 計画性と柔軟性の傾向</li>
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">解釈時の注意点</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            MBTIは広く活用される一方、二分法分類や再検査の一貫性には学術的な議論があります。
+            そのため、結果は「傾向の手がかり」として案内し、断定的ラベル化は避けます。
+          </p>
+        </div>
+        <div className="space-y-3">
+          <h3 className="text-base font-black text-[#16324f]">アニメ内ナラティブ活用</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            抽象質問ではなく、作品世界の場面選択で回答してもらうことで没入感を高め、行動傾向を捉えやすくしています。
+            キャラクター一致は自己理解を助ける補助解釈です。
+          </p>
+        </div>
         <h3 className="text-base font-black text-[#16324f]">参考</h3>
         <ul className="list-disc list-inside text-xs text-gray-500 space-y-2">
           <li>MBTIの4軸モデル</li>
-          <li>類型論ベースの性格フレームワーク</li>
-          <li>性格心理学の基礎概念</li>
+          <li>再検査信頼性・二分法分類の限界に関する心理測定研究</li>
+          <li>性格心理学の特性モデル</li>
+          <li>インタラクティブ・ナラティブ型評価研究</li>
+          <li>補完モデル: Big Five（5因子モデル）</li>
         </ul>
       </section>
     </div>
