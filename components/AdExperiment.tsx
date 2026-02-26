@@ -15,7 +15,7 @@ type AdExperimentProps = {
 };
 
 const ADS_CLIENT =
-  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-4245569327602514";
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-3939831601648260";
 const SLOT_A = process.env.NEXT_PUBLIC_ADSENSE_SLOT_A;
 const SLOT_B = process.env.NEXT_PUBLIC_ADSENSE_SLOT_B;
 const SLOT_FALLBACK = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
