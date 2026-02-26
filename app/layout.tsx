@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_ORIGIN,
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
