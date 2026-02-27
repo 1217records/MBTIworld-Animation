@@ -49,7 +49,7 @@ export default function TermsJa() {
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">4. お問い合わせ</h2>
-          <p>規約に関するお問い合わせ: mbtiworld.kr@gmail.com</p>
+          <p>規約に関するお問い合わせ: 1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

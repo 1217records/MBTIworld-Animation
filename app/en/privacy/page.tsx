@@ -70,7 +70,7 @@ export default function PrivacyEn() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">7. Contact</h2>
           <p>For privacy questions, contact:</p>
-          <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
         <div className="pt-8 border-t border-gray-100 text-[10px] text-gray-400 italic">
           This policy may be updated if laws or guidelines change.

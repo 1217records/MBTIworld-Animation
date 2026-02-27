@@ -17,7 +17,7 @@ const FooterEn = () => (
           Results are for self-reflection and are not a professional diagnosis.
         </p>
         <p className="text-xs text-gray-400 leading-relaxed">
-          Operated by MBTI WORLD Animation Team · Contact: mbtiworld.kr@gmail.com
+          Operated by MBTI WORLD Animation Team · Contact: 1217records.kor@gmail.com
         </p>
         <p className="text-[11px] text-gray-300 font-bold tracking-[0.2em] uppercase">Your Soul, Reimagined in Anime</p>
         <p className="text-[10px] text-gray-200">© 2026 MBTI-World Archive. All Rights Reserved.</p>

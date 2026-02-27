@@ -19,7 +19,7 @@ const resources = {
         description:
           "MBTI WORLD ANIMATION은 애니메이션 세계관의 상황을 통해 성향을 탐색하는 엔터테인먼트형 성격 테스트 서비스입니다.",
         note: "결과는 자기이해를 돕는 참고용이며, 전문 진단을 대체하지 않습니다.",
-        operatedBy: "운영/제작: MBTI WORLD Animation Team · 문의: mbtiworld.kr@gmail.com",
+        operatedBy: "운영/제작: MBTI WORLD Animation Team · 문의: 1217records.kor@gmail.com",
       },
     },
   },
@@ -37,7 +37,7 @@ const resources = {
         description:
           "MBTI WORLD ANIMATION is an entertainment-focused personality test inspired by anime worlds.",
         note: "Results are for self-reflection and are not a professional diagnosis.",
-        operatedBy: "Operated by MBTI WORLD Animation Team · Contact: mbtiworld.kr@gmail.com",
+        operatedBy: "Operated by MBTI WORLD Animation Team · Contact: 1217records.kor@gmail.com",
       },
     },
   },
@@ -55,7 +55,7 @@ const resources = {
         description:
           "MBTI WORLD ANIMATIONは、アニメ世界観をもとにしたエンタメ型性格テストです。",
         note: "結果は自己理解の参考用であり、専門的診断の代替ではありません。",
-        operatedBy: "運営: MBTI WORLD Animation Team · 連絡先: mbtiworld.kr@gmail.com",
+        operatedBy: "運営: MBTI WORLD Animation Team · 連絡先: 1217records.kor@gmail.com",
       },
     },
   },

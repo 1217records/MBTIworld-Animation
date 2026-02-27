@@ -38,7 +38,7 @@ export default function ContactPage() {
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">새 테스트 제안</h1>
         <p className="text-gray-500 text-sm">어떤 애니메이션 테스트를 보고 싶으신가요? 제안해 주세요!</p>
-        <p className="text-gray-400 text-xs">문의 메일: mbtiworld.kr@gmail.com</p>
+        <p className="text-gray-400 text-xs">문의 메일: 1217records.kor@gmail.com</p>
       </div>
       <ContactClient />
     </div>

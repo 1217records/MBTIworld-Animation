@@ -38,7 +38,7 @@ export default function ContactPageEn() {
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">Suggest a New Test</h1>
         <p className="text-gray-500 text-sm">What anime world do you want next? Tell us!</p>
-        <p className="text-gray-400 text-xs">Contact: mbtiworld.kr@gmail.com</p>
+        <p className="text-gray-400 text-xs">Contact: 1217records.kor@gmail.com</p>
       </div>
       <ContactClientEn />
     </div>

@@ -159,7 +159,7 @@ export default function AboutEn() {
           <p className="text-sm text-gray-500 leading-relaxed">
             If you have suggestions, collaborations, or bug reports, email us below.
           </p>
-          <p className="text-sm font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="text-sm font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

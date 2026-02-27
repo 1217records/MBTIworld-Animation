@@ -156,7 +156,7 @@ export default function About() {
           <p className="text-sm text-gray-500 leading-relaxed">
             새로운 테스트 제안, 콜라보, 오류 제보가 있다면 아래 메일로 연락해 주세요. 가능한 한 빠르게 확인하고, 좋은 아이디어는 서비스에 반영하겠습니다.
           </p>
-          <p className="text-sm font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="text-sm font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

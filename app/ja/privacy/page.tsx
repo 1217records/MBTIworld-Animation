@@ -56,7 +56,7 @@ export default function PrivacyJa() {
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">5. お問い合わせ</h2>
-          <p>個人情報に関するお問い合わせ: mbtiworld.kr@gmail.com</p>
+          <p>個人情報に関するお問い合わせ: 1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

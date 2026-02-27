@@ -38,7 +38,7 @@ export default function ContactPageJa() {
       <div className="space-y-2 text-center">
         <h1 className="text-3xl font-bold font-serif text-[#16324f]">新しいテスト提案</h1>
         <p className="text-gray-500 text-sm">次に追加してほしいアニメ世界観を教えてください。</p>
-        <p className="text-gray-400 text-xs">連絡先: mbtiworld.kr@gmail.com</p>
+        <p className="text-gray-400 text-xs">連絡先: 1217records.kor@gmail.com</p>
       </div>
       <ContactClientJa />
     </div>

@@ -59,7 +59,7 @@ export default function TermsPageEn() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">5. Contact</h2>
           <p>For questions about these terms, contact us at:</p>
-          <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

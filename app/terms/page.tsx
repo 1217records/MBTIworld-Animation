@@ -59,7 +59,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">5. 문의</h2>
           <p>이용 약관 관련 문의는 아래 메일로 연락해 주세요. 접수된 문의는 순차적으로 확인하며, 가능한 빠르게 답변드리겠습니다.</p>
-          <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
       </div>
     </div>

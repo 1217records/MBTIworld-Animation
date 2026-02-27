@@ -71,7 +71,7 @@ export default function Privacy() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">7. 문의</h2>
           <p>개인정보 관련 문의는 아래 메일로 연락해 주세요. 접수된 문의는 순차적으로 처리됩니다.</p>
-          <p className="font-bold text-[#16324f]">mbtiworld.kr@gmail.com</p>
+          <p className="font-bold text-[#16324f]">1217records.kor@gmail.com</p>
         </section>
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-[#16324f]">8. 콘텐츠 품질 및 사용자 경험 원칙</h2>
