@@ -27,11 +27,27 @@ type ResultShareClientProps = {
 };
 
 export default function ResultShareClientJa({ themeId, type, shareUrl, imageUrl }: ResultShareClientProps) {
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(shareUrl);
-      alert("リンクをコピーしました。");
+  const resolveRuntimeUrl = (url: string) => {
+    if (typeof window === "undefined") return url;
+    try {
+      const parsed = new URL(url);
+      return `${window.location.origin}${parsed.pathname}${parsed.search}${parsed.hash}`;
+    } catch {
+      if (url.startsWith("/")) return `${window.location.origin}${url}`;
+      return url;
     }
+  };
+
+  const getShareUrl = () => resolveRuntimeUrl(shareUrl);
+  const getImageUrl = () => {
+    if (typeof window === "undefined") return imageUrl;
+    return `${window.location.origin}/og/${encodeURIComponent(themeId)}/${encodeURIComponent(type)}.png`;
+  };
+
+  const handleCopyLink = () => {
+    if (typeof window === "undefined") return;
+    navigator.clipboard.writeText(getShareUrl());
+    alert("リンクをコピーしました。");
   };
 
   const handleKakaoShare = () => {
@@ -44,34 +60,63 @@ export default function ResultShareClientJa({ themeId, type, shareUrl, imageUrl 
       window.Kakao.init(KAKAO_JS_KEY);
     }
 
-    window.Kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title: "MBTI WORLD ANIMATION",
-        description: "あなたに近いアニメキャラクターは？",
-        imageUrl,
-        link: {
-          mobileWebUrl: shareUrl,
-          webUrl: shareUrl,
-        },
-      },
-      buttons: [
-        {
-          title: "結果を見る",
+    const resolvedShareUrl = getShareUrl();
+    const resolvedImageUrl = getImageUrl();
+
+    try {
+      window.Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: "MBTI WORLD ANIMATION",
+          description: "あなたに近いアニメキャラクターは？",
+          imageUrl: resolvedImageUrl,
           link: {
-            mobileWebUrl: shareUrl,
-            webUrl: shareUrl,
+            mobileWebUrl: resolvedShareUrl,
+            webUrl: resolvedShareUrl,
           },
         },
-      ],
-    });
+        buttons: [
+          {
+            title: "結果を見る",
+            link: {
+              mobileWebUrl: resolvedShareUrl,
+              webUrl: resolvedShareUrl,
+            },
+          },
+        ],
+      });
+    } catch {
+      alert("Kakaoでの共有に失敗しました。リンクをコピーして共有してください。");
+    }
   };
 
   const handleXShare = () => {
     if (typeof window === "undefined") return;
     const text = `MBTI WORLD ANIMATION · ${type}`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(getShareUrl())}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleDownloadImage = async () => {
+    if (typeof window === "undefined") return;
+
+    const resolvedImageUrl = getImageUrl();
+    try {
+      const response = await fetch(resolvedImageUrl, { cache: "no-store" });
+      if (!response.ok) throw new Error("Failed to fetch image");
+
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = `mbti-${themeId}-${type}.png`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(blobUrl);
+    } catch {
+      window.open(resolvedImageUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
@@ -110,13 +155,13 @@ export default function ResultShareClientJa({ themeId, type, shareUrl, imageUrl 
             Xに投稿
           </span>
         </button>
-        <a
-          href={imageUrl}
-          download={`mbti-${themeId}-${type}.png`}
+        <button
+          type="button"
+          onClick={handleDownloadImage}
           className="w-full px-6 py-3.5 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-base shadow-sm hover:bg-gray-50 transition-colors"
         >
           画像を保存
-        </a>
+        </button>
         <button
           onClick={handleCopyLink}
           className="w-full px-6 py-3.5 rounded-full bg-white border border-gray-200 text-[#16324f] font-black text-base shadow-sm hover:bg-gray-50 transition-colors"
