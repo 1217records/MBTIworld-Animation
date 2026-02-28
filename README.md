@@ -16,5 +16,6 @@ View your app in AI Studio: https://ai.studio/apps/drive/1XE_LIN8wOtuBA0s6nqDeVK
 1. Install dependencies:
    `npm install`
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+3. Set `NEXT_PUBLIC_SITE_URL` (or `SITE_URL`) to your production domain (for example `https://mbtiworld-animation.pages.dev`)
+4. Run the app:
    `npm run dev`

@@ -4,11 +4,25 @@ function normalizeSiteOrigin(value: string): string {
   return `https://${trimmed}`;
 }
 
-const RAW_SITE_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.SITE_URL ||
-  "https://mbti-world-animation.pages.dev";
+function resolveRawSiteOrigin(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
+  if (explicit) return explicit;
 
-export const SITE_ORIGIN = normalizeSiteOrigin(RAW_SITE_ORIGIN);
+  const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProd) return vercelProd;
+
+  const vercel = process.env.VERCEL_URL;
+  if (vercel && !vercel.includes("-git-")) return vercel;
+
+  const cloudflare = process.env.CF_PAGES_URL;
+  if (cloudflare) return cloudflare;
+
+  const netlify = process.env.URL;
+  if (netlify) return netlify;
+
+  return "https://mbtiworld-animation.pages.dev";
+}
+
+export const SITE_ORIGIN = normalizeSiteOrigin(resolveRawSiteOrigin());
 export const SITE_NAME = "MBTI WORLD ANIMATION";
 export const SITE_TAGLINE = "내 MBTI는 어떤 캐릭터와 같을까?";

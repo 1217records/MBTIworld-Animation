@@ -1,5 +1,5 @@
 MBTI WORLD ANIMATION
-Base URL: https://mbti-world-animation.pages.dev
+Base URL: /
 Primary language: ko-KR
 Secondary language: en-US
 
@@ -9,14 +9,14 @@ Summary:
 - Results provide MBTI type interpretation and character matching.
 
 Important URLs:
-- Home (KO): https://mbti-world-animation.pages.dev/
-- Home (EN): https://mbti-world-animation.pages.dev/en
-- Test Select (KO): https://mbti-world-animation.pages.dev/select
-- Test Select (EN): https://mbti-world-animation.pages.dev/en/select
-- Sitemap: https://mbti-world-animation.pages.dev/sitemap.xml
-- Robots: https://mbti-world-animation.pages.dev/robots.txt
-- Privacy (KO): https://mbti-world-animation.pages.dev/privacy
-- Privacy (EN): https://mbti-world-animation.pages.dev/en/privacy
+- Home (KO): /
+- Home (EN): /en
+- Test Select (KO): /select
+- Test Select (EN): /en/select
+- Sitemap: /sitemap.xml
+- Robots: /robots.txt
+- Privacy (KO): /privacy
+- Privacy (EN): /en/privacy
 
 Notes:
 - Content is entertainment and self-reflection oriented.
