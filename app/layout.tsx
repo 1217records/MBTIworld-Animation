@@ -75,15 +75,14 @@ export default function RootLayout({
         />
         <Script
           id="gtag-script"
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4CC8Y8KXFX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-WLHQ9LHBBP"
           strategy="afterInteractive"
         />
         <Script id="ga-gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-4CC8Y8KXFX');`}
+gtag('config', 'G-WLHQ9LHBBP');`}
         </Script>
       </head>
       <body className="bg-[#fdfcf9] text-[#0b1220] min-h-screen font-sans selection:bg-[#16324f] selection:text-white">
