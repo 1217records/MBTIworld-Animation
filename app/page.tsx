@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     url: `${SITE_ORIGIN}/`,
     images: [
       {
-        url: `${SITE_ORIGIN}/og/home?v=2`,
-        width: 1200,
-        height: 630,
+        url: `${SITE_ORIGIN}/og-image.png`,
+        width: 800,
+        height: 800,
         alt: SITE_NAME,
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: "MBTI 유형별 특징과 궁합을 분석하는 MBTI WORLD ANIMATION 테스트입니다.",
-    images: [`${SITE_ORIGIN}/og/home?v=2`],
+    images: [`${SITE_ORIGIN}/og-image.png`],
   },
 };
 
@@ -148,21 +148,21 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center gap-4 w-full">
-          <Link 
+          <Link
             href="/select"
             className="w-full max-w-sm px-12 py-4 rounded-full bg-[#16324f] text-white font-bold text-lg shadow-xl shadow-[#16324f]/25 hover:scale-105 transition-transform active:scale-95 text-center"
           >
             테스트 시작하기
           </Link>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm font-bold text-[#16324f]">
-            <Link 
+            <Link
               href="/about"
               className="hover:text-[#0f2338] underline underline-offset-4 decoration-transparent hover:decoration-[#16324f]/60 transition-colors"
             >
               서비스 소개
             </Link>
             <span className="text-[#16324f]/40" aria-hidden="true">·</span>
-            <Link 
+            <Link
               href="/privacy"
               className="hover:text-[#0f2338] underline underline-offset-4 decoration-transparent hover:decoration-[#16324f]/60 transition-colors"
             >

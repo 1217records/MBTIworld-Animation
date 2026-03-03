@@ -78,7 +78,7 @@ export default function ShareButtons() {
 
     const origin = window.location.origin;
     const shareUrl = `${origin}/`;
-    const imageUrl = `${origin}/og/home?v=2`;
+    const imageUrl = `${origin}/og-image.png`;
 
     window.Kakao.Share.sendDefault({
       objectType: "feed",
