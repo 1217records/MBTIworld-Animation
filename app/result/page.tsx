@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
@@ -61,8 +62,8 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: 800,
+          height: 800,
           alt: ogTitle,
         },
       ],
@@ -287,35 +288,27 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
     <div className="space-y-16 animate-in fade-in pb-24">
       <JsonLd data={jsonLd} />
 
-      <section className={`relative overflow-hidden rounded-[3rem] p-7 sm:p-16 bg-gradient-to-br ${theme.gradient} text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]`}>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[130px] -translate-y-1/2 translate-x-1/2 rounded-full" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 blur-[100px] translate-y-1/2 -translate-x-1/2 rounded-full" />
+      <section className="relative overflow-hidden rounded-[2.5rem] bg-white shadow-2xl w-full max-w-md mx-auto flex flex-col group border border-gray-100">
+        {/* Character Image Background (Top Half) */}
+        <div className="relative w-full aspect-square flex items-center justify-center overflow-hidden bg-gray-50">
+          <Image
+            src={`/characters/${themeId}/${type}.png`}
+            alt={`${character.name} illustration`}
+            fill
+            className="object-contain transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 400px"
+            priority
+          />
+        </div>
 
-        <div className="relative z-10 space-y-10">
-          <div className="flex flex-col items-center text-center gap-6">
-            <span className="px-6 py-2.5 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-black tracking-[0.4em] uppercase border border-white/10">
-              {SITE_TAGLINE}
-            </span>
-            <div className="space-y-4">
-              <h1 className="text-6xl sm:text-8xl font-black font-serif tracking-widest drop-shadow-2xl">
-                {type}
-              </h1>
-              <div className="h-1 w-20 bg-white/40 mx-auto rounded-full" />
-              <p className="text-white/90 font-bold text-xl sm:text-2xl tracking-tight">{MBTI_SHORT_DESCS[type]}</p>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-2xl rounded-[3rem] p-7 sm:p-14 border border-white/20 flex flex-col items-center text-center gap-8 shadow-2xl">
-            <div className="space-y-1">
-              <div className="text-[11px] font-black text-white/50 uppercase tracking-[0.3em]">The Character That Matches Your Soul</div>
-              <h2 className="text-[clamp(1.6rem,7vw,3.75rem)] font-black font-serif tracking-tight leading-none whitespace-nowrap">
-                {character.name}
-              </h2>
-            </div>
-            <p className="text-white text-base sm:text-xl leading-relaxed w-full max-w-none font-medium italic opacity-90 break-keep whitespace-normal px-2 text-center">
-              {character.desc}
-            </p>
-          </div>
+        {/* Content Block Area (Bottom Half) */}
+        <div className={`w-full py-5 sm:py-6 px-4 flex flex-col items-center justify-center text-center gap-1.5 z-10 bg-gradient-to-br ${theme.gradient} shrink-0`}>
+          <h1 className="text-4xl sm:text-5xl font-black font-serif tracking-widest text-[#fff580] drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)] leading-none">
+            {type}
+          </h1>
+          <h2 className="text-xl sm:text-2xl font-black font-serif tracking-tight text-white drop-shadow-md leading-none">
+            {character.name}
+          </h2>
         </div>
       </section>
 
