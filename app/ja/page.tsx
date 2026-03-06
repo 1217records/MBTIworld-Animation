@@ -37,6 +37,13 @@ export default function HomeJa() {
   const jsonLd = [
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: `${SITE_ORIGIN}/ja`,
+      inLanguage: "ja-JP",
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       name: SITE_NAME,
       applicationCategory: "Entertainment",

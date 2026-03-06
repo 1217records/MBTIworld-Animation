@@ -2,6 +2,13 @@ import type { MetadataRoute } from "next";
 import { THEMES } from "@/data";
 import { SITE_ORIGIN } from "@/lib/site";
 
+const MBTI_TYPES = [
+  "ISTJ", "ISFJ", "INFJ", "INTJ",
+  "ISTP", "ISFP", "INFP", "INTP",
+  "ESTP", "ESFP", "ENFP", "ENTP",
+  "ESTJ", "ESFJ", "ENFJ", "ENTJ",
+] as const;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const base: MetadataRoute.Sitemap = [
@@ -43,5 +50,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]);
 
-  return [...base, ...themeEntries];
+  const resultEntries = Object.values(THEMES).flatMap((theme) =>
+    MBTI_TYPES.flatMap((mbti) => [
+      {
+        url: `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        lastModified: now,
+      },
+      {
+        url: `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        lastModified: now,
+      },
+      {
+        url: `${SITE_ORIGIN}/ja/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        lastModified: now,
+      },
+    ])
+  );
+
+  return [...base, ...themeEntries, ...resultEntries];
 }
