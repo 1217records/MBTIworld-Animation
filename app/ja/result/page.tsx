@@ -323,11 +323,30 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-4 relative z-10 text-center">
           <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-indigo-300">🧠</div>
           <h2 className="font-black text-white text-xl font-serif text-center">タイプ特性の解説</h2>
+          <p className="text-white/60 text-xs tracking-widest uppercase font-bold">{shortDesc}</p>
         </div>
-        <div className="relative z-10">
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light">{MBTI_LONG_DESCS_JA[type] || MBTI_LONG_DESCS_JA.ISTJ}</p>
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light mt-6">{traitExpansion}</p>
-          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="relative z-10 space-y-6">
+          <p className="text-lg text-white/80 leading-[2] font-light">{MBTI_LONG_DESCS_JA[type] || MBTI_LONG_DESCS_JA.ISTJ}</p>
+          <p className="text-lg text-white/80 leading-[2] font-light">{traitExpansion}</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">🔥 核心の動機</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                {type}タイプが最もエネルギーを得るのは、<strong className="text-white">{shortDesc}</strong>を十分に発揮できるときです。
+                自分の基準で選択し、その結果が目標や関係にポジティブにつながるとき、満足感が高まります。
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">⚡ 注意パターン</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                自分の判断が無視されたり、期待と現実が大きくずれたりするとストレスが高まります。
+                このパターンを知っておくと、葛藤の場面でもより柔軟に対処できます。
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {profileDetailBlocks.map((block) => (
               <article key={block.title} className="rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md p-4 sm:p-5 space-y-2">
                 <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">{block.title}</p>
@@ -335,31 +354,55 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
               </article>
             ))}
           </div>
+
+          <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-3">
+            <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">✨ このタイプが輝く瞬間</p>
+            <ul className="space-y-2 text-sm text-white/85 leading-relaxed">
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>自分の強みが明確に求められる役割を任されたとき</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>信頼できるパートナーと共通の目標に向かって進むとき</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>自分の判断が実際の結果につながる経験をするとき</span></li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-7">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">相性と関係性パターン</h2>
+          <p className="text-sm text-gray-400 max-w-lg mx-auto leading-relaxed">
+            相性は決定的なマッチではありません。異なる個性が「<strong className="text-[#16324f]/80">役割分担</strong>」として結びつくときにこそ、最大のシナジーが生まれます。
+          </p>
         </div>
-        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-4 sm:p-5">
-          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">Compatibility Snapshot</p>
+
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-2">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">Compatibility Snapshot</p>
           <p className="text-gray-700 leading-relaxed">{compatibilityStrategies[0]}</p>
+          <p className="text-sm text-gray-500 leading-relaxed mt-2">
+            {type}タイプは、異なる強みを持つ相手と補完関係を作りやすい傾向があります。
+            違いを摩擦ではなく、役割分担のヒントとして活用するアプローチが有効です。
+          </p>
         </div>
-        <p className="text-gray-600 leading-relaxed">
-          {type}タイプは、異なる強みを持つ相手と補完関係を作りやすい傾向があります。計画性と柔軟性、論理と共感のバランスが鍵になります。
-        </p>
+
+        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">💬 このタイプと話すとき</p>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>結論より先に背景や経緯を十分共有すると、会話がスムーズに進みます。</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>葛藤の場面では、事実判断と感情反応を分けて話すと誤解を大きく減らせます。</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>フィードバックを伝える際は「行動」を基準に、「人」を評価しない言葉を選びましょう。</span></li>
+          </ul>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">実践ポイント</h3>
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">実践ポイント</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {compatibilityStrategies.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">コミュニケーションチェック</h3>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">コミュニケーションチェック</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {communicationChecklist.map((item) => (
                 <li key={item}>{item}</li>
@@ -367,42 +410,80 @@ export default async function ResultPageJa({ searchParams }: ResultPageProps) {
             </ul>
           </div>
         </div>
+
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">📌 関係の原則</p>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            どのタイプの組み合わせにも良い悪いはありません。大切なのは、お互いの判断基準やエネルギー管理の方法が
+            違うことを認識し、その違いから学ぼうとする姿勢です。このページの相性解釈は決定的なマッチではなく、
+            異なる個性がどう互いを補い合えるかをガイドする実践ガイドです。
+          </p>
+        </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-8">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">心理学的な根拠</h2>
+          <p className="text-sm text-gray-400 leading-relaxed max-w-lg mx-auto">
+            MBTIは自己理解を深める一つの言語です。絶対的な診断ではなく、探索の出発点として活用してください。
+          </p>
         </div>
+
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-4">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">MBTI 4つの選好指標</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            {[
+              { label: "エネルギーの方向", pair: "外向(E) / 内向(I)", desc: "人や活動でエネルギーを得るか、一人の時間で回復するか" },
+              { label: "情報の認識", pair: "感覚(S) / 直観(N)", desc: "具体的な事実を重視するか、パターンや可能性を重視するか" },
+              { label: "判断基準", pair: "思考(T) / 感情(F)", desc: "論理と客観性を優先するか、感情と関係性を優先するか" },
+              { label: "生活スタイル", pair: "判断(J) / 認知(P)", desc: "計画と決断を好むか、柔軟性と開放性を好むか" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl bg-white border border-gray-100 p-3 space-y-1">
+                <p className="text-[10px] font-black text-[#16324f]/60 tracking-widest uppercase">{item.label}</p>
+                <p className="font-bold text-[#16324f] text-sm">{item.pair}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">結果解釈の基本原理</h3>
           <p className="text-gray-600 leading-relaxed">
             この結果はMBTIの4軸（E/I, S/N, T/F, J/P）に基づいて回答傾向を要約しています。4文字タイプは
-            固定的な人格診断ではなく、相対的に優勢な志向を示す参考指標として扱います。
+            固定的な人格診断ではなく、<strong>相対的に優勢な志向を示す参考指標</strong>として扱います。
+            同じ人でも状況や時期によって結果が変わることは自然な現象です。
           </p>
         </div>
         <div className="space-y-3">
-          <h3 className="text-lg font-black text-[#16324f]">科学的な限界と利用範囲</h3>
+          <h3 className="text-lg font-black text-[#16324f]">科学的な限界と活用範囲</h3>
           <p className="text-gray-600 leading-relaxed">
-            MBTIは実務・教育場面で普及していますが、二分法分類や再検査一致率には心理測定上の限界が報告されています。
-            そのため、本結果は診断目的ではなく、自己理解とコミュニケーション改善の補助情報として利用してください。
+            MBTIは実務・教育場面で広く活用されていますが、二分法分類や再検査一致率には心理測定上の限界が報告されています。
+            そのため、結果は診断目的ではなく、<strong>自己理解とコミュニケーション改善の指針</strong>として活用することをおすすめします。
+            より精密な自己理解が必要な場合は、Big Fiveなど検証性の高いモデルも併用することをおすすめします。
           </p>
         </div>
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">推奨される読み取り方</h3>
-          <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
-            <li>タイプは固定ラベルではなく、現在の傾向として理解する</li>
-            <li>キャラクター一致だけでなく、実際の行動文脈と合わせて確認する</li>
-            <li>必要に応じてBig Fiveなど検証性の高いモデルも併用する</li>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>タイプを固定ラベルではなく、現在の傾向として理解する</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>キャラクター一致だけでなく、実際の行動文脈と合わせて確認する</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>強みをまず認識し、注意点を「成長可能性」として再解釈する</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>必要に応じてBig Fiveなど検証済みモデルも併用する</span></li>
           </ul>
         </div>
-        <h3 className="text-lg font-black text-[#16324f]">参考</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>MBTIの4軸モデル</li>
-          <li>再検査信頼性・二分法分類の限界に関する心理測定研究</li>
-          <li>性格心理学と特性モデル比較研究</li>
-          <li>インタラクティブ・ナラティブ型評価研究</li>
-        </ul>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">参考文献</h3>
+          <ul className="space-y-1.5 text-sm text-gray-500 leading-relaxed">
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Myers, I. B. &amp; Myers, P. B. (1980). <em>Gifts Differing: Understanding Personality Type.</em></span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Jung, C. G. (1921). <em>Psychologische Typen.</em> (心理型論の原典)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>MBTIの再検査信頼性・二分法分類の限界に関する心理測定研究 (Boyle, 1995 他)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>McCrae &amp; Costa (1989). Big FiveとMBTIの相関関係比較研究</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>インタラクティブ・ナラティブ型評価研究 (Liu et al., 2016)</span></li>
+          </ul>
+        </div>
       </section>
+
 
       <ResultShareClientJa themeId={theme.id} type={type} shareUrl={shareUrl} imageUrl={imageUrl} />
 

@@ -284,11 +284,32 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-4 relative z-10 text-center">
           <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-indigo-300">🧠</div>
           <h2 className="font-black text-white text-xl font-serif text-center">Type Trait Analysis</h2>
+          <p className="text-white/60 text-xs tracking-widest uppercase font-bold">{shortDesc}</p>
         </div>
-        <div className="relative z-10">
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light">{MBTI_LONG_DESCS_EN[type] || MBTI_LONG_DESCS_EN.ISTJ}</p>
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light mt-6">{traitExpansion}</p>
-          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="relative z-10 space-y-6">
+          <p className="text-lg text-white/80 leading-[2] font-light">{MBTI_LONG_DESCS_EN[type] || MBTI_LONG_DESCS_EN.ISTJ}</p>
+          <p className="text-lg text-white/80 leading-[2] font-light">{traitExpansion}</p>
+
+          {/* Core Motivation & Caution Pattern */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">🔥 Core Motivation</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                {type} types feel most energized when they can fully express <strong className="text-white">{shortDesc}</strong>.
+                Satisfaction runs highest when their choices align with their values and contribute meaningfully to goals or relationships.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">⚡ Watch-Out Pattern</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                Stress tends to rise when their judgment is ignored or expectations clash with reality.
+                Recognizing this reaction pattern helps them stay more flexible when conflict arises.
+              </p>
+            </div>
+          </div>
+
+          {/* 4 Profile Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {profileDetailBlocks.map((block) => (
               <article key={block.title} className="rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md p-4 sm:p-5 space-y-2">
                 <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">{block.title}</p>
@@ -296,31 +317,58 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
               </article>
             ))}
           </div>
+
+          {/* When This Type Shines */}
+          <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-3">
+            <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">✨ When This Type Shines</p>
+            <ul className="space-y-2 text-sm text-white/85 leading-relaxed">
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>When given a role that clearly calls on their core strengths</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>When working toward a shared goal with a trusted partner</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>When their judgment leads to tangible, positive outcomes</span></li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-7">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Compatibility & Relationship Patterns</h2>
+          <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Compatibility &amp; Relationship Patterns</h2>
+          <p className="text-sm text-gray-400 max-w-lg mx-auto leading-relaxed">
+            Compatibility isn&apos;t about a perfect match. The strongest synergy happens when different personalities connect as <strong className="text-[#16324f]/80">complementary roles</strong>.
+          </p>
         </div>
-        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-4 sm:p-5">
-          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">Compatibility Snapshot</p>
+
+        {/* Snapshot */}
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-2">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">Compatibility Snapshot</p>
           <p className="text-gray-700 leading-relaxed">{compatibilityStrategies[0]}</p>
+          <p className="text-sm text-gray-500 leading-relaxed mt-2">
+            {type} types can form complementary relationships with people who bring different energy.
+            Rather than viewing differences as friction, treating them as role-division hints leads to stronger, more satisfying bonds.
+          </p>
         </div>
-        <p className="text-gray-600 leading-relaxed">
-          {type} types can form complementary relationships with people who bring different energy. Balance planning with flexibility, and logic with empathy.
-        </p>
+
+        {/* Talking with this type */}
+        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">💬 Talking with This Type</p>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>Share context and background before jumping to conclusions — it makes the conversation flow much more smoothly.</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>In conflict, separate factual judgment from emotional reaction — it reduces misunderstanding significantly.</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>When giving feedback, focus on <em>behavior</em>, not on judging the person — it will land far better.</span></li>
+          </ul>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">Practical Strategies</h3>
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">Practical Strategies</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {compatibilityStrategies.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">Communication Checklist</h3>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">Communication Checklist</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {communicationChecklist.map((item) => (
                 <li key={item}>{item}</li>
@@ -328,41 +376,79 @@ export default async function ResultPageEn({ searchParams }: ResultPageProps) {
             </ul>
           </div>
         </div>
+
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">📌 Relationship Principle</p>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            No type combination is inherently good or bad. What matters is recognizing that different types may have
+            different judgment criteria and energy management styles — and choosing to learn from those differences.
+            The compatibility insights here are a practical guide to understanding how different personalities can work together, not a definitive match score.
+          </p>
+        </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-8">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">Psychological Basis</h2>
+          <p className="text-sm text-gray-400 leading-relaxed max-w-lg mx-auto">
+            MBTI is a lens for self-understanding, not a verdict. Treat your result as a starting point for exploration, not a final label.
+          </p>
         </div>
+
+        {/* MBTI 4-Axis Quick Guide */}
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-4">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">MBTI&apos;s 4 Preference Dimensions</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            {[
+              { label: "Energy Direction", pair: "Extraversion (E) / Introversion (I)", desc: "Do you recharge with people, or through solitude?" },
+              { label: "Information Intake", pair: "Sensing (S) / Intuition (N)", desc: "Do you focus on concrete facts, or patterns and possibilities?" },
+              { label: "Decision Making", pair: "Thinking (T) / Feeling (F)", desc: "Do you prioritize logic and objectivity, or values and relationships?" },
+              { label: "Lifestyle", pair: "Judging (J) / Perceiving (P)", desc: "Do you prefer structure and decisions, or flexibility and openness?" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl bg-white border border-gray-100 p-3 space-y-1">
+                <p className="text-[10px] font-black text-[#16324f]/60 tracking-widest uppercase">{item.label}</p>
+                <p className="font-bold text-[#16324f] text-sm">{item.pair}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">How This Result Is Interpreted</h3>
           <p className="text-gray-600 leading-relaxed">
-            This page interprets your responses through MBTI’s four axes (E/I, S/N, T/F, J/P). A 4-letter type is treated
-            as a summary of relative preference patterns, not a permanent identity.
+            This result interprets your response patterns through MBTI&apos;s four axes (E/I, S/N, T/F, J/P).
+            A 4-letter type is a <strong>summary of relative preference patterns</strong>, not a permanent identity.
+            The same person may get different results in different contexts — which is completely natural.
           </p>
         </div>
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">Scientific Limits and Scope</h3>
           <p className="text-gray-600 leading-relaxed">
-            MBTI is popular in education and workplace settings, but psychometric limits are still discussed, especially
-            around dichotomous scoring and retest consistency. Use this result for reflection and communication hints, not diagnosis.
+            MBTI is widely used in education and workplace settings, but psychometric studies have noted limitations
+            around dichotomous scoring and retest consistency. Use this result for <strong>self-reflection and communication improvement</strong>,
+            not clinical diagnosis. For a more precise picture, consider cross-referencing with validated models like the Big Five.
           </p>
         </div>
         <div className="space-y-3">
-          <h3 className="text-lg font-black text-[#16324f]">Recommended Reading of Your Type</h3>
-          <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
-            <li>Read the type as a tendency pattern, not a fixed label</li>
-            <li>Use character matching as an example, then check your real behavior context</li>
-            <li>Cross-reference with validated trait models like Big Five when needed</li>
+          <h3 className="text-lg font-black text-[#16324f]">Recommended Ways to Read Your Type</h3>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>Read your type as a current tendency, not a fixed label</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>Pair character matching with real behavior context, not just story similarities</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>Notice strengths first, then reframe cautions as growth opportunities</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>Cross-reference with validated trait models like Big Five when needed</span></li>
           </ul>
         </div>
-        <h3 className="text-lg font-black text-[#16324f]">References</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>MBTI four-axis model</li>
-          <li>Psychometric studies on retest reliability and dichotomy limits</li>
-          <li>Personality psychology and trait-model comparison studies</li>
-          <li>Interactive narrative-based personality assessment research</li>
-        </ul>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">References</h3>
+          <ul className="space-y-1.5 text-sm text-gray-500 leading-relaxed">
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Myers, I. B. &amp; Myers, P. B. (1980). <em>Gifts Differing: Understanding Personality Type.</em></span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Jung, C. G. (1921). <em>Psychologische Typen.</em> (Original theory of psychological types)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Psychometric studies on MBTI retest reliability and dichotomy limits (Boyle, 1995 et al.)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>McCrae &amp; Costa (1989). Comparative study of Big Five and MBTI correlations</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Interactive narrative-based personality assessment research (Liu et al., 2016)</span></li>
+          </ul>
+        </div>
       </section>
 
       <ResultShareClientEn themeId={theme.id} type={type} shareUrl={shareUrl} imageUrl={imageUrl} />

@@ -363,11 +363,32 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
         <div className="flex flex-col items-center gap-4 relative z-10 text-center">
           <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl text-indigo-300">🧠</div>
           <h2 className="font-black text-white text-xl font-serif text-center">유형별 성향 분석</h2>
+          <p className="text-white/60 text-xs tracking-widest uppercase font-bold">{MBTI_SHORT_DESCS[type]}</p>
         </div>
-        <div className="relative z-10">
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light">{MBTI_LONG_DESCS[type]}</p>
-          <p className="text-lg text-white/80 leading-[2] whitespace-pre-wrap font-light mt-6">{typeProfile.deep}</p>
-          <div className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="relative z-10 space-y-6">
+          <p className="text-lg text-white/80 leading-[2] font-light">{MBTI_LONG_DESCS[type]}</p>
+          <p className="text-lg text-white/80 leading-[2] font-light">{typeProfile.deep}</p>
+
+          {/* 핵심 동기 vs 두려움 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">🔥 핵심 동기</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                {type}가 가장 에너지를 얻는 상황은 <strong className="text-white">{MBTI_SHORT_DESCS[type]}</strong>을 온전히 발휘할 수 있을 때입니다.
+                자신의 기준에 따라 선택하고, 그 결과가 관계나 목표에 긍정적으로 연결될 때 높은 만족감을 느낍니다.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-2">
+              <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">⚡ 주의 패턴</p>
+              <p className="text-sm leading-relaxed text-white/90">
+                반대로 자신의 판단 기준이 무시되거나, 기대와 현실이 크게 어긋날 때 스트레스가 커집니다.
+                이 시점에서의 반응 패턴을 알아두면, 갈등 상황에서 더 유연하게 대처할 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          {/* 4 프로파일 카드 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {profileDetailBlocks.map((block) => (
               <article key={block.title} className="rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md p-4 sm:p-5 space-y-2">
                 <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">{block.title}</p>
@@ -375,38 +396,59 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
               </article>
             ))}
           </div>
+
+          {/* 이 유형이 빛나는 순간 */}
+          <div className="rounded-2xl bg-white/10 border border-white/20 p-5 space-y-3">
+            <p className="text-[11px] font-black tracking-[0.2em] uppercase text-white/60">✨ 이 유형이 빛나는 순간</p>
+            <ul className="space-y-2 text-sm text-white/85 leading-relaxed">
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>자신의 강점이 명확히 요구되는 역할을 맡았을 때</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>신뢰할 수 있는 파트너와 공동 목표를 향해 나아갈 때</span></li>
+              <li className="flex gap-2"><span className="shrink-0">→</span><span>자신의 판단이 실제 결과로 이어지는 경험을 할 때</span></li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-7">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">궁합 및 관계 패턴</h2>
-        </div>
-        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-4 sm:p-5">
-          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">Compatibility Snapshot</p>
-          <p className="text-gray-700 leading-relaxed">
-            {typeProfile.compatibility}
+          <p className="text-sm text-gray-400 max-w-lg mx-auto leading-relaxed">
+            궁합은 절대적인 매칭이 아닙니다. 서로 다른 성향이 <strong className="text-[#16324f]/80">역할 분담</strong>으로
+            연결될 때 가장 강력한 시너지가 생깁니다.
           </p>
         </div>
-        <p className="text-gray-600 leading-relaxed">
-          {type} 유형의 관계 강점은 "{MBTI_SHORT_DESCS[type]}"을 바탕으로 신뢰를 구축하는 데 있습니다. {typeProfile.compatibility}
-          관계 만족도를 높이려면 성향의 차이를 우열이 아닌 역할 분담의 힌트로 해석하는 접근이 효과적입니다.
-        </p>
-        <p className="text-gray-600 leading-relaxed">
-          특히 갈등 상황에서는 사실 판단과 감정 반응을 분리해 대화하면 오해를 줄일 수 있습니다. 이 페이지의 궁합 해석은
-          절대적 매칭이 아니라, 서로 다른 성향이 어떻게 상호보완적으로 작동할 수 있는지에 대한 실전 가이드입니다.
-        </p>
+
+        {/* Snapshot */}
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-2">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">Compatibility Snapshot</p>
+          <p className="text-gray-700 leading-relaxed">{typeProfile.compatibility}</p>
+          <p className="text-sm text-gray-500 leading-relaxed mt-2">
+            {type} 유형의 관계 강점은 &ldquo;{MBTI_SHORT_DESCS[type]}&rdquo;를 바탕으로 신뢰를 구축하는 데 있습니다.
+            관계 만족도를 높이려면 성향의 차이를 우열이 아닌 역할 분담의 힌트로 해석하는 접근이 효과적입니다.
+          </p>
+        </div>
+
+        {/* 이 유형과 대화할 때 */}
+        <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">💬 이 유형과 대화할 때</p>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>결론보다 먼저 맥락과 배경을 충분히 공유하면 훨씬 수월하게 이야기할 수 있습니다.</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>갈등 상황에서는 사실 판단과 감정 반응을 분리해 이야기하면 오해를 효과적으로 줄일 수 있습니다.</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>이 유형에게 피드백을 줄 때는 "행동"을 기준으로, "사람"을 평가하지 않는 표현을 선택하세요.</span></li>
+          </ul>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">관계 만족도를 높이는 실전 전략</h3>
+          <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">관계 만족도를 높이는 실전 전략</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {compatibilityStrategies.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5">
-            <h3 className="text-base font-black text-[#16324f] mb-3">대화 체크리스트</h3>
+          <div className="rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 space-y-3">
+            <h3 className="text-base font-black text-[#16324f]">대화 체크리스트</h3>
             <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
               {communicationChecklist.map((item) => (
                 <li key={item}>{item}</li>
@@ -414,41 +456,83 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
             </ul>
           </div>
         </div>
+
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70 mb-2">📌 관계 원칙</p>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            어떤 유형 조합도 좋고 나쁜 것은 없습니다. 중요한 것은 서로의 판단 기준과 에너지 관리 방식이
+            다를 수 있다는 사실을 인식하고, 그 차이에서 배우는 태도입니다.
+            이 페이지의 궁합 해석은 절대적인 매칭이 아니라, 서로 다른 성향이 어떻게 상호보완적으로
+            작동할 수 있는지를 안내하는 실전 가이드입니다.
+          </p>
+        </div>
       </section>
 
-      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+      <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-8">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="text-2xl font-black font-serif text-[#16324f] text-center">심리학적 근거</h2>
+          <p className="text-sm text-gray-400 leading-relaxed max-w-lg mx-auto">
+            MBTI는 자기이해를 돕는 하나의 언어입니다. 절대적인 진단이 아닌 탐색의 출발점으로 활용해 주세요.
+          </p>
         </div>
+
+        {/* MBTI 4지표 한눈에 보기 */}
+        <div className="rounded-2xl bg-[#f8fbff] border border-[#16324f]/10 p-5 space-y-4">
+          <p className="text-xs font-black tracking-[0.18em] uppercase text-[#16324f]/70">MBTI 4가지 선호 지표</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            {[
+              { label: "에너지 방향", pair: "외향(E) / 내향(I)", desc: "사람·활동에서 충전하는가, 혼자 시간에서 충전하는가" },
+              { label: "정보 인식", pair: "감각(S) / 직관(N)", desc: "구체적 사실을 중시하는가, 패턴과 가능성을 중시하는가" },
+              { label: "판단 기준", pair: "사고(T) / 감정(F)", desc: "논리와 객관성을 우선하는가, 감정과 관계를 우선하는가" },
+              { label: "생활 양식", pair: "판단(J) / 인식(P)", desc: "계획과 결정을 선호하는가, 유연함과 개방성을 선호하는가" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl bg-white border border-gray-100 p-3 space-y-1">
+                <p className="text-[10px] font-black text-[#16324f]/60 tracking-widest uppercase">{item.label}</p>
+                <p className="font-bold text-[#16324f] text-sm">{item.pair}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">결과 해석의 기본 원리</h3>
           <p className="text-gray-600 leading-relaxed">
-            본 결과는 MBTI의 네 지표(E/I, S/N, T/F, J/P)를 바탕으로 응답 경향을 해석합니다. 네 글자 유형은 절대적 낙인이
-            아니라 상대적으로 우세한 선호를 요약한 값이며, 캐릭터 매칭은 이해를 돕기 위한 스토리 기반 예시입니다.
+            본 결과는 MBTI의 네 지표(E/I, S/N, T/F, J/P)를 바탕으로 응답 경향을 해석합니다.
+            네 글자 유형은 절대적 낙인이 아니라 <strong>상대적으로 우세한 선호를 요약한 값</strong>이며,
+            캐릭터 매칭은 이해를 돕기 위한 스토리 기반 예시입니다. 같은 사람도 상황과 시점에 따라
+            결과가 달라질 수 있으며, 이것은 완전히 자연스러운 현상입니다.
           </p>
         </div>
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">과학적 한계와 활용 범위</h3>
           <p className="text-gray-600 leading-relaxed">
-            MBTI는 실무와 대중 영역에서 널리 활용되지만, 심리측정 관점에서는 재검사 일관성과 이분법 분류의 한계가 보고됩니다.
-            따라서 결과는 임상 진단이나 능력 평가가 아니라 자기탐색·대화 개선을 위한 참고 자료로 활용하는 것을 권장합니다.
+            MBTI는 실무·교육·대인관계 영역에서 널리 활용되지만, 심리측정 관점에서는
+            재검사 일관성과 이분법 분류의 한계가 학술적으로 보고됩니다.
+            따라서 결과는 임상 진단이나 능력 평가가 아니라,
+            <strong> 자기탐색과 대화 개선을 위한 참고 자료</strong>로 활용하는 것을 권장합니다.
+            더 정밀한 자기이해가 필요하다면 Big Five(빅파이브) 등 검증된 특성 모델과 함께 교차 참고해 보세요.
           </p>
         </div>
         <div className="space-y-3">
           <h3 className="text-lg font-black text-[#16324f]">해석 시 권장 방식</h3>
-          <ul className="list-disc list-inside text-sm text-gray-600 space-y-2">
-            <li>유형을 고정 정체성으로 단정하지 않고, 현재의 선호 경향으로 이해하기</li>
-            <li>관계 해석은 캐릭터 유사성보다 실제 행동 패턴과 맥락을 함께 보기</li>
-            <li>필요 시 Big Five 등 검증된 특성 모델과 함께 교차 참고하기</li>
+          <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>유형을 고정 정체성으로 단정하지 않고, 현재의 선호 경향으로 이해하기</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>관계 해석은 캐릭터 유사성보다 실제 행동 패턴과 맥락을 함께 보기</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>강점을 먼저 인식하고, 주의점을 "개선 가능성"으로 재해석하기</span></li>
+            <li className="flex gap-2"><span className="text-[#16324f] font-bold shrink-0">✓</span><span>필요 시 Big Five 등 검증된 특성 모델과 함께 교차 참고하기</span></li>
           </ul>
         </div>
-        <h3 className="text-lg font-black text-[#16324f]">참고 문헌/출처</h3>
-        <ul className="list-disc list-inside text-sm text-gray-500 space-y-2">
-          <li>MBTI 성격 유형 이론의 4가지 지표 구조</li>
-          <li>검사-재검사 신뢰도 및 이분법 분류 한계 관련 심리측정 연구</li>
-          <li>성격심리학 개론과 성격 특성 모델 비교 연구</li>
-          <li>인터랙티브 내러티브 기반 성향 파악 연구</li>
-        </ul>
+        <div className="space-y-3">
+          <h3 className="text-lg font-black text-[#16324f]">참고 문헌 / 출처</h3>
+          <ul className="space-y-1.5 text-sm text-gray-500 leading-relaxed">
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Myers, I. B. &amp; Myers, P. B. (1980). <em>Gifts Differing: Understanding Personality Type.</em></span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>Jung, C. G. (1921). <em>Psychologische Typen.</em> (심리 유형 이론 원전)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>MBTI 재검사 신뢰도 및 이분법 분류 한계 관련 심리측정 연구 (Boyle, 1995 외)</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>McCrae &amp; Costa (1989). Big Five와 MBTI의 상관관계 비교 연구</span></li>
+            <li className="flex gap-2"><span className="shrink-0">—</span><span>인터랙티브 내러티브 기반 성향 파악 연구 (Liu et al., 2016)</span></li>
+          </ul>
+        </div>
       </section>
 
       <ResultShareClient themeId={theme.id} type={type} shareUrl={shareUrl} imageUrl={imageUrl} />
