@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import AdExperiment from "@/components/AdExperiment";
+import PromoBanner from "@/components/PromoBanner";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
 
@@ -165,6 +166,7 @@ export default function Home() {
           className="bg-white rounded-[2rem] p-4 sm:p-6 border border-gray-100 shadow-sm"
           format="horizontal"
         />
+        <PromoBanner />
 
         {/* How It Works */}
         <div className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">

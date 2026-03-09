@@ -4,6 +4,7 @@ import Link from "next/link";
 import { permanentRedirect } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import AdExperiment from "@/components/AdExperiment";
+import PromoBanner from "@/components/PromoBanner";
 import { CONTENTS, THEMES } from "@/data";
 import { MBTI_LONG_DESCS, MBTI_SHORT_DESCS } from "@/constants";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
@@ -332,6 +333,8 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
         format="horizontal"
       />
 
+      <PromoBanner />
+
       <section className="bg-white rounded-[3rem] p-7 sm:p-10 border border-gray-100 shadow-sm space-y-4">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="font-black text-[#16324f] text-xl font-serif text-center">ℹ️ 해석 가이드</h2>
@@ -534,6 +537,8 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
           </ul>
         </div>
       </section>
+
+      <PromoBanner />
 
       <ResultShareClient themeId={theme.id} type={type} shareUrl={shareUrl} imageUrl={imageUrl} />
 
