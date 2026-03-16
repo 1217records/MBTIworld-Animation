@@ -32,6 +32,7 @@ const THEME_LABELS_JA: Record<string, string> = {
   shinchan: "クレヨンしんちゃん",
   jujutsu: "呪術廻戦",
   bleach: "BLEACH",
+  kimetsu: "鬼滅の刃",
   pokemon: "ポケモン 第1・2世代",
 };
 
@@ -64,6 +65,10 @@ const THEME_DETAILS_JA: Record<string, { headline: string; body: string }> = {
     headline: "BLEACH編テスト",
     body: "護廷十三隊、虚圏、斬魄刀と卍解の場面を通して、戦い方・信念・任務スタイルを16問で読み解きます。",
   },
+  kimetsu: {
+    headline: "鬼滅の刃編テスト",
+    body: "最終選別、呼吸の鍛錬、鬼との死闘を通して、戦闘感覚・絆・任務スタイルを16問で読み解きます。",
+  },
   pokemon: {
     headline: "ポケモン 第1・2世代テスト",
     body: "カントー・ジョウトを旅しながら、バトル判断・関係スタイル・冒険の進め方を16問で分析します。",
@@ -78,6 +83,7 @@ const THEME_TAGS_JA: Record<string, string[]> = {
   aot: ["生存", "戦略", "自由"],
   jujutsu: ["任務", "呪い", "成長"],
   bleach: ["死神", "斬魄刀", "霊圧"],
+  kimetsu: ["鬼殺隊", "呼吸", "日輪刀"],
   pokemon: ["カントー", "ジョウト", "ポケモン"],
 };
 

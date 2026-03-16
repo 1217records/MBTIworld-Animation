@@ -61,6 +61,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     body:
       "호정 13대, 웨코문드, 참백도와 만해 같은 핵심 설정 속 선택으로 당신의 전투 감각과 신념, 임무 스타일을 읽어냅니다. 16문항을 통해 MBTI 성향과 닮은 블리치 캐릭터를 연결합니다.",
   },
+  kimetsu: {
+    headline: "귀멸의 칼날 세계관 테스트",
+    body:
+      "최종 선별, 호흡 수련, 혈귀와의 사투 같은 장면을 통해 당신의 전투 감각과 유대, 임무 수행 스타일을 분석합니다. 16문항으로 일륜도의 색처럼 또렷한 성향과 캐릭터 매칭을 보여줍니다.",
+  },
   pokemon: {
     headline: "포켓몬 1-2세대 세계관 테스트",
     body:
@@ -68,7 +73,7 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
   },
 };
 
-const THEME_ORDER = ["onepiece", "naruto", "bleach"];
+const THEME_ORDER = ["onepiece", "naruto", "bleach", "kimetsu"];
 
 export default function TestSelect() {
   const orderedThemes = Object.values(THEMES).sort((a, b) => {
@@ -137,7 +142,7 @@ export default function TestSelect() {
               <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl shadow-inner">
                 {theme.emoji}
               </div>
-              <h2 className="text-xl lg:text-[1.15rem] font-black font-slab text-[#16324f] whitespace-nowrap leading-tight">
+              <h2 className="text-lg lg:text-[1.02rem] font-black font-slab text-[#16324f] whitespace-nowrap leading-tight">
                 {theme.label}
               </h2>
             </div>

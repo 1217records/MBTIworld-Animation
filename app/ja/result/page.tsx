@@ -45,6 +45,7 @@ const THEME_LABELS_JA: Record<string, string> = {
   shinchan: "クレヨンしんちゃん",
   jujutsu: "呪術廻戦",
   bleach: "BLEACH",
+  kimetsu: "鬼滅の刃",
   pokemon: "ポケモン 第1・2世代",
 };
 

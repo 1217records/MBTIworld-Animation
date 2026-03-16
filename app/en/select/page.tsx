@@ -32,6 +32,7 @@ const THEME_LABELS_EN: Record<string, string> = {
   shinchan: "Crayon Shin-chan",
   jujutsu: "Jujutsu Kaisen",
   bleach: "Bleach",
+  kimetsu: "Demon Slayer",
   pokemon: "Pokemon Gen 1-2",
 };
 
@@ -70,6 +71,11 @@ const THEME_DETAILS: Record<string, { headline: string; body: string }> = {
     headline: "Bleach World Test",
     body:
       "Step into the Gotei 13, Hueco Mundo, and Zanpakuto training to reveal how you fight, judge, and lead under pressure across 16 story-driven questions.",
+  },
+  kimetsu: {
+    headline: "Demon Slayer World Test",
+    body:
+      "Through Final Selection, breathing forms, and demon battles, this test reads your instincts, bonds, and mission style in 16 story-based choices.",
   },
   pokemon: {
     headline: "Pokemon Gen 1-2 World Test",

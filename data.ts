@@ -2,6 +2,7 @@
 import { ThemeMeta, ThemeContent } from './types';
 import { POKEMON_CONTENT_KO, POKEMON_THEME_KO } from "@/lib/pokemon-theme";
 import { BLEACH_CONTENT_KO, BLEACH_THEME_KO } from "@/lib/bleach-theme";
+import { KIMETSU_CONTENT_KO, KIMETSU_THEME_KO } from "@/lib/kimetsu-theme";
 
 export const THEMES: Record<string, ThemeMeta> = {
   onepiece: {
@@ -54,6 +55,7 @@ export const THEMES: Record<string, ThemeMeta> = {
     tags: ['주술고전', '주령', '영역 전개'],
   },
   bleach: BLEACH_THEME_KO,
+  kimetsu: KIMETSU_THEME_KO,
 };
 
 export const CONTENTS: Record<string, ThemeContent> = {
@@ -367,4 +369,5 @@ export const CONTENTS: Record<string, ThemeContent> = {
   },
   pokemon: POKEMON_CONTENT_KO,
   bleach: BLEACH_CONTENT_KO,
+  kimetsu: KIMETSU_CONTENT_KO,
 };
