@@ -53,15 +53,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const resultEntries = Object.values(THEMES).flatMap((theme) =>
     MBTI_TYPES.flatMap((mbti) => [
       {
-        url: `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        url: `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
         lastModified: now,
       },
       {
-        url: `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        url: `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
         lastModified: now,
       },
       {
-        url: `${SITE_ORIGIN}/ja/result?theme=${encodeURIComponent(theme.id)}&type=${mbti}`,
+        url: `${SITE_ORIGIN}/ja/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
         lastModified: now,
       },
     ])
