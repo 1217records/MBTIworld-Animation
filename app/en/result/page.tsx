@@ -92,6 +92,7 @@ export async function generateMetadata({ searchParams }: ResultPageProps): Promi
   const canonicalEn = `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&type=${encodeURIComponent(type)}`;
 
   return {
+    robots: { index: false, follow: true },
     title: `${type} Result | ${SITE_NAME}`,
     description,
     alternates: localizedAlternatesFromUrls(canonicalKo, canonicalEn, "en"),

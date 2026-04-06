@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_ORIGIN}/terms`, lastModified: now },
     { url: `${SITE_ORIGIN}/privacy`, lastModified: now },
     { url: `${SITE_ORIGIN}/contact`, lastModified: now },
+    { url: `${SITE_ORIGIN}/columns`, lastModified: now },
     { url: `${SITE_ORIGIN}/en`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/select`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/result`, lastModified: now },
@@ -50,22 +51,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]);
 
-  const resultEntries = Object.values(THEMES).flatMap((theme) =>
-    MBTI_TYPES.flatMap((mbti) => [
-      {
-        url: `${SITE_ORIGIN}/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
-        lastModified: now,
-      },
-      {
-        url: `${SITE_ORIGIN}/en/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
-        lastModified: now,
-      },
-      {
-        url: `${SITE_ORIGIN}/ja/result?theme=${encodeURIComponent(theme.id)}&amp;type=${mbti}`,
-        lastModified: now,
-      },
-    ])
-  );
-
-  return [...base, ...themeEntries, ...resultEntries];
+  return [...base, ...themeEntries];
 }

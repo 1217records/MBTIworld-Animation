@@ -60,5 +60,7 @@ export default {
     'bg-gradient-to-r',
     'bg-gradient-to-bl'
   ],
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
