@@ -5,6 +5,7 @@ export type Column = {
   date: string;
   content: string;
   imageUrl?: string;
+  relatedTests?: { id: string; name: string }[];
 };
 
 export const COLUMNS: Record<string, Column> = {
@@ -26,6 +27,11 @@ export const COLUMNS: Record<string, Column> = {
 열정 넘치는 E형 주인공의 약점은 충동성과 신중함의 부재입니다. 
 이를 완벽하게 보완하기 위해 작가들은 차갑고 논리적인 내향형(I) 캐릭터를 배치합니다. 주인공이 놓친 현실적 위험을 묵묵히 처리하며 서사의 무게를 담당하는 것이죠. 이 상호보완적 케미가 바로 명작의 기본입니다.
     `,
+    relatedTests: [
+      { id: "onepiece", name: "원피스 기질 테스트" },
+      { id: "kimetsu", name: "귀멸의 칼날 테스트" },
+      { id: "jujutsu", name: "주술회전 테스트" }
+    ]
   },
   "intj-villains": {
     id: "intj-villains",
@@ -40,6 +46,10 @@ export const COLUMNS: Record<string, Column> = {
 ### N과 T가 결합된 극단적 이상주의
 단순히 "파괴가 즐거운" 악당은 일차원적입니다. 이들은 "현재의 세상은 잘못되었으니, 내가 통제하는 완벽한 질서로 리빌딩하겠다"는 철학을 가집니다. INTJ의 '비전'과 ENTJ의 '실행력'이 극단화된 형태입니다.
     `,
+    relatedTests: [
+      { id: "naruto", name: "나루토 인술 테스트" },
+      { id: "aot", name: "진격의 거인 조사병단 테스트" }
+    ]
   },
   "onepiece-startup": {
     id: "onepiece-startup",
@@ -63,6 +73,9 @@ export const COLUMNS: Record<string, Column> = {
 ### 4. 사내 복지를 챙기는 CHRO: 상디 (ESFJ)
 상디는 헌신적인 **ESFJ(사교적인 외교관)** 로, 선원들의 건강과 컨디션을 챙기는 내부 결속의 핵심입니다.
     `,
+    relatedTests: [
+      { id: "onepiece", name: "나와 닮은 해적단 멤버 찾기" }
+    ]
   },
   "t-type-fact-bombers": {
     id: "t-type-fact-bombers",
@@ -90,5 +103,10 @@ export const COLUMNS: Record<string, Column> = {
 * **"생사여탈권을 남에게 넘기지 마라!"**
 눈물 흘리는 탄지로에게 잔인하지만 확실한 생존 법칙을 주입하는 냉정한 조력자입니다.
     `,
+    relatedTests: [
+      { id: "jujutsu", name: "주술회전 성향 테스트" },
+      { id: "aot", name: "진격의 거인 생존 테스트" },
+      { id: "kimetsu", name: "귀멸의 칼날 혈귀 대척점 테스트" }
+    ]
   },
 };

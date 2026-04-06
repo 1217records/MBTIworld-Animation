@@ -5,6 +5,7 @@ export type Column = {
   date: string;
   content: string;
   imageUrl?: string;
+  relatedTests?: { id: string; name: string }[];
 };
 
 export const COLUMNS_JA: Record<string, Column> = {
@@ -24,6 +25,11 @@ export const COLUMNS_JA: Record<string, Column> = {
 ### 対比の美学：「I」型パートナー
 熱血なE型主人公の弱点は「衝動性」です。そこで作者は冷徹で論理的なI型キャラクターを配置します。主人公が見落とした現実的なリスクを、ゾロ（ISTP）やしのぶ（INTJ）がカバーすることで、完璧な相補関係が生まれるのです。
     `,
+    relatedTests: [
+      { id: "onepiece", name: "ワンピース相性テスト" },
+      { id: "kimetsu", name: "鬼滅の刃テスト" },
+      { id: "jujutsu", name: "呪術廻戦テスト" }
+    ]
   },
   "intj-villains": {
     id: "intj-villains",
@@ -38,6 +44,10 @@ export const COLUMNS_JA: Record<string, Column> = {
 ### 極端な理想主義（N + T）
 「ただ壊すのが楽しい」悪役は一次元的です。彼らは「今の世界は間違っているから、私が完璧な秩序に再構築する」という哲学を持っています。これはINTJの「ビジョン」とENTJの「実行力」が極端化された形です。
     `,
+    relatedTests: [
+      { id: "naruto", name: "ナルト相性テスト" },
+      { id: "aot", name: "進撃の巨人テスト" }
+    ]
   },
   "onepiece-startup": {
     id: "onepiece-startup",
@@ -61,6 +71,9 @@ export const COLUMNS_JA: Record<string, Column> = {
 ### 4. 人事・福利厚生担当CHRO：サンジ（ESFJ）
 **ESFJ（領事館）**であるサンジは、献身的にクルーの健康とメンタルをケアし、組織の内部結束を強めます。
     `,
+    relatedTests: [
+      { id: "onepiece", name: "あなたに似た海賊団メンバーは？" }
+    ]
   },
   "t-type-fact-bombers": {
     id: "t-type-fact-bombers",
@@ -88,5 +101,10 @@ export const COLUMNS_JA: Record<string, Column> = {
 * **「生殺与奪の権を他人に握らせるな！」**
 絶望する炭治郎に、慰めの代わりに冷酷な生存の法則を教える不器用な愛情表現の持ち主です。
     `,
+    relatedTests: [
+      { id: "jujutsu", name: "呪術廻戦テスト" },
+      { id: "aot", name: "進撃の巨人テスト" },
+      { id: "kimetsu", name: "鬼滅の刃テスト" }
+    ]
   },
 };

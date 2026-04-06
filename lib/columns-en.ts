@@ -5,6 +5,7 @@ export type Column = {
   date: string;
   content: string;
   imageUrl?: string;
+  relatedTests?: { id: string; name: string }[];
 };
 
 export const COLUMNS_EN: Record<string, Column> = {
@@ -26,6 +27,11 @@ Extraverted characters naturally extend their hands to the world. They lack fear
 ### The Perfect Brake: 'I' Partners
 The weakness of 'E' heroes is impulsivity. Writers place cold, logical 'I' types next to them as a structural counterweight. Characters like Zoro (ISTP) and Shinobu (INTJ) assess the realistic dangers the hero ignores, providing the narrative's necessary anchor.
     `,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "kimetsu", name: "Demon Slayer Test" },
+      { id: "jujutsu", name: "Jujutsu Kaisen Test" }
+    ]
   },
   "intj-villains": {
     id: "intj-villains",
@@ -40,6 +46,10 @@ Anime's greatest final bosses often align with **INTJ (Architect)** or **ENTJ (C
 ### The Ultimate N & T Idealism
 A villain who simply \"loves destruction\" is boring. These characters believe: "This world is flawed, so I must rebuild it with my perfect order." It's the extreme manifestation of INTJ's vision and ENTJ's execution.
     `,
+    relatedTests: [
+      { id: "naruto", name: "Naruto MBTI Test" },
+      { id: "aot", name: "Attack on Titan Test" }
+    ]
   },
   "onepiece-startup": {
     id: "onepiece-startup",
@@ -63,6 +73,9 @@ Zoro is the **ISTP (Virtuoso)**. Ignoring office politics, he solely polishes hi
 ### 4. The Welfare CHRO: Sanji (ESFJ)
 Sanji, an **ESFJ (Consul)**, focuses intensely on internal harmony, crew nutrition, and strict chivalrous principles.
     `,
+    relatedTests: [
+      { id: "onepiece", name: "Which Pirate Are You?" }
+    ]
   },
   "t-type-fact-bombers": {
     id: "t-type-fact-bombers",
@@ -90,5 +103,10 @@ Prefers logical mockery over emotional comfort, constantly challenging tradition
 * **"Don't give others the right to decide your life or death!"**
 Offers cold survival rules instead of warm hugs to a grieving Tanjiro.
     `,
+    relatedTests: [
+      { id: "jujutsu", name: "Jujutsu Kaisen Test" },
+      { id: "aot", name: "Attack on Titan Test" },
+      { id: "kimetsu", name: "Demon Slayer Test" }
+    ]
   },
 };
