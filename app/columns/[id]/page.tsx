@@ -10,6 +10,8 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
+export const runtime = "edge";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolved = await params;
   const col = COLUMNS[resolved.id];
