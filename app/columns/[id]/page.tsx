@@ -4,7 +4,7 @@ import { COLUMNS } from "@/lib/columns";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 import PromoBanner from "@/components/PromoBanner";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
+import MarkdownViewer from "@/components/MarkdownViewer";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -59,7 +59,7 @@ export default async function ColumnDetailPage({ params }: PageProps) {
       </header>
 
       <div className="bg-white rounded-[2rem] p-8 sm:p-10 border-2 border-[#16324f]/10 shadow-sm prose prose-lg max-w-none prose-h2:text-[#16324f] prose-h2:font-serif prose-h2:font-black prose-h3:text-[#16324f] prose-a:text-blue-600 prose-p:leading-relaxed prose-p:text-gray-700">
-        <ReactMarkdown>{col.content}</ReactMarkdown>
+        <MarkdownViewer content={col.content} />
       </div>
 
       <PromoBanner />
