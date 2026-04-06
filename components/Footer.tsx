@@ -27,6 +27,7 @@ const Footer = () => {
           <Link href={localizePath("/contact", locale)} className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">{t("footer.contact")}</Link>
           <Link href={localizePath("/terms", locale)} className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">{t("footer.terms")}</Link>
           <Link href={localizePath("/privacy", locale)} className="text-xs font-bold text-gray-400 hover:text-[#16324f] transition-colors">{t("footer.privacy")}</Link>
+          <Link href={localizePath("/columns", locale)} className="text-xs font-bold text-gray-800 hover:text-[#16324f] transition-colors">{locale === 'ko' ? 'MBTI 이야기' : locale === 'ja' ? 'MBTIコラム' : 'MBTI Columns'}</Link>
         </div>
         <div className="space-y-3">
           <p className="text-sm text-gray-500 leading-relaxed">

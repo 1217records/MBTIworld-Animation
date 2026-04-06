@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_ORIGIN}/en/terms`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/privacy`, lastModified: now },
     { url: `${SITE_ORIGIN}/en/contact`, lastModified: now },
+    { url: `${SITE_ORIGIN}/en/columns`, lastModified: now },
     { url: `${SITE_ORIGIN}/ja`, lastModified: now },
     { url: `${SITE_ORIGIN}/ja/select`, lastModified: now },
     { url: `${SITE_ORIGIN}/ja/result`, lastModified: now },
@@ -34,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_ORIGIN}/ja/terms`, lastModified: now },
     { url: `${SITE_ORIGIN}/ja/privacy`, lastModified: now },
     { url: `${SITE_ORIGIN}/ja/contact`, lastModified: now },
+    { url: `${SITE_ORIGIN}/ja/columns`, lastModified: now },
   ];
 
   const themeEntries = Object.values(THEMES).flatMap((theme) => [
