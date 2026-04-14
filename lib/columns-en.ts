@@ -109,4 +109,61 @@ Offers cold survival rules instead of warm hugs to a grieving Tanjiro.
       { id: "kimetsu", name: "Demon Slayer Test" }
     ]
   },
+  "fma-elric-brothers": {
+    id: "fma-elric-brothers",
+    title: "[FMA] Edward is ESTP, Alphonse is ISFJ — The Elric Brothers' MBTI Contrast",
+    description: "One blazes like fire, the other shines like moonlight. How their opposite MBTI types forge the perfect alchemy.",
+    date: "2026-04-14",
+    content: `
+## Same Goal, Completely Different Approach
+
+Fullmetal Alchemist isn't just a fantasy action series. The fact that the Elric brothers pursue the same goal — recovering their lost bodies — yet approach it in dramatically opposite ways is exactly what makes this story a masterpiece. MBTI unlocks why.
+
+### Edward Elric — ESTP: The Action-First Genius
+Edward is the textbook **ESTP (Entrepreneur)**. He ignores rulebooks, collides with problems head-on, and becomes most creative under crisis. Even the Law of Equivalent Exchange — alchemy's fundamental rule — is something he tests with his own body in the field.
+
+* Strengths: Brilliant improvisation, unstoppable execution
+* Weakness: Struggles to express emotions, pride makes him refuse help
+* Core line: **"Even a dog has a name!"** — fists before words, pure ESTP
+
+### Alphonse Elric — ISFJ: The Gentle Guardian
+Alphonse is a classic **ISFJ (Defender)**. Inside a cold, towering suit of armor beats the warmest heart. He pushes back on Edward's reckless decisions and carefully tends to the emotions of everyone his brother overlooks.
+
+* Strengths: Deep empathy, inexhaustible patience
+* Weakness: Hides his own pain beneath selflessness
+* Core line: **"I believe in what you're doing, Brother."** — ISFJ devotion at its purest
+
+### When Opposites Bond: Complete Alchemy
+If Edward is 'assess → act immediately', Alphonse is 'feel → nurture those nearby'. Without each other, Ed would have died in some reckless confrontation long ago, and Al would have lost direction entirely. True Equivalent Exchange is the fusion of their two MBTI types.
+    `,
+    relatedTests: [
+      { id: "fma", name: "Fullmetal Alchemist MBTI Test" }
+    ]
+  },
+  "mbti-growth-arc": {
+    id: "mbti-growth-arc",
+    title: "How Trauma Changes Anime Characters' MBTI — Growth Arcs Explained",
+    description: "Why do characters act completely different after a major event? MBTI psychology has a surprisingly precise answer.",
+    date: "2026-04-14",
+    content: `
+## MBTI Isn't Set in Stone
+
+Many people treat MBTI as fixed wiring, but psychologically, intense stress and transformative experiences can genuinely shift behavioral patterns. Anime's long-form character arcs illustrate this with remarkable precision.
+
+### Vinland Saga's Thorfinn — ESTP → INFP
+The revenge-obsessed Thorfinn was a textbook **ESTP**: impulsive, emotionally suppressed, living entirely for the next fight. After confronting his own violence through years of slavery, he became someone else entirely — driven by inner values and ideals, a classic **INFP** trajectory.
+
+* Psychology note: Under extreme stress, a person's hidden 'Inferior Function' surfaces, producing behavior opposite to their normal baseline.
+
+### Naruto's Sasuke Uchiha — INTJ's Shadow Phase
+Sasuke reads consistently **INTJ**, but after Itachi's death he plunges into what psychologists call the 'INTJ Shadow' state. Cold strategy is replaced by raw emotion and impulsive revenge — his suppressed function 'Extraverted Feeling (Fe)' exploding to the surface.
+
+### What's Your Own 'Shadow MBTI'?
+This happens to us too. When exhausted or overwhelmed, have you ever burst out in ways totally unlike yourself — or shut down completely? That's your MBTI's Inferior Function waking up. Anime shows this psychological shift across years of storytelling, which is exactly why we find these growth arcs so deeply moving.
+    `,
+    relatedTests: [
+      { id: "naruto", name: "Which Naruto Ninja Type Are You?" },
+      { id: "aot", name: "Attack on Titan Survivor Test" }
+    ]
+  },
 };
