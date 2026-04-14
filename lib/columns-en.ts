@@ -166,4 +166,65 @@ This happens to us too. When exhausted or overwhelmed, have you ever burst out i
       { id: "aot", name: "Attack on Titan Survivor Test" }
     ]
   },
+  "naruto-leaders": {
+    id: "naruto-leaders",
+    title: "[Naruto] The 4 Hokage MBTI Leadership Styles Explained",
+    description: "From empathetic visionaries to ruthless strategists. Analyzing every major Hidden Leaf leader through MBTI.",
+    date: "2026-04-15",
+    content: `
+## There Is No One Right Way to Lead
+
+The Hokages of the Hidden Leaf each governed in a completely different style. Analyzing their leadership through MBTI makes it powerfully clear why diverse personality types are all necessary in any great organization.
+
+### Hiruzen Sarutobi (Third Hokage) — ENFJ: The Empathetic Leader
+Hiruzen puts people above ideology, treasuring each villager individually — the defining trait of **ENFJ**. His warmth toward young Naruto and his final self-sacrificing battle against Orochimaru both stem from deep emotional conviction. His weakness is slow decision-making, but he is the glue that holds the village together.
+
+### Minato Namikaze (Fourth Hokage) — INFJ: The Visionary Sacrifice
+A man of sharp foresight and unwavering moral belief — classic **INFJ**. Sealing Kurama into his own newborn son to save the village is the ultimate INFJ act: self-sacrifice for a cause greater than oneself. A leader remembered for what his actions meant, not what he said.
+
+### Tsunade (Fifth Hokage) — ESTP: The Field Commander
+Tsunade trusts hands-on experience over theory — quintessential **ESTP**. As a master medical ninja, she responds to crises with immediate, decisive action. She cares about results over optics and makes faster calls than anyone when the stakes are highest.
+
+### Uchiha Madara (The True Final Boss) — INTJ: The Perfectionist Revolutionary
+Not a formal Hokage, but the **INTJ** who challenged the village's entire power structure. The Infinite Tsukuyomi — a plan decades in the making — is the extreme crystallization of INTJ's long-game execution. Refusing to compromise when his ideal meets reality is both his strength and his tragedy.
+
+### Conclusion: What Type of Leader Does Your Team Have?
+ENFJ provides cohesion, INFJ provides vision, ESTP provides execution, INTJ provides revolution. Remove any one and the system fractures. One of Naruto's great strengths as a story is how vividly it shows each leadership type colliding, failing, and learning from one another.
+    `,
+    relatedTests: [
+      { id: "naruto", name: "Which Naruto Type Are You? Take the Test" }
+    ]
+  },
+  "mbti-anime-guide": {
+    id: "mbti-anime-guide",
+    title: "The MBTI Anime Recommendation Guide",
+    description: "What an INTJ must watch. What an ENFP can never escape. A curated anime guide by MBTI type.",
+    date: "2026-04-15",
+    content: `
+## Your MBTI Predicts Your Taste
+
+If no anime has ever truly grabbed you, you may simply not have found the one that matches your MBTI yet. Here's an analysis of which series resonate most powerfully with each type.
+
+### NT Types (Analysts) — Attack on Titan, Fullmetal Alchemist
+**NT types** who love dissecting world logic, plot layering, and power structures will find Attack on Titan their perfect match. The intricate political philosophy and structural twists fully satisfy the intellectual appetite of INTJ and INTP alike. FMA's Law of Equivalent Exchange is another logical framework NT types can sink deep into.
+
+### NF Types (Idealists) — Naruto, March Comes in Like a Lion
+**NF types** who respond intensely to emotional arcs and character growth will find Naruto irresistible. The underdog-to-hero journey, the alchemy of making you empathize even with the villains — this hits ENFP and INFP's emotional core perfectly.
+
+### ST Types (Realists) — Demon Slayer, One Piece
+**ST types** who prefer clear goals and achievement-driven stories will find Demon Slayer ideal. Tanjiro's objective is crystal clear, and his strength scales directly with effort — exactly the kind of proportional progress that satisfies ESTJ and ISTJ's drive for earned results.
+
+### SF Types (Empaths) — Crayon Shin-chan, Pokémon
+**SF types** who find comfort in warm everyday relationships will find Crayon Shin-chan a natural fit. Beneath its silly surface lies a tight-knit family dynamic and neighborhood warmth that hits ESFJ and ISFJ's empathy cells hard. Even grown adults tend to cry at specific episodes — and that's almost always an SF type.
+
+### Final Note: Take the Test First!
+If you're not sure of your MBTI yet, which of the above descriptions resonated most? That's probably your type calling. Try our character-based MBTI tests and find out for sure!
+    `,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "aot", name: "Attack on Titan MBTI Test" },
+      { id: "kimetsu", name: "Demon Slayer MBTI Test" },
+      { id: "naruto", name: "Naruto MBTI Test" }
+    ]
+  },
 };
