@@ -1,10 +1,15 @@
-,
+#!/usr/bin/env python3
+# run from project root: python3 scripts/add_humor_columns.py
+
+import json
+
+KO_ENTRIES = {
   "mbti-group-chat": {
-    id: "mbti-group-chat",
-    title: "MBTI별 애니 단체 카톡방 행동 철저 분석",
-    description: "답장을 안 읽는 INFP, 첨부파일을 다 다운받는 ISTJ... 카톡방 MBTI 관찰 일지.",
-    date: "2026-04-18",
-    content: `
+    "id": "mbti-group-chat",
+    "title": "MBTI별 애니 단체 카톡방 행동 철저 분석",
+    "description": "답장을 안 읽는 INFP, 첨부파일을 다 다운받는 ISTJ... 카톡방 MBTI 관찰 일지.",
+    "date": "2026-04-18",
+    "content": """
 ## 애니 팬덤 채팅방은 MBTI 검사장이다
 
 애니 팬덤 단체 채팅방은 주인공들보다 MBTI가 더 노골적으로 드러나는 실험실입니다. 오늘도 일어나고 있을 그 현실 이야기...
@@ -23,18 +28,19 @@
 
 ### ISFJ — 모두의 어머니
 싸움이 터지면 1분 안에 **"일단 다들 천천히요! 😊"** 등장. 비연 날짜가 확정되면 본인 일정 젖혀두고 장소 예약부터.
-`,
-    relatedTests: [
-      { id: "jujutsu", name: "주술회전 MBTI 테스트" },
-      { id: "naruto", name: "나루토 닌자 MBTI 테스트" }
+""",
+    "relatedTests": [
+      {"id": "jujutsu", "name": "주술회전 MBTI 테스트"},
+      {"id": "naruto", "name": "나루토 닌자 MBTI 테스트"}
     ]
   },
+
   "mbti-finale-reactions": {
-    id: "mbti-finale-reactions",
-    title: "애니 최종화 보는 MBTI별 반응 모음",
-    description: "충격적인 엔딩에 목놓아 우는 INFP, 미리 비평 포스팅하는 INTJ... MBTI별 최종화 실태를 공개합니다.",
-    date: "2026-04-18",
-    content: `
+    "id": "mbti-finale-reactions",
+    "title": "애니 최종화 보는 MBTI별 반응 모음",
+    "description": "충격적인 엔딩에 목놓아 우는 INFP, 미리 비평 포스팅하는 INTJ... MBTI별 최종화 실태를 공개합니다.",
+    "date": "2026-04-18",
+    "content": """
 ## 최종화는 모두의 본성을 드러낸다
 
 애니 최종화. 그 한 화가 MBTI의 모든 것을 백일하에 드러냅니다. 이름하여 애니 최종화 반응의 각 유형 관찰기.
@@ -59,18 +65,19 @@
 
 ## 결론: 애니는 MBTI 확인 도구가 아니다
 ...라고 하는데 구독자 본인은 알고 계시죠?
-`,
-    relatedTests: [
-      { id: "onepiece", name: "원피스 캐릭터 MBTI 테스트" },
-      { id: "kimetsu", name: "귀멸의 칼날 MBTI 테스트" }
+""",
+    "relatedTests": [
+      {"id": "onepiece", "name": "원피스 캐릭터 MBTI 테스트"},
+      {"id": "kimetsu", "name": "귀멸의 칼날 MBTI 테스트"}
     ]
   },
+
   "mbti-anime-boss": {
-    id: "mbti-anime-boss",
-    title: "애니 주인공이 내 상사라면? 퇴사 각오해야 하는 유형",
-    description: "루피 상사는 KPI가 없고, 사스케 상사의 피드백은 저보다 낙하하고 오세요. 현실 직장 판타지 분석.",
-    date: "2026-04-18",
-    content: `
+    "id": "mbti-anime-boss",
+    "title": "애니 주인공이 내 상사라면? 퇴사 각오해야 하는 유형",
+    "description": "루피 상사는 KPI가 없고, 사스케 상사의 피드백은 저보다 낙하하고 오세요. 현실 직장 판타지 분석.",
+    "date": "2026-04-18",
+    "content": """
 ## 애니에서 사랑받는 주인공이 직장 상사라면?
 
 애니 주인공들은 대단하고 매력적입니다. 그러나 시나리오가 '직장'으로 바뀌는 순간, 윤리 포인터가 슬쩍 나옵니다.
@@ -98,11 +105,43 @@
 * 모든 실수를 우아하게 타인에게 돌리는 스타일이지만 아무도 화 못 냄
 * 본인에겐 사내 컴플라이언스 규정이 적용 안 된다고 진심으로 믿음
 * IT팀이 그의 철학적 언변에 설득당해 신규 시스템 미도입 확정
-`,
-    relatedTests: [
-      { id: "onepiece", name: "나는 어떤 해적단 멤버? 원피스 테스트" },
-      { id: "jujutsu", name: "주술회전 캐릭터 테스트" },
-      { id: "kimetsu", name: "귀멸의 칼날 테스트" }
+""",
+    "relatedTests": [
+      {"id": "onepiece", "name": "나는 어떤 해적단 멤버? 원피스 테스트"},
+      {"id": "jujutsu", "name": "주술회전 캐릭터 테스트"},
+      {"id": "kimetsu", "name": "귀멸의 칼날 테스트"}
     ]
-  },
-};
+  }
+}
+
+
+def format_related_tests(tests):
+    parts = []
+    for t in tests:
+        parts.append(f'      {{ id: "{t["id"]}", name: "{t["name"]}" }}')
+    return "[\n" + ",\n".join(parts) + "\n    ]"
+
+
+def entry_to_ts(key, e):
+    content = e["content"].replace("`", "\\`").replace("${", "\\${")
+    tests = format_related_tests(e["relatedTests"])
+    return f'''  "{key}": {{
+    id: "{e["id"]}",
+    title: "{e["title"]}",
+    description: "{e["description"]}",
+    date: "{e["date"]}",
+    content: `{content}`,
+    relatedTests: {tests}
+  }}'''
+
+
+with open("lib/columns.ts", "r", encoding="utf-8") as f:
+    content = f.read()
+
+new_block = "\n".join(entry_to_ts(k, v) + "," for k, v in KO_ENTRIES.items())
+content = content.rstrip().rstrip("}")  .rstrip().rstrip(";").rstrip() + ",\n" + new_block + "\n};\n"
+
+with open("lib/columns.ts", "w", encoding="utf-8") as f:
+    f.write(content)
+
+print("Done:", content.count("\n"), "lines")
