@@ -227,7 +227,6 @@ If you're not sure of your MBTI yet, which of the above descriptions resonated m
       { id: "naruto", name: "Naruto MBTI Test" }
     ]
   },
-},
   "mbti-group-chat": {
     id: "mbti-group-chat",
     title: "How Each MBTI Type Behaves in an Anime Group Chat",

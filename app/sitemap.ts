@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { THEMES } from "@/data";
 import { SITE_ORIGIN } from "@/lib/site";
+import { COLUMNS } from "@/lib/columns";
+import { COLUMNS_EN } from "@/lib/columns-en";
+import { COLUMNS_JA } from "@/lib/columns-ja";
 
 const MBTI_TYPES = [
   "ISTJ", "ISFJ", "INFJ", "INTJ",
@@ -53,5 +56,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]);
 
-  return [...base, ...themeEntries];
+  // Individual column article pages
+  const columnEntries: MetadataRoute.Sitemap = [];
+  for (const col of Object.values(COLUMNS)) {
+    columnEntries.push({
+      url: `${SITE_ORIGIN}/columns/${col.id}`,
+      lastModified: new Date(col.date),
+    });
+  }
+  for (const col of Object.values(COLUMNS_EN)) {
+    columnEntries.push({
+      url: `${SITE_ORIGIN}/en/columns/${col.id}`,
+      lastModified: new Date(col.date),
+    });
+  }
+  for (const col of Object.values(COLUMNS_JA)) {
+    columnEntries.push({
+      url: `${SITE_ORIGIN}/ja/columns/${col.id}`,
+      lastModified: new Date(col.date),
+    });
+  }
+
+  return [...base, ...themeEntries, ...columnEntries];
 }
+

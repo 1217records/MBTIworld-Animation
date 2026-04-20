@@ -6,6 +6,7 @@ import AdExperiment from "@/components/AdExperiment";
 import PromoBanner from "@/components/PromoBanner";
 import { SITE_NAME, SITE_ORIGIN, SITE_TAGLINE } from "@/lib/site";
 import { localizedAlternates } from "@/lib/seo";
+import { COLUMNS } from "@/lib/columns";
 
 export const runtime = "edge";
 
@@ -289,6 +290,44 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <div className="h-6 sm:h-8" />
+
+        {/* Latest Columns */}
+        <section className="bg-white rounded-[2rem] p-8 sm:p-10 border border-gray-100 shadow-sm space-y-6">
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl font-black font-serif text-[#16324f]">📖 MBTI 이야기</h2>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xl mx-auto">
+              캐릭터들의 성격 뒤에 숨겨진 흥미로운 심리학적 분석들
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {Object.values(COLUMNS)
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .slice(0, 4)
+              .map((col) => (
+                <Link
+                  key={col.id}
+                  href={`/columns/${col.id}`}
+                  className="group block rounded-2xl bg-[#fdfcf9] border border-gray-100 p-5 hover:border-[#16324f]/30 hover:shadow-md transition-all"
+                >
+                  <div className="text-[10px] font-bold text-gray-400 mb-1.5">{col.date}</div>
+                  <h3 className="font-bold text-[#16324f] text-sm mb-2 group-hover:text-blue-600 transition-colors leading-snug">
+                    {col.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{col.description}</p>
+                </Link>
+              ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/columns"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#16324f] hover:text-blue-600 transition-colors"
+            >
+              모든 이야기 보기 <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
       </section>
     </div>
   );
