@@ -333,4 +333,103 @@ Anime protagonists are compelling on screen. The moment that setting becomes a w
       { id: "kimetsu", name: "Demon Slayer Test" }
     ]
   },
+},
+  "mbti-anime-confession": {
+    id: "mbti-anime-confession",
+    title: "How Each MBTI Type Confesses Love in Anime",
+    description: "ENTJ delivers a pitch deck. INFP writes a three-page letter. ISTP just... doesn't. A love confession simulator by MBTI type.",
+    date: "2026-04-21",
+    content: `
+## Even Love Can't Beat Your MBTI
+
+The confession scene is when a character's MBTI is most dramatically revealed. Same emotion, wildly different execution.
+
+### ENTJ — It's Not a Confession, It's a Business Proposal
+Stands in front of the other person and says **"Dating would create strong synergy between us."** If rejected, asks for specific areas of improvement. This isn't emotion — it's strategy.
+
+### INFP — Three-Page Letter + One Poem
+Too afraid of crying mid-sentence, so they write a handwritten letter. Three pages. They flee before the other person finishes reading. Nobody knows what the letter says, but a cryptic song lyric appears on their social media.
+
+### ISTP — Doesn't Confess
+Takes six months just to recognize the emotion. Then another three months of **"Why would I feel this?"** Eventually a friend confesses on their behalf while they silently nod.
+
+### ENFJ — Engineers the Other Person's Confession
+Definitely in love, but architects the perfect scenario where the other person speaks first. Sunset, bench, drinks — all staged. When they confess: **"Actually, me too..."** Perfect timing.
+
+### ENTP — Confession or Philosophy Lecture?
+Opens with **"Don't you think we should redefine our relationship?"** and pivots into a thirty-minute discourse on the philosophy of human connection. When asked **"So... are you asking me out?"** replies: **"That's one valid interpretation, yes."**
+
+### ISFJ — Confesses Through Lunch Boxes
+Packs a lunch for them every single day. For a year. When they don't notice, starts carving hearts into the side dishes. Still doesn't work. Keeps packing lunches anyway.
+`,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "jujutsu", name: "Jujutsu Kaisen MBTI Test" }
+    ]
+  },
+  "f-type-awakening": {
+    id: "f-type-awakening",
+    title: "Why F-Type Characters Are the Most Terrifying When They Snap",
+    description: "The gentlest Feeling (F) characters create the most powerful scenes when they finally break. Here's why.",
+    date: "2026-04-21",
+    content: `
+## When the Lamb Becomes a Lion
+
+What's the most chilling moment in anime? It's never when the already-strong character fights. **It's when the kindest, most emotional character finally loses it.**
+
+### Why F-Type Awakenings Hit Hardest
+T-type (Thinking) characters fight cold and calculated by default. The audience is already used to their strength. F-type (Feeling) characters spend their screen time empathizing, crying, and worrying about others. When they cross the line, the **contrast gap** is maximized.
+
+### Tanjiro (ENFJ) — Demon Slayer
+The gentlest soul in the series, who shows compassion even to demons. But when family and friends are threatened, he awakens the **Hinokami Kagura** and overwhelms even Upper Moon demons. The ENFJ core: rage on behalf of others. This power never activates for himself alone.
+
+### Yuji Itadori (ENFJ) — Jujutsu Kaisen
+A cheerful high schooler who values his friends above everything. But when a companion dies, every emotion drains from his face. The dark side of ENFJ — **empathy inverted** — doesn't become coldness. It becomes absolute fury.
+
+### The Psychology: Why Audiences React Stronger
+Psychologists call this **Expectancy Violation Theory**. When behavior dramatically contradicts baseline expectations, the brain produces a significantly stronger emotional response. This is exactly why an F-type awakening scene is remembered far longer than any T-type battle.
+`,
+    relatedTests: [
+      { id: "kimetsu", name: "Demon Slayer MBTI Test" },
+      { id: "jujutsu", name: "Jujutsu Kaisen MBTI Test" }
+    ]
+  },
+  "mbti-battle-styles": {
+    id: "mbti-battle-styles",
+    title: "Anime Battle Styles by MBTI Type: A Complete Breakdown",
+    description: "INTJ reads three moves ahead. ESTP's body reacts before the brain. A deep dive into how personality shapes combat philosophy.",
+    date: "2026-04-21",
+    content: `
+## Your Personality Is Your Fighting Style
+
+Watch anime fights closely and you'll notice each character fights with a distinct 'philosophy'. This isn't just about power levels — MBTI type determines combat style.
+
+### NT Types — Combat Is Chess
+**INTJ (Shinobu, Itachi):** The fight is over before it starts. They've analyzed patterns, identified weaknesses, and optimized for minimum energy, maximum effect. Shinobu pre-preparing poison and Itachi winning through illusion is pure INTJ.
+
+**ENTP (Gojo Satoru):** Treats combat as an experiment. Could win instantly but deliberately tests the opponent's limits. Dangerous — but discovers new tactics in the process.
+
+### NF Types — Combat Is Faith
+**ENFJ (Tanjiro, Itadori):** They don't get stronger for themselves — they get stronger for *someone to protect*. As emotion intensifies, so does combat power. Psychologically, this is **Extrinsic Motivation** at its extreme.
+
+**INFP (Naruto):** "Never giving up" IS the fighting style. Pure willpower over technique or strategy. Awakening modes like Nine-Tails represent INFP's inner values exploding under pressure.
+
+### ST Types — Combat Is Work
+**ISTP (Zoro, Levi):** Emotions off, technique on. The most efficient motion, the fastest path to the end. Post-battle reflection? None. Only results.
+
+**ISTJ (Nanami Kento):** Even combat has working hours. Extracts optimal results within strict rules. Overtime is refused. Genuinely.
+
+### SF Types — Combat Is Protection
+**ESFJ (Sanji):** Only unleashes full power to protect someone weaker. Specifically when women or children are in danger, combat power spikes vertically.
+
+### What's Your Fight Style?
+If you were dropped into an anime battle, would you strategize, react on instinct, or explode with emotion? The answer maps directly to your MBTI.
+`,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "aot", name: "Attack on Titan MBTI Test" },
+      { id: "kimetsu", name: "Demon Slayer MBTI Test" },
+      { id: "naruto", name: "Naruto MBTI Test" }
+    ]
+  },
 };
