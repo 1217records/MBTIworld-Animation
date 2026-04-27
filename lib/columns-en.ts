@@ -432,4 +432,130 @@ If you were dropped into an anime battle, would you strategize, react on instinc
       { id: "naruto", name: "Naruto MBTI Test" }
     ]
   },
+},
+  "mbti-mental-breakdown": {
+    id: "mbti-mental-breakdown",
+    title: "How Each MBTI Type Has a Mental Breakdown in Anime",
+    description: "INTJ quietly recalculates. ENFP goes dead silent. ISTP vanishes without a word. A breakdown pattern guide by MBTI type.",
+    date: "2026-04-28",
+    content: `
+## Even Breaking Down Has a Personality
+
+The moment an anime character breaks is when their true nature is most nakedly exposed. The way they fall apart varies dramatically by MBTI type.
+
+### INTJ — The Silent Recalculation
+Nothing changes on the surface. Same expression. Same posture. But internally, every plan has been scrapped and rebuilt from zero. This is why Itachi's face didn't change even after learning the truth. **INTJs don't break — they redesign.**
+
+### ENFP — The Loudest Silence
+When the brightest person in the room suddenly goes quiet, that's when it's truly dangerous. Naruto sitting alone on a popsicle bench after Jiraiya's death. An ENFP breakdown isn't an explosion — it's a **complete energy blackout**.
+
+### ISTP — The Disappearance
+They leave without a conversation. No explanation. Like Zoro walking off to train alone after a fight with Luffy. ISTPs lack the vocabulary for emotions, so they **create physical distance** and solve it their own way.
+
+### ENFJ — Collapses From Caring for Others
+Just like Tanjiro pushing his body to the limit protecting everyone else, ENFJs absorb too much of others' emotions until they themselves shatter first. The most dangerous part: **nobody around them notices**.
+
+### ENTP — A Scream Disguised as Humor
+Like Gojo casually mocking the absurdity of the world, ENTPs never stop joking even in dire situations. The moment the jokes stop is their true breaking point. **Funny yet devastating** — that's the ENTP collapse signal.
+
+### ISFJ — Tells Absolutely No One
+Like Alphonse worrying alone inside his armor, ISFJs never transfer their pain to others. They say "I'm fine" the most but are the least fine. **By the time others notice, the limit has long passed.**
+
+## What's Your Breaking Pattern?
+Are you the recalculator, the silencer, the disappearer, or the over-protector? Knowing your own mental breakdown pattern is the most important first step toward self-understanding.
+`,
+    relatedTests: [
+      { id: "naruto", name: "Naruto MBTI Test" },
+      { id: "kimetsu", name: "Demon Slayer MBTI Test" },
+      { id: "jujutsu", name: "Jujutsu Kaisen MBTI Test" }
+    ]
+  },
+  "mbti-sns-profiles": {
+    id: "mbti-sns-profiles",
+    title: "If Anime Characters Had Social Media: MBTI Profile Analysis",
+    description: "INTJ's profile pic is a landscape. ESFP has 300 selfies. ISTJ signed up but never posts. A social media field study by type.",
+    date: "2026-04-28",
+    content: `
+## You Can Read the MBTI From the Profile Alone
+
+What would it look like if anime characters had social media? From profile photos to posting patterns, MBTI reveals itself completely in this imaginary simulation.
+
+### INTJ — Profile Pic: Night Cityscape or Cat's Back
+* 47 followers. Following 3
+* Posts twice a year. Both are atmospheric book photos
+* Has never posted a Story
+* Replies to DMs with one word only
+* If Sasuke had social media, this would be his account
+
+### ESFP — The Selfie Bomber
+* Profile pic changes weekly. All selfies
+* Average 14 Stories per day: lunch, snacks, sunset, more selfies
+* Default caption: **"Best day ever 💕"**
+* Yuji Itadori's account. 100% certainty
+
+### ISTJ — Signed Up, Then Nothing
+* Profile pic: default avatar. Never changed
+* 0 posts. 0 likes. 0 comments
+* But **logs in daily and reads every single post**
+* This is Nanami Kento's social media. An account that exists yet doesn't
+
+### ENFP — 3 AM Life Philosophy Posts
+* Profile pic: group photo with 12 friends
+* Posts: travel shots, food, and a **five-paragraph life essay posted at 3 AM**
+* Likes everything compulsively. Including posts from three years ago
+* Naruto's social media is 100% this pattern
+
+### ISTP — Account Exists But Only Landscape Photos
+* Profile pic: mountain summit (person not visible)
+* Posts: motorcycles, blades, gym equipment only
+* Refuses all people tags
+* Maximum reaction: a single "lol"
+* Confirmed: Zoro's social media
+
+### ENFJ — Leaves Encouraging Comments on Everything
+* Profile pic: warm, smiling front-facing photo
+* Has **more encouraging comments on others' posts than posts of their own**
+* Default mode: "You did amazing! 🥹" "So cool!"
+* This is precisely Tanjiro's social media
+`,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "naruto", name: "Naruto MBTI Test" },
+      { id: "jujutsu", name: "Jujutsu Kaisen MBTI Test" }
+    ]
+  },
+  "mbti-travel-styles": {
+    id: "mbti-travel-styles",
+    title: "How Every MBTI Type Travels: An Anime Character Travel Guide",
+    description: "ENTJ has a minute-by-minute itinerary. INFP stares out the hotel window all day. A travel behavior study by type.",
+    date: "2026-04-28",
+    content: `
+## Travel Exposes Your MBTI More Than Any Test
+
+Want to accurately determine someone's MBTI? Travel with them. From the airport to the hotel to choosing restaurants — every moment is a personality exhibition.
+
+### ENTJ — Minute-by-Minute Itinerary + Backup Plans B and C
+Excel spreadsheet completed two weeks before departure. Restaurant reservations, transit routes, and tourist attraction durations allocated in fifteen-minute blocks. **"Free time? That's 4:45 PM to 5:00 PM."** Rain? Backup plan B exists. B fails? C is ready.
+
+### INFP — Staring Out the Hotel Window All Day
+A plan existed, but it was cancelled based on the morning's mood. If the view from the window is pretty, half the day is spent right there. Writes a diary entry at a cafe while listening to local music. Visited one tourist spot but **wrote three pages of travel reflections**.
+
+### ESTP — Plan? What Plan?
+Decides **"Where should we go?"** after arriving at the airport. Talks to locals, explores recommended alleys, rides a zipline, and discovers a hidden restaurant at 3 AM. Took 100 photos — all blurry. This is Luffy's travel style incarnate.
+
+### ISTJ — Three Guidebooks + 200 Reviews Analyzed
+Masters the destination's history, culture, climate, and exchange rates before departure. Follows the guidebook route precisely on-site. Visibly uncomfortable when someone suggests an unplanned shop. But writes the most thorough trip report afterward.
+
+### ENFJ — The Group Wellness Manager
+Prioritizes **where the travel companion wants to go** over personal preferences. Repeats "Are you tired?" "Are you hungry?" "Do you need the restroom?" every ten minutes. Happy only when the companion is happy. Confirmed: Tanjiro's travel style.
+
+### INTP — Four Hours in a Museum
+Three attractions were planned but four hours were spent at the first museum reading every information panel. Starts analyzing the building's architectural style: **"The structural design here is fascinating."** Lunch is a convenience store rice ball. Trip highlight: the museum gift shop catalog.
+`,
+    relatedTests: [
+      { id: "onepiece", name: "One Piece MBTI Test" },
+      { id: "aot", name: "Attack on Titan MBTI Test" },
+      { id: "naruto", name: "Naruto MBTI Test" }
+    ]
+  },
 };
