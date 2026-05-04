@@ -333,7 +333,6 @@ Anime protagonists are compelling on screen. The moment that setting becomes a w
       { id: "kimetsu", name: "Demon Slayer Test" }
     ]
   },
-},
   "mbti-anime-confession": {
     id: "mbti-anime-confession",
     title: "How Each MBTI Type Confesses Love in Anime",
@@ -432,7 +431,6 @@ If you were dropped into an anime battle, would you strategize, react on instinc
       { id: "naruto", name: "Naruto MBTI Test" }
     ]
   },
-},
   "mbti-mental-breakdown": {
     id: "mbti-mental-breakdown",
     title: "How Each MBTI Type Has a Mental Breakdown in Anime",
