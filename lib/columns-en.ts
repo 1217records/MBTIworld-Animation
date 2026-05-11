@@ -17,15 +17,27 @@ export const COLUMNS_EN: Record<string, Column> = {
     content: `
 ## Those Who Charge Forward (E) vs Those Who Clean Up (I)
 
-If you look closely at anime, a fun MBTI rule emerges. Protagonists like Luffy (ESTP), Yuji Itadori (ENFJ), and Tanjiro (ENFJ) are almost always **Extraverts (E)**. 
-Conversely, sidekicks like Zoro (ISTP), Nanami (ISTJ), and Giyu (ISTJ) are overwhelmingly **Introverts (I)**.
+If you look closely at anime, a fun MBTI rule emerges. Protagonists like Luffy (ESTP), Yuji Itadori (ENFJ), and Tanjiro (ENFJ) are almost always **Extraverts (E)**. Conversely, sidekicks like Zoro (ISTP), Nanami (ISTJ), and Giyu (ISTJ) are overwhelmingly **Introverts (I)**. Is this a coincidence? Not at all. It's a psychologically necessary balance for narrative structure.
 
 ### Why the Hero Must Be 'E'
-The fundamental reason is the **'Driving Force of the Story'**. 
-Extraverted characters naturally extend their hands to the world. They lack fear of unfamiliar territories. Without Luffy's ESTP recklessness or Tanjiro's ENFJ warmth drawing people in, the plot wouldn't move!
+
+The fundamental reason is the **'Driving Force of the Story'**. Extraverted characters naturally extend their hands to the world. They lack fear of unfamiliar territories. Without Luffy's ESTP recklessness or Tanjiro's ENFJ warmth drawing people in, the story itself cannot begin.
+
+From a cognitive function perspective, E-type protagonists are led by **extraverted functions (Se, Fe, Te, Ne)** that actively engage with the world. Luffy's Se (Extraverted Sensing) manifests as "diving straight into the adventure in front of him," while Tanjiro's Fe (Extraverted Feeling) manifests as "trying to empathize with and understand even his enemies."
 
 ### The Perfect Brake: 'I' Partners
+
 The weakness of 'E' heroes is impulsivity. Writers place cold, logical 'I' types next to them as a structural counterweight. Characters like Zoro (ISTP) and Shinobu (INTJ) assess the realistic dangers the hero ignores, providing the narrative's necessary anchor.
+
+Zoro's Ti (Introverted Thinking) coldly analyzes situations, while Nanami's Si (Introverted Sensing) uses past data and experience to evaluate present dangers. When the protagonist says "Let's just go!" these characters are the ones saying "Wait — it's a trap."
+
+### What Happens When This Formula Breaks?
+
+Interestingly, some works feature I-type protagonists. Mikasa (ISTJ) from Attack on Titan and L (INTP) from Death Note are prime examples. In these cases, the story focuses more on **internal conflict and psychological suspense**. If E-type protagonists tell stories about "going out to change the world," I-type protagonists tell stories about "how the world changes them."
+
+### Conclusion: The E-I Balance is the Heart of the Story
+
+The reason anime has maintained this formula for decades is that human personality diversity creates **natural tension and resolution** in narrative. Think of your favorite series' protagonist and partner — they're almost certainly an E-I combination. That's the result of writers' instinctive psychological intuition at work.
     `,
     relatedTests: [
       { id: "onepiece", name: "One Piece MBTI Test" },
@@ -41,10 +53,31 @@ The weakness of 'E' heroes is impulsivity. Writers place cold, logical 'I' types
     content: `
 ## "My Plan is Flawless"
 
-Anime's greatest final bosses often align with **INTJ (Architect)** or **ENTJ (Commander)** profiles. They scheme for decades, unaffected by immediate emotions. 
+When you analyze anime's greatest final bosses, a striking pattern emerges. Their personality types overwhelmingly match **INTJ (Architect)** or **ENTJ (Commander)**. Not because they're simply powerful, but because they plan for decades, remain unshaken by immediate emotions, and seek to realize their own "perfect world."
 
-### The Ultimate N & T Idealism
-A villain who simply \"loves destruction\" is boring. These characters believe: "This world is flawed, so I must rebuild it with my perfect order." It's the extreme manifestation of INTJ's vision and ENTJ's execution.
+### Why the N (Intuition) + T (Thinking) Combination?
+
+In MBTI cognitive function theory, INTJs use a **Ni (Introverted Intuition) - Te (Extraverted Thinking)** stack. Ni converges future possibilities into a single vision, while Te efficiently executes that vision in reality. When this combination is taken to extremes, it produces the mindset: "The world is broken, so I'll redesign it myself."
+
+A villain who simply "loves destruction" lacks narrative depth. Truly terrifying villains believe their logic is flawless — and their logic is actually persuasive. This is why audiences feel both empathy and fear toward these characters simultaneously.
+
+### Iconic INTJ Villain Analysis
+
+**Sosuke Aizen (Bleach)** — A man who questioned the entire Soul Society system and single-handedly prepared a rebellion spanning centuries. His ability to predict every opponent's action and incorporate it into his scenario is an extreme manifestation of Ni, combined with the cold rationality of T that shows zero emotional disturbance.
+
+**Madara Uchiha (Naruto)** — A man who executed a decades-long project called Infinite Tsukuyomi even after his own death. The vision of "I'll create an ideal world myself" is the result of INTJ's Ni-Te running unchecked without ethical brakes.
+
+### Iconic ENTJ Villain Analysis
+
+**Eren Yeager (Attack on Titan)** — The extreme decision to annihilate 80% of the world for freedom. A case where ENTJ's Te (execution) completely transcends moral limits, combined with Ni's long-term vision that calculated the impact of his actions on the future.
+
+**Griffith (Berserk)** — The choice to sacrifice his most precious comrades for his dream. An extreme manifestation of Te's "ability to instrumentalize everything for the goal," while the goal itself is the grand Ni vision of "building an ideal kingdom."
+
+### Why Are We Drawn to These Villains?
+
+What's fascinating is that these villains evoke not just hatred but **understanding and fear simultaneously** from audiences. That's because their logic is partially valid. The diagnosis that "the world is unfair" is correct — only their solution of "so I'll destroy and rebuild it" is extreme.
+
+From an MBTI perspective, this is the dark side of NT-type thinking. When logic becomes too strong, empathy gets excluded. When vision becomes too firm, compromise becomes impossible. If an NT friend of yours sometimes says "If we're purely being efficient, this is the right answer..." — that's the everyday version of this villain formula.
     `,
     relatedTests: [
       { id: "naruto", name: "Naruto MBTI Test" },
@@ -59,19 +92,28 @@ A villain who simply \"loves destruction\" is boring. These characters believe: 
     content: `
 ## A Pirate Crew or a Unicorn Agile Startup?
 
-The Straw Hat Pirates represent the ideal **Agile Startup** model. 
+The Straw Hat Pirates represent the ideal **Agile Startup** model. When you analyze each crew member's role through their MBTI type, you'll find a striking match with what organizational psychology calls **"the ideal team composition."**
 
 ### 1. The Action-First CEO: Monkey D. Luffy (ESTP)
-Luffy is an **ESTP (Entrepreneur)**. He lacks financial planning but excels entirely in crisis management and pure execution. He breaks impossible barriers with intuition and force.
+Luffy is an **ESTP (Entrepreneur)**. He lacks financial planning but excels entirely in crisis management and pure execution. ESTP's Se (Extraverted Sensing) is the ability to focus on "this exact moment" — and it's Luffy's core weapon in both combat and decision-making. Long-term strategy? None. But his ability to instinctively make the best choice in the moment outperforms any MBA graduate.
 
-### 2. The Pragmatic COO: Nami (ESFP)
-An **ESFP (Entertainer) / Pragmatist** is necessary to prevent bankruptcy. Nami controls the budget, navigates, and cleans up the ESTP CEO's messes using sharp social and practical skills.
+### 2. The Pragmatic COO: Nami (ESTJ)
+Every company needs a realist to prevent bankruptcy. Nami manages the budget, navigates, and uses sharp Te (Extraverted Thinking) to eliminate team inefficiency. When Luffy shouts "Adventure!" Nami asks "How much does that adventure cost?" She's the **guardian of reality** that every startup needs.
 
 ### 3. The Quiet CTO: Roronoa Zoro (ISTP)
-Zoro is the **ISTP (Virtuoso)**. Ignoring office politics, he solely polishes his technical skills to secure results.
+Zoro is the **ISTP (Virtuoso)**. Ignoring office politics, he solely polishes his technical skills to prove himself through results. Ti (Introverted Thinking) builds his own combat logic, and Se (Extraverted Sensing) applies it instantly in the field. He never attends meetings, but saves the team at the critical moment — the **silent ace** every organization has.
 
 ### 4. The Welfare CHRO: Sanji (ESFJ)
-Sanji, an **ESFJ (Consul)**, focuses intensely on internal harmony, crew nutrition, and strict chivalrous principles.
+Sanji, an **ESFJ (Consul)**, focuses intensely on internal harmony, crew nutrition, and strict chivalrous principles. Fe (Extraverted Feeling) sensitively detects each team member's emotional state, while Si (Introverted Sensing) maintains "the daily routine of caring for the team." The act of preparing meals every day is itself a core function that maintains team cohesion.
+
+### 5. The Hidden Strategist R&D: Nico Robin (INTJ)
+Robin is an **INTJ (Architect)**. She collects information with long-term vision and identifies structural risks the team cannot see. In a startup, this is like the R&D department doing research that "seems unnecessary now but will be decisive in three years."
+
+### Why This Combination Works Perfectly
+
+Organizational psychology states that successful teams must balance three axes: **Execution (Se/Te), Analysis (Ti/Ni), and Relationships (Fe/Si)**. The Straw Hat Pirates naturally distribute these three axes across their crew. One of the biggest reasons real startups fail is "gathering only similar personality types" — but Luffy instinctively attracts people who are completely different from himself.
+
+This is why One Piece transcends simple adventure manga to offer genuine **insights about organization and leadership**.
     `,
     relatedTests: [
       { id: "onepiece", name: "Which Pirate Are You?" }
@@ -83,25 +125,31 @@ Sanji, an **ESFJ (Consul)**, focuses intensely on internal harmony, crew nutriti
     description: "Thinking (T) characters who destroy mental states with pure facts, zero empathy.",
     date: "2026-04-07",
     content: `
-## Logic over Emotion
+## Logic over Emotion: The World of T (Thinking) Types
+
+In MBTI, the difference between T (Thinking) and F (Feeling) isn't about being "cold vs. warm." It's about whether your **decision-making is based on logic or values**. T-type characters assess the facts of a situation before the other person's emotions, offering solutions instead of empathy. In real life, they sometimes get told "you're a bit cold" — but in crisis situations, they're the first to find the right answer.
 
 ### 1. Kento Nanami (Jujutsu Kaisen) - ISTJ 
 * **"Work is shit."**
-He treats sorcery purely as labor, drawing strict boundaries even with emotional colleagues.
+He treats sorcery purely as labor, drawing strict boundaries even with emotional colleagues. Nanami's Si-Te combination operates as "experience data + efficient judgment." His emotion-free combat style demonstrates why ISTJ is the most stable type in crisis situations. He tells Itadori "it's okay to run if it gets too hard," but he himself never runs. That's T-type responsibility.
 
 ### 2. Levi Ackerman (Attack on Titan) - ISTP
 * **"Make a choice."**
-Even surrounded by death, he suppresses grief to calculate the math of victory.
+Even surrounded by death, he suppresses grief to calculate the math of victory. ISTP's Ti (Introverted Thinking) is a cold engine that analyzes situations without emotion. When faced with the ultimate choice — "Save Erwin or save Armin" — Levi decides based not on emotion but on **the organization's future**. The audience cries, but Levi doesn't. He's calculating the next action while others mourn.
 
 ### 3. Shinobu Kocho (Demon Slayer) - INTJ
-Behind a smiling facade hides an INTJ strategist who meticulously plotted long-term chemical warfare.
+Behind a smiling facade hides an INTJ strategist who meticulously plotted long-term chemical warfare. Shinobu's revenge perfectly demonstrates the T-type trait of **converting emotion into strategy**. Rather than expressing her rage as raw anger, she uses Ni (Introverted Intuition) to design the optimal revenge scenario, then executes it with Te (Extraverted Thinking). Accumulating poison in her own body is an extreme case of an INTJ sublimating emotion into logic.
 
 ### 4. Satoru Gojo (Jujutsu Kaisen) - ENTP
-Prefers logical mockery over emotional comfort, constantly challenging traditional authority.
+Prefers logical mockery over emotional comfort, constantly challenging traditional authority. ENTP's Ne-Ti combination functions to "find contradictions in existing systems and mock them." Gojo's relentless criticism of the jujutsu elite isn't simple rebellion — it stems from the T-type's fundamental **inability to tolerate things that don't make logical sense**.
 
 ### 5. Giyu Tomioka (Demon Slayer) - ISTJ 
 * **"Don't give others the right to decide your life or death!"**
-Offers cold survival rules instead of warm hugs to a grieving Tanjiro.
+Offers cold survival rules instead of warm hugs to a grieving Tanjiro. This line pierces to the core of T-types: **"Act instead of crying."** When an F-type says "It's okay, I'll cry with you," a T-type says "If you keep crying, you die. Get up." It seems cruel, but what saved Tanjiro in that moment wasn't comfort — it was facts.
+
+### Why Are T-Types So Beloved?
+
+These characters earn overwhelming fan popularity because they say the things we want to hear in real life but nobody tells us. Emotional comfort makes you feel better, but a T-type's fact bombing **actually solves the problem**. If you have someone around you who "always speaks coldly but is always right" — that person is the real-world version of a T-type fact bomber.
     `,
     relatedTests: [
       { id: "jujutsu", name: "Jujutsu Kaisen Test" },
